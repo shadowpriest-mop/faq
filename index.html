@@ -448,6 +448,7 @@
         <div class="table-of-contents">
             <div class="toc-title">Frequently Asked Questions</div>
             <ul class="toc-list">
+                <li class="toc-item"><a href="#best-in-slot">Best in Slot</a></li>
                 <li class="toc-item"><a href="#introduction">Introduction</a></li>
                 <li class="toc-item"><a href="#key-changes">Key Changes</a></li>
                 <li class="toc-item"><a href="#new-abilities">New Abilities</a></li>
@@ -460,6 +461,26 @@
         </div>
 
         <!-- Content Sections -->
+        <div id="best-in-slot" class="content-section">
+            <h2 class="section-title">Best in Slot</h2>
+            <div class="subsection">
+                <div class="subsection-title">Raid Tier Progression</div>
+                <div class="content-placeholder">// # New Copy Block - Add Best in Slot gear recommendations here...</div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">Trinket Priorities</div>
+                <div class="content-placeholder">// # New Copy Block - Add trinket ranking and analysis here...</div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">Stat Weights</div>
+                <div class="content-placeholder">// # New Copy Block - Add stat priority information here...</div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">Weapon Upgrades</div>
+                <div class="content-placeholder">// # New Copy Block - Add weapon progression guide here...</div>
+            </div>
+        </div>
+
         <div id="introduction" class="content-section">
             <h2 class="section-title">Introduction</h2>
             <div class="subsection">
@@ -867,18 +888,17 @@
         <div id="theorycraft" class="content-section">
             <h2 class="section-title">Theorycraft & Sim</h2>
             
+            <!-- Collapsible Video Section -->
             <div class="subsection">
-                <div class="subsection-title">Understanding Simulation Limitations</div>
-                <div class="content-placeholder">
-                    While simulations can provide valuable baseline comparisons between different talent builds and gear configurations, it's crucial to understand their limitations in real raid scenarios. Traditional simulations assume perfect conditions with continuous DPS uptime over exactly 5 minutes of combat, which rarely reflects actual encounter mechanics.<br><br>
-                    
-                    Real raid encounters involve movement phases, target switching, add management, and various interruptions that significantly impact your actual performance compared to theoretical maximum output. This means that while sims can guide your general build direction, encounter-specific factors often matter more than raw simulation numbers.<br><br>
-                    
-                    The video below explains these limitations in detail and why practical encounter knowledge often trumps pure simulation data when optimizing your Shadow Priest performance in Mist of Pandaria raids.
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+                    <div class="subsection-title">Understanding Simulation Limitations</div>
+                    <button id="videoToggle" style="background: rgba(157, 78, 221, 0.2); border: 2px solid #9d4edd; border-radius: 8px; color: #e0aaff; padding: 8px 16px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease;">
+                        Hide Video
+                    </button>
                 </div>
                 
                 <!-- YouTube Video Embed -->
-                <div style="margin: 25px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);">
+                <div id="videoContainer" style="margin: 25px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2); transition: all 0.4s ease;">
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
                                 src="https://www.youtube.com/embed/cQ1j5yvRYgs" 
@@ -888,6 +908,14 @@
                                 allowfullscreen>
                         </iframe>
                     </div>
+                </div>
+                
+                <div class="content-placeholder">
+                    While simulations can provide valuable baseline comparisons between different talent builds and gear configurations, it's crucial to understand their limitations in real raid scenarios. Traditional simulations assume perfect conditions with continuous DPS uptime over exactly 5 minutes of combat, which rarely reflects actual encounter mechanics.<br><br>
+                    
+                    Real raid encounters involve movement phases, target switching, add management, and various interruptions that significantly impact your actual performance compared to theoretical maximum output. This means that while sims can guide your general build direction, encounter-specific factors often matter more than raw simulation numbers.<br><br>
+                    
+                    The video above explains these limitations in detail and why practical encounter knowledge often trumps pure simulation data when optimizing your Shadow Priest performance in Mist of Pandaria raids.
                 </div>
             </div>
             
@@ -938,6 +966,59 @@
         // Add staggered animation delays to content sections
         document.querySelectorAll('.content-section').forEach((section, index) => {
             section.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Video toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoToggle = document.getElementById('videoToggle');
+            const videoContainer = document.getElementById('videoContainer');
+            let isVideoVisible = true;
+
+            videoToggle.addEventListener('click', function() {
+                if (isVideoVisible) {
+                    // Hide video
+                    videoContainer.style.height = '0';
+                    videoContainer.style.marginTop = '0';
+                    videoContainer.style.marginBottom = '0';
+                    videoContainer.style.opacity = '0';
+                    videoToggle.textContent = 'Show Video';
+                    videoToggle.style.background = 'rgba(82, 183, 136, 0.2)';
+                    videoToggle.style.borderColor = '#52b788';
+                    videoToggle.style.color = '#52b788';
+                } else {
+                    // Show video
+                    videoContainer.style.height = '';
+                    videoContainer.style.marginTop = '25px';
+                    videoContainer.style.marginBottom = '25px';
+                    videoContainer.style.opacity = '1';
+                    videoToggle.textContent = 'Hide Video';
+                    videoToggle.style.background = 'rgba(157, 78, 221, 0.2)';
+                    videoToggle.style.borderColor = '#9d4edd';
+                    videoToggle.style.color = '#e0aaff';
+                }
+                isVideoVisible = !isVideoVisible;
+            });
+
+            // Add hover effects to toggle button
+            videoToggle.addEventListener('mouseenter', function() {
+                if (isVideoVisible) {
+                    this.style.background = 'rgba(157, 78, 221, 0.3)';
+                    this.style.transform = 'translateY(-1px)';
+                } else {
+                    this.style.background = 'rgba(82, 183, 136, 0.3)';
+                    this.style.transform = 'translateY(-1px)';
+                }
+            });
+
+            videoToggle.addEventListener('mouseleave', function() {
+                if (isVideoVisible) {
+                    this.style.background = 'rgba(157, 78, 221, 0.2)';
+                    this.style.transform = 'translateY(0)';
+                } else {
+                    this.style.background = 'rgba(82, 183, 136, 0.2)';
+                    this.style.transform = 'translateY(0)';
+                }
+            });
         });
     </script>
 </body>
