@@ -562,56 +562,85 @@
                 <div style="background: rgba(88, 101, 242, 0.1); border: 2px solid #5865f2; border-radius: 12px; padding: 25px; max-width: 400px; margin: 0 auto;">
                     <img src="https://i.ibb.co/JWcwcjwq/Spell-Shadow-Shadow-Word-Pain.png" alt="Shadow Priest Classic Discord Server" style="width: 128px; height: 128px; border-radius: 50%; margin-bottom: 15px;">
                     <h3 style="color: #5865f2; margin: 10px 0; font-size: 1.4rem;">Shadow Priest Classic</h3>
-                    <p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">4,483 Online • 15,443 Members<br>Est. Oct 2021</p>
+                    <p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">
+    Loading members...
+</p>
+<div style="font-size: 12px; color: #666; margin-top: 5px;" id="last-updated"></div>
 
 <script>
-// Your starting numbers (change these to your actual numbers!)
-let onlineCount = 4819;
-let memberCount = 15444;
+const DISCORD_SERVER_ID = 893677259905437717;
 
-// Function to update the display
-function updateCounter() {
+let memberCount = 15443; // Starting fallback number
+let onlineCount = 4483;  // Starting fallback number
+
+async function fetchDiscordStats() {
+    try {
+        // Discord Widget API - no auth needed!
+        const response = await fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`);
+        
+        if (response.ok) {
+            const data = await response.json();
+            
+            // Update with real Discord data
+            memberCount = data.presence_count || memberCount; // Total members
+            onlineCount = data.presence_count || onlineCount;   // Online members (widget shows both the same)
+            
+            updateDisplay();
+            saveData();
+            
+            document.getElementById('last-updated').textContent = 
+                `Last updated: ${new Date().toLocaleString()}`;
+            
+            console.log('✅ Discord stats updated:', { members: memberCount, online: onlineCount });
+            return true;
+        } else {
+            console.warn('⚠️ Discord API request failed, using cached data');
+            return false;
+        }
+    } catch (error) {
+        console.error('❌ Error fetching Discord stats:', error);
+        return false;
+    }
+}
+
+function updateDisplay() {
     document.getElementById('member-counter').innerHTML = 
         `${onlineCount.toLocaleString()} Online • ${memberCount.toLocaleString()} Members<br>Est. Oct 2021`;
 }
 
-// Easy functions to update numbers
-function addMembers(amount) {
-    memberCount += amount;
-    updateCounter();
-    console.log(`Added ${amount} members. Total: ${memberCount}`);
-}
-
-function updateOnline(amount) {
-    onlineCount = Math.max(0, onlineCount + amount);
-    updateCounter();
-    console.log(`Online count: ${onlineCount}`);
-}
-
-// Save numbers so they persist between visits
-function saveCount() {
-    localStorage.setItem('memberData', JSON.stringify({
+function saveData() {
+    localStorage.setItem('discordStats', JSON.stringify({
+        members: memberCount,
         online: onlineCount,
-        members: memberCount
+        lastUpdate: Date.now()
     }));
 }
 
-// Load saved numbers when page loads
-function loadCount() {
-    const saved = localStorage.getItem('memberData');
+function loadData() {
+    const saved = localStorage.getItem('discordStats');
     if (saved) {
         const data = JSON.parse(saved);
-        onlineCount = data.online;
         memberCount = data.members;
-        updateCounter();
+        onlineCount = data.online;
+        
+        const lastUpdate = new Date(data.lastUpdate);
+        document.getElementById('last-updated').textContent = 
+            `Last updated: ${lastUpdate.toLocaleString()}`;
     }
+    updateDisplay();
 }
 
-// Auto-save every 10 seconds
-setInterval(saveCount, 10000);
+// 🔄 Auto-update every 24 hours (86400000 ms)
+setInterval(fetchDiscordStats, 24 * 60 * 60 * 1000);
 
-// Load saved numbers when page starts
-window.onload = loadCount;
+// 🚀 Initial load
+window.onload = function() {
+    loadData();
+    fetchDiscordStats(); // Check immediately on page load
+};
+
+// Manual update function (optional)
+window.manualUpdate = fetchDiscordStats;
 </script>
                     <p style="margin: 15px 0; font-size: 0.9rem; color: #b0b0b0;">Discord for Shadow Priests in Classic WoW</p>
                     <a href="https://discord.gg/RZuPyMkxCg" target="_blank" style="display: inline-block; background: #5865f2; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.3s ease;">
