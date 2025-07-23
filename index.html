@@ -572,8 +572,8 @@
 const DISCORD_SERVER_ID = '893677259905437717';
 
 // Starting numbers (set these to your current actual counts)
-let memberCount = 15450;
-let onlineCount = 6190;
+let memberCount = 13337;
+let onlineCount = 666;
 
 async function updateFromDiscord() {
     try {
@@ -620,13 +620,13 @@ async function updateFromDiscord() {
 
 function updateDisplay() {
     document.getElementById('member-counter').innerHTML = 
-        `${onlineCount.toLocaleString()} Online • ${memberCount.toLocaleString()} Members<br>Est. Oct 2021`;
+        `${onlineCount.toLocaleString()} Orbs Online • ${memberCount.toLocaleString()} Shadow Priests<br>Est. Oct 2021`;
 }
 
 function saveData() {
     localStorage.setItem('memberData', JSON.stringify({
         members: memberCount,
-        'Orbs online': onlineCount,
+        online: onlineCount,
         lastUpdate: Date.now()
     }));
 }
