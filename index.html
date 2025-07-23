@@ -553,7 +553,7 @@
                 Welcome
             </div>
             <p>Welcome to the comprehensive Shadow Priest guide for Mist of Pandaria Classic! This website serves as your one-stop resource for mastering the Shadow Priest specialization in MoP's challenging raid encounters.</p>
-            <p>Our goal is to help you quickly find everything you need to know - from optimal talent builds and gear recommendations to advanced theorycrafting and encounter-specific strategies. Whether you're new to Shadow Priest or looking to optimize your performance, you'll find the answers here.</p>
+            <p>Our goal is to help you quickly find everything you need to know - from optimal talent builds and gear recommendations to advanced theorycrafting and encounter-specific strategies. Whether you're new to Shadow Priest or looking to optimize your performance, you'll find the answers here & in our Discord.</p>
         </div>
         
         <div class="subsection">
@@ -562,14 +562,64 @@
                 <div style="background: rgba(88, 101, 242, 0.1); border: 2px solid #5865f2; border-radius: 12px; padding: 25px; max-width: 400px; margin: 0 auto;">
                     <img src="https://i.ibb.co/JWcwcjwq/Spell-Shadow-Shadow-Word-Pain.png" alt="Shadow Priest Classic Discord Server" style="width: 128px; height: 128px; border-radius: 50%; margin-bottom: 15px;">
                     <h3 style="color: #5865f2; margin: 10px 0; font-size: 1.4rem;">Shadow Priest Classic</h3>
-                    <p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;">4,483 Online • 15,443 Members<br>Est. Oct 2021</p>
-                    <p style="margin: 15px 0; font-size: 0.9rem; color: #b0b0b0;">Theorycrafting for Shadow Priests in Classic WoW</p>
+                    <p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">4,483 Online • 15,443 Members<br>Est. Oct 2021</p>
+
+<script>
+// Your starting numbers (change these to your actual numbers!)
+let onlineCount = 4819;
+let memberCount = 15444;
+
+// Function to update the display
+function updateCounter() {
+    document.getElementById('member-counter').innerHTML = 
+        `${onlineCount.toLocaleString()} Online • ${memberCount.toLocaleString()} Members<br>Est. Oct 2021`;
+}
+
+// Easy functions to update numbers
+function addMembers(amount) {
+    memberCount += amount;
+    updateCounter();
+    console.log(`Added ${amount} members. Total: ${memberCount}`);
+}
+
+function updateOnline(amount) {
+    onlineCount = Math.max(0, onlineCount + amount);
+    updateCounter();
+    console.log(`Online count: ${onlineCount}`);
+}
+
+// Save numbers so they persist between visits
+function saveCount() {
+    localStorage.setItem('memberData', JSON.stringify({
+        online: onlineCount,
+        members: memberCount
+    }));
+}
+
+// Load saved numbers when page loads
+function loadCount() {
+    const saved = localStorage.getItem('memberData');
+    if (saved) {
+        const data = JSON.parse(saved);
+        onlineCount = data.online;
+        memberCount = data.members;
+        updateCounter();
+    }
+}
+
+// Auto-save every 10 seconds
+setInterval(saveCount, 10000);
+
+// Load saved numbers when page starts
+window.onload = loadCount;
+</script>
+                    <p style="margin: 15px 0; font-size: 0.9rem; color: #b0b0b0;">Discord for Shadow Priests in Classic WoW</p>
                     <a href="https://discord.gg/RZuPyMkxCg" target="_blank" style="display: inline-block; background: #5865f2; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.3s ease;">
                         Join Discord Server
                     </a>
                 </div>
             </div>
-            <p style="text-align: center; font-size: 0.9rem; color: #a8dadc; font-style: italic;">Connect with other Shadow Priest players, ask questions, and stay updated on the latest theorycrafting discussions.</p>
+            <p style="text-align: center; font-size: 0.9rem; color: #a8dadc; font-style: italic;">Connect with other Shadow Priest players, ask questions, and stay updated on the latest theory, bis lists, raid guides & more.</p>
         </div>
     </div>
 </div>
