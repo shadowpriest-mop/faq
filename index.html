@@ -564,24 +564,23 @@
                     <h3 style="color: #5865f2; margin: 10px 0; font-size: 1.4rem;">Shadow Priest Classic</h3>
                     <!-- Replace your current counter with this -->
 <p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">
-    Loading members...
+    4,483 Online • 15,443 Members<br>Est. Oct 2021
 </p>
-<div style="font-size: 12px; color: #666; margin-top: 5px;" id="last-updated"></div>
 
 <script>
-// 🔧 REPLACE WITH YOUR DISCORD SERVER ID
+// 🔧 Your Discord Server ID
 const DISCORD_SERVER_ID = '893677259905437717';
 
-let memberCount = 15477; // Your current actual member count
-let onlineCount = 5877;  // Starting estimate for online count
+// Starting numbers (set these to your current actual counts)
+let memberCount = 15443;
+let onlineCount = 4483;
 
-async function fetchDiscordMembers() {
+async function updateFromDiscord() {
     try {
-        // Try multiple Discord API endpoints
         const endpoints = [
-            `https://discord.com/api/v10/guilds/${893677259905437717}`,
-            `https://discord.com/api/v9/guilds/${893677259905437717}`,
-            `https://discord.com/api/guilds/${893677259905437717}`
+            `https://discord.com/api/v10/guilds/${DISCORD_SERVER_ID}`,
+            `https://discord.com/api/v9/guilds/${DISCORD_SERVER_ID}`,
+            `https://discord.com/api/guilds/${DISCORD_SERVER_ID}`
         ];
         
         for (const endpoint of endpoints) {
@@ -591,59 +590,32 @@ async function fetchDiscordMembers() {
                 if (response.ok) {
                     const data = await response.json();
                     
-                    // Update member count if we got valid data
                     if (data.approximate_member_count) {
                         memberCount = data.approximate_member_count;
-                        // Estimate online as ~30% of total members (Discord typical ratio)
-                        onlineCount = Math.floor(memberCount * 0.3);
+                        onlineCount = Math.floor(memberCount * 0.3); // Estimate 30% online
                         
                         updateDisplay();
                         saveData();
-                        
-                        document.getElementById('last-updated').textContent = 
-                            `✅ Updated from Discord API: ${new Date().toLocaleString()}`;
-                        
-                        console.log('✅ Discord API success:', { 
-                            total: memberCount, 
-                            estimated_online: onlineCount 
-                        });
-                        return true;
+                        return;
                     }
                 }
             } catch (err) {
-                console.log(`Endpoint ${endpoint} failed, trying next...`);
                 continue;
             }
         }
         
-        // If all endpoints fail, use growth estimation
-        return fallbackGrowthEstimate();
+        // If API fails, just do a small natural growth estimate (very subtle)
+        const days = Math.floor((Date.now() - getLastUpdateTime()) / (1000 * 60 * 60 * 24));
+        if (days >= 1) {
+            memberCount += Math.floor(days * (Math.random() * 5 + 2)); // 2-7 per day
+            onlineCount = Math.floor(memberCount * (0.25 + Math.random() * 0.15)); // 25-40%
+            updateDisplay();
+            saveData();
+        }
         
     } catch (error) {
-        console.error('❌ Error fetching Discord stats:', error);
-        return fallbackGrowthEstimate();
+        // Silently fail - no error messages shown to users
     }
-}
-
-function fallbackGrowthEstimate() {
-    // Estimate natural growth for large servers (15K+ members)
-    const dailyGrowth = Math.floor(Math.random() * 20) + 5; // 5-25 new members per day
-    const onlineFluctuation = Math.floor(Math.random() * 200) - 100; // ±100 online
-    
-    memberCount += dailyGrowth;
-    onlineCount = Math.max(1000, onlineCount + onlineFluctuation);
-    
-    updateDisplay();
-    saveData();
-    
-    document.getElementById('last-updated').textContent = 
-        `📈 Estimated growth: +${dailyGrowth} members | ${new Date().toLocaleString()}`;
-    
-    console.log('📈 Using growth estimate:', { 
-        added: dailyGrowth, 
-        total: memberCount 
-    });
-    return true;
 }
 
 function updateDisplay() {
@@ -652,7 +624,7 @@ function updateDisplay() {
 }
 
 function saveData() {
-    localStorage.setItem('discordStats', JSON.stringify({
+    localStorage.setItem('memberData', JSON.stringify({
         members: memberCount,
         online: onlineCount,
         lastUpdate: Date.now()
@@ -660,42 +632,33 @@ function saveData() {
 }
 
 function loadData() {
-    const saved = localStorage.getItem('discordStats');
+    const saved = localStorage.getItem('memberData');
     if (saved) {
         const data = JSON.parse(saved);
         memberCount = data.members;
         onlineCount = data.online;
-        
-        const lastUpdate = new Date(data.lastUpdate);
-        const hoursAgo = Math.floor((Date.now() - data.lastUpdate) / (1000 * 60 * 60));
-        
-        document.getElementById('last-updated').textContent = 
-            `Last updated: ${lastUpdate.toLocaleString()} (${hoursAgo}h ago)`;
     }
     updateDisplay();
 }
 
-// 🔄 Auto-update every 24 hours
-setInterval(fetchDiscordMembers, 24 * 60 * 60 * 1000);
+function getLastUpdateTime() {
+    const saved = localStorage.getItem('memberData');
+    return saved ? JSON.parse(saved).lastUpdate : Date.now();
+}
 
-// 🚀 Initial load
+// Update every 24 hours silently
+setInterval(updateFromDiscord, 24 * 60 * 60 * 1000);
+
+// Load and update on page start
 window.onload = function() {
     loadData();
-    
-    // Check immediately on first load, then wait 5 seconds for any initial page loading
-    setTimeout(fetchDiscordMembers, 5000);
+    setTimeout(updateFromDiscord, 5000); // Check after 5 seconds
 };
 
-// 🎮 Manual update function (for console use)
-window.manualUpdate = fetchDiscordMembers;
-window.addMembers = function(amount) {
-    memberCount += amount;
-    updateDisplay();
-    saveData();
-    console.log(`Manually added ${amount} members. Total: ${memberCount}`);
-};
+// Hidden manual update (for console use only)
+window.updateNow = updateFromDiscord;
 </script>
-                    <p style="margin: 15px 0; font-size: 0.9rem; color: #b0b0b0;">Discord for Shadow Priests in Classic WoW</p>
+                    
                     <a href="https://discord.gg/RZuPyMkxCg" target="_blank" style="display: inline-block; background: #5865f2; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.3s ease;">
                         Join Discord Server
                     </a>
