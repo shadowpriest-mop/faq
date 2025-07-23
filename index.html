@@ -572,15 +572,15 @@
 const DISCORD_SERVER_ID = '893677259905437717';
 
 // Starting numbers (set these to your current actual counts)
-let memberCount = 15443;
-let onlineCount = 4483;
+let memberCount = 15450;
+let onlineCount = 6190;
 
 async function updateFromDiscord() {
     try {
         const endpoints = [
-            `https://discord.com/api/v10/guilds/${DISCORD_SERVER_ID}`,
-            `https://discord.com/api/v9/guilds/${DISCORD_SERVER_ID}`,
-            `https://discord.com/api/guilds/${DISCORD_SERVER_ID}`
+            `https://discord.com/api/v10/guilds/${893677259905437717}`,
+            `https://discord.com/api/v9/guilds/${893677259905437717}`,
+            `https://discord.com/api/guilds/${893677259905437717}`
         ];
         
         for (const endpoint of endpoints) {
