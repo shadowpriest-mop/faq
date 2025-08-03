@@ -702,7 +702,7 @@
     border-radius: 12px;
     margin-bottom: 30px;
     border: 2px solid rgba(82, 183, 136, 0.3);
-    overflow: hidden;
+    overflow: visible;
 }
 
 .tier-dropdown-container {
@@ -787,13 +787,15 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    z-index: 100;
+    z-index: 9999;
     backdrop-filter: blur(10px);
+    display: none; /* Instead of max-height: 0 */
 }
 
 .tier-dropdown.open .tier-dropdown-menu {
     max-height: 400px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    display: block;
 }
 
 .tier-dropdown-option {
