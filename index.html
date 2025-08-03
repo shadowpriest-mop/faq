@@ -697,6 +697,260 @@
         font-size: 1.2rem;
     }
 }
+.talent-tier-selector {
+    background: rgba(25, 25, 35, 0.9);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 2px solid rgba(82, 183, 136, 0.3);
+    overflow: hidden;
+}
+
+.tier-dropdown-container {
+    padding: 25px;
+    background: rgba(82, 183, 136, 0.1);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.tier-dropdown-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #52b788;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tier-dropdown {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tier-dropdown-button {
+    width: 100%;
+    background: rgba(15, 15, 20, 0.9);
+    border: 2px solid #52b788;
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.tier-dropdown-button:hover {
+    background: rgba(82, 183, 136, 0.1);
+    border-color: #52b788;
+    box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);
+}
+
+.dropdown-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dropdown-level-badge {
+    background: linear-gradient(135deg, #f4c430, #d4af37);
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-width: 70px;
+    text-align: center;
+}
+
+.dropdown-arrow {
+    font-size: 1.2rem;
+    color: #52b788;
+    transition: transform 0.3s ease;
+}
+
+.tier-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.tier-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 20, 0.95);
+    border: 2px solid #52b788;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.tier-dropdown.open .tier-dropdown-menu {
+    max-height: 400px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.tier-dropdown-option {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(82, 183, 136, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tier-dropdown-option:hover {
+    background: rgba(82, 183, 136, 0.1);
+}
+
+.tier-dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.tier-dropdown-option.selected {
+    background: rgba(82, 183, 136, 0.2);
+}
+
+.talent-tooltips-container {
+    padding: 25px;
+    background: rgba(15, 15, 20, 0.8);
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.talent-tooltips-container.active {
+    display: block;
+}
+
+.tooltips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.talent-tooltip {
+    background: rgba(30, 30, 40, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.talent-tooltip:hover {
+    transform: translateY(-3px);
+}
+
+.talent-tooltip.recommended {
+    border-color: #52b788;
+    box-shadow: 0 4px 20px rgba(82, 183, 136, 0.3);
+}
+
+.talent-tooltip.situational {
+    border-color: #ffa500;
+    box-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
+}
+
+.talent-tooltip.avoid {
+    border-color: #dc3232;
+    box-shadow: 0 4px 20px rgba(220, 50, 50, 0.3);
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.tooltip-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.tooltip-category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recommended .tooltip-category {
+    background: #52b788;
+    color: white;
+}
+
+.situational .tooltip-category {
+    background: #ffa500;
+    color: white;
+}
+
+.avoid .tooltip-category {
+    background: #dc3232;
+    color: white;
+}
+
+.tooltip-description {
+    color: #ffd100;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.tooltip-details {
+    color: #a8a8a8;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .tooltips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tier-dropdown-container {
+        padding: 20px;
+    }
+    
+    .tier-dropdown-button {
+        padding: 12px 16px;
+        font-size: 1rem;
+    }
+}    
+
+        
     </style>
 </head>
 <body>
@@ -853,7 +1107,7 @@ window.updateNow = updateFromDiscord;
                     </a>
                 </div>
             </div>
-            <p style="text-align: center; font-size: 0.9rem; color: #a8dadc; font-style: italic;">Connect with other Shadow Priest players and stay updated on the latest theory, bis lists, raid guides & more.</p>
+            <p style="text-align: center; font-size: 0.9rem; color: #a8dadc; font-style: italic;">Connect with other Shadow Priest players and stay updated on the latest theory, BiS lists, raid guides & more.</p>
         </div>
     </div>
 </div>
@@ -934,18 +1188,53 @@ window.updateNow = updateFromDiscord;
                 <h2 class="card-title">Talent Analysis</h2>
                 
                 <div class="subsection-title">Talent Tier Comparison</div>
-    <p style="text-align: center; margin-bottom: 25px; color: #a8dadc; font-style: italic;">Click on each level to expand and compare all three talent options with their tooltips.</p>
+    <p style="text-align: center; margin-bottom: 25px; color: #a8dadc; font-style: italic;">Select a talent tier to compare all three options with their tooltips.</p>
     
-    <!-- Level 15 Tier -->
-    <div class="talent-tier-expandable" onclick="toggleTier(this)">
-        <div class="talent-tier-header">
-            <div class="tier-level-info">
-                <div class="tier-level-badge">Level 15</div>
-                <div class="tier-title">Crowd Control Tier</div>
+    <div class="talent-tier-selector">
+        <!-- Dropdown Selector -->
+        <div class="tier-dropdown-container">
+            <div class="tier-dropdown-label">Choose Talent Tier</div>
+            <div class="tier-dropdown" id="tierDropdown">
+                <div class="tier-dropdown-button" onclick="toggleDropdown()">
+                    <div class="dropdown-text">
+                        <div class="dropdown-level-badge">Level 15</div>
+                        <span>Crowd Control Tier</span>
+                    </div>
+                    <div class="dropdown-arrow">▼</div>
+                </div>
+                <div class="tier-dropdown-menu">
+                    <div class="tier-dropdown-option selected" onclick="selectTier('15', 'Crowd Control Tier', this)">
+                        <div class="dropdown-level-badge">Level 15</div>
+                        <span>Crowd Control Tier</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('30', 'Movement Tier', this)">
+                        <div class="dropdown-level-badge">Level 30</div>
+                        <span>Movement Tier</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('45', 'Resource Tier', this)">
+                        <div class="dropdown-level-badge">Level 45</div>
+                        <span>Resource Tier</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('60', 'Defensive Tier', this)">
+                        <div class="dropdown-level-badge">Level 60</div>
+                        <span>Defensive Tier</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('75', 'Damage Tier', this)">
+                        <div class="dropdown-level-badge">Level 75</div>
+                        <span>Damage Tier</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('90', 'Ultimate Tier', this)">
+                        <div class="dropdown-level-badge">Level 90</div>
+                        <span>Ultimate Tier</span>
+                    </div>
+                </div>
             </div>
-            <div class="expand-arrow">▼</div>
         </div>
-        <div class="talent-tooltips-container">
+
+        <!-- Tooltip Containers for Each Tier -->
+        
+        <!-- Level 15 Tooltips -->
+        <div class="talent-tooltips-container active" id="tier-15">
             <div class="tooltips-grid">
                 <!-- Void Tendrils -->
                 <div class="talent-tooltip recommended">
@@ -954,7 +1243,7 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_voidtendrils.jpg" alt="Void Tendrils" class="tooltip-icon">
                         <div class="tooltip-name">Void Tendrils</div>
                     </div>
-                    <div class="tooltip-description">4% of base mana • Instant • 30 sec cooldown </div>
+                    <div class="tooltip-description">4% of base mana • Instant • 30 sec cooldown • Requires Priest</div>
                     <div class="tooltip-details">Summons shadowy tendrils out of the ground, rooting up to 5 enemy targets within 8 yards of the caster for 20 sec. Killing the tendril will cancel the effect.</div>
                 </div>
                 
@@ -965,7 +1254,7 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_psyfiend.jpg" alt="Psyfiend" class="tooltip-icon">
                         <div class="tooltip-name">Psyfiend</div>
                     </div>
-                    <div class="tooltip-description">4% of base mana • Instant • 30 sec cooldown </div>
+                    <div class="tooltip-description">4% of base mana • Instant • 30 sec cooldown • Requires Priest</div>
                     <div class="tooltip-details">Summons a Psyfiend with 4 health for 12 sec beside the enemy target that casts Psychic Terror, causing the enemy target to tremble in place instead of fleeing in fear.</div>
                 </div>
                 
@@ -976,22 +1265,14 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowworddominate.jpg" alt="Dominate Mind" class="tooltip-icon">
                         <div class="tooltip-name">Dominate Mind</div>
                     </div>
-                    <div class="tooltip-description">2.5% of base mana • 3 sec cast </div>
+                    <div class="tooltip-description">2.5% of base mana • 3 sec cast • Requires Priest</div>
                     <div class="tooltip-details">Controls a humanoid mind up to level 90 for 8 sec while channeling. Does not work versus Demons, Mechanical, or Undead.</div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Level 30 Tier -->
-    <div class="talent-tier-expandable" onclick="toggleTier(this)">
-        <div class="talent-tier-header">
-            <div class="tier-level-info">
-                <div class="tier-level-badge">Level 30</div>
-                <div class="tier-title">Movement Tier</div>
-            </div>
-            <div class="expand-arrow">▼</div>
-        </div>
-        <div class="talent-tooltips-container">
+
+        <!-- Level 30 Tooltips -->
+        <div class="talent-tooltips-container" id="tier-30">
             <div class="tooltips-grid">
                 <!-- Body and Soul -->
                 <div class="talent-tooltip avoid">
@@ -1000,7 +1281,7 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_spiritualguidence.jpg" alt="Body and Soul" class="tooltip-icon">
                         <div class="tooltip-name">Body and Soul</div>
                     </div>
-                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-description">Passive • Requires Priest</div>
                     <div class="tooltip-details">When you cast Power Word: Shield, you increase the target's movement speed by 60% for 4 sec, and you reduce all movement impairing effects by 50%.</div>
                 </div>
                 
@@ -1011,7 +1292,7 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicfeather.jpg" alt="Angelic Feather" class="tooltip-icon">
                         <div class="tooltip-name">Angelic Feather</div>
                     </div>
-                    <div class="tooltip-description">Instant • 10 sec recharge • 3 charges</div>
+                    <div class="tooltip-description">Instant • 10 sec recharge • 3 charges • Requires Priest</div>
                     <div class="tooltip-details">Places a feather at the target location that grants the first ally to walk through it 60% increased movement speed for 6 sec. Only 3 feathers can be placed at one time.</div>
                 </div>
                 
@@ -1022,9 +1303,38 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_phantasm.jpg" alt="Phantasm" class="tooltip-icon">
                         <div class="tooltip-name">Phantasm</div>
                     </div>
-                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-description">Passive • Requires Priest</div>
                     <div class="tooltip-details">Activating Fade removes all movement impairing effects, and reduces the duration of all such effects applied to you by 50% for 5 sec.</div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Add placeholders for other tiers -->
+        <div class="talent-tooltips-container" id="tier-45">
+            <div style="text-align: center; color: #a8dadc; padding: 40px;">
+                <h3>Level 45 - Resource Tier</h3>
+                <p>Tooltip content coming soon...</p>
+            </div>
+        </div>
+
+        <div class="talent-tooltips-container" id="tier-60">
+            <div style="text-align: center; color: #a8dadc; padding: 40px;">
+                <h3>Level 60 - Defensive Tier</h3>
+                <p>Tooltip content coming soon...</p>
+            </div>
+        </div>
+
+        <div class="talent-tooltips-container" id="tier-75">
+            <div style="text-align: center; color: #a8dadc; padding: 40px;">
+                <h3>Level 75 - Damage Tier</h3>
+                <p>Tooltip content coming soon...</p>
+            </div>
+        </div>
+
+        <div class="talent-tooltips-container" id="tier-90">
+            <div style="text-align: center; color: #a8dadc; padding: 40px;">
+                <h3>Level 90 - Ultimate Tier</h3>
+                <p>Tooltip content coming soon...</p>
             </div>
         </div>
     </div>
