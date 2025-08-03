@@ -1190,9 +1190,7 @@ window.updateNow = updateFromDiscord;
                 <h2 class="card-title">Talent Analysis</h2>
                 
                 <div class="subsection-title">Talent Tier Comparison</div>
-    <p style="text-align: center; margin-bottom: 25px; color: #a8dadc; font-style: italic;">Select a talent tier to compare all three options with their tooltips.</p>
-    
-    <div class="talent-tier-selector">
+        <div class="talent-tier-selector">
         <!-- Dropdown Selector -->
         <div class="tier-dropdown-container">
             <div class="tier-dropdown-label">Choose Talent Tier</div>
@@ -1207,27 +1205,27 @@ window.updateNow = updateFromDiscord;
                 <div class="tier-dropdown-menu">
                     <div class="tier-dropdown-option selected" onclick="selectTier('15', 'Crowd Control Tier', this)">
                         <div class="dropdown-level-badge">Level 15</div>
-                        <span>Crowd Control Tier</span>
+                        <span>Crowd Control</span>
                     </div>
                     <div class="tier-dropdown-option" onclick="selectTier('30', 'Movement Tier', this)">
                         <div class="dropdown-level-badge">Level 30</div>
-                        <span>Movement Tier</span>
+                        <span>Movement</span>
                     </div>
                     <div class="tier-dropdown-option" onclick="selectTier('45', 'Resource Tier', this)">
                         <div class="dropdown-level-badge">Level 45</div>
-                        <span>Resource Tier</span>
+                        <span>Gameplay</span>
                     </div>
                     <div class="tier-dropdown-option" onclick="selectTier('60', 'Defensive Tier', this)">
                         <div class="dropdown-level-badge">Level 60</div>
-                        <span>Defensive Tier</span>
+                        <span>Defensive</span>
                     </div>
                     <div class="tier-dropdown-option" onclick="selectTier('75', 'Damage Tier', this)">
                         <div class="dropdown-level-badge">Level 75</div>
-                        <span>Damage Tier</span>
+                        <span>Damage</span>
                     </div>
                     <div class="tier-dropdown-option" onclick="selectTier('90', 'Ultimate Tier', this)">
                         <div class="dropdown-level-badge">Level 90</div>
-                        <span>Ultimate Tier</span>
+                        <span>Ultimate</span>
                     </div>
                 </div>
             </div>
@@ -1245,8 +1243,9 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_voidtendrils.jpg" alt="Void Tendrils" class="tooltip-icon">
                         <div class="tooltip-name">Void Tendrils</div>
                     </div>
-                    <div class="tooltip-description">4% of base mana • Instant • 30 sec cooldown</div>
-                    <div class="tooltip-details">Summons shadowy tendrils out of the ground, rooting up to 5 enemy targets within 8 yards of the caster for 20 sec. Killing the tendril will cancel the effect.</div>
+                    <div class="tooltip-description">Instant • 30 sec cooldown</div>
+                    <div class="tooltip-details">
+Summons Shadowy tendrils out of the ground, rooting up to 5 enemy targets within 8 yards of the caster for 20 sec. Killing the tendril will cancel the effect.</div>
                 </div>
                 
                 <!-- Psyfiend -->
@@ -1256,8 +1255,8 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_psyfiend.jpg" alt="Psyfiend" class="tooltip-icon">
                         <div class="tooltip-name">Psyfiend</div>
                     </div>
-                    <div class="tooltip-description">4% of base mana • Instant • 30 sec cooldown</div>
-                    <div class="tooltip-details">Summons a Psyfiend with 4 health for 12 sec beside the enemy target that casts Psychic Terror, causing the enemy target to tremble in place instead of fleeing in fear.</div>
+                    <div class="tooltip-description">Instant • 25 yards • 45 sec cooldown</div>
+                    <div class="tooltip-details">Summons a Psyfiend that stands in place for 10 sec. The Psyfiend casts a Psychic Terror on a nearby enemy within 20 yards every 2 sec, preferring anything attacking the Priest. Psychic Terror causes enemies to [Glyph of Psychic Scream: tremble in place / flee] for 30 sec. Damage caused may interrupt the effect.</div>
                 </div>
                 
                 <!-- Dominate Mind -->
@@ -1267,8 +1266,8 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowworddominate.jpg" alt="Dominate Mind" class="tooltip-icon">
                         <div class="tooltip-name">Dominate Mind</div>
                     </div>
-                    <div class="tooltip-description">2.5% of base mana • 3 sec cast</div>
-                    <div class="tooltip-details">Controls a humanoid mind up to level 90 for 8 sec while channeling. Does not work versus Demons, Mechanical, or Undead.</div>
+                    <div class="tooltip-description">1.8 sec cast • 30 yards</div>
+                    <div class="tooltip-details">Controls a humanoid mind for 30 sec while channeling. Does not work versus Demons, Mechanical, or Undead.</div>
                 </div>
             </div>
         </div>
@@ -1284,7 +1283,8 @@ window.updateNow = updateFromDiscord;
                         <div class="tooltip-name">Body and Soul</div>
                     </div>
                     <div class="tooltip-description">Passive</div>
-                    <div class="tooltip-details">When you cast Power Word: Shield, you increase the target's movement speed by 60% for 4 sec, and you reduce all movement impairing effects by 50%.</div>
+                    <div class="tooltip-details">
+When you cast Power Word: Shield or Leap of Faith, you increase the target's movement speed by 60% for 4 sec.</div>
                 </div>
                 
                 <!-- Angelic Feather -->
@@ -1294,8 +1294,8 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicfeather.jpg" alt="Angelic Feather" class="tooltip-icon">
                         <div class="tooltip-name">Angelic Feather</div>
                     </div>
-                    <div class="tooltip-description">Instant • 10 sec recharge • 3 charges</div>
-                    <div class="tooltip-details">Places a feather at the target location that grants the first ally to walk through it 60% increased movement speed for 6 sec. Only 3 feathers can be placed at one time.</div>
+                    <div class="tooltip-description">Instant • 40 yards • 10 sec recharge • 3 charges</div>
+                    <div class="tooltip-details">Place a feather at the target location. If allies walk through it, they gain 80% increased movement speed for 6 sec. Only 3 feathers can be placed at one time. Accumulates an additional charge once every 10 sec. Maximum 3 charges.</div>
                 </div>
                 
                 <!-- Phantasm -->
@@ -1306,39 +1306,162 @@ window.updateNow = updateFromDiscord;
                         <div class="tooltip-name">Phantasm</div>
                     </div>
                     <div class="tooltip-description">Passive</div>
-                    <div class="tooltip-details">Activating Fade removes all movement impairing effects, and reduces the duration of all such effects applied to you by 50% for 5 sec.</div>
+                    <div class="tooltip-details">When you Fade, you remove all movement impairing effects from yourself, and your movement speed is unhindered for 5 sec.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Add placeholders for other tiers -->
+        <!-- Level 45 Tooltips -->
         <div class="talent-tooltips-container" id="tier-45">
-            <div style="text-align: center; color: #a8dadc; padding: 40px;">
-                <h3>Level 45 - Resource Tier</h3>
-                <p>Tooltip content coming soon...</p>
+            <div class="tooltips-grid">
+                <!-- From Darkness, Comes Light -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_surgeoflight.jpg" alt="From Darkness, Comes Light" class="tooltip-icon">
+                        <div class="tooltip-name">From Darkness, Comes Light</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Surge of Darkness
+Periodic damage from your Vampiric Touch has a 20% chance to cause your next Mind Spike to not consume your damage-over-time effects, become instant cast, cost no mana, and deal 50% additional damage. Limit 2 charges.</div>
+                </div>
+                
+                <!-- Mindbender -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_soulleech_3.jpg" alt="Mindbender" class="tooltip-icon">
+                        <div class="tooltip-name">Mindbender</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 40 yards • 60 sec cooldown</div>
+                    <div class="tooltip-details">Creates a Mindbender to attack the target. Caster receives 1.75% mana when the Mindbender attacks. Lasts 15 sec. Replaces Shadowfiend.</div>
+                </div>
+                
+                <!-- Solace and Insanity -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-category">Recommended</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity" class="tooltip-icon">
+                        <div class="tooltip-name">Solace and Insanity</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Casting Mind Flay while your target is affected by your Devouring Plague causes your Mind Flay to deal 33% additional damage per orb consumed by Devouring Plague.</div>
+                </div>
             </div>
         </div>
 
+        <!-- Level 60 Tooltips -->
         <div class="talent-tooltips-container" id="tier-60">
-            <div style="text-align: center; color: #a8dadc; padding: 40px;">
-                <h3>Level 60 - Defensive Tier</h3>
-                <p>Tooltip content coming soon...</p>
+            <div class="tooltips-grid">
+                <!-- Desperate Prayer -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_testoffaith.jpg" alt="Desperate Prayer" class="tooltip-icon">
+                        <div class="tooltip-name">Desperate Prayer</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 2 min cooldown</div>
+                    <div class="tooltip-details">Instantly heals the caster for 30% of their total health.</div>
+                </div>
+                
+                <!-- Spectral Guise -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_spectralguise.jpg" alt="Spectral Guise" class="tooltip-icon">
+                        <div class="tooltip-name">Spectral Guise</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 30 sec cooldown</div>
+                    <div class="tooltip-details">Your shadow blurs into the darkness, leaving your true form behind. As a shadow you are stealthed, but remain in combat. Lasts 6 sec or until your true form is hit by 3 direct attacks.</div>
+                </div>
+                
+                <!-- Angelic Bulwark -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-category">Recommended</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicbulwark.jpg" alt="Angelic Bulwark" class="tooltip-icon">
+                        <div class="tooltip-name">Angelic Bulwark</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Anytime a damaging attack brings you below 30% health, you gain an absorption shield equal to 20% of your total health lasting for 20 sec. This effect cannot occur more than once every 90 sec.</div>
+                </div>
             </div>
         </div>
 
+        <!-- Level 75 Tooltips -->
         <div class="talent-tooltips-container" id="tier-75">
-            <div style="text-align: center; color: #a8dadc; padding: 40px;">
-                <h3>Level 75 - Damage Tier</h3>
-                <p>Tooltip content coming soon...</p>
+            <div class="tooltips-grid">
+                <!-- Twist of Fate -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-category">Recommended</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate" class="tooltip-icon">
+                        <div class="tooltip-name">Twist of Fate</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">After damaging or healing a target below 35% health, you deal 15% increased damage and healing for 10 sec.</div>
+                </div>
+                
+                <!-- Power Infusion -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" class="tooltip-icon">
+                        <div class="tooltip-name">Power Infusion</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 2 min cooldown</div>
+                    <div class="tooltip-details">Infuses the Priest with power, increasing spell haste by 20%, all damage by 5%, and reducing the mana cost of all spells by 20%. Lasts 20 sec.</div>
+                </div>
+                
+                <!-- Divine Insight -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_burningwill.jpg" alt="Divine Insight" class="tooltip-icon">
+                        <div class="tooltip-name">Divine Insight</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Periodic damage from your Shadow Word: Pain has a 5% chance to reset the cooldown on Mind Blast and cause your next Mind Blast within 12 sec to be instant cast and cost no mana.</div>
+                </div>
             </div>
         </div>
 
+        <!-- Level 90 Tooltips -->
         <div class="talent-tooltips-container" id="tier-90">
-            <div style="text-align: center; color: #a8dadc; padding: 40px;">
-                <h3>Level 90 - Ultimate Tier</h3>
-                <p>Tooltip content coming soon...</p>
+            <div class="tooltips-grid">
+                <!-- Cascade -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" class="tooltip-icon">
+                        <div class="tooltip-name">Cascade</div>
+                    </div>
+                     <div class="tooltip-description">Instant • 40 yards • 25 sec cooldown</div>
+                    <div class="tooltip-details">Launches a Holy bolt at the target that grows in power as it travels, which causes 5036.8 to 12592 Holy damage to an enemy, or 5036.8 to 12592 healing to an ally. This effect can bounce from allies to other allies, or from enemies to other enemies. Each time it bounces it will split into 2 bolts, preferring farther away targets, and never hitting the same target twice. Cascade can bounce up to 4 times.</div>
+                </div>
+                
+                <!-- Divine Star -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_divinestar_shadow2.jpg" alt="Divine Star" class="tooltip-icon">
+                        <div class="tooltip-name">Divine Star</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 24 yards • 15 sec cooldown</div>
+                    <div class="tooltip-details">Fires a Divine Star in front of you, traveling 24 yds, causing 4717 Spellshadow damage to all enemies and 1 healing to all allies within 4 yds of its path. After reaching its destination it will return to you, also dealing damage and healing to all targets in its path.</div>
+                </div>
+                
+                <!-- Halo -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-category">Recommended</div>
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_halo_shadow.jpg" alt="Halo" class="tooltip-icon">
+                        <div class="tooltip-name">Halo</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 30 yards • 40 sec cooldown</div>
+                    <div class="tooltip-details">Creates a ring of Shadow energy around you that quickly expands and grows in power, up to 30 yds away. Deals up to 0.1 to 1 Shadow damage to enemies, and up to 3369.4 to 42117 healing to allies, with the greatest effect at 28 yds.</div>
+                </div>
             </div>
-        </div>
     </div>
 
 
