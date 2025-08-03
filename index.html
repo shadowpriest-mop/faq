@@ -1948,6 +1948,50 @@ document.addEventListener('click', function(event) {
         });
     }
 });
+// Dropdown functions
+function toggleDropdown() {
+    const dropdown = document.getElementById('tierDropdown');
+    dropdown.classList.toggle('open');
+}
+
+function selectTier(level, tierName, element) {
+    // Update button text
+    const button = document.querySelector('.tier-dropdown-button');
+    button.innerHTML = `
+        <div class="dropdown-text">
+            <div class="dropdown-level-badge">Level ${level}</div>
+            <span>${tierName}</span>
+        </div>
+        <div class="dropdown-arrow">▼</div>
+    `;
+    
+    // Update selected state
+    document.querySelectorAll('.tier-dropdown-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    element.classList.add('selected');
+    
+    // Hide all tooltip containers
+    document.querySelectorAll('.talent-tooltips-container').forEach(container => {
+        container.classList.remove('active');
+    });
+    
+    // Show selected tier container
+    const selectedContainer = document.getElementById(`tier-${level}`);
+    if (selectedContainer) {
+        selectedContainer.classList.add('active');
+    }
+    
+    // Close dropdown
+    document.getElementById('tierDropdown').classList.remove('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.tier-dropdown')) {
+        document.getElementById('tierDropdown').classList.remove('open');
+    }
+});
 </script>
 </body>
 </html>
