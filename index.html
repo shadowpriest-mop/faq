@@ -906,7 +906,267 @@ window.updateNow = updateFromDiscord;
         </div>
     </div>
 </div>
+            
+<!-- Glyphs Tab - Add this as a new tab content section -->
+<div id="glyphs" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Glyph Analysis</h2>
+        
+        <!-- Standard Build Section -->
+        <div class="subsection">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_inscription_tradeskill01.jpg" alt="Glyph" style="width: 32px; height: 32px;">
+                Standard Build
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px; padding: 20px; background: rgba(82, 183, 136, 0.1); border-radius: 12px; border: 2px solid var(--primary-green); margin: 20px 0;">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_magic_lesserinvisibilty.jpg" alt="Glyph of Fade" style="width: 40px; height: 40px;">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_innersanctum.jpg" alt="Glyph of Inner Sanctum" style="width: 40px; height: 40px;">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unsummonbuilding.jpg" alt="Glyph of Vampiric Embrace" style="width: 40px; height: 40px;">
+                <div>
+                    <div style="color: var(--primary-green); font-weight: 600; font-size: 1.1rem; margin-bottom: 8px;">Standard: Fade • Inner Sanctum • Vampiric Embrace</div>
+                    <div style="display: flex; gap: 15px; font-size: 0.9rem; flex-wrap: wrap;">
+                        <span style="color: #e54335; font-weight: 600;">Fade - Never Remove!</span>
+                        <span style="color: #ffa500;">Inner Sanctum - Swap to Inner Fire on physical fights</span>
+                        <span style="color: #a8dadc;">Vampiric Embrace - The flex slot when required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Encounter-Specific Swaps -->
+        <div class="subsection">
+            <div class="subsection-title">Encounter-Specific Swaps</div>
+            <div class="encounter-grid">
+                <!-- Mogu'shan Vaults -->
+                <div class="encounter-card" style="border-color: rgba(244, 196, 48, 0.4);">
+                    <div class="encounter-title" style="color: var(--primary-gold);">Mogu'shan Vaults</div>
+                    
+                    <!-- Stone Guard -->
+                    <div style="margin: 20px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-cobalt-guardian.png" alt="Stone Guard" style="height: 50px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Stone Guard</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(82, 183, 136, 0.08); border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_innersanctum.jpg" alt="Keep Standard Build" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <span style="color: var(--primary-green); font-size: 1.1rem; font-weight: 600;">Keep Standard Build</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Mixed damage encounter with no special mechanics requiring glyph changes. Standard build handles all phases optimally.</div>
+                        </div>
+                    </div>
+
+                    <!-- Feng the Accursed -->
+                    <div style="margin: 20px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-feng.png" alt="Feng the Accursed" style="height: 50px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Feng the Accursed</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Heavy physical damage phases make Inner Fire's armor bonus more valuable than Inner Sanctum's magic resistance during this encounter.</div>
+                        </div>
+                    </div>
+
+                    <!-- Gara'jal -->
+                    <div style="margin: 20px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garajal.png" alt="Gara'jal the Spiritbinder" style="height: 50px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Gara'jal</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Possessed players in the spirit realm require quick dispelling. Mass Dispel's reduced cast time becomes crucial for raid survival.</div>
+                        </div>
+                    </div>
+
+                    <!-- Spirit Kings -->
+                    <div style="margin: 20px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-spiritking-qiang.png" alt="Spirit Kings" style="height: 50px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Spirit Kings</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Qiang the Merciless deals significant physical damage with his abilities. Inner Fire provides better protection against his devastating attacks.</div>
+                        </div>
+                    </div>
+
+                    <!-- Elegon -->
+                    <div style="margin: 20px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-elegon.png" alt="Elegon" style="height: 50px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Elegon</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Add phases require precise positioning and debuff management. Mass Dispel helps with emergency dispelling during chaotic add phases.</div>
+                        </div>
+                    </div>
+
+                    <!-- Will of the Emperor -->
+                    <div style="margin: 20px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-jan-xi.png" alt="Will of the Emperor" style="height: 50px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Will of the Emperor</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(82, 183, 136, 0.08); border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_innersanctum.jpg" alt="Keep Standard Build" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <span style="color: var(--primary-green); font-size: 1.1rem; font-weight: 600;">Keep Standard Build</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Balanced encounter with mixed damage types and high mobility requirements. Standard build provides optimal versatility for all phases.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blue Post Section -->
+        <div class="subsection">
+            <div class="subsection-title">Important Notice</div>
+            <div style="background: #15171E; border: 2px solid #00AEFF; border-radius: 12px; padding: 25px; margin: 20px 0;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_twistedfaith.jpg" alt="Glyph of Sha" style="width: 40px; height: 40px; border-radius: 6px;">
+                    <div>
+                        <div style="color: #00AEFF; font-size: 1.3rem; font-weight: 600;">Glyph of Sha - No Longer Functional</div>
+                        <div style="color: #00AEFF; font-size: 0.9rem; opacity: 0.8;">Official Blizzard Response</div>
+                    </div>
+                </div>
+                <div style="color: #00AEFF; line-height: 1.6; font-size: 0.95rem;">
+                    <p style="margin-bottom: 12px;"><strong>Community Question:</strong> "Glyph of Sha used to reduce the GCD of Shadowfiend in original MoP. Does this still work in Classic?"</p>
+                    <p style="margin-bottom: 12px;"><strong>Blizzard Response:</strong> "The Glyph of Sha functionality that reduced Shadowfiend's Global Cooldown was removed during the original Mist of Pandaria expansion and is not present in MoP Classic. This glyph now only provides its visual effect."</p>
+                    <p style="margin: 0; font-style: italic; opacity: 0.9;">This glyph should not be used for any gameplay benefits as it provides no mechanical advantages in MoP Classic.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Major Glyphs Reference -->
+        <div class="subsection">
+            <div class="subsection-title">All Major Glyphs</div>
+            <div class="tooltips-grid">
+                <!-- Glyph of Fade -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_magic_lesserinvisibilty.jpg" alt="Glyph of Fade" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Fade</div>
+                    </div>
+                    <div class="tooltip-category">Never Remove</div>
+                    <div class="tooltip-description">Major Glyph</div>
+                    <div class="tooltip-details">Reduces the mana cost of your Fade spell by 30%. Essential for frequent threat management during raid encounters.</div>
+                </div>
+
+                <!-- Glyph of Inner Sanctum -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_innersanctum.jpg" alt="Glyph of Inner Sanctum" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Inner Sanctum</div>
+                    </div>
+                    <div class="tooltip-category">Recommended</div>
+                    <div class="tooltip-description">Major Glyph</div>
+                    <div class="tooltip-details">Increases spell damage reduction of Inner Fire by an additional 6%. Standard choice for most encounters with magical damage.</div>
+                </div>
+
+                <!-- Glyph of Inner Fire -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Inner Fire</div>
+                    </div>
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-description">Major Glyph</div>
+                    <div class="tooltip-details">Increases the armor bonus of Inner Fire by an additional 50%. Use on physical damage heavy encounters instead of Inner Sanctum.</div>
+                </div>
+
+                <!-- Glyph of Vampiric Embrace -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unsummonbuilding.jpg" alt="Glyph of Vampiric Embrace" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Vampiric Embrace</div>
+                    </div>
+                    <div class="tooltip-category">Recommended</div>
+                    <div class="tooltip-description">Major Glyph</div>
+                    <div class="tooltip-details">Increases the healing done by Vampiric Embrace by an additional 50%. Good default choice for the flexible third slot.</div>
+                </div>
+
+                <!-- Glyph of Mass Dispel -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Mass Dispel</div>
+                    </div>
+                    <div class="tooltip-category">Situational</div>
+                    <div class="tooltip-description">Major Glyph</div>
+                    <div class="tooltip-details">Reduces the cast time of Mass Dispel by 1 second. Essential for encounters requiring frequent dispelling like Gara'jal.</div>
+                </div>
+
+                <!-- Glyph of Psychic Scream -->
+                <div class="talent-tooltip avoid">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" alt="Glyph of Psychic Scream" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Psychic Scream</div>
+                    </div>
+                    <div class="tooltip-category">Avoid</div>
+                    <div class="tooltip-description">Major Glyph</div>
+                    <div class="tooltip-details">Your Psychic Scream causes enemies to tremble in place instead of fleeing. Rarely useful in raid environments.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Minor Glyphs Reference -->
+        <div class="subsection">
+            <div class="subsection-title">All Minor Glyphs</div>
+            <p style="text-align: center; margin-bottom: 20px; color: var(--text-accent); font-style: italic;">Minor glyphs are purely cosmetic and do not affect gameplay. Choose based on personal preference.</p>
+            <div class="tooltips-grid">
+                <!-- Glyph of Fortitude -->
+                <div class="talent-tooltip situational" style="border-color: #a8dadc;">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_wordfortitude.jpg" alt="Glyph of Fortitude" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Fortitude</div>
+                    </div>
+                    <div class="tooltip-category" style="background: #a8dadc; color: #000;">Cosmetic</div>
+                    <div class="tooltip-description">Minor Glyph</div>
+                    <div class="tooltip-details">Reduces the mana cost of your Power Word: Fortitude by 50%. Quality of life improvement for buffing.</div>
+                </div>
+
+                <!-- Glyph of Levitate -->
+                <div class="talent-tooltip situational" style="border-color: #a8dadc;">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_layonhands.jpg" alt="Glyph of Levitate" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Levitate</div>
+                    </div>
+                    <div class="tooltip-category" style="background: #a8dadc; color: #000;">Cosmetic</div>
+                    <div class="tooltip-description">Minor Glyph</div>
+                    <div class="tooltip-details">Your Levitate spell no longer requires a reagent to cast. Convenient for frequent use.</div>
+                </div>
+
+                <!-- Glyph of Shackle Undead -->
+                <div class="talent-tooltip situational" style="border-color: #a8dadc;">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_slow.jpg" alt="Glyph of Shackle Undead" class="tooltip-icon">
+                        <div class="tooltip-name">Glyph of Shackle Undead</div>
+                    </div>
+                    <div class="tooltip-category" style="background: #a8dadc; color: #000;">Cosmetic</div>
+                    <div class="tooltip-description">Minor Glyph</div>
+                    <div class="tooltip-details">Increases the range of your Shackle Undead spell by 5 yards. Rarely used in raid content.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
         <!-- Viability Tab -->
         <div id="viability" class="tab-content">
             <div class="card">
