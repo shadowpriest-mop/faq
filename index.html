@@ -906,8 +906,8 @@ window.updateNow = updateFromDiscord;
         </div>
     </div>
 </div>
-</div>  <!-- ← This closes the main talent card -->
-</div>  <!-- ← This closes the talents tab content -->
+</div>  
+</div>  
 </div>
             
            
@@ -916,26 +916,46 @@ window.updateNow = updateFromDiscord;
     <div class="card">
         <h2 class="card-title">Glyph Analysis</h2>
         
-        <!-- Standard Build Section -->
-        <div class="subsection">
-            <div class="subsection-title">
-                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_inscription_tradeskill01.jpg" alt="Glyph" style="width: 32px; height: 32px;">
-                Standard Build
-            </div>
-            <div style="display: flex; align-items: center; gap: 20px; padding: 20px; background: rgba(82, 183, 136, 0.1); border-radius: 12px; border: 2px solid var(--primary-green); margin: 20px 0;">
-                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_magic_lesserinvisibilty.jpg" alt="Glyph of Fade" class="tooltip-icon" style="width: 40px; height: 40px;">
-                <img src="https://wow.zamimg.com/images/wow/icons/large/priest_icon_innewill.jpg" alt="Glyph of Inner Sanctum" class="tooltip-icon" style="width: 40px; height: 40px;">
-                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unsummonbuilding.jpg" alt="Glyph of Vampiric Embrace" class="tooltip-icon" style="width: 40px; height: 40px;">
-                <div>
-                    <div style="color: var(--primary-green); font-weight: 600; font-size: 1.1rem; margin-bottom: 8px;">Standard: Fade • Inner Sanctum • Vampiric Embrace</div>
-                    <div style="display: flex; gap: 15px; font-size: 0.9rem; flex-wrap: wrap;">
-                        <span style="color: #e54335; font-weight: 600;">Fade - Never Remove!</span>
-                        <span style="color: #ffa500;">Inner Sanctum - Swap to Inner Fire on Physical fights</span>
-                        <span style="color: #a8dadc;">Vampiric Embrace - The flex slot when required</span>
-                    </div>
-                </div>
+<!-- Standard Build Section -->
+<div class="subsection">
+    <div class="subsection-title">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_inscription_tradeskill01.jpg" alt="Glyph" style="width: 32px; height: 32px;">
+        Standard Build
+    </div>
+    
+    <!-- Glyph of Fade -->
+    <div style="padding: 15px; background: rgba(229, 67, 53, 0.1); border-radius: 12px; border: 2px solid #e54335; margin: 10px 0;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_magic_lesserinvisibilty.jpg" alt="Glyph of Fade" style="width: 40px; height: 40px;">
+            <div>
+                <div style="color: #e54335; font-weight: 600; font-size: 1.1rem;">Glyph of Fade</div>
+                <div style="color: #e54335; font-size: 0.9rem; font-weight: 600;">Never Remove!</div>
             </div>
         </div>
+    </div>
+    
+    <!-- Glyph of Inner Sanctum -->
+    <div style="padding: 15px; background: rgba(255, 165, 0, 0.1); border-radius: 12px; border: 2px solid #ffa500; margin: 10px 0;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="https://wow.zamimg.com/images/wow/icons/large/priest_icon_innewill.jpg" alt="Glyph of Inner Sanctum" style="width: 40px; height: 40px;">
+            <div>
+                <div style="color: #ffa500; font-weight: 600; font-size: 1.1rem;">Glyph of Inner Sanctum</div>
+                <div style="color: #ffa500; font-size: 0.9rem;">Swap to Inner Fire on Physical fights</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Glyph of Vampiric Embrace -->
+    <div style="padding: 15px; background: rgba(168, 218, 220, 0.1); border-radius: 12px; border: 2px solid #a8dadc; margin: 10px 0;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unsummonbuilding.jpg" alt="Glyph of Vampiric Embrace" style="width: 40px; height: 40px;">
+            <div>
+                <div style="color: #a8dadc; font-weight: 600; font-size: 1.1rem;">Glyph of Vampiric Embrace</div>
+                <div style="color: #a8dadc; font-size: 0.9rem;">The flex slot when required</div>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Encounter-Specific Swaps -->
         <div class="subsection">
