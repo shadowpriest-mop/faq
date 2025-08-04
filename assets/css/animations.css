@@ -1,0 +1,329 @@
+/* ==============================================
+   ANIMATIONS CSS - Keyframes & Transitions
+   Shadow Priest MoP FAQ - Animation Components
+   ============================================== */
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes mistFloat {
+    0%, 100% { 
+        transform: translateX(0) scale(1); 
+        opacity: 0.8; 
+    }
+    50% { 
+        transform: translateX(10px) scale(1.05); 
+        opacity: 1; 
+    }
+}
+
+@keyframes orbPulse {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+    }
+    50% { 
+        transform: scale(1.2); 
+        box-shadow: 0 0 25px rgba(157, 78, 221, 1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(157, 78, 221, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ===== HEADER ANIMATIONS ===== */
+
+.mist-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 30% 60%, rgba(100, 255, 150, 0.15) 0%, transparent 60%);
+    animation: mistFloat 8s ease-in-out infinite;
+}
+
+.orb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--primary-purple), #3c096c);
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+    animation: orbPulse 3s ease-in-out infinite;
+}
+
+.orb:nth-child(2) { 
+    animation-delay: 1s; 
+}
+
+.orb:nth-child(3) { 
+    animation-delay: 2s; 
+}
+
+/* ===== TITLE ANIMATIONS ===== */
+
+.title h1 {
+    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+    animation: glow 4s ease-in-out infinite;
+}
+
+/* ===== BUTTON ANIMATIONS ===== */
+
+.tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.tab-button:hover::before {
+    left: 100%;
+}
+
+/* ===== HOVER ANIMATIONS ===== */
+
+.card-hover-lift {
+    transition: var(--transition);
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.talent-hover-scale {
+    transition: var(--transition);
+}
+
+.talent-hover-scale:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.encounter-hover-float {
+    transition: var(--transition);
+}
+
+.encounter-hover-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(244, 196, 48, 0.2);
+}
+
+.subsection-slide {
+    transition: var(--transition);
+}
+
+.subsection-slide:hover {
+    transform: translateX(5px);
+}
+
+/* ===== LOADING ANIMATIONS ===== */
+
+.loading-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.2), transparent);
+    background-size: 200px 100%;
+    animation: shimmer 2s infinite;
+}
+
+.loading-pulse {
+    animation: pulse 2s infinite;
+}
+
+.loading-bounce {
+    animation: bounce 1s infinite;
+}
+
+/* ===== DROPDOWN ANIMATIONS ===== */
+
+.dropdown-expand {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown-arrow-rotate {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-arrow-rotate.open {
+    transform: rotate(180deg);
+}
+
+/* ===== TALENT SYSTEM ANIMATIONS ===== */
+
+.talent-tier-expandable {
+    transition: all 0.3s ease;
+}
+
+.talent-tier-header {
+    transition: background 0.3s ease;
+}
+
+.talent-tier-header:hover {
+    background: rgba(82, 183, 136, 0.15);
+}
+
+.expand-arrow {
+    transition: transform 0.3s ease;
+}
+
+.talent-tier-expandable.expanded .expand-arrow {
+    transform: rotate(180deg);
+}
+
+.talent-tooltips-container {
+    animation: fadeIn 0.4s ease;
+}
+
+.talent-tooltip {
+    transition: transform 0.3s ease;
+}
+
+.talent-tooltip:hover {
+    transform: translateY(-3px);
+}
+
+/* ===== INTERACTIVE ELEMENT ANIMATIONS ===== */
+
+.interactive-glow {
+    transition: var(--transition);
+}
+
+.interactive-glow:hover {
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+}
+
+.interactive-lift {
+    transition: var(--transition);
+}
+
+.interactive-lift:hover {
+    transform: translateY(-2px);
+}
+
+.interactive-scale {
+    transition: var(--transition);
+}
+
+.interactive-scale:hover {
+    transform: scale(1.02);
+}
+
+/* ===== SMOOTH SCROLLING ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== ANIMATION UTILITY CLASSES ===== */
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-glow {
+    animation: glow 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    animation: shimmer 2s infinite;
+}
+
+/* ===== HOVER STATE UTILITIES ===== */
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+}
+
+.hover-slide:hover {
+    transform: translateX(5px);
+}
