@@ -1,0 +1,289 @@
+/* ==============================================
+   LAYOUT CSS - Containers & Grid Systems
+   Shadow Priest MoP FAQ - Layout Components
+   ============================================== */
+
+/* Main Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    width: 100%;
+}
+
+/* Header Layout */
+.header-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, 
+        var(--bg-dark) 0%, 
+        #1a0d1a 25%, 
+        #2d1b2d 50%, 
+        #1e3a2e 75%, 
+        #2d4a3d 100%
+    );
+}
+
+.header-container .title {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.header-container .shadow-orbs {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-xl);
+    display: flex;
+    gap: var(--space-sm);
+}
+
+/* Navigation Layout */
+.tab-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    padding: 0 var(--space-sm);
+    justify-content: center;
+}
+
+/* Content Layout */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Card Layout */
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Subsection Layout */
+.subsection {
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    background: var(--bg-subsection);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-purple);
+    transition: var(--transition);
+}
+
+.subsection:hover {
+    background: var(--bg-subsection-hover);
+    transform: translateX(5px);
+}
+
+/* Talent System Layout */
+.talent-tier-selector {
+    background: rgba(25, 25, 35, 0.9);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    border: 2px solid rgba(82, 183, 136, 0.3);
+    overflow: visible;
+}
+
+.tier-dropdown-container {
+    padding: var(--space-lg);
+    background: rgba(82, 183, 136, 0.1);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.tier-dropdown {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.talent-tooltips-container {
+    padding: var(--space-lg);
+    background: rgba(15, 15, 20, 0.8);
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.talent-tooltips-container.active {
+    display: block;
+}
+
+.tooltips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+/* Talent Tier Layout */
+.talent-tier {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.talent-options {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+/* Encounter Grid Layout */
+.encounter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.encounter-card {
+    background: rgba(15, 15, 20, 0.8);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid rgba(244, 196, 48, 0.3);
+    transition: var(--transition);
+}
+
+.encounter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(244, 196, 48, 0.2);
+}
+
+/* Video Container Layout */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(157, 78, 221, 0.3);
+    margin: var(--space-lg) 0;
+    transition: var(--transition);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Flex Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+
+/* Grid Utilities */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+    
+    .header-container {
+        height: 150px;
+    }
+    
+    .header-container .title {
+        left: var(--space-lg);
+    }
+    
+    .header-container .shadow-orbs {
+        right: var(--space-md);
+        top: var(--space-md);
+    }
+    
+    .tab-navigation {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: var(--space-md);
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .card {
+        padding: var(--space-lg);
+    }
+    
+    .talent-tier {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    
+    .talent-options {
+        width: 100%;
+    }
+    
+    .encounter-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tooltips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tier-dropdown-container {
+        padding: var(--space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .card {
+        padding: var(--space-md);
+    }
+    
+    .subsection {
+        padding: var(--space-md);
+    }
+    
+    .header-container .shadow-orbs {
+        right: var(--space-sm);
+        top: var(--space-sm);
+    }
+}
