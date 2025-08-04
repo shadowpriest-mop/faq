@@ -1,0 +1,63 @@
+/* ==============================================
+   MAIN CSS - Import All Modules
+   Shadow Priest MoP FAQ - Master Stylesheet
+   ============================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Import CSS Modules in Order */
+@import 'base.css';        /* Variables, reset, typography, utilities */
+@import 'layout.css';      /* Containers, grids, responsive layout */
+@import 'components.css';  /* Buttons, cards, interactive elements */
+@import 'animations.css';  /* Keyframes, transitions, hover effects */
+@import 'talents.css';     /* Talent system specific styles */
+
+/* ==============================================
+   CONTENT PLACEHOLDER STYLES
+   ============================================== */
+
+.content-placeholder {
+    color: #b0b0b0;
+    font-size: var(--text-base);
+    line-height: 1.8;
+    margin: var(--space-md) 0;
+    font-style: italic;
+    padding: var(--space-lg);
+    background: rgba(176, 176, 176, 0.05);
+    border-radius: var(--radius-md);
+    border-left: 4px solid #b0b0b0;
+}
+
+/* ==============================================
+   PRINT STYLES
+   ============================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    .header-container,
+    .tab-navigation,
+    .toggle-button,
+    .video-container {
+        display: none !important;
+    }
+    
+    .tab-content {
+        display: block !important;
+    }
+    
+    .card {
+        border: 1px solid #000;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}
