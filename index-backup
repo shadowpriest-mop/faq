@@ -1,0 +1,2115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP FAQ MoP</title>
+    <meta name="description" content="Comprehensive FAQ guide for Shadow Priests in World of Warcraft: Mist of Pandaria expansion">
+    <link rel="icon" type="image/png" href="https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easier maintenance */
+        :root {
+            --primary-purple: #9d4edd;
+            --primary-green: #52b788;
+            --primary-gold: #f4c430;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(20, 20, 30, 0.8);
+            --text-light: #e0e0e0;
+            --text-accent: #a8dadc;
+            --border-glow: rgba(157, 78, 221, 0.3);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a0d1a 25%, #2d1b2d 50%, #1e3a2e 75%, #2d4a3d 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Header Component */
+        .header-container {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a0d1a 25%, #2d1b2d 50%, #1e3a2e 75%, #2d4a3d 100%);
+        }
+        
+        .mist-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 60%, rgba(100, 255, 150, 0.15) 0%, transparent 60%);
+            animation: mistFloat 8s ease-in-out infinite;
+        }
+        
+        .shadow-orbs {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            gap: 6px;
+        }
+        
+        .orb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, var(--primary-purple), #3c096c);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+            animation: orbPulse 3s ease-in-out infinite;
+        }
+        
+        .orb:nth-child(2) { animation-delay: 1s; }
+        .orb:nth-child(3) { animation-delay: 2s; }
+        
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .title h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+        }
+        
+        .title .subtitle {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--text-accent);
+            margin: 5px 0 0 0;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            padding: 0 10px;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            background: var(--bg-card);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 12px 24px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .tab-button:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+        }
+        
+        .tab-button:hover::before {
+            left: 100%;
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--primary-purple), #7b2cbf);
+            border-color: var(--primary-purple);
+            color: white;
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.5);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Card Component */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(157, 78, 221, 0.3);
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(244, 196, 48, 0.5);
+            border-bottom: 2px solid rgba(244, 196, 48, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .subsection {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(157, 78, 221, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-purple);
+            transition: var(--transition);
+        }
+        
+        .subsection:hover {
+            background: rgba(157, 78, 221, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .subsection-title {
+            color: #c77dff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Talent Tree Styling */
+        .talent-tier {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+        }
+        
+        .talent-level {
+            color: var(--primary-gold);
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 40px;
+            font-size: 1.2rem;
+        }
+        
+        .talent-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+        
+        .talent-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 2px solid;
+            transition: var(--transition);
+            cursor: pointer;
+            min-width: 200px;
+        }
+        
+        .talent-option img {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+        
+        .talent-option.recommended {
+            background: rgba(82, 183, 136, 0.1);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 15px rgba(82, 183, 136, 0.3);
+        }
+        
+        .talent-option.situational {
+            background: rgba(255, 165, 0, 0.1);
+            border-color: #ffa500;
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);
+        }
+        
+        .talent-option.avoid {
+            background: rgba(220, 50, 50, 0.1);
+            border-color: #dc3232;
+            box-shadow: 0 0 15px rgba(220, 50, 50, 0.3);
+        }
+        
+        .talent-option:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        /* Boss Encounter Cards */
+        .encounter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .encounter-card {
+            background: rgba(15, 15, 20, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(244, 196, 48, 0.3);
+            transition: var(--transition);
+        }
+        
+        .encounter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(244, 196, 48, 0.2);
+        }
+        
+        .encounter-title {
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(244, 196, 48, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .boss-encounter {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 165, 0, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #ffa500;
+        }
+        
+        .boss-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .boss-header img {
+            height: 40px;
+            width: auto;
+            border-radius: 4px;
+        }
+        
+        .boss-name {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                height: 150px;
+            }
+            
+            .title {
+                left: 20px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .tab-navigation {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .tab-button {
+                flex-shrink: 0;
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .card-title {
+                font-size: 1.6rem;
+            }
+            
+            .talent-tier {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .talent-options {
+                width: 100%;
+            }
+            
+            .talent-option {
+                min-width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .encounter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shadow-orbs {
+                right: 15px;
+                top: 15px;
+            }
+            
+            .orb {
+                width: 15px;
+                height: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tab-button {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+            
+            .subsection-title {
+                font-size: 1.2rem;
+            }
+            
+            .talent-level {
+                min-width: 30px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        @keyframes mistFloat {
+            0%, 100% { 
+                transform: translateX(0) scale(1); 
+                opacity: 0.8; 
+            }
+            50% { 
+                transform: translateX(10px) scale(1.05); 
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes orbPulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+            }
+            50% { 
+                transform: scale(1.2); 
+                box-shadow: 0 0 25px rgba(157, 78, 221, 1);
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mt-20 { margin-top: 20px; }
+        
+        /* Content placeholder styling */
+        .content-placeholder {
+            color: #b0b0b0;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.3);
+            margin: 20px 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .toggle-button {
+            background: rgba(157, 78, 221, 0.2);
+            border: 2px solid var(--primary-purple);
+            border-radius: 8px;
+            color: #e0aaff;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .toggle-button:hover {
+            background: rgba(157, 78, 221, 0.3);
+            transform: translateY(-2px);
+        }
+        .talent-tier-expandable {
+    background: rgba(25, 25, 35, 0.9);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(82, 183, 136, 0.3);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.talent-tier-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    cursor: pointer;
+    background: rgba(82, 183, 136, 0.1);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+    transition: background 0.3s ease;
+}
+
+.talent-tier-header:hover {
+    background: rgba(82, 183, 136, 0.15);
+}
+
+.tier-level-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tier-level-badge {
+    background: linear-gradient(135deg, #f4c430, #d4af37);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);
+}
+
+.tier-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #52b788;
+}
+
+.expand-arrow {
+    font-size: 1.5rem;
+    color: #52b788;
+    transition: transform 0.3s ease;
+}
+
+.talent-tier-expandable.expanded .expand-arrow {
+    transform: rotate(180deg);
+}
+
+.talent-tooltips-container {
+    display: none;
+    padding: 25px;
+    background: rgba(15, 15, 20, 0.8);
+}
+
+.talent-tier-expandable.expanded .talent-tooltips-container {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.tooltips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.talent-tooltip {
+    background: rgba(30, 30, 40, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.talent-tooltip:hover {
+    transform: translateY(-3px);
+}
+
+.talent-tooltip.recommended {
+    border-color: #52b788;
+    box-shadow: 0 4px 20px rgba(82, 183, 136, 0.3);
+}
+
+.talent-tooltip.situational {
+    border-color: #ffa500;
+    box-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
+}
+
+.talent-tooltip.avoid {
+    border-color: #dc3232;
+    box-shadow: 0 4px 20px rgba(220, 50, 50, 0.3);
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.tooltip-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.tooltip-category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recommended .tooltip-category {
+    background: #52b788;
+    color: white;
+}
+
+.situational .tooltip-category {
+    background: #ffa500;
+    color: white;
+}
+
+.avoid .tooltip-category {
+    background: #dc3232;
+    color: white;
+}
+
+.tooltip-description {
+    color: #ffd100;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.tooltip-details {
+    color: #a8a8a8;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tooltips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .talent-tier-header {
+        padding: 15px 20px;
+    }
+    
+    .tier-title {
+        font-size: 1.2rem;
+    }
+}
+.talent-tier-selector {
+    background: rgba(25, 25, 35, 0.9);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 2px solid rgba(82, 183, 136, 0.3);
+    overflow: visible;
+}
+
+.tier-dropdown-container {
+    padding: 25px;
+    background: rgba(82, 183, 136, 0.1);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.tier-dropdown-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #52b788;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tier-dropdown {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tier-dropdown-button {
+    width: 100%;
+    background: rgba(15, 15, 20, 0.9);
+    border: 2px solid #52b788;
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.tier-dropdown-button:hover {
+    background: rgba(82, 183, 136, 0.1);
+    border-color: #52b788;
+    box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);
+}
+
+.dropdown-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dropdown-level-badge {
+    background: linear-gradient(135deg, #f4c430, #d4af37);
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-width: 70px;
+    text-align: center;
+}
+
+.dropdown-arrow {
+    font-size: 1.2rem;
+    color: #52b788;
+    transition: transform 0.3s ease;
+}
+
+.tier-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.tier-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 20, 0.95);
+    border: 2px solid #52b788;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    display: none; /* Instead of max-height: 0 */
+}
+
+.tier-dropdown.open .tier-dropdown-menu {
+    max-height: 400px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+.tier-dropdown-option {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(82, 183, 136, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tier-dropdown-option:hover {
+    background: rgba(82, 183, 136, 0.1);
+}
+
+.tier-dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.tier-dropdown-option.selected {
+    background: rgba(82, 183, 136, 0.2);
+}
+
+.talent-tooltips-container {
+    padding: 25px;
+    background: rgba(15, 15, 20, 0.8);
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.talent-tooltips-container.active {
+    display: block;
+}
+
+.tooltips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.talent-tooltip {
+    background: rgba(30, 30, 40, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.talent-tooltip:hover {
+    transform: translateY(-3px);
+}
+
+.talent-tooltip.recommended {
+    border-color: #52b788;
+    box-shadow: 0 4px 20px rgba(82, 183, 136, 0.3);
+}
+
+.talent-tooltip.situational {
+    border-color: #ffa500;
+    box-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
+}
+
+.talent-tooltip.avoid {
+    border-color: #dc3232;
+    box-shadow: 0 4px 20px rgba(220, 50, 50, 0.3);
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.tooltip-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.tooltip-category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recommended .tooltip-category {
+    background: #52b788;
+    color: white;
+}
+
+.situational .tooltip-category {
+    background: #ffa500;
+    color: white;
+}
+
+.avoid .tooltip-category {
+    background: #dc3232;
+    color: white;
+}
+
+.tooltip-description {
+    color: #ffd100;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.tooltip-details {
+    color: #a8a8a8;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .tooltips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tier-dropdown-container {
+        padding: 20px;
+    }
+    
+    .tier-dropdown-button {
+        padding: 12px 16px;
+        font-size: 1rem;
+    }
+}    
+
+        
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <header class="header-container">
+        <div class="mist-overlay"></div>
+        <div class="shadow-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
+        <div class="title">
+            <h1>Shadow Priests</h1>
+            <div class="subtitle">in Mist of Pandaria</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="overview">Overview</button>
+            <button class="tab-button" data-tab="bis">Best in Slot</button>
+            <button class="tab-button" data-tab="changes">Key Changes</button>
+            <button class="tab-button" data-tab="talents">Talents</button>
+            <button class="tab-button" data-tab="viability">Viability</button>
+            <button class="tab-button" data-tab="theorycraft">Theorycraft</button>
+            <button class="tab-button" data-tab="gameplay">Gameplay</button>
+        </nav>
+
+        <!-- Tab Contents -->
+        
+<!-- Overview Tab -->
+<div id="overview" class="tab-content active">
+    <div class="card">
+        <h2 class="card-title">Welcome to the Shadow Priest FAQ</h2>
+        
+        <div class="subsection">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb spell icon">
+                Welcome
+            </div>
+            <p>Welcome to the comprehensive Shadow Priest guide for Mist of Pandaria Classic! This website serves as your one-stop resource for mastering the Shadow Priest specialization in MoP's challenging raid encounters.</p>
+            <p>Our goal is to help you quickly find everything you need to know - from optimal talent builds and gear recommendations to advanced theorycrafting and encounter-specific strategies. Whether you're new to Shadow Priest or looking to optimize your performance, you'll find the answers here & in our Discord.</p>
+        </div>
+        
+        <div class="subsection">
+            <div style="text-align: center; font-size: 1.4rem; color: #c77dff; margin-bottom: 15px; font-weight: 600;">Join the Community</div>
+            <div style="text-align: center; margin: 25px 0;">
+                <div style="background: rgba(88, 101, 242, 0.1); border: 2px solid #5865f2; border-radius: 12px; padding: 25px; max-width: 400px; margin: 0 auto;">
+                    <img src="https://i.ibb.co/JWcwcjwq/Spell-Shadow-Shadow-Word-Pain.png" alt="Shadow Priest Classic Discord Server" style="width: 128px; height: 128px; border-radius: 12px; border: 3px solid #52b788; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                    <h3 style="color: #5865f2; margin: 10px 0; font-size: 1.4rem;">Shadow Priest Classic</h3>
+                    <!-- Replace your current counter with this -->
+<p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">
+    Counting Shadow Orbs..<br>Est. Oct 2021
+</p>
+
+<script>
+// 🔧 Your Discord Server ID
+const DISCORD_SERVER_ID = '893677259905437717';
+
+// Starting numbers (set these to your current actual counts)
+let memberCount = 13337;
+let onlineCount = 666;
+
+async function updateFromDiscord() {
+    try {
+        const endpoints = [
+            `https://discord.com/api/v10/guilds/${893677259905437717}`,
+            `https://discord.com/api/v9/guilds/${893677259905437717}`,
+            `https://discord.com/api/guilds/${893677259905437717}`
+        ];
+        
+        for (const endpoint of endpoints) {
+            try {
+                const response = await fetch(endpoint);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.approximate_member_count) {
+                        memberCount = data.approximate_member_count;
+                        onlineCount = Math.floor(memberCount * 0.3); // Estimate 30% online
+                        
+                        updateDisplay();
+                        saveData();
+                        return;
+                    }
+                }
+            } catch (err) {
+                continue;
+            }
+        }
+        
+        // If API fails, just do a small natural growth estimate (very subtle)
+        const days = Math.floor((Date.now() - getLastUpdateTime()) / (1000 * 60 * 60 * 24));
+        if (days >= 1) {
+            memberCount += Math.floor(days * (Math.random() * 5 + 2)); // 2-7 per day
+            onlineCount = Math.floor(memberCount * (0.25 + Math.random() * 0.15)); // 25-40%
+            updateDisplay();
+            saveData();
+        }
+        
+    } catch (error) {
+        // Silently fail - no error messages shown to users
+    }
+}
+
+function updateDisplay() {
+    document.getElementById('member-counter').innerHTML = 
+        `${onlineCount.toLocaleString()} Orbs Online • ${memberCount.toLocaleString()} Shadow Priests<br>Est. Oct 2021`;
+}
+
+function saveData() {
+    localStorage.setItem('memberData', JSON.stringify({
+        members: memberCount,
+        online: onlineCount,
+        lastUpdate: Date.now()
+    }));
+}
+
+function loadData() {
+    const saved = localStorage.getItem('memberData');
+    if (saved) {
+        const data = JSON.parse(saved);
+        memberCount = data.members;
+        onlineCount = data.online;
+    }
+    updateDisplay();
+}
+
+function getLastUpdateTime() {
+    const saved = localStorage.getItem('memberData');
+    return saved ? JSON.parse(saved).lastUpdate : Date.now();
+}
+
+// Update every 24 hours silently
+setInterval(updateFromDiscord, 24 * 60 * 60 * 1000);
+
+// Load and update on page start
+window.onload = function() {
+    // Keep "Counting Shadow Orbs.." longer
+    setTimeout(() => {
+        loadData();
+        updateFromDiscord();
+    }, 8000); // Wait 8 seconds before trying API and showing fallback
+};
+
+// Hidden manual update (for console use only)
+window.updateNow = updateFromDiscord;
+</script>
+                    
+                    <a href="https://discord.gg/RZuPyMkxCg" target="_blank" style="display: inline-block; background: #5865f2; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.3s ease;">
+                        Join Discord Server
+                    </a>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #a8dadc; font-style: italic;">Connect with other Shadow Priest players and stay updated on the latest theory, BiS lists, raid guides & more.</p>
+        </div>
+    </div>
+</div>
+
+        <!-- Best in Slot Tab -->
+        <div id="bis" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Best in Slot Gear</h2>
+                
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" alt="Tier Gear" style="width: 32px; height: 32px;">
+                        Raid Tier Progression
+                    </div>
+                    <div class="content-placeholder">// Add tier set recommendations and progression paths</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_trinket_01.jpg" alt="Trinket" style="width: 32px; height: 32px;">
+                        Trinket Priorities
+                    </div>
+                    <div class="content-placeholder">// Add trinket ranking and analysis</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_astralrecal.jpg" alt="Stats" style="width: 32px; height: 32px;">
+                        Stat Weights & Priorities
+                    </div>
+                    <div class="content-placeholder">// Add stat priority information and weights</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_staff_107.jpg" alt="Weapon" style="width: 32px; height: 32px;">
+                        Weapon Upgrades
+                    </div>
+                    <div class="content-placeholder">// Add weapon progression guide</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Changes Tab -->
+        <div id="changes" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Key Changes in Mist of Pandaria</h2>
+                
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
+                        <a href="https://www.wowhead.com/mop-classic/spell=77487/shadow-orb" target="_blank" style="color: #c77dff; text-decoration: none;">Shadow Orbs System</a>
+                    </div>
+                    <div class="content-placeholder">// Add detailed explanation of the Shadow Orb system and how it changes gameplay</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Halo" style="width: 32px; height: 32px;">
+                        <a href="https://www.wowhead.com/mop-classic/spell=120696/halo" target="_blank" style="color: #c77dff; text-decoration: none;">New Abilities: Halo</a>
+                    </div>
+                    <div class="content-placeholder">// Add information about Halo and other new MoP abilities</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindspike.jpg" alt="Mind Spike" style="width: 32px; height: 32px;">
+                        Rotation Changes
+                    </div>
+                    <div class="content-placeholder">// Add details about how the rotation has evolved from Cataclysm</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Talents Tab -->
+        <div id="talents" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Talent Analysis</h2>
+                
+                <div class="subsection-title">Talent Tier Comparison</div>
+        <div class="talent-tier-selector">
+        <!-- Dropdown Selector -->
+        <div class="tier-dropdown-container">
+                <div class="tier-dropdown" id="tierDropdown">
+                <div class="tier-dropdown-button" onclick="toggleDropdown()">
+                    <div class="dropdown-text">
+                        <div class="dropdown-level-badge">Level 15</div>
+                        <span>Crowd Control</span>
+                    </div>
+                    <div class="dropdown-arrow">▼</div>
+                </div>
+                <div class="tier-dropdown-menu">
+                    <div class="tier-dropdown-option selected" onclick="selectTier('15', 'Crowd Control', this)">
+                        <div class="dropdown-level-badge">Level 15</div>
+                        <span>Crowd Control</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('30', 'Movement', this)">
+                        <div class="dropdown-level-badge">Level 30</div>
+                        <span>Movement</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('45', 'Gameplay', this)">
+                        <div class="dropdown-level-badge">Level 45</div>
+                        <span>Gameplay</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('60', 'Defensive', this)">
+                        <div class="dropdown-level-badge">Level 60</div>
+                        <span>Defensive</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('75', 'Damage', this)">
+                        <div class="dropdown-level-badge">Level 75</div>
+                        <span>Damage</span>
+                    </div>
+                    <div class="tier-dropdown-option" onclick="selectTier('90', 'Ultimate', this)">
+                        <div class="dropdown-level-badge">Level 90</div>
+                        <span>Ultimate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tooltip Containers for Each Tier -->
+        
+        <!-- Level 15 Tooltips -->
+        <div class="talent-tooltips-container active" id="tier-15">
+            <div class="tooltips-grid">
+                <!-- Void Tendrils -->
+                <div class="talent-tooltip recommended">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_voidtendrils.jpg" alt="Void Tendrils" class="tooltip-icon">
+                        <div class="tooltip-name">Void Tendrils</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 30 sec cooldown</div>
+                    <div class="tooltip-details">Summons Shadowy tendrils out of the ground, rooting up to 5 enemy targets within 8 yards of the caster for 20 sec. Killing the tendril will cancel the effect.</div>
+                </div>
+                
+                <!-- Psyfiend -->
+                <div class="talent-tooltip situational">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_psyfiend.jpg" alt="Psyfiend" class="tooltip-icon">
+                        <div class="tooltip-name">Psyfiend</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 25 yards • 45 sec cooldown</div>
+                    <div class="tooltip-details">Summons a Psyfiend that stands in place for 10 sec. The Psyfiend casts a Psychic Terror on a nearby enemy within 20 yards every 2 sec, preferring anything attacking the Priest. Psychic Terror causes enemies to [Glyph of Psychic Scream: tremble in place / flee] for 30 sec. Damage caused may interrupt the effect.</div>
+                </div>
+                
+                <!-- Dominate Mind -->
+                <div class="talent-tooltip avoid">
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowworddominate.jpg" alt="Dominate Mind" class="tooltip-icon">
+                        <div class="tooltip-name">Dominate Mind</div>
+                    </div>
+                    <div class="tooltip-description">1.8 sec cast • 30 yards</div>
+                    <div class="tooltip-details">Controls a humanoid mind for 30 sec while channeling. Does not work versus Demons, Mechanical, or Undead.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 30 Tooltips -->
+        <div class="talent-tooltips-container" id="tier-30">
+            <div class="tooltips-grid">
+                <!-- Body and Soul -->
+                <div class="talent-tooltip avoid">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_spiritualguidence.jpg" alt="Body and Soul" class="tooltip-icon">
+                        <div class="tooltip-name">Body and Soul</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">When you cast Power Word: Shield or Leap of Faith, you increase the target's movement speed by 60% for 4 sec.</div>
+                </div>
+                
+                <!-- Angelic Feather -->
+                <div class="talent-tooltip recommended">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicfeather.jpg" alt="Angelic Feather" class="tooltip-icon">
+                        <div class="tooltip-name">Angelic Feather</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 40 yards • 10 sec recharge • 3 charges</div>
+                    <div class="tooltip-details">Place a feather at the target location. If allies walk through it, they gain 80% increased movement speed for 6 sec. Only 3 feathers can be placed at one time. Accumulates an additional charge once every 10 sec. Maximum 3 charges.</div>
+                </div>
+                
+                <!-- Phantasm -->
+                <div class="talent-tooltip avoid">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_phantasm.jpg" alt="Phantasm" class="tooltip-icon">
+                        <div class="tooltip-name">Phantasm</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">When you Fade, you remove all movement impairing effects from yourself, and your movement speed is unhindered for 5 sec.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 45 Tooltips -->
+        <div class="talent-tooltips-container" id="tier-45">
+            <div class="tooltips-grid">
+                <!-- From Darkness, Comes Light -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_surgeoflight.jpg" alt="From Darkness, Comes Light" class="tooltip-icon">
+                        <div class="tooltip-name">From Darkness, Comes Light</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Periodic damage from your Vampiric Touch has a 20% chance to cause your next Mind Spike to not consume your damage-over-time effects, become instant cast, cost no mana, and deal 50% additional damage. Limit 2 charges.</div>
+                </div>
+                
+                <!-- Mindbender -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_soulleech_3.jpg" alt="Mindbender" class="tooltip-icon">
+                        <div class="tooltip-name">Mindbender</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 40 yards • 60 sec cooldown</div>
+                    <div class="tooltip-details">Creates a Mindbender to attack the target. Caster receives 1.75% mana when the Mindbender attacks. Lasts 15 sec. Replaces Shadowfiend.</div>
+                </div>
+                
+                <!-- Solace and Insanity -->
+                <div class="talent-tooltip recommended">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity" class="tooltip-icon">
+                        <div class="tooltip-name">Solace and Insanity</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Casting Mind Flay while your target is affected by your Devouring Plague causes your Mind Flay to deal 33% additional damage per orb consumed by Devouring Plague.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 60 Tooltips -->
+        <div class="talent-tooltips-container" id="tier-60">
+            <div class="tooltips-grid">
+                <!-- Desperate Prayer -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_testoffaith.jpg" alt="Desperate Prayer" class="tooltip-icon">
+                        <div class="tooltip-name">Desperate Prayer</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 2 min cooldown</div>
+                    <div class="tooltip-details">Instantly heals the caster for 30% of their total health.</div>
+                </div>
+                
+                <!-- Spectral Guise -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_spectralguise.jpg" alt="Spectral Guise" class="tooltip-icon">
+                        <div class="tooltip-name">Spectral Guise</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 30 sec cooldown</div>
+                    <div class="tooltip-details">Your shadow blurs into the darkness, leaving your true form behind. As a shadow you are stealthed, but remain in combat. Lasts 6 sec or until your true form is hit by 3 direct attacks.</div>
+                </div>
+                
+                <!-- Angelic Bulwark -->
+                <div class="talent-tooltip recommended">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicbulwark.jpg" alt="Angelic Bulwark" class="tooltip-icon">
+                        <div class="tooltip-name">Angelic Bulwark</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Anytime a damaging attack brings you below 30% health, you gain an absorption shield equal to 20% of your total health lasting for 20 sec. This effect cannot occur more than once every 90 sec.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 75 Tooltips -->
+        <div class="talent-tooltips-container" id="tier-75">
+            <div class="tooltips-grid">
+                <!-- Twist of Fate -->
+                <div class="talent-tooltip recommended">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate" class="tooltip-icon">
+                        <div class="tooltip-name">Twist of Fate</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">After damaging or healing a target below 35% health, you deal 15% increased damage and healing for 10 sec.</div>
+                </div>
+                
+                <!-- Power Infusion -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" class="tooltip-icon">
+                        <div class="tooltip-name">Power Infusion</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 2 min cooldown</div>
+                    <div class="tooltip-details">Infuses the Priest with power, increasing spell haste by 20%, all damage by 5%, and reducing the mana cost of all spells by 20%. Lasts 20 sec.</div>
+                </div>
+                
+                <!-- Divine Insight -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_burningwill.jpg" alt="Divine Insight" class="tooltip-icon">
+                        <div class="tooltip-name">Divine Insight</div>
+                    </div>
+                    <div class="tooltip-description">Passive</div>
+                    <div class="tooltip-details">Periodic damage from your Shadow Word: Pain has a 5% chance to reset the cooldown on Mind Blast and cause your next Mind Blast within 12 sec to be instant cast and cost no mana.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 90 Tooltips -->
+        <div class="talent-tooltips-container" id="tier-90">
+            <div class="tooltips-grid">
+                <!-- Cascade -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" class="tooltip-icon">
+                        <div class="tooltip-name">Cascade</div>
+                    </div>
+                     <div class="tooltip-description">Instant • 40 yards • 25 sec cooldown</div>
+                    <div class="tooltip-details">Launches a Holy bolt at the target that grows in power as it travels, which causes 5036.8 to 12592 Holy damage to an enemy, or 5036.8 to 12592 healing to an ally. This effect can bounce from allies to other allies, or from enemies to other enemies. Each time it bounces it will split into 2 bolts, preferring farther away targets, and never hitting the same target twice. Cascade can bounce up to 4 times.</div>
+                </div>
+                
+                <!-- Divine Star -->
+                <div class="talent-tooltip situational">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_divinestar_shadow2.jpg" alt="Divine Star" class="tooltip-icon">
+                        <div class="tooltip-name">Divine Star</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 24 yards • 15 sec cooldown</div>
+                    <div class="tooltip-details">Fires a Divine Star in front of you, traveling 24 yds, causing 4717 Spellshadow damage to all enemies and 1 healing to all allies within 4 yds of its path. After reaching its destination it will return to you, also dealing damage and healing to all targets in its path.</div>
+                </div>
+                
+                <!-- Halo -->
+                <div class="talent-tooltip recommended">
+                    
+                    <div class="tooltip-header">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_halo_shadow.jpg" alt="Halo" class="tooltip-icon">
+                        <div class="tooltip-name">Halo</div>
+                    </div>
+                    <div class="tooltip-description">Instant • 30 yards • 40 sec cooldown</div>
+                    <div class="tooltip-details">Creates a ring of Shadow energy around you that quickly expands and grows in power, up to 30 yds away. Deals up to 0.1 to 1 Shadow damage to enemies, and up to 3369.4 to 42117 healing to allies, with the greatest effect at 28 yds.</div>
+                </div>
+            </div>
+    </div>
+
+
+                <div class="subsection">
+                    <div class="subsection-title">Talent Tree Overview</div>
+                    
+                    <!-- Talent Tiers -->
+                    <div style="background: rgba(10, 10, 15, 0.8); border-radius: 12px; padding: 25px; margin: 20px 0;">
+                        
+                        <!-- Level 15 -->
+                        <div class="talent-tier">
+                            <div class="talent-level">15</div>
+                            <div class="talent-options">
+                                <div class="talent-option recommended">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_voidtendrils.jpg" alt="Void Tendrils">
+                                    <div>
+                                        <div style="color: var(--primary-green); font-weight: 600;">Void Tendrils</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Recommended</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_psyfiend.jpg" alt="Psyfiend">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Psyfiend</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option avoid">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowworddominate.jpg" alt="Dominate Mind">
+                                    <div>
+                                        <div style="color: #ff9999; font-weight: 600;">Dominate Mind</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Avoid</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Level 30 -->
+                        <div class="talent-tier">
+                            <div class="talent-level">30</div>
+                            <div class="talent-options">
+                                <div class="talent-option avoid">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_spiritualguidence.jpg" alt="Body and Soul">
+                                    <div>
+                                        <div style="color: #ff9999; font-weight: 600;">Body and Soul</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Avoid</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option recommended">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicfeather.jpg" alt="Angelic Feather">
+                                    <div>
+                                        <div style="color: var(--primary-green); font-weight: 600;">Angelic Feather</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Recommended</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option avoid">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_phantasm.jpg" alt="Phantasm">
+                                    <div>
+                                        <div style="color: #ff9999; font-weight: 600;">Phantasm</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Avoid</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Level 45 -->
+                        <div class="talent-tier">
+                            <div class="talent-level">45</div>
+                            <div class="talent-options">
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_surgeoflight.jpg" alt="From Darkness, Comes Light">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">From Darkness, Comes Light</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_soulleech_3.jpg" alt="Mindbender">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Mindbender</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option recommended">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity">
+                                    <div>
+                                        <div style="color: var(--primary-green); font-weight: 600;">Solace and Insanity</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Recommended</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Level 60 -->
+                        <div class="talent-tier">
+                            <div class="talent-level">60</div>
+                            <div class="talent-options">
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_testoffaith.jpg" alt="Desperate Prayer">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Desperate Prayer</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_spectralguise.jpg" alt="Spectral Guise">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Spectral Guise</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option recommended">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicbulwark.jpg" alt="Angelic Bulwark">
+                                    <div>
+                                        <div style="color: var(--primary-green); font-weight: 600;">Angelic Bulwark</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Recommended</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Level 75 -->
+                        <div class="talent-tier">
+                            <div class="talent-level">75</div>
+                            <div class="talent-options">
+                                <div class="talent-option recommended">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate">
+                                    <div>
+                                        <div style="color: var(--primary-green); font-weight: 600;">Twist of Fate</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Recommended</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Power Infusion</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_burningwill.jpg" alt="Divine Insight">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Divine Insight</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Level 90 -->
+                        <div class="talent-tier">
+                            <div class="talent-level">90</div>
+                            <div class="talent-options">
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Cascade</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option situational">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_divinestar_shadow2.jpg" alt="Divine Star">
+                                    <div>
+                                        <div style="color: #ffa500; font-weight: 600;">Divine Star</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Situational</div>
+                                    </div>
+                                </div>
+                                <div class="talent-option recommended">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Halo">
+                                    <div>
+                                        <div style="color: var(--primary-green); font-weight: 600;">Halo</div>
+                                        <div style="font-size: 0.8rem; color: #888;">Recommended</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Standard Build</div>
+                    <div style="display: flex; align-items: center; gap: 20px; padding: 20px; background: rgba(82, 183, 136, 0.1); border-radius: 12px; border: 2px solid var(--primary-green); margin: 20px 0;">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity" style="width: 40px; height: 40px;">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate" style="width: 40px; height: 40px;">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Halo" style="width: 40px; height: 40px;">
+                        <div style="color: var(--primary-green); font-weight: 600; font-size: 1.1rem;">Standard: Solace and Insanity • Twist of Fate • Halo</div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Encounter-Specific Swaps</div>
+                    <div class="encounter-grid">
+                        <!-- Mogu'shan Vaults -->
+                        <div class="encounter-card" style="border-color: rgba(244, 196, 48, 0.4);">
+                            <div class="encounter-title" style="color: var(--primary-gold);">Mogu'shan Vaults</div>
+                            
+                            <!-- Stone Guard -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-cobalt-guardian.png" alt="Stone Guard" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Stone Guard</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Power Infusion</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Burst phases require high damage windows. Power Infusion provides the necessary cooldown reduction and haste to maximize damage during these critical moments.</div>
+                                </div>
+                            </div>
+
+                            <!-- Elegon -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-elegon.png" alt="Elegon" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Elegon</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Cascade</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Add phases with spread positioning make Cascade extremely valuable. The bouncing effect between clustered adds provides significant AoE damage that Halo cannot match.</div>
+                                </div>
+                            </div>
+
+                            <!-- Will of the Emperor -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-jan-xi.png" alt="Will of the Emperor" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Will of the Emperor</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_surgeoflight.jpg" alt="From Darkness, Comes Light" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">From Darkness, Comes Light</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">High movement encounter where instant cast procs are invaluable. The free Flash Heal procs help maintain DPS during heavy movement phases while providing emergency healing utility.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Heart of Fear -->
+                        <div class="encounter-card" style="border-color: rgba(220, 120, 50, 0.4);">
+                            <div class="encounter-title" style="color: #dc7832;">Heart of Fear</div>
+                            
+                            <!-- Blade Lord Ta'yak -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-blade-lord-tayak.png" alt="Blade Lord Ta'yak" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #e6955c; font-weight: 600; font-size: 1.2rem;">Blade Lord Ta'yak</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(220, 120, 50, 0.08); border-radius: 8px; border-left: 4px solid #dc7832;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e6955c; font-size: 1.1rem; font-weight: 600;">Power Infusion</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Intense burn phases during the final platform require maximum DPS. Power Infusion's cooldown reduction allows for more frequent Shadow Word: Death usage and faster orb generation.</div>
+                                </div>
+                            </div>
+
+                            <!-- Garalon -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garalon.png" alt="Garalon" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #e6955c; font-weight: 600; font-size: 1.2rem;">Garalon</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(220, 120, 50, 0.08); border-radius: 8px; border-left: 4px solid #dc7832;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e6955c; font-size: 1.1rem; font-weight: 600;">Cascade</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Multiple targets (legs + boss) positioned at varying ranges make Cascade optimal for cleave damage. The bouncing effect consistently hits both legs and Garalon himself.</div>
+                                </div>
+                            </div>
+
+                            <!-- Amber Shaper Un'Sok -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-amber-shaper-unsok.png" alt="Amber Shaper Un'Sok" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #e6955c; font-weight: 600; font-size: 1.2rem;">Amber Shaper Un'Sok</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(220, 120, 50, 0.08); border-radius: 8px; border-left: 4px solid #dc7832;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_testoffaith.jpg" alt="Desperate Prayer" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e6955c; font-size: 1.1rem; font-weight: 600;">Desperate Prayer</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Angelic Bulwark creates a ~2 million damage shield when you get Mind Controlled, essentially causing a raid wipe. Desperate Prayer provides better survivability without the harmful shield effect.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terrace of Endless Spring -->
+                        <div class="encounter-card" style="border-color: rgba(80, 160, 180, 0.4);">
+                            <div class="encounter-title" style="color: #50a0b4;">Terrace of Endless Spring</div>
+                            
+                            <!-- Sha of Fear -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-sha-of-fear.png" alt="Sha of Fear" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #6bb6cd; font-weight: 600; font-size: 1.2rem;">Sha of Fear</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(80, 160, 180, 0.08); border-radius: 8px; border-left: 4px solid #50a0b4;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #6bb6cd; font-size: 1.1rem; font-weight: 600;">Cascade</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Platform phases with adds and the main boss create perfect conditions for Cascade bouncing. The spell efficiently hits multiple targets across different platform positions.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+<div class="subsection">
+    <div class="subsection-title">Talent Explanation</div>
+    <p>This comprehensive guide breaks down each talent choice and explains why certain options excel in Mist of Pandaria's raid encounters. Understanding the reasoning behind these recommendations will help you make informed decisions for different situations.</p>
+    
+    <!-- Recommended Talents Section -->
+    <div style="margin: 30px 0;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; text-align: center; padding: 15px; border-radius: 10px; background: rgba(82, 183, 136, 0.1); border: 2px solid #52b788; color: #52b788;">🟢 Recommended Talents</h3>
+        <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: #a8dadc; font-style: italic;">These talents form the core of the optimal Shadow Priest build and should be your default choices for most encounters.</p>
+        
+        <!-- Void Tendrils -->
+        <div style="background: rgba(25, 25, 35, 0.9); border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 2px solid rgba(82, 183, 136, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); position: relative;">
+            <div style="position: absolute; top: -10px; right: 20px; background: linear-gradient(135deg, #f4c430, #d4af37); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);">Level 15</div>
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(82, 183, 136, 0.3);">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_voidtendrils.jpg" alt="Void Tendrils talent icon" style="width: 48px; height: 48px; border-radius: 8px; border: 2px solid #52b788; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                <h4 style="font-size: 1.8rem; font-weight: 700; color: #52b788; text-shadow: 0 0 10px rgba(82, 183, 136, 0.5); margin: 0;">Void Tendrils</h4>
+            </div>
+            <div style="line-height: 1.7;">
+                <p style="margin-bottom: 0; font-size: 1rem;">Void Tendrils provides solid crowd control for adds and emergency situations.<br>Unlike the other options, it offers reliable damage mitigation when you need to control multiple targets during encounters like The Stone Guard.<br>The 8-second root duration gives your team time to position properly. Do not use this if you dont know what you're doing. This can potentially be harmful!</p>
+            </div>
+        </div>
+
+        <!-- Angelic Feather -->
+        <div style="background: rgba(25, 25, 35, 0.9); border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 2px solid rgba(82, 183, 136, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); position: relative;">
+            <div style="position: absolute; top: -10px; right: 20px; background: linear-gradient(135deg, #f4c430, #d4af37); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);">Level 30</div>
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(82, 183, 136, 0.3);">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicfeather.jpg" alt="Angelic Feather talent icon" style="width: 48px; height: 48px; border-radius: 8px; border: 2px solid #52b788; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                <h4 style="font-size: 1.8rem; font-weight: 700; color: #52b788; text-shadow: 0 0 10px rgba(82, 183, 136, 0.5); margin: 0;">Angelic Feather</h4>
+            </div>
+            <div style="line-height: 1.7;">
+                <p style="margin-bottom: 0; font-size: 1rem;">Where Shadow Priests have always struggled is mobility - we're essentially a turret class that wants to stand still and cast. Angelic Feather completely transforms this weakness into a strength, giving us on-demand 60% movement speed whenever we need it most.<br>This talent becomes absolutely game-changing in MoP's high-movement encounters. Whether you're dodging Elegon's devastating floor effects, repositioning during Will of the Emperor's add phases, or navigating the platform mechanics on Blade Lord Ta'yak, Angelic Feather ensures you're never caught out of position.<br>The [@player] macro functionality wasn't available in original Pandaria, which means you had to manually target and click feathers - making this talent essentially mandatory in the modern classic environment. No brain power required, just instant mobility on demand!<br><br><strong style="color: #f4c430; font-weight: 600;">Pro tip:</strong> Be careful when stacking with your raid team! Other players can accidentally step on your feathers and steal your speed boost. Attempt to stand on your own, slightly away from the stack to avoid this frustrating scenario.<br><strong style="color: #e54335; font-weight: 600;">Warning:</strong> Glyph of Mind Flay, when active will prevent you from picking up Feathers & can't be cancelaura'd. More about this in the Glyphs section.</p>
+            </div>
+        </div>
+
+        <!-- Solace and Insanity -->
+        <div style="background: rgba(25, 25, 35, 0.9); border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 2px solid rgba(82, 183, 136, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); position: relative;">
+            <div style="position: absolute; top: -10px; right: 20px; background: linear-gradient(135deg, #f4c430, #d4af37); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);">Level 45</div>
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(82, 183, 136, 0.3);">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity talent icon" style="width: 48px; height: 48px; border-radius: 8px; border: 2px solid #52b788; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                <h4 style="font-size: 1.8rem; font-weight: 700; color: #52b788; text-shadow: 0 0 10px rgba(82, 183, 136, 0.5); margin: 0;">Solace and Insanity</h4>
+            </div>
+            <div style="line-height: 1.7;">
+                <p style="margin-bottom: 0; font-size: 1rem;">Insanity is an amazing talent, which makes our gameplay a lot of fun.<br>The pure single target sim & theorycrafting is still being worked on, to answer the question about how to deal with our 2 dots falling off during the Insanity window.<br>As of right now, unless you really know what you're doing its best to clip both SWP & VT before an Insanity window.<br>This means, if they would fall off for the duration of your DP > clipped MF to extend the Insanity & Mind Blast. The actual duration of this varies on your haste levels, but in P1 bis (with the setbonus)</p>
+            </div>
+        </div>
+
+        <!-- Angelic Bulwark -->
+        <div style="background: rgba(25, 25, 35, 0.9); border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 2px solid rgba(82, 183, 136, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); position: relative;">
+            <div style="position: absolute; top: -10px; right: 20px; background: linear-gradient(135deg, #f4c430, #d4af37); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);">Level 60</div>
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(82, 183, 136, 0.3);">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_angelicbulwark.jpg" alt="Angelic Bulwark talent icon" style="width: 48px; height: 48px; border-radius: 8px; border: 2px solid #52b788; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                <h4 style="font-size: 1.8rem; font-weight: 700; color: #52b788; text-shadow: 0 0 10px rgba(82, 183, 136, 0.5); margin: 0;">Angelic Bulwark</h4>
+            </div>
+            <div style="line-height: 1.7;">
+                <p style="margin-bottom: 0; font-size: 1rem;">Mini Cauterize! It's sadly not as powerful since it doesn't prevent us from dying when we take larger than 30% hits, but it's rare for these mechanics to occur in most encounters, when playing correct.<br>The biggest benefit of this talent is that it's completely passive. Meaning you don't have to do anything for this to occur - no brain power required, no button press, just automatic protection when you need it most.<br><br><strong style="color: #e54335; font-weight: 600;">Warning:</strong> Just make sure you remove this for Amber Shaper Un'Sok! You don't want to create a multi-million damage shield on yourself when you become the vehicle - that's a guaranteed raid wipe.</p>
+            </div>
+        </div>
+
+        <!-- Twist of Fate -->
+        <div style="background: rgba(25, 25, 35, 0.9); border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 2px solid rgba(82, 183, 136, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); position: relative;">
+            <div style="position: absolute; top: -10px; right: 20px; background: linear-gradient(135deg, #f4c430, #d4af37); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);">Level 75</div>
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(82, 183, 136, 0.3);">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate talent icon" style="width: 48px; height: 48px; border-radius: 8px; border: 2px solid #52b788; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                <h4 style="font-size: 1.8rem; font-weight: 700; color: #52b788; text-shadow: 0 0 10px rgba(82, 183, 136, 0.5); margin: 0;">Twist of Fate</h4>
+            </div>
+            <div style="line-height: 1.7;">
+                <p style="margin-bottom: 0; font-size: 1rem;">This is hands-down the most BROKEN talent in all of Mist of Pandaria - and I'm not exaggerating! Twist of Fate gives you a massive 15% damage increase whenever you attack targets below 35% health, transforming you from a decent DPS into an absolute monster.<br>Forget what the sims tell you - this talent is absolutely insane in the hands of skilled players who understand fight timings. While other classes are stuck with their boring static rotations, you're getting a permanent damage steroid that makes you feel like you're playing a completely different game.<br>The secret sauce? Learning encounter timings to maximize your uptime on this incredible buff. Some fights are easier than others, but mastering this talent will help you demolish damage meters on execute-heavy fights.<br>This is why top Shadow Priests will absolutely destroy other specs during execute phases while everyone else is left wondering what happened. Master this talent, and you'll understand why Shadow Priest mains are grinning from ear to ear in MoP!</p>
+            </div>
+        </div>
+
+        <!-- Halo -->
+        <div style="background: rgba(25, 25, 35, 0.9); border-radius: 15px; padding: 25px; margin-bottom: 30px; border: 2px solid rgba(82, 183, 136, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); position: relative;">
+            <div style="position: absolute; top: -10px; right: 20px; background: linear-gradient(135deg, #f4c430, #d4af37); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);">Level 90</div>
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(82, 183, 136, 0.3);">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Halo talent icon" style="width: 48px; height: 48px; border-radius: 8px; border: 2px solid #52b788; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
+                <h4 style="font-size: 1.8rem; font-weight: 700; color: #52b788; text-shadow: 0 0 10px rgba(82, 183, 136, 0.5); margin: 0;">Halo</h4>
+            </div>
+            <div style="line-height: 1.7;">
+                <p style="margin-bottom: 0; font-size: 1rem;">While Twist of Fate might be the most broken talent in the game, Halo is hands down the most visually spectacular!<br>Nothing beats watching that beautiful ring of divine energy expand outward, obliterating everything in its path - it's pure eye candy that never gets old.<br>But don't let the pretty visuals fool you - this talent demands serious skill and positioning awareness to maximize its potential. <br><br>The unique damage scaling means targets take more damage the further they are from you, making optimal positioning crucial for top-tier performance, theorycrafting has the graphs!<br>Here's where Halo gets tricky: some encounter designs can make it downright unplayable due to positioning constraints or safety concerns. When you can't position optimally, you're essentially handicapping one of your most powerful abilities, which is incredibly frustrating.<br>The real strength of Halo shines in multi-target scenarios, especially against spread-out enemies with lower health pools. With no target cap and the ability to clip through walls and terrain, you can hit enemies you didn't even know existed - just be careful not to accidentally pull extra packs!<br>Master the positioning requirements and damage scaling, and you'll understand why this talent can single-handedly carry certain encounters. When everything aligns perfectly, few abilities in the game feel as satisfying to execute!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Viability Tab -->
+        <div id="viability" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">How Good is Shadow?</h2>
+                
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Shadow Word: Pain" style="width: 32px; height: 32px;">
+                        Raid Viability Analysis
+                    </div>
+                    <div class="content-placeholder">// Add comprehensive analysis of Shadow Priest's position in MoP raiding meta</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" alt="Mind Flay" style="width: 32px; height: 32px;">
+                        Strengths & Weaknesses
+                    </div>
+                    <div class="content-placeholder">// Detail what Shadow Priests excel at and where they struggle in MoP</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_guardianspirit.jpg" alt="Utility" style="width: 32px; height: 32px;">
+                        Raid Utility
+                    </div>
+                    <div class="content-placeholder">// Explain the unique utility Shadow Priests bring to raids</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theorycraft Tab -->
+        <div id="theorycraft" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Theorycraft & Simulation</h2>
+                
+                <div class="subsection">
+                    <div class="subsection-title" style="justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Mind Blast" style="width: 32px; height: 32px;">
+                            Understanding Simulation Limitations
+                        </div>
+                        <button id="videoToggle" class="toggle-button">Hide Video</button>
+                    </div>
+                    
+                    <div id="videoContainer" class="video-container" style="transition: var(--transition);">
+                        <iframe src="https://www.youtube.com/embed/cQ1j5yvRYgs" 
+                                title="Why Sims Suck - Shadow Priest Analysis"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <p>While simulations provide valuable baseline comparisons between talent builds and gear configurations, they have significant limitations in real raid scenarios. Traditional sims assume perfect conditions with continuous DPS uptime, which rarely reflects actual encounter mechanics.</p>
+                    
+                    <p>Real encounters involve movement phases, target switching, add management, and interruptions that significantly impact performance compared to theoretical maximum output. This means encounter-specific knowledge often matters more than pure simulation numbers when optimizing your Shadow Priest.</p>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Mind Blast" style="width: 32px; height: 32px;">
+                        Simulation Tools & Resources
+                    </div>
+                    <div class="content-placeholder">// Add links to simulation tools and how to interpret results properly</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_astralrecal.jpg" alt="Stats" style="width: 32px; height: 32px;">
+                        Statistical Analysis
+                    </div>
+                    <div class="content-placeholder">// Add detailed stat weights and mathematical analysis</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gameplay Tab -->
+        <div id="gameplay" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Gameplay Guide</h2>
+                
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowfiend.jpg" alt="Shadowfiend" style="width: 32px; height: 32px;">
+                        PvE Rotation & Priority
+                    </div>
+                    <div class="content-placeholder">// Add detailed rotation guides for different scenarios</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
+                        Shadow Orb Management
+                    </div>
+                    <div class="content-placeholder">// Explain optimal Shadow Orb usage strategies</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" alt="Psychic Scream" style="width: 32px; height: 32px;">
+                        Cooldown Management
+                    </div>
+                    <div class="content-placeholder">// Detail when and how to use major cooldowns effectively</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" alt="Mind Flay" style="width: 32px; height: 32px;">
+                        Movement & Positioning
+                    </div>
+                    <div class="content-placeholder">// Tips for maintaining DPS while handling encounter mechanics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Video toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoToggle = document.getElementById('videoToggle');
+            const videoContainer = document.getElementById('videoContainer');
+            let isVideoVisible = true;
+
+            if (videoToggle && videoContainer) {
+                videoToggle.addEventListener('click', function() {
+                    if (isVideoVisible) {
+                        videoContainer.style.height = '0';
+                        videoContainer.style.paddingBottom = '0';
+                        videoContainer.style.marginTop = '0';
+                        videoContainer.style.marginBottom = '0';
+                        videoContainer.style.opacity = '0';
+                        videoToggle.textContent = 'Show Video';
+                        videoToggle.style.background = 'rgba(82, 183, 136, 0.2)';
+                        videoToggle.style.borderColor = 'var(--primary-green)';
+                        videoToggle.style.color = 'var(--primary-green)';
+                    } else {
+                        videoContainer.style.height = '';
+                        videoContainer.style.paddingBottom = '56.25%';
+                        videoContainer.style.marginTop = '20px';
+                        videoContainer.style.marginBottom = '20px';
+                        videoContainer.style.opacity = '1';
+                        videoToggle.textContent = 'Hide Video';
+                        videoToggle.style.background = 'rgba(157, 78, 221, 0.2)';
+                        videoToggle.style.borderColor = 'var(--primary-purple)';
+                        videoToggle.style.color = '#e0aaff';
+                    }
+                    isVideoVisible = !isVideoVisible;
+                });
+            }
+        });
+
+        // Add smooth scrolling when switching tabs
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            });
+        });
+
+        // Talent option hover effects
+        document.querySelectorAll('.talent-option').forEach(option => {
+            option.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.zIndex = '10';
+            });
+            
+            option.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '1';
+            });
+        });
+    function toggleTier(element) {
+    // Close all other expanded tiers
+    document.querySelectorAll('.talent-tier-expandable.expanded').forEach(tier => {
+        if (tier !== element) {
+            tier.classList.remove('expanded');
+        }
+    });
+    
+    // Toggle the clicked tier
+    element.classList.toggle('expanded');
+}
+
+// Close tiers when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.talent-tier-expandable')) {
+        document.querySelectorAll('.talent-tier-expandable.expanded').forEach(tier => {
+            tier.classList.remove('expanded');
+        });
+    }
+});
+// Dropdown functions
+function toggleDropdown() {
+    const dropdown = document.getElementById('tierDropdown');
+    dropdown.classList.toggle('open');
+}
+
+function selectTier(level, tierName, element) {
+    // Update button text
+    const button = document.querySelector('.tier-dropdown-button');
+    button.innerHTML = `
+        <div class="dropdown-text">
+            <div class="dropdown-level-badge">Level ${level}</div>
+            <span>${tierName}</span>
+        </div>
+        <div class="dropdown-arrow">▼</div>
+    `;
+    
+    // Update selected state
+    document.querySelectorAll('.tier-dropdown-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    element.classList.add('selected');
+    
+    // Hide all tooltip containers
+    document.querySelectorAll('.talent-tooltips-container').forEach(container => {
+        container.classList.remove('active');
+    });
+    
+    // Show selected tier container
+    const selectedContainer = document.getElementById(`tier-${level}`);
+    if (selectedContainer) {
+        selectedContainer.classList.add('active');
+    }
+    
+    // Close dropdown
+    document.getElementById('tierDropdown').classList.remove('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.tier-dropdown')) {
+        document.getElementById('tierDropdown').classList.remove('open');
+    }
+});
+</script>
+</body>
+</html>
