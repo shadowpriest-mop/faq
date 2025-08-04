@@ -532,3 +532,124 @@
         font-size: var(--text-xl);
     }
 }
+
+/* ==============================================
+   CSS FIXES - Header Glow & Dropdown Issues
+   Add these fixes to your talents.css file
+   ============================================== */
+
+/* Fix 1: Header Title Glow - Remove border glow, keep text glow */
+.title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Remove the problematic filter that's causing border glow */
+    /* filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7)); */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    /* Add subtle text glow without border issues */
+    text-shadow: 
+        0 0 10px rgba(157, 78, 221, 0.5),
+        2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Alternative fix - if the above doesn't work, try this instead */
+.title h1.alt-fix {
+    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.title h1.alt-fix::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(10px);
+    opacity: 0.7;
+}
+
+/* Fix 2: Dropdown Z-Index Issues */
+.tier-dropdown {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    /* Ensure the dropdown container has high z-index */
+    z-index: 10000;
+}
+
+.tier-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 20, 0.95);
+    border: 2px solid var(--primary-green);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    /* Super high z-index to ensure it appears above everything */
+    z-index: 99999;
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+.tier-dropdown.open .tier-dropdown-menu {
+    max-height: 500px; /* Increased from 400px */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+/* Ensure the talent tier selector container doesn't clip the dropdown */
+.talent-tier-selector {
+    background: rgba(25, 25, 35, 0.9);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    border: 2px solid rgba(82, 183, 136, 0.3);
+    /* Remove overflow hidden that might be clipping */
+    overflow: visible !important;
+    /* Ensure container has proper z-index */
+    position: relative;
+    z-index: 1000;
+}
+
+.tier-dropdown-container {
+    padding: var(--space-xl);
+    background: rgba(82, 183, 136, 0.1);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+    /* Ensure this container doesn't clip either */
+    overflow: visible;
+    position: relative;
+    z-index: 1001;
+}
+
+/* Fix for any parent containers that might be clipping */
+.card {
+    /* Ensure cards don't clip dropdowns */
+    overflow: visible;
+}
+
+/* Additional z-index fix for mobile */
+@media (max-width: 768px) {
+    .tier-dropdown-menu {
+        z-index: 999999;
+        position: fixed;
+        left: 20px;
+        right: 20px;
+        max-width: calc(100vw - 40px);
+    }
+}
