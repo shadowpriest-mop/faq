@@ -606,3 +606,35 @@
         max-width: calc(100vw - 40px);
     }
 }
+
+/* Override the grid layout for glyphs to be vertical */
+.glyph-tooltips-container .tooltips-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    /* Remove grid styling */
+    grid-template-columns: none;
+}
+
+/* Make glyph tooltips full width in vertical layout */
+.glyph-tooltip {
+    width: 100%;
+    max-width: none;
+}
+
+/* Alternative: If you want them in a single column but centered */
+.glyph-tooltips-container .tooltips-grid.vertical {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive: Keep vertical on mobile too */
+@media (max-width: 768px) {
+    .glyph-tooltips-container .tooltips-grid {
+        display: flex;
+        flex-direction: column;
+    }
+}
