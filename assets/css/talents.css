@@ -533,54 +533,7 @@
     }
 }
 
-/* ==============================================
-   CSS FIXES - Header Glow & Dropdown Issues
-   Add these fixes to your talents.css file
-   ============================================== */
-
-/* Fix 1: Header Title Glow - Remove border glow, keep text glow */
-.title h1 {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: 600;
-    margin: 0;
-    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Remove the problematic filter that's causing border glow */
-    /* filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7)); */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    /* Add subtle text glow without border issues */
-    text-shadow: 
-        0 0 10px rgba(157, 78, 221, 0.5),
-        2px 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-/* Alternative fix - if the above doesn't work, try this instead */
-.title h1.alt-fix {
-    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.title h1.alt-fix::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: blur(10px);
-    opacity: 0.7;
-}
-
-/* Fix 2: Dropdown Z-Index Issues */
+/* Fix dropdown Z-Index Issues */
 .tier-dropdown {
     width: 100%;
     max-width: 400px;
@@ -624,7 +577,7 @@
     overflow: visible !important;
     /* Ensure container has proper z-index */
     position: relative;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .tier-dropdown-container {
@@ -634,7 +587,7 @@
     /* Ensure this container doesn't clip either */
     overflow: visible;
     position: relative;
-    z-index: 1001;
+    z-index: 9999;
 }
 
 /* Fix for any parent containers that might be clipping */
