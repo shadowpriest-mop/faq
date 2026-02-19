@@ -34,6 +34,7 @@
     <button class="tab-button" data-tab="glyphs">Glyphs</button>
     <button class="tab-button" data-tab="theorycraft">Theory & Simulation</button>
     <button class="tab-button" data-tab="gameplay">Gameplay</button>
+    <button class="tab-button" data-tab="videos">I hate reading</button>
         </nav>
 
         <!-- Tab Contents -->
@@ -1540,28 +1541,6 @@ window.updateNow = updateFromDiscord;
     <div class="card">
         <h2 class="card-title">Theory & Simulation</h2>
                 
-                <div class="subsection">
-                    <div class="subsection-title" style="justify-content: space-between;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Mind Blast" style="width: 32px; height: 32px;">
-                            Understanding Simulation Limitations
-                        </div>
-                        <button id="videoToggle" class="toggle-button">Hide Video</button>
-                    </div>
-                    
-                    <div id="videoContainer" class="video-container" style="transition: var(--transition);">
-                        <iframe src="https://www.youtube.com/embed/cQ1j5yvRYgs" 
-                                title="Why Sims Suck - Shadow Priest Analysis"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                    
-                    <p>While simulations provide valuable baseline comparisons between talent builds and gear configurations, they have significant limitations in real raid scenarios. Traditional sims assume perfect conditions with continuous DPS uptime, which rarely reflects actual encounter mechanics.</p>
-                    
-                    <p>Real encounters involve movement phases, target switching, add management, and interruptions that significantly impact performance compared to theoretical maximum output. This means encounter-specific knowledge often matters more than pure simulation numbers when optimizing your Shadow Priest.</p>
-                </div>
 
                 <div class="subsection">
                     <div class="subsection-title">
@@ -1842,35 +1821,57 @@ window.updateNow = updateFromDiscord;
                     </div>
                 </div>
 
-                <!-- Video Guides -->
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_film_01.jpg" alt="Video Guides" style="width: 32px; height: 32px;">
-                        SPriest MoP Video Guides
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 28px;">
-
-                        <div>
-                            <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Pants</div>
-                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-                                <iframe src="https://www.youtube.com/embed/dkycW2IfsRo" title="Pants — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
-                            </div>
-                            <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Pants has a ton of great info on his channel — definitely check it out! There's also a deep dive video on shadow priest that covers everything and more in greater detail (also pinned in the Discord channel).</p>
-                        </div>
-
-                        <div>
-                            <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Skimmy</div>
-                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-                                <iframe src="https://www.youtube.com/embed/LH5aODSFQ1o" title="Skimmy — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
-                            </div>
-                            <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Skimmy has a ton of great info on his channel — check him out! He also streams on Twitch: <a href="https://www.twitch.tv/skimmynz" target="_blank" style="color: var(--primary-green);">twitch.tv/skimmynz</a></p>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div><!-- end .container -->
+
+<!-- I hate reading Tab -->
+<div id="videos" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Video Guides</h2>
+
+        <div class="subsection">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_film_01.jpg" alt="Video Guides" style="width: 32px; height: 32px;">
+                SPriest MoP Video Guides
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 28px;">
+                <div>
+                    <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Pants</div>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                        <iframe src="https://www.youtube.com/embed/dkycW2IfsRo" title="Pants — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
+                    </div>
+                    <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Pants has a ton of great info on his channel — definitely check it out! There's also a deep dive video on shadow priest that covers everything and more in greater detail (also pinned in the Discord channel).</p>
+                </div>
+                <div>
+                    <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Skimmy</div>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                        <iframe src="https://www.youtube.com/embed/LH5aODSFQ1o" title="Skimmy — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
+                    </div>
+                    <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Skimmy has a ton of great info on his channel — check him out! He also streams on Twitch: <a href="https://www.twitch.tv/skimmynz" target="_blank" style="color: var(--primary-green);">twitch.tv/skimmynz</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Sim Limitations" style="width: 32px; height: 32px;">
+                Understanding Simulation Limitations
+            </div>
+            <div class="video-container" style="transition: var(--transition);">
+                <iframe src="https://www.youtube.com/embed/cQ1j5yvRYgs"
+                        title="Why Sims Suck - Shadow Priest Analysis"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p>While simulations provide valuable baseline comparisons between talent builds and gear configurations, they have significant limitations in real raid scenarios. Traditional sims assume perfect conditions with continuous DPS uptime, which rarely reflects actual encounter mechanics.</p>
+            <p>Real encounters involve movement phases, target switching, add management, and interruptions that significantly impact performance compared to theoretical maximum output. This means encounter-specific knowledge often matters more than pure simulation numbers when optimizing your Shadow Priest.</p>
+        </div>
+
+    </div>
+</div>
 
 
     <script>
@@ -1892,39 +1893,6 @@ window.updateNow = updateFromDiscord;
             });
         });
 
-        // Video toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoToggle = document.getElementById('videoToggle');
-            const videoContainer = document.getElementById('videoContainer');
-            let isVideoVisible = true;
-
-            if (videoToggle && videoContainer) {
-                videoToggle.addEventListener('click', function() {
-                    if (isVideoVisible) {
-                        videoContainer.style.height = '0';
-                        videoContainer.style.paddingBottom = '0';
-                        videoContainer.style.marginTop = '0';
-                        videoContainer.style.marginBottom = '0';
-                        videoContainer.style.opacity = '0';
-                        videoToggle.textContent = 'Show Video';
-                        videoToggle.style.background = 'rgba(82, 183, 136, 0.2)';
-                        videoToggle.style.borderColor = 'var(--primary-green)';
-                        videoToggle.style.color = 'var(--primary-green)';
-                    } else {
-                        videoContainer.style.height = '';
-                        videoContainer.style.paddingBottom = '56.25%';
-                        videoContainer.style.marginTop = '20px';
-                        videoContainer.style.marginBottom = '20px';
-                        videoContainer.style.opacity = '1';
-                        videoToggle.textContent = 'Hide Video';
-                        videoToggle.style.background = 'rgba(157, 78, 221, 0.2)';
-                        videoToggle.style.borderColor = 'var(--primary-purple)';
-                        videoToggle.style.color = '#e0aaff';
-                    }
-                    isVideoVisible = !isVideoVisible;
-                });
-            }
-        });
 
         // Add smooth scrolling when switching tabs
         tabButtons.forEach(button => {
