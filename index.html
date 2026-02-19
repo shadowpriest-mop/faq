@@ -29,7 +29,7 @@
         <nav class="tab-navigation">
     <button class="tab-button active" data-tab="overview">Overview</button>
     <button class="tab-button" data-tab="faq">FAQ</button>
-    <button class="tab-button" data-tab="bis">Best in Slot</button>
+    <button class="tab-button" data-tab="bis">Gear</button>
     <button class="tab-button" data-tab="changes">Key Changes</button>
     <button class="tab-button" data-tab="talents">Talents</button>
     <button class="tab-button" data-tab="glyphs">Glyphs</button>
@@ -267,17 +267,34 @@ window.updateNow = updateFromDiscord;
             </div>
         </div>
 
-        <!-- Best in Slot Tab -->
+        <!-- Gear Tab -->
         <div id="bis" class="tab-content">
             <div class="card">
-                <h2 class="card-title">Best in Slot Gear</h2>
+                <h2 class="card-title">Gear</h2>
                 
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" alt="Tier Gear" style="width: 32px; height: 32px;">
-                        Raid Tier Progression
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" alt="BiS" style="width: 32px; height: 32px;">
+                        BiS
                     </div>
-                    <div class="content-placeholder">// Add tier set recommendations and progression paths</div>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                        <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJKayS7AKvWbkUtQ4MIKViW2qzdYXl9j0VjOaMHExSFwYDmrRimQJShweQWrxDFVJWa4JI/AhMOsEnPUNJYxghVcAio4rKTENvs6CxABhfgF+oAK9ikpMTJAdAgKnAequQgWKLFg8likxiUicHQ5qxLnn2sgS4HaNDpBCkUE2layStxUVWKDSEBEBQTWL2eVOKukxAxSWAJ2X/9hVjCLU2Ap0KVdIGVsAu0rWcH0zBUgWljgHFDbLaDLZu1jBeksBTt+A1DwkhJYi9YOJgkmrg2MDEMMCDUMuJOtbjNxMeCHQqOhSy4AAE9QTnU=" target="_blank"
+                           style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82,183,136,0.08); border: 2px solid rgba(82,183,136,0.35); border-radius: 10px; text-decoration: none; transition: background 0.2s ease;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 2 BiS</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims — Heart of Fear / Terrace of Endless Spring</div>
+                            </div>
+                        </a>
+                        <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJLaxi7AKjWDiYtH4PsXViW2zy9YX19j4eITWPIVyAMygUijnEtIYNlnVoljqkpsf66xzL7OojGZESh28wurxBw1JWagGFDAY6Eal4jAUqC6w0pKnBB1IN2lXBICO76wGqz5+x8CGCX2KSmBZBm4hAUWAdWfA3KB6hk0JjJ6LFLjEhU4BHQK1ASQZT2MHv8VgPYtAaq9CXQD1GCwG+Y8Y5U4pQQXm8jIxS2w6hmrEjPE4TwCq2GcHkYuFoFFX1m52AUmfmHV6GLkEhRY/JVV4pYS3FflXPwCy4BCl5RgntLawSTBxLWBkWGIAaGGAXey1W0mLgb8UGg0dMkFAAImblw=" target="_blank"
+                           style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82,183,136,0.08); border: 2px solid rgba(82,183,136,0.35); border-radius: 10px; text-decoration: none; transition: background 0.2s ease;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 3 BiS</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims — Throne of Thunder</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="subsection">
@@ -285,7 +302,104 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_trinket_01.jpg" alt="Trinket" style="width: 32px; height: 32px;">
                         Trinket Priorities
                     </div>
-                    <div class="content-placeholder">// Add trinket ranking and analysis</div>
+
+                    <style>
+                        .tc-notice { background: rgba(244,196,48,0.08); border: 1px solid rgba(244,196,48,0.35); border-radius: 8px; padding: 11px 15px; margin-bottom: 18px; color: #f4c430; font-size: 0.88rem; }
+                        .tc-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 20px; }
+                        .tc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #bbb; }
+                        .tc-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+                        .tc-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+                        .tc-row:last-child { border-bottom: none; margin-bottom: 0; }
+                        .tc-label { min-width: 200px; max-width: 200px; padding-top: 3px; }
+                        .tc-label a { color: #c77dff; text-decoration: none; font-size: 0.88rem; font-weight: 500; line-height: 1.4; }
+                        .tc-label a:hover { text-decoration: underline; }
+                        .tc-phase-tag { display: inline-block; font-size: 0.7rem; color: #888; background: rgba(255,255,255,0.07); border-radius: 4px; padding: 1px 5px; margin-top: 3px; }
+                        .tc-bars { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+                        .tc-bar-wrap { display: flex; align-items: center; gap: 8px; }
+                        .tc-ilvl-tag { font-size: 0.72rem; color: #777; min-width: 78px; text-align: right; white-space: nowrap; }
+                        .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 3px; height: 19px; }
+                        .tc-bar-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; min-width: 2px; transition: width 0.5s ease; }
+                        .tc-bar-val { font-size: 0.75rem; font-weight: 700; color: rgba(0,0,0,0.85); white-space: nowrap; }
+                        @media (max-width: 640px) {
+                            .tc-row { flex-direction: column; gap: 6px; }
+                            .tc-label { min-width: unset; max-width: unset; }
+                            .tc-ilvl-tag { min-width: 60px; }
+                        }
+                    </style>
+
+                    <div class="tc-notice">⚠ Placeholder data — DPS values will be updated once sims are complete. Do not use these numbers for gearing decisions yet.</div>
+                    <div class="tc-legend" id="tcLegend"></div>
+                    <div id="tcChart"></div>
+
+                    <script>
+                    (function () {
+                        // ── UPDATE VALUES HERE WHEN SIMS ARE DONE ─────────────────────────
+                        // dps values are placeholder — replace with real sim output
+                        // url: wowhead item link for each trinket
+                        const TRINKETS = [
+                            // Phase 4 — Siege of Orgrimmar
+                            { name: "Purified Bindings of Immerseus", phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=105472", values: { "528 LFR": 14200, "540 Flex": 15100, "553 Normal": 16300, "566 Heroic": 17800 } },
+                            { name: "Kardris' Toxic Totem",           phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104870", values: { "528 LFR": 13800, "540 Flex": 14900, "553 Normal": 16000, "566 Heroic": 17400 } },
+                            { name: "Black Blood of Y'Shaarj",        phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528 LFR": 13000, "540 Flex": 14000, "553 Normal": 15200, "566 Heroic": 16600 } },
+                            { name: "Frenzied Crystal of Rage",       phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528 LFR": 12800, "540 Flex": 13700, "553 Normal": 14900, "566 Heroic": 16200 } },
+                            // Phase 3 — Throne of Thunder
+                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502 LFR": 12500, "522 Normal": 14500, "535 Heroic": 15800 } },
+                            { name: "Wushoolay's Final Choice",       phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502 LFR": 12200, "522 Normal": 14000, "535 Heroic": 15200 } },
+                            // Phase 1 — Mogu'shan Vaults
+                            { name: "Will of Unbinding",              phase: "MSV", url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "483 LFR": 11500, "496 Normal": 13000, "509 Heroic": 14200 } },
+                        ];
+                        // ─────────────────────────────────────────────────────────────────
+
+                        // Colour palette — one colour per unique ilvl label, ordered low → high
+                        const PALETTE = [
+                            "#5b8dd9", "#7fbbf0",  // LFR blues
+                            "#a8dadc",              // Flex teal
+                            "#52b788", "#74c69d",   // Normal greens
+                            "#f4c430", "#ffdd57",   // Heroic golds
+                            "#ff9f1c",              // Heroic+ orange
+                            "#c77dff",              // Special
+                        ];
+
+                        // Collect all ilvl labels in the order they first appear, deduplicated
+                        const allLabels = [...new Set(TRINKETS.flatMap(t => Object.keys(t.values)))];
+                        const colorMap = Object.fromEntries(allLabels.map((lbl, i) => [lbl, PALETTE[i % PALETTE.length]]));
+                        const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
+
+                        // Legend
+                        document.getElementById("tcLegend").innerHTML = allLabels.map(lbl => `
+                            <div class="tc-legend-item">
+                                <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
+                                <span>${lbl}</span>
+                            </div>`).join("");
+
+                        // Chart rows
+                        document.getElementById("tcChart").innerHTML = TRINKETS.map(t => {
+                            const keys = Object.keys(t.values);
+                            return `
+                            <div class="tc-row">
+                                <div class="tc-label">
+                                    <a href="${t.url}" target="_blank">${t.name}</a>
+                                    <div><span class="tc-phase-tag">${t.phase}</span></div>
+                                </div>
+                                <div class="tc-bars">
+                                    ${keys.map(lbl => {
+                                        const dps = t.values[lbl];
+                                        const pct = (dps / maxDps * 100).toFixed(1);
+                                        return `
+                                        <div class="tc-bar-wrap">
+                                            <span class="tc-ilvl-tag">${lbl}</span>
+                                            <div class="tc-bar-track">
+                                                <div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};">
+                                                    <span class="tc-bar-val">${dps.toLocaleString()}</span>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                                    }).join("")}
+                                </div>
+                            </div>`;
+                        }).join("");
+                    })();
+                    </script>
                 </div>
 
                 <div class="subsection">
@@ -336,13 +450,6 @@ window.updateNow = updateFromDiscord;
                     <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic; margin-top: 14px;">Secondary stat priorities can shift depending on your current gear setup — always sim your character to confirm.</p>
                 </div>
 
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_staff_107.jpg" alt="Weapon" style="width: 32px; height: 32px;">
-                        Weapon Upgrades
-                    </div>
-                    <div class="content-placeholder">// Add weapon progression guide</div>
-                </div>
             </div>
         </div>
 
