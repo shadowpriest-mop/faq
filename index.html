@@ -331,6 +331,22 @@ window.updateNow = updateFromDiscord;
                     <div class="tc-legend" id="tcLegend"></div>
                     <div id="tcChart"></div>
 
+                    <!-- SoO toggle -->
+                    <button id="sooToggleBtn" onclick="window.toggleSooTrinkets()"
+                        style="display:flex;align-items:center;gap:10px;width:100%;margin-top:18px;padding:14px 20px;background:rgba(220,50,50,0.08);border:2px dashed rgba(220,50,50,0.5);border-radius:10px;color:#ff6b6b;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s ease;text-align:left;">
+                        <span style="font-size:1.2rem;">⚠</span>
+                        Show Siege of Orgrimmar trinkets (values not yet tested — subject to significant change)
+                        <span id="sooArrow" style="margin-left:auto;font-size:1rem;transition:transform 0.3s ease;">▼</span>
+                    </button>
+
+                    <div id="sooSection" style="display:none;margin-top:2px;">
+                        <div style="background:rgba(220,50,50,0.1);border:2px solid rgba(220,50,50,0.6);border-top:none;border-radius:0 0 10px 10px;padding:16px 20px;margin-bottom:14px;">
+                            <div style="font-size:1.05rem;font-weight:700;color:#ff4d4d;margin-bottom:8px;">🚨 These trinkets have not been tested yet</div>
+                            <p style="color:#ffaaaa;font-size:0.9rem;margin:0;line-height:1.6;">Siege of Orgrimmar is not available in the current phase. The values shown below are <strong>simulated projections only</strong> and are very likely to change once the raid is released and properly tested. Do not make gearing decisions based on these numbers.</p>
+                        </div>
+                        <div id="tcChartSoo"></div>
+                    </div>
+
                     <script>
                     (function () {
                         // ── UPDATE VALUES HERE WHEN SIMS ARE DONE ─────────────────────────
@@ -360,44 +376,70 @@ window.updateNow = updateFromDiscord;
                             "#c77dff",              // Special
                         ];
 
-                        // Collect all ilvl labels in the order they first appear, deduplicated
+                        // Build colour map from ALL trinkets so scale stays consistent when SoO is revealed
                         const allLabels = [...new Set(TRINKETS.flatMap(t => Object.keys(t.values)))];
                         const colorMap = Object.fromEntries(allLabels.map((lbl, i) => [lbl, PALETTE[i % PALETTE.length]]));
                         const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
 
-                        // Legend
-                        document.getElementById("tcLegend").innerHTML = allLabels.map(lbl => `
+                        function renderRows(list, targetId) {
+                            document.getElementById(targetId).innerHTML = list.map(t => {
+                                const keys = Object.keys(t.values);
+                                return `
+                                <div class="tc-row">
+                                    <div class="tc-label">
+                                        <a href="${t.url}" target="_blank">${t.name}</a>
+                                        <div><span class="tc-phase-tag">${t.phase}</span></div>
+                                    </div>
+                                    <div class="tc-bars">
+                                        ${keys.map(lbl => {
+                                            const dps = t.values[lbl];
+                                            const pct = (dps / maxDps * 100).toFixed(1);
+                                            return `
+                                            <div class="tc-bar-wrap">
+                                                <span class="tc-ilvl-tag">${lbl}</span>
+                                                <div class="tc-bar-track">
+                                                    <div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};">
+                                                        <span class="tc-bar-val">${dps.toLocaleString()}</span>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                                        }).join("")}
+                                    </div>
+                                </div>`;
+                            }).join("");
+                        }
+
+                        // Legend (all labels so SoO ilvls are shown in legend too when revealed)
+                        const baseTrinkets = TRINKETS.filter(t => t.phase !== "SoO");
+                        const sooTrinkets  = TRINKETS.filter(t => t.phase === "SoO");
+                        const baseLabels   = [...new Set(baseTrinkets.flatMap(t => Object.keys(t.values)))];
+
+                        document.getElementById("tcLegend").innerHTML = baseLabels.map(lbl => `
                             <div class="tc-legend-item">
                                 <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
                                 <span>${lbl}</span>
                             </div>`).join("");
 
-                        // Chart rows
-                        document.getElementById("tcChart").innerHTML = TRINKETS.map(t => {
-                            const keys = Object.keys(t.values);
-                            return `
-                            <div class="tc-row">
-                                <div class="tc-label">
-                                    <a href="${t.url}" target="_blank">${t.name}</a>
-                                    <div><span class="tc-phase-tag">${t.phase}</span></div>
-                                </div>
-                                <div class="tc-bars">
-                                    ${keys.map(lbl => {
-                                        const dps = t.values[lbl];
-                                        const pct = (dps / maxDps * 100).toFixed(1);
-                                        return `
-                                        <div class="tc-bar-wrap">
-                                            <span class="tc-ilvl-tag">${lbl}</span>
-                                            <div class="tc-bar-track">
-                                                <div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};">
-                                                    <span class="tc-bar-val">${dps.toLocaleString()}</span>
-                                                </div>
-                                            </div>
-                                        </div>`;
-                                    }).join("")}
-                                </div>
-                            </div>`;
-                        }).join("");
+                        renderRows(baseTrinkets, "tcChart");
+                        renderRows(sooTrinkets,  "tcChartSoo");
+
+                        // Toggle SoO section
+                        window.toggleSooTrinkets = function () {
+                            const section = document.getElementById("sooSection");
+                            const arrow   = document.getElementById("sooArrow");
+                            const btn     = document.getElementById("sooToggleBtn");
+                            const open    = section.style.display !== "none";
+                            section.style.display = open ? "none" : "block";
+                            arrow.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+                            btn.style.background  = open ? "rgba(220,50,50,0.08)" : "rgba(220,50,50,0.15)";
+                            // Update legend to include/exclude SoO ilvl labels
+                            const labels = open ? baseLabels : allLabels;
+                            document.getElementById("tcLegend").innerHTML = labels.map(lbl => `
+                                <div class="tc-legend-item">
+                                    <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
+                                    <span>${lbl}</span>
+                                </div>`).join("");
+                        };
                     })();
                     </script>
                 </div>
