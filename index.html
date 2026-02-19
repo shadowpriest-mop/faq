@@ -28,12 +28,13 @@
         <!-- Tab Navigation -->
         <nav class="tab-navigation">
     <button class="tab-button active" data-tab="overview">Overview</button>
+    <button class="tab-button" data-tab="faq">FAQ</button>
     <button class="tab-button" data-tab="bis">Best in Slot</button>
     <button class="tab-button" data-tab="changes">Key Changes</button>
     <button class="tab-button" data-tab="talents">Talents</button>
     <button class="tab-button" data-tab="glyphs">Glyphs</button>
     <button class="tab-button" data-tab="viability">Viability</button>
-    <button class="tab-button" data-tab="theorycraft">Theorycraft</button>
+    <button class="tab-button" data-tab="theorycraft">Theory & Simulation</button>
     <button class="tab-button" data-tab="gameplay">Gameplay</button>
         </nav>
 
@@ -44,6 +45,10 @@
     <div class="card">
         <h2 class="card-title">Welcome to the Shadow Priest FAQ</h2>
         
+        <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.9rem; line-height: 1.6;">
+            <strong style="color: #c77dff;">Work in Progress</strong> — This site will be continuously updated throughout all of Mists of Pandaria Classic. Information is subject to change as the meta develops.
+        </div>
+
         <div class="subsection">
             <div class="subsection-title">
                 <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb spell icon">
@@ -169,6 +174,99 @@ window.updateNow = updateFromDiscord;
     </div>
 </div>
 
+        <!-- FAQ Tab -->
+        <div id="faq" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Frequently Asked Questions</h2>
+
+                <!-- Races -->
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_undead_male.jpg" alt="Race" style="width: 32px; height: 32px;">
+                        Races
+                    </div>
+                    <p style="margin-bottom: 15px; color: var(--text-secondary);">Race choice has a minor impact on throughput. The differences are small enough that you should feel free to play whatever race you enjoy.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px;">
+                        <!-- Alliance -->
+                        <div style="background: rgba(0, 112, 221, 0.08); border: 1px solid rgba(0, 112, 221, 0.35); border-radius: 10px; padding: 18px;">
+                            <div style="color: #4da6ff; font-weight: 600; font-size: 1.1rem; margin-bottom: 12px;">Alliance</div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_pandaren_female.jpg" alt="Pandaren" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <div>
+                                    <span style="color: var(--primary-green); font-weight: 600;">Pandaren</span>
+                                    <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Best</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_worgen_male.jpg" alt="Worgen" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <div>
+                                    <span style="color: var(--primary-green); font-weight: 600;">Worgen</span>
+                                    <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Best</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Horde -->
+                        <div style="background: rgba(180, 30, 30, 0.08); border: 1px solid rgba(180, 30, 30, 0.35); border-radius: 10px; padding: 18px;">
+                            <div style="color: #ff6b6b; font-weight: 600; font-size: 1.1rem; margin-bottom: 12px;">Horde</div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_troll_male.jpg" alt="Troll" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <div>
+                                    <span style="color: var(--primary-green); font-weight: 600;">Troll</span>
+                                    <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Best</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_goblin_male.jpg" alt="Goblin" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <div>
+                                    <span style="color: #ffa500; font-weight: 600;">Goblin</span>
+                                    <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Second (tied)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_pandaren_female.jpg" alt="Pandaren" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <div>
+                                    <span style="color: #ffa500; font-weight: 600;">Pandaren</span>
+                                    <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Second (tied)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professions -->
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/trade_engineering.jpg" alt="Professions" style="width: 32px; height: 32px;">
+                        Professions
+                    </div>
+
+                    <!-- Engineering -->
+                    <div class="talent-tooltip recommended" style="margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/trade_engineering.jpg" alt="Engineering" style="width: 40px; height: 40px;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.1rem;">Engineering</div>
+                                <div style="color: var(--primary-green); font-size: 0.9rem; font-weight: 600;">Best Choice</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 0.95rem;">Our preferred choice due to the gloves on-use (Synapse Springs) and Nitro Boosts for extra movement.</p>
+                    </div>
+
+                    <!-- Tailoring -->
+                    <div style="padding: 15px; background: rgba(255, 165, 0, 0.1); border-radius: 12px; border: 2px solid #ffa500;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/trade_tailoring.jpg" alt="Tailoring" style="width: 40px; height: 40px;">
+                            <div>
+                                <div style="color: #ffa500; font-weight: 600; font-size: 1.1rem;">Tailoring</div>
+                                <div style="color: #ffa500; font-size: 0.9rem;">Second Best</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 0.95rem;">The second best option. The other crafting professions are all relatively close to each other behind Tailoring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Best in Slot Tab -->
         <div id="bis" class="tab-content">
             <div class="card">
@@ -195,7 +293,47 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_astralrecal.jpg" alt="Stats" style="width: 32px; height: 32px;">
                         Stat Weights & Priorities
                     </div>
-                    <div class="content-placeholder">// Add stat priority information and weights</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(82, 183, 136, 0.08); border-radius: 10px; border-left: 4px solid var(--primary-green);">
+                            <div style="background: var(--primary-green); color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">1</div>
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Intellect</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Comes naturally on gear — generally just aim for the highest item level available.</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(82, 183, 136, 0.08); border-radius: 10px; border-left: 4px solid var(--primary-green);">
+                            <div style="background: var(--primary-green); color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">2</div>
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Hit Cap (15%)</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Both Hit and Expertise now contribute to the hit cap for casters. Reach 15% before worrying about other secondary stats.</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255, 165, 0, 0.08); border-radius: 10px; border-left: 4px solid #ffa500;">
+                            <div style="background: #ffa500; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">3</div>
+                            <div>
+                                <div style="color: #ffa500; font-weight: 600; font-size: 1.05rem;">Haste</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255, 165, 0, 0.08); border-radius: 10px; border-left: 4px solid #ffa500;">
+                            <div style="background: #ffa500; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">4</div>
+                            <div>
+                                <div style="color: #ffa500; font-weight: 600; font-size: 1.05rem;">Critical Strike</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(168, 218, 220, 0.08); border-radius: 10px; border-left: 4px solid #a8dadc;">
+                            <div style="background: #a8dadc; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">5</div>
+                            <div>
+                                <div style="color: #a8dadc; font-weight: 600; font-size: 1.05rem;">Mastery</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic; margin-top: 14px;">Secondary stat priorities can shift depending on your current gear setup — always sim your character to confirm.</p>
                 </div>
 
                 <div class="subsection">
@@ -218,23 +356,52 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
                         <a href="https://www.wowhead.com/mop-classic/spell=77487/shadow-orb" target="_blank" style="color: #c77dff; text-decoration: none;">Shadow Orbs System</a>
                     </div>
-                    <div class="content-placeholder">// Add detailed explanation of the Shadow Orb system and how it changes gameplay</div>
+                    <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li>Shadow Orbs now passively regenerate outside of combat — one orb every 6 seconds (up to a max of 3) as long as you are in <strong style="color: #c77dff;">Shadowform</strong> and outside PvP instances (BGs/Arenas).</li>
+                        <li>Shadow Orbs are <strong style="color: #c77dff;">guaranteed</strong> to proc from <strong style="color: #c77dff;">Mind Blast</strong> and <strong style="color: #c77dff;">Shadow Word: Death</strong>.</li>
+                        <li>Shadow Orbs are consumed by <strong style="color: #c77dff;">Devouring Plague</strong>, increasing its damage based on the number of orbs spent. You must have orbs available to cast Devouring Plague.</li>
+                    </ul>
                 </div>
 
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Halo" style="width: 32px; height: 32px;">
-                        <a href="https://www.wowhead.com/mop-classic/spell=120696/halo" target="_blank" style="color: #c77dff; text-decoration: none;">New Abilities: Halo</a>
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Notable Ability Changes" style="width: 32px; height: 32px;">
+                        Notable Ability Changes
                     </div>
-                    <div class="content-placeholder">// Add information about Halo and other new MoP abilities</div>
+
+                    <!-- Abilities in Shadowform -->
+                    <div style="margin-bottom: 14px;">
+                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Abilities Usable in Shadowform</div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;"><strong style="color: #c77dff;">Renew</strong>, <strong style="color: #c77dff;">Prayer of Mending</strong>, and <strong style="color: #c77dff;">Leap of Faith</strong> can now be cast while in Shadowform without dropping out of it.</p>
+                    </div>
+
+                    <!-- Vampiric Embrace -->
+                    <div style="margin-bottom: 14px;">
+                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Vampiric Embrace</div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">Vampiric Embrace is no longer a passive constant buff. It is now a more powerful burst healing cooldown that you activate on demand.</p>
+                    </div>
+
+                    <!-- Void Shift -->
+                    <div>
+                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">
+                            <a href="https://www.wowhead.com/mop-classic/spell=108968/void-shift" target="_blank" style="color: #e0aaff; text-decoration: none;">Void Shift</a>
+                        </div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">A new ability that swaps your current health percentage with another player's. Use it to save yourself when you drop low, or to save a raid member who is about to die.</p>
+                    </div>
                 </div>
 
                 <div class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindspike.jpg" alt="Mind Spike" style="width: 32px; height: 32px;">
-                        Rotation Changes
+                        Removed Abilities
                     </div>
-                    <div class="content-placeholder">// Add details about how the rotation has evolved from Cataclysm</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.95rem;">The following abilities from Cataclysm have been removed in MoP:</p>
+                    <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li><strong style="color: #ff9999;">Dark Archangel</strong> — Removed</li>
+                        <li><strong style="color: #ff9999;">Empowered Shadow</strong> — Removed</li>
+                        <li><strong style="color: #ff9999;">Mind Soothe</strong> — Removed</li>
+                    </ul>
+                    <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.9rem; font-style: italic;">For talent changes, see the <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-talents-builds-glyphs-pve" target="_blank" style="color: #c77dff; text-decoration: none;">Talent Comparison guide</a>.</p>
                 </div>
             </div>
         </div>
@@ -700,6 +867,34 @@ window.updateNow = updateFromDiscord;
                 </div>
 
                 <div class="subsection">
+                    <div class="subsection-title">Build References</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;">Talents have a lot of flexibility — adjust based on the encounter's target count, movement requirements, and distance. The links below are recommended starting points.</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.wowhead.com/mop-classic/talent-calc/priest/shadow/123313/AA4FVkB4VLoCzWTD4F9UE4F5hF4Wr5" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none; transition: border-color 0.2s;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Standard Build" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600;">Standard Talent Build</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">General-purpose build — recommended starting point</div>
+                            </div>
+                        </a>
+                        <a href="https://www.wowhead.com/mop-classic/talent-calc/priest/shadow/123323/AA4FVkB4VLoCzWTD4F9UE4F5hF4Wr5" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(168, 218, 220, 0.08); border: 1px solid rgba(168, 218, 220, 0.35); border-radius: 10px; text-decoration: none; transition: border-color 0.2s;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Pure Single Target" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: #a8dadc; font-weight: 600;">Pure Single Target Build</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">Optimized for pure single-target patchwerk-style fights</div>
+                            </div>
+                        </a>
+                        <a href="https://discord.com/channels/253201874683953162/1365890344348160030/1453138181460463716" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(88, 101, 242, 0.08); border: 1px solid rgba(88, 101, 242, 0.35); border-radius: 10px; text-decoration: none; transition: border-color 0.2s;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Phase 3 Overview" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: #7b8ff7; font-weight: 600;">Phase 3 Boss-by-Boss Talent Overview</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">Discord post — detailed per-boss talent recommendations for Phase 3</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subsection">
                     <div class="subsection-title">Encounter-Specific Swaps</div>
                     <div class="encounter-grid">
                         <!-- Mogu'shan Vaults -->
@@ -916,6 +1111,14 @@ window.updateNow = updateFromDiscord;
     <div class="card">
         <h2 class="card-title">Glyph Analysis</h2>
         
+<!-- Intro note -->
+<div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.95rem; line-height: 1.7;">
+    There are no longer any pure damage increase glyphs. Glyphs now focus on damage reduction, healing, utility, or cosmetic changes — and should be swapped based on the fight and your raid's progression needs.
+    <div style="margin-top: 10px;">
+        <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-talents-builds-glyphs-pve" target="_blank" style="color: #c77dff; text-decoration: none; border-bottom: 1px solid rgba(199, 125, 255, 0.5);">In-depth Talent &amp; Glyph Comparison →</a>
+    </div>
+</div>
+
 <!-- Standard Build Section -->
 <div class="subsection">
     <div class="subsection-title">
@@ -1228,7 +1431,7 @@ window.updateNow = updateFromDiscord;
 <!-- Theorycraft Tab -->
 <div id="theorycraft" class="tab-content">
     <div class="card">
-        <h2 class="card-title">Theorycraft & Simulation</h2>
+        <h2 class="card-title">Theory & Simulation</h2>
                 
                 <div class="subsection">
                     <div class="subsection-title" style="justify-content: space-between;">
@@ -1258,7 +1461,22 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Mind Blast" style="width: 32px; height: 32px;">
                         Simulation Tools & Resources
                     </div>
-                    <div class="content-placeholder">// Add links to simulation tools and how to interpret results properly</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <a href="https://www.wowsims.com/mop/priest/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="WowSims" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600;">Shadow Priest Sim — WowSims</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowsims.com — use this to sim your own gear and stat weights</div>
+                            </div>
+                        </a>
+                        <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-overview-pve" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(168, 218, 220, 0.08); border: 1px solid rgba(168, 218, 220, 0.35); border-radius: 10px; text-decoration: none;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead Guide" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: #a8dadc; font-weight: 600;">Shadow Priest DPS Overview — Wowhead</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowhead.com — will be updated throughout MoP as with previous expansions</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="subsection">
