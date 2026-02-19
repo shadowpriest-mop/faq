@@ -358,22 +358,23 @@ window.updateNow = updateFromDiscord;
                         .tc-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 20px; }
                         .tc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #bbb; }
                         .tc-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
-                        .tc-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+                        .tc-row { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
                         .tc-row:last-child { border-bottom: none; margin-bottom: 0; }
-                        .tc-label { min-width: 200px; max-width: 200px; padding-top: 3px; }
+                        .tc-rank { min-width: 24px; text-align: center; font-size: 0.78rem; font-weight: 700; color: #555; flex-shrink: 0; }
+                        .tc-label { min-width: 220px; max-width: 220px; }
                         .tc-label a { color: #c77dff; text-decoration: none; font-size: 0.88rem; font-weight: 500; line-height: 1.4; }
                         .tc-label a:hover { text-decoration: underline; }
-                        .tc-phase-tag { display: inline-block; font-size: 0.7rem; color: #888; background: rgba(255,255,255,0.07); border-radius: 4px; padding: 1px 5px; margin-top: 3px; }
-                        .tc-bars { flex: 1; display: flex; flex-direction: column; gap: 5px; }
-                        .tc-bar-wrap { display: flex; align-items: center; gap: 8px; }
-                        .tc-ilvl-tag { font-size: 0.72rem; color: #777; min-width: 78px; text-align: right; white-space: nowrap; }
-                        .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 3px; height: 19px; }
-                        .tc-bar-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; min-width: 2px; transition: width 0.5s ease; }
+                        .tc-label-tags { display: flex; align-items: center; gap: 5px; margin-top: 3px; }
+                        .tc-phase-tag { display: inline-block; font-size: 0.7rem; color: #888; background: rgba(255,255,255,0.07); border-radius: 4px; padding: 1px 5px; }
+                        .tc-ilvl-tag { display: inline-block; font-size: 0.7rem; color: #aaa; background: rgba(255,255,255,0.05); border-radius: 4px; padding: 1px 5px; }
+                        .tc-bar-wrap { flex: 1; display: flex; align-items: center; }
+                        .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 22px; }
+                        .tc-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; min-width: 2px; transition: width 0.5s ease; }
                         .tc-bar-val { font-size: 0.75rem; font-weight: 700; color: rgba(0,0,0,0.85); white-space: nowrap; }
                         @media (max-width: 640px) {
-                            .tc-row { flex-direction: column; gap: 6px; }
-                            .tc-label { min-width: unset; max-width: unset; }
-                            .tc-ilvl-tag { min-width: 60px; }
+                            .tc-row { flex-wrap: wrap; gap: 6px; }
+                            .tc-label { min-width: unset; max-width: unset; flex: 1; }
+                            .tc-bar-wrap { width: 100%; flex: unset; }
                         }
                     </style>
 
@@ -432,28 +433,31 @@ window.updateNow = updateFromDiscord;
                         const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
 
                         function renderRows(list, targetId) {
-                            document.getElementById(targetId).innerHTML = list.map(t => {
+                            // Sort by best (highest ilvl) value, descending
+                            const sorted = [...list].sort((a, b) =>
+                                Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values))
+                            );
+                            document.getElementById(targetId).innerHTML = sorted.map((t, i) => {
                                 const keys = Object.keys(t.values);
+                                const bestLbl = keys[keys.length - 1]; // last key = highest ilvl
+                                const bestDps = t.values[bestLbl];
+                                const pct = (bestDps / maxDps * 100).toFixed(1);
                                 return `
                                 <div class="tc-row">
+                                    <div class="tc-rank">#${i + 1}</div>
                                     <div class="tc-label">
                                         <a href="${t.url}" target="_blank">${t.name}</a>
-                                        <div><span class="tc-phase-tag">${t.phase}</span></div>
+                                        <div class="tc-label-tags">
+                                            <span class="tc-phase-tag">${t.phase}</span>
+                                            <span class="tc-ilvl-tag">${bestLbl}</span>
+                                        </div>
                                     </div>
-                                    <div class="tc-bars">
-                                        ${keys.map(lbl => {
-                                            const dps = t.values[lbl];
-                                            const pct = (dps / maxDps * 100).toFixed(1);
-                                            return `
-                                            <div class="tc-bar-wrap">
-                                                <span class="tc-ilvl-tag">${lbl}</span>
-                                                <div class="tc-bar-track">
-                                                    <div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};">
-                                                        <span class="tc-bar-val">${dps.toLocaleString()}</span>
-                                                    </div>
-                                                </div>
-                                            </div>`;
-                                        }).join("")}
+                                    <div class="tc-bar-wrap">
+                                        <div class="tc-bar-track">
+                                            <div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[bestLbl]};">
+                                                <span class="tc-bar-val">${bestDps.toLocaleString()}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>`;
                             }).join("");
