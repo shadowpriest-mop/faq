@@ -1644,36 +1644,272 @@ window.updateNow = updateFromDiscord;
     <div class="card">
         <h2 class="card-title">Gameplay Guide</h2>
                 
+                <!-- Rotation & Priority -->
                 <div class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowfiend.jpg" alt="Shadowfiend" style="width: 32px; height: 32px;">
                         PvE Rotation & Priority
                     </div>
-                    <div class="content-placeholder">// Add detailed rotation guides for different scenarios</div>
+
+                    <!-- Opener -->
+                    <div style="margin-bottom: 24px;">
+                        <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_warlock_shadowlife.jpg" style="width: 20px; height: 20px; border-radius: 3px;">
+                            Opener
+                        </div>
+                        <p style="margin: 0 0 10px; font-size: 0.88rem; color: #aaa; font-style: italic;">Start with 3 Shadow Orbs</p>
+                        <ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 5px; font-size: 0.93rem;">
+                            <li>Pre-cast Mind Spike</li>
+                            <li>Shadowfiend</li>
+                            <li>Power Infusion <span style="color: #888; font-size: 0.85rem;">(if specced)</span></li>
+                            <li>Shadow Word: Pain</li>
+                            <li>Vampiric Touch</li>
+                            <li>Devouring Plague</li>
+                            <li>Mind Blast</li>
+                            <li>Mind Flay: Insanity</li>
+                            <li>Follow Maintenance Rotation</li>
+                        </ol>
+                    </div>
+
+                    <!-- Maintenance Rotation -->
+                    <div style="margin-bottom: 24px;">
+                        <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" style="width: 20px; height: 20px; border-radius: 3px;">
+                            Maintenance Rotation
+                        </div>
+                        <p style="margin: 0 0 12px; font-size: 0.93rem;">The maintenance rotation varies slightly based on your talents/available cooldowns. The <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-rotation-cooldowns-abilities-pve" target="_blank" style="color: var(--primary-green);">Wowhead rotation guide</a> provides an overview of the rotational changes brought by talent combinations. The sim also has a very detailed APL under the "Rotation" tab for a more optimised rotation.</p>
+                        <div style="color: var(--text-secondary); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">General Maintenance Priority</div>
+                        <ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 5px; font-size: 0.93rem;">
+                            <li>Devouring Plague <span style="color: #a8dadc; font-size: 0.85rem;">with 3 orbs</span></li>
+                            <li>Mind Blast <span style="color: #888; font-size: 0.85rem;">on CD</span></li>
+                            <li>Shadow Word: Death <span style="color: #888; font-size: 0.85rem;">(×2) on CD in execute</span></li>
+                            <li>Mind Flay: Insanity <span style="color: #888; font-size: 0.85rem;">(if running Solace and Insanity)</span></li>
+                            <li>Mind Spike Procs <span style="color: #888; font-size: 0.85rem;">(if running From Darkness, Come Light)</span></li>
+                            <li>Vampiric Touch and Shadow Word: Pain</li>
+                            <li>Halo <span style="color: #888; font-size: 0.85rem;">(if 20+ yards from a target)</span></li>
+                            <li>Mind Flay <span style="color: #888; font-size: 0.85rem;">(filler)</span></li>
+                        </ol>
+                    </div>
+
+                    <!-- Notes -->
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                        <div style="background: rgba(82,183,136,0.07); border-left: 3px solid var(--primary-green); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.9rem;">
+                            There may be times where DoTs will fall off during Insanity windows. Ideally minimise DoT downtime, but always prioritise using Devouring Plague with 3 orbs and generating orbs with Mind Blast and Shadow Word: Death.
+                        </div>
+                        <div style="background: rgba(82,183,136,0.07); border-left: 3px solid var(--primary-green); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.9rem;">
+                            Make sure to use DPS cooldowns as often as possible (engi gloves, Berserking, Power Infusion, Halo, Shadowfiend, etc.). Use your in-combat potion during execute phase and ensure to get full uptime on it before the boss dies.
+                        </div>
+                    </div>
+
+                    <!-- UVLS -->
+                    <div style="background: rgba(168,218,220,0.08); border: 1px solid rgba(168,218,220,0.3); border-radius: 8px; padding: 14px 18px;">
+                        <div style="color: #a8dadc; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem;">Unerring Vision of Lei Shen (UVLS)</div>
+                        <p style="margin: 0 0 10px; font-size: 0.9rem;">With this trinket, aim to re-apply Vampiric Touch and Shadow Word: Pain during the buff to snapshot the 100% crit chance on your DoTs.</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #ccc;">The 100% crit chance only applies for the base duration of these DoTs. If they are extended via Shadow Apparitions with 2pc T15 tier, the extended ticks will not have this crit chance — stats are recalculated after the original duration completes. <strong>This is intended behaviour.</strong></p>
+                    </div>
                 </div>
 
+                <!-- Macros -->
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
-                        Shadow Orb Management
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_note_01.jpg" alt="Macros" style="width: 32px; height: 32px;">
+                        Macros
                     </div>
-                    <div class="content-placeholder">// Explain optimal Shadow Orb usage strategies</div>
+                    <p style="margin: 0 0 18px; font-size: 0.9rem; color: #aaa;">A few useful macros — explore WoWInterface and Wago for many more.</p>
+                    <div style="display: flex; flex-direction: column; gap: 18px;">
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Generic Cast at Mouseover / Target</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] SpellName</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Focus</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@focus,exists,nodead][] Mind Sear</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your focus if it exists, otherwise casts from your target normally.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Mouseover</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] Mind Sear</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your mouseover if it exists, otherwise casts from your target normally.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Trinkets &amp; Engineering Gloves</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use 13   -- Trinket 1
+/use 14   -- Trinket 2
+/use 10   -- Engineering Gloves</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Dispersion Cancelaura</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Dispersion
+/cancelaura [mod:shift] Dispersion
+/cast Dispersion</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts Dispersion normally, or cancels it when Shift is held.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — at Cursor</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@cursor] Angelic Feather</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — on Yourself</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/cast [@player] Angelic Feather</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Other players may "steal" the feather if you're stacked with them.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Spectral Guise "Feign Death"</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Spectral Guise
+/cancelaura Spectral Guise
+/cast Spectral Guise</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Press twice. Has a chance to fail / not drop combat. Ensure some distance from mobs before use.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Level 90 Talent (dynamic tooltip)</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo
+/cast [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo</pre>
+                        </div>
+
+                    </div>
                 </div>
 
+                <!-- WeakAuras & Addons -->
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" alt="Psychic Scream" style="width: 32px; height: 32px;">
-                        Cooldown Management
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_auraoflight.jpg" alt="WeakAuras" style="width: 32px; height: 32px;">
+                        WeakAuras &amp; Addons
                     </div>
-                    <div class="content-placeholder">// Detail when and how to use major cooldowns effectively</div>
+                    <p style="margin: 0 0 4px; font-size: 0.9rem; color: #aaa;"><strong style="color: var(--text-secondary);">Disclaimer:</strong> This is not a complete list — just a few great options. Go explore <a href="https://www.curseforge.com/wow/addons" target="_blank" style="color: var(--primary-green);">Curseforge</a> and <a href="https://wago.io" target="_blank" style="color: var(--primary-green);">Wago</a> and find what you like best!</p>
+
+                    <!-- Cast Bars -->
+                    <div style="margin-top: 20px; margin-bottom: 14px;">
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Cast Bars</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://www.curseforge.com/wow/addons/gnosis" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindstab.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Gnosis</div>
+                                    <div style="color:#888;font-size:0.82rem;">curseforge.com — Cast bar addon</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/p8VOwuLZ_" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindstab.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">DragonKarsh Cast Bar</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/p8VOwuLZ_</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- WeakAura Packs -->
+                    <div style="margin-bottom: 14px;">
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">WeakAura UI Packs</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://wago.io/CMUcUSqC2" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychichorrors.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">DragonKarsh Shadow Suite</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/CMUcUSqC2 — individual components listed within</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Helpful WAs & Addons -->
+                    <div>
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Helpful WeakAuras &amp; Addons</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://www.curseforge.com/wow/addons/plater-nameplates" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_warrior_charge.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Plater</div>
+                                    <div style="color:#888;font-size:0.82rem;">For tracking DoTs on nameplates</div>
+                                </div>
+                            </a>
+                            <a href="https://github.com/Hyphie24/ShadowedUnitFrames-Mists/releases" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowform.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Shadowed Unit Frames</div>
+                                    <div style="color:#888;font-size:0.82rem;">Download zip → extract → place ShadowedUnitFrames &amp; ShadowedUF_Options into your AddOns folder</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/mEbEtEVrZ" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Halo Distance Tracker</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/mEbEtEVrZ</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/zqC8i_vfS" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Mind Flay Clip Delay</div>
+                                    <div style="color:#888;font-size:0.82rem;">Shows the delay between your Mind Flay and other spells</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/Ikku0mWwO" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Fake Queue</div>
+                                    <div style="color:#888;font-size:0.82rem;">Helps reduce the delay between your spells</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/wlEM07vng" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Basic DoT Snapshotter</div>
+                                    <div style="color:#888;font-size:0.82rem;">A basic new - old &gt; 0 snapshotter for DoTs</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/nn6E98pfl" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">In-Depth DoT Snapshotter</div>
+                                    <div style="color:#888;font-size:0.82rem;">Predictive snapshotter — sims in real time considering ticks remaining, filler damage, current and expiring buffs. <a href="https://discord.com/channels/253201874683953162/1365890344348160030/1402949409108660245" target="_blank" style="color:#a8dadc;">Colour key on Discord ↗</a></div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/iFSg1jZ5n" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_eye_01.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">UVLS Tracker</div>
+                                    <div style="color:#888;font-size:0.82rem;">Icon with timer and sound when Unerring Vision of Lei Shen procs</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Video Guides -->
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" alt="Mind Flay" style="width: 32px; height: 32px;">
-                        Movement & Positioning
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_film_01.jpg" alt="Video Guides" style="width: 32px; height: 32px;">
+                        SPriest MoP Video Guides
                     </div>
-                    <div class="content-placeholder">// Tips for maintaining DPS while handling encounter mechanics</div>
+                    <div style="display: flex; flex-direction: column; gap: 28px;">
+
+                        <div>
+                            <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Pants</div>
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                                <iframe src="https://www.youtube.com/embed/dkycW2IfsRo" title="Pants — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
+                            </div>
+                            <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Pants has a ton of great info on his channel — definitely check it out! There's also a deep dive video on shadow priest that covers everything and more in greater detail (also pinned in the Discord channel).</p>
+                        </div>
+
+                        <div>
+                            <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Skimmy</div>
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                                <iframe src="https://www.youtube.com/embed/LH5aODSFQ1o" title="Skimmy — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
+                            </div>
+                            <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Skimmy has a ton of great info on his channel — check him out! He also streams on Twitch: <a href="https://www.twitch.tv/skimmynz" target="_blank" style="color: var(--primary-green);">twitch.tv/skimmynz</a></p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
