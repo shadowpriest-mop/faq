@@ -2014,6 +2014,31 @@ document.addEventListener('click', function(event) {
         document.getElementById('tierDropdown').classList.remove('open');
     }
 });
+
+// Collapsible subsections — all closed by default
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.subsection').forEach(function(section) {
+        const title = section.querySelector(':scope > .subsection-title');
+        if (!title) return;
+
+        // Wrap all non-title children in an animated body
+        const body = document.createElement('div');
+        body.className = 'subsection-body';
+        const inner = document.createElement('div');
+        body.appendChild(inner);
+        Array.from(section.children).forEach(function(child) {
+            if (child !== title) inner.appendChild(child);
+        });
+        section.appendChild(body);
+
+        // Start closed
+        section.classList.add('closed');
+
+        title.addEventListener('click', function() {
+            section.classList.toggle('closed');
+        });
+    });
+});
 </script>
 </body>
 </html>

@@ -110,6 +110,30 @@
     transform: translateX(5px);
 }
 
+/* Collapsible subsection state */
+.subsection.closed .subsection-title {
+    margin-bottom: 0;
+}
+
+.subsection.closed .subsection-title::after {
+    transform: rotate(-90deg);
+}
+
+.subsection-body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.28s ease;
+}
+
+.subsection.closed .subsection-body {
+    grid-template-rows: 0fr;
+}
+
+.subsection-body > div {
+    overflow: hidden;
+    min-height: 0;
+}
+
 /* Talent System Layout */
 .talent-tier-selector {
     background: rgba(25, 25, 35, 0.9);
