@@ -366,11 +366,31 @@ window.updateNow = updateFromDiscord;
                         .tc-label a:hover { text-decoration: underline; }
                         .tc-label-tags { display: flex; align-items: center; gap: 5px; margin-top: 3px; }
                         .tc-phase-tag { display: inline-block; font-size: 0.7rem; color: #888; background: rgba(255,255,255,0.07); border-radius: 4px; padding: 1px 5px; }
-                        .tc-ilvl-tag { display: inline-block; font-size: 0.7rem; color: #aaa; background: rgba(255,255,255,0.05); border-radius: 4px; padding: 1px 5px; }
-                        .tc-bar-wrap { flex: 1; display: flex; align-items: center; }
-                        .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 22px; }
-                        .tc-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; min-width: 2px; transition: width 0.5s ease; }
-                        .tc-bar-val { font-size: 0.75rem; font-weight: 700; color: rgba(0,0,0,0.85); white-space: nowrap; }
+                        /* Bar */
+                        .tc-bar-wrap { flex: 1; display: flex; align-items: center; position: relative; }
+                        .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 22px; position: relative; overflow: hidden; cursor: default; }
+                        .tc-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+                        /* Tooltip */
+                        .tc-bar-track:hover .tc-tooltip { display: block; }
+                        .tc-tooltip {
+                            display: none;
+                            position: absolute;
+                            bottom: calc(100% + 8px);
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: rgba(14,16,26,0.97);
+                            border: 1px solid rgba(255,255,255,0.12);
+                            border-radius: 7px;
+                            padding: 10px 14px;
+                            z-index: 200;
+                            white-space: nowrap;
+                            pointer-events: none;
+                            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+                        }
+                        .tc-tooltip-name { color: #e8e8e8; font-weight: 600; font-size: 0.84rem; margin-bottom: 7px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+                        .tc-tooltip-row { font-size: 0.8rem; display: flex; justify-content: space-between; gap: 18px; margin-top: 3px; }
+                        .tc-tooltip-lbl { color: #999; }
+                        .tc-tooltip-val { font-weight: 600; }
                         @media (max-width: 640px) {
                             .tc-row { flex-wrap: wrap; gap: 6px; }
                             .tc-label { min-width: unset; max-width: unset; flex: 1; }
@@ -438,10 +458,25 @@ window.updateNow = updateFromDiscord;
                                 Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values))
                             );
                             document.getElementById(targetId).innerHTML = sorted.map((t, i) => {
-                                const keys = Object.keys(t.values);
-                                const bestLbl = keys[keys.length - 1]; // last key = highest ilvl
-                                const bestDps = t.values[bestLbl];
-                                const pct = (bestDps / maxDps * 100).toFixed(1);
+                                const entries = Object.entries(t.values); // low → high (data order)
+
+                                // Render fills widest-first so narrower ones sit on top,
+                                // creating distinct colour bands for each ilvl increment.
+                                const fillsHtml = [...entries]
+                                    .sort((a, b) => b[1] - a[1])
+                                    .map(([lbl, dps]) => {
+                                        const pct = (dps / maxDps * 100).toFixed(1);
+                                        return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};"></div>`;
+                                    }).join("");
+
+                                // Tooltip rows — show low → high
+                                const tipRows = entries.map(([lbl, dps]) =>
+                                    `<div class="tc-tooltip-row">
+                                        <span class="tc-tooltip-lbl">${lbl}</span>
+                                        <span class="tc-tooltip-val" style="color:${colorMap[lbl]}">${dps.toLocaleString()}</span>
+                                    </div>`
+                                ).join("");
+
                                 return `
                                 <div class="tc-row">
                                     <div class="tc-rank">#${i + 1}</div>
@@ -449,13 +484,14 @@ window.updateNow = updateFromDiscord;
                                         <a href="${t.url}" target="_blank">${t.name}</a>
                                         <div class="tc-label-tags">
                                             <span class="tc-phase-tag">${t.phase}</span>
-                                            <span class="tc-ilvl-tag">${bestLbl}</span>
                                         </div>
                                     </div>
                                     <div class="tc-bar-wrap">
                                         <div class="tc-bar-track">
-                                            <div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[bestLbl]};">
-                                                <span class="tc-bar-val">${bestDps.toLocaleString()}</span>
+                                            ${fillsHtml}
+                                            <div class="tc-tooltip">
+                                                <div class="tc-tooltip-name">${t.name}</div>
+                                                ${tipRows}
                                             </div>
                                         </div>
                                     </div>
