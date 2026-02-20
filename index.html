@@ -424,32 +424,32 @@ window.updateNow = updateFromDiscord;
                         // dps values are placeholder — replace with real sim output
                         // url: wowhead item link for each trinket
                         const TRINKETS = [
-                            // Phase 4 — Siege of Orgrimmar
-                            { name: "Purified Bindings of Immerseus", phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=105472", values: { "528 LFR": 14200, "540 Flex": 15100, "553 Normal": 16300, "566 Heroic": 17800 } },
-                            { name: "Kardris' Toxic Totem",           phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104870", values: { "528 LFR": 13800, "540 Flex": 14900, "553 Normal": 16000, "566 Heroic": 17400 } },
-                            { name: "Black Blood of Y'Shaarj",        phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528 LFR": 13000, "540 Flex": 14000, "553 Normal": 15200, "566 Heroic": 16600 } },
-                            { name: "Frenzied Crystal of Rage",       phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528 LFR": 12800, "540 Flex": 13700, "553 Normal": 14900, "566 Heroic": 16200 } },
-                            // Phase 3 — Throne of Thunder
-                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502 LFR": 12500, "522 Normal": 14500, "535 Heroic": 15800 } },
-                            { name: "Wushoolay's Final Choice",       phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502 LFR": 12200, "522 Normal": 14000, "535 Heroic": 15200 } },
-                            // Phase 1 — Mogu'shan Vaults
-                            { name: "Will of Unbinding",              phase: "MSV", url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "483 LFR": 11500, "496 Normal": 13000, "509 Heroic": 14200 } },
+                            // Phase 4 — Siege of Orgrimmar (T16)
+                            { name: "Purified Bindings of Immerseus", phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=105472", values: { "528": 14200, "540": 15100, "553": 16300, "566": 17800 } },
+                            { name: "Kardris' Toxic Totem",           phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104870", values: { "528": 13800, "540": 14900, "553": 16000, "566": 17400 } },
+                            { name: "Black Blood of Y'Shaarj",        phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528": 13000, "540": 14000, "553": 15200, "566": 16600 } },
+                            { name: "Frenzied Crystal of Rage",       phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528": 12800, "540": 13700, "553": 14900, "566": 16200 } },
+                            // Phase 3 — Throne of Thunder (T15)
+                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "522": 14500, "535": 15800 } },
+                            { name: "Wushoolay's Final Choice",       phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "522": 14000, "535": 15200 } },
+                            // Phase 1 — Mogu'shan Vaults (T14)
+                            { name: "Will of Unbinding",              phase: "MSV", url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "483": 11500, "496": 13000, "509": 14200 } },
                         ];
                         // ─────────────────────────────────────────────────────────────────
 
-                        // Colour palette — one colour per unique ilvl label, ordered low → high
-                        const PALETTE = [
-                            "#5b8dd9", "#7fbbf0",  // LFR blues
-                            "#a8dadc",              // Flex teal
-                            "#52b788", "#74c69d",   // Normal greens
-                            "#f4c430", "#ffdd57",   // Heroic golds
-                            "#ff9f1c",              // Heroic+ orange
-                            "#c77dff",              // Special
-                        ];
-
-                        // Build colour map from ALL trinkets so scale stays consistent when SoO is revealed
+                        // Explicit colour map keyed by item level.
+                        // Grouped by tier so each raid has its own hue family.
+                        const colorMap = {
+                            // T14 — Mogu'shan Vaults / HoF / ToES (gold)
+                            "483": "#b87820", "496": "#d49a2a", "509": "#f4c430",
+                            // T15 — Throne of Thunder (blue)
+                            "502": "#2d6db0", "522": "#4090d4", "535": "#60b4f0",
+                            // T16 — Siege of Orgrimmar (red → orange)
+                            "528": "#b02020", "540": "#cc3535", "553": "#e84848", "566": "#f07030",
+                            // Dungeons (teal, reserved for future entries)
+                            "463": "#1a8a8a", "476": "#20a8a8", "489": "#28c4c4",
+                        };
                         const allLabels = [...new Set(TRINKETS.flatMap(t => Object.keys(t.values)))];
-                        const colorMap = Object.fromEntries(allLabels.map((lbl, i) => [lbl, PALETTE[i % PALETTE.length]]));
                         const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
 
                         function renderRows(list, targetId) {
