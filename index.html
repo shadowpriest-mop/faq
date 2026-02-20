@@ -369,7 +369,8 @@ window.updateNow = updateFromDiscord;
                         /* Bar */
                         .tc-bar-wrap { flex: 1; display: flex; align-items: center; position: relative; }
                         .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 22px; position: relative; overflow: hidden; cursor: default; }
-                        .tc-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+                        .tc-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 4px; transition: width 0.5s ease; display: flex; align-items: center; justify-content: flex-end; overflow: hidden; }
+                        .tc-bar-val { font-size: 0.67rem; font-weight: 700; color: rgba(255,255,255,0.92); padding-right: 5px; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
                         /* Tooltip */
                         .tc-bar-track:hover .tc-tooltip { display: block; }
                         .tc-tooltip {
@@ -466,7 +467,7 @@ window.updateNow = updateFromDiscord;
                                     .sort((a, b) => b[1] - a[1])
                                     .map(([lbl, dps]) => {
                                         const pct = (dps / maxDps * 100).toFixed(1);
-                                        return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};"></div>`;
+                                        return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};"><span class="tc-bar-val">${dps.toLocaleString()}</span></div>`;
                                     }).join("");
 
                                 // Tooltip rows — show low → high
