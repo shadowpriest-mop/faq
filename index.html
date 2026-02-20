@@ -370,7 +370,8 @@ window.updateNow = updateFromDiscord;
                         .tc-bar-wrap { flex: 1; display: flex; align-items: center; position: relative; }
                         .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 22px; position: relative; overflow: hidden; cursor: default; }
                         .tc-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 4px; transition: width 0.5s ease; display: flex; align-items: center; justify-content: flex-end; overflow: hidden; }
-                        .tc-bar-val { font-size: 0.67rem; font-weight: 700; color: rgba(255,255,255,0.92); padding-right: 5px; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+                        .tc-bar-val { font-size: 0.67rem; font-weight: 700; color: rgba(0,0,0,0.85); padding-right: 5px; white-space: nowrap; text-shadow: 0 0 4px rgba(255,255,255,0.7); }
+                        .tc-trinket-icon { width: 28px; height: 28px; border-radius: 4px; flex-shrink: 0; object-fit: cover; }
                         /* Tooltip */
                         .tc-bar-track:hover .tc-tooltip { display: block; }
                         .tc-tooltip {
@@ -426,15 +427,15 @@ window.updateNow = updateFromDiscord;
                         // url: wowhead item link for each trinket
                         const TRINKETS = [
                             // Phase 4 — Siege of Orgrimmar (T16)
-                            { name: "Purified Bindings of Immerseus", phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=105472", values: { "528": 14200, "540": 15100, "553": 16300, "566": 17800 } },
-                            { name: "Kardris' Toxic Totem",           phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104870", values: { "528": 13800, "540": 14900, "553": 16000, "566": 17400 } },
-                            { name: "Black Blood of Y'Shaarj",        phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528": 13000, "540": 14000, "553": 15200, "566": 16600 } },
-                            { name: "Frenzied Crystal of Rage",       phase: "SoO", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528": 12800, "540": 13700, "553": 14900, "566": 16200 } },
+                            { name: "Purified Bindings of Immerseus", phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=105472", values: { "528": 14200, "540": 15100, "553": 16300, "566": 17800 } },
+                            { name: "Kardris' Toxic Totem",           phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104870", values: { "528": 13800, "540": 14900, "553": 16000, "566": 17400 } },
+                            { name: "Black Blood of Y'Shaarj",        phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528": 13000, "540": 14000, "553": 15200, "566": 16600 } },
+                            { name: "Frenzied Crystal of Rage",       phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528": 12800, "540": 13700, "553": 14900, "566": 16200 } },
                             // Phase 3 — Throne of Thunder (T15)
-                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "522": 14500, "535": 15800 } },
-                            { name: "Wushoolay's Final Choice",       phase: "ToT", url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "522": 14000, "535": 15200 } },
+                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg",    url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "522": 14500, "535": 15800 } },
+                            { name: "Wushoolay's Final Choice",       phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_nature_chainlightning.jpg",  url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "522": 14000, "535": 15200 } },
                             // Phase 1 — Mogu'shan Vaults (T14)
-                            { name: "Will of Unbinding",              phase: "MSV", url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "483": 11500, "496": 13000, "509": 14200 } },
+                            { name: "Breath of the Hydra",            phase: "MSV", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_mindflay.jpg",        url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "483": 11500, "496": 13000, "509": 14200 } },
                         ];
                         // ─────────────────────────────────────────────────────────────────
 
@@ -481,11 +482,9 @@ window.updateNow = updateFromDiscord;
                                 return `
                                 <div class="tc-row">
                                     <div class="tc-rank">#${i + 1}</div>
-                                    <div class="tc-label">
+                                    <div class="tc-label" style="display:flex;align-items:center;gap:8px;">
+                                        <img src="${t.icon}" class="tc-trinket-icon" alt="">
                                         <a href="${t.url}" target="_blank">${t.name}</a>
-                                        <div class="tc-label-tags">
-                                            <span class="tc-phase-tag">${t.phase}</span>
-                                        </div>
                                     </div>
                                     <div class="tc-bar-wrap">
                                         <div class="tc-bar-track">
