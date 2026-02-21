@@ -817,7 +817,11 @@ window.updateNow = updateFromDiscord;
                                 return;
                             }
 
-                            const maxComboDps = Math.max(...partnerList.flatMap(([, p]) => Object.values(p.values)));
+                            const allDpsValues = partnerList.flatMap(([, p]) => Object.values(p.values));
+                            const maxComboDps  = Math.max(...allDpsValues);
+                            const minComboDps  = Math.min(...allDpsValues);
+                            // Start bars 10% below the lowest value so small differences are visible
+                            const baseline     = Math.floor(minComboDps * 0.9);
 
                             document.getElementById("tcComboChart").innerHTML = partnerList.map(([name, p], i) => {
                                 const meta    = p.meta;
@@ -827,7 +831,7 @@ window.updateNow = updateFromDiscord;
                                 const fillsHtml = [...entries]
                                     .sort((a, b) => b[1] - a[1])
                                     .map(([ilvl, dps]) => {
-                                        const pct = (dps / maxComboDps * 100).toFixed(1);
+                                        const pct = ((dps - baseline) / (maxComboDps - baseline) * 100).toFixed(1);
                                         return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[ilvl] || "#888"};"><span class="tc-bar-val">${dps.toLocaleString()}</span></div>`;
                                     }).join("");
 
