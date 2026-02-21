@@ -430,6 +430,22 @@ window.updateNow = updateFromDiscord;
                         <div id="tcChartSoo"></div>
                     </div>
 
+                    <!-- ─── Two-Trinket Comparison ─────────────────────────────────── -->
+                    <div style="margin-top:28px;border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;">
+                        <div style="font-size:1rem;font-weight:700;color:#c77dff;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+                            ⚖ Compare Two Trinkets
+                        </div>
+                        <p style="color:#aaa;font-size:0.86rem;margin:0 0 16px;line-height:1.6;">
+                            Lock a trinket in Slot 1, then see every Slot 2 option ranked by <strong>combined pair DPS</strong>. The locked trinket is automatically excluded from the Slot 2 list.
+                        </p>
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
+                            <span style="font-size:0.82rem;color:#888;font-weight:600;white-space:nowrap;">Slot 1 (locked):</span>
+                            <select id="tcComboSlot1" onchange="window.renderComboChart()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px 10px;font-size:0.85rem;cursor:pointer;"></select>
+                        </div>
+                        <div id="tcComboChart"></div>
+                        <p id="tcComboEmpty" style="display:none;color:#666;font-size:0.85rem;font-style:italic;margin:8px 0 0;">No sim data yet for this selection — fill in the <code>COMBOS</code> array as you complete runs.</p>
+                    </div>
+
                     <script>
                     (function () {
                         // ── UPDATE VALUES HERE WHEN SIMS ARE DONE ─────────────────────────
@@ -540,6 +556,125 @@ window.updateNow = updateFromDiscord;
                                     <span>${lbl}</span>
                                 </div>`).join("");
                         };
+
+                        // ── TRINKET COMBO DATA ────────────────────────────────────────────────────
+                        // Each entry = one trinket pair at specific item levels.
+                        // dps = combined sim DPS of wearing both simultaneously.
+                        // The a/b slots are symmetric — the UI handles both directions.
+                        // Replace dps: 0 with your sim value once that run is done.
+                        const COMBOS = [
+                            // Unerring Vision of Lei Shen × Wushoolay's Final Choice
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Wushoolay's Final Choice", bIlvl: "535", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Wushoolay's Final Choice", bIlvl: "522", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Wushoolay's Final Choice", bIlvl: "535", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Wushoolay's Final Choice", bIlvl: "522", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "535", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "522", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
+                            // Unerring Vision of Lei Shen × Breath of the Hydra
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            // Wushoolay's Final Choice × Breath of the Hydra
+                            { a: "Wushoolay's Final Choice", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                        ];
+                        // ─────────────────────────────────────────────────────────────────────────
+
+                        // Build Slot 1 dropdown from non-SoO trinkets
+                        (function buildSlot1Select() {
+                            const sel = document.getElementById("tcComboSlot1");
+                            const phaseOrder = ["ToT", "MSV"];
+                            const phaseLabels = { ToT: "Throne of Thunder", MSV: "Mogu'shan Vaults" };
+                            phaseOrder.forEach(phase => {
+                                const trinkets = baseTrinkets.filter(t => t.phase === phase);
+                                if (!trinkets.length) return;
+                                const grp = document.createElement("optgroup");
+                                grp.label = phaseLabels[phase] || phase;
+                                trinkets.forEach(t => {
+                                    Object.keys(t.values).sort((a, b) => b - a).forEach(ilvl => {
+                                        const opt = document.createElement("option");
+                                        opt.value = `${t.name}|${ilvl}`;
+                                        opt.textContent = `${t.name} — ${ilvl}`;
+                                        if (t.name === "Unerring Vision of Lei Shen" && ilvl === "535") opt.selected = true;
+                                        grp.appendChild(opt);
+                                    });
+                                });
+                                sel.appendChild(grp);
+                            });
+                        })();
+
+                        window.renderComboChart = function () {
+                            const [lockedName, lockedIlvl] = document.getElementById("tcComboSlot1").value.split("|");
+                            // Find combos containing this exact (name, ilvl) and extract the partner
+                            const partners = [];
+                            COMBOS.forEach(c => {
+                                let partnerName, partnerIlvl;
+                                if (c.a === lockedName && c.aIlvl === lockedIlvl) {
+                                    partnerName = c.b; partnerIlvl = c.bIlvl;
+                                } else if (c.b === lockedName && c.bIlvl === lockedIlvl) {
+                                    partnerName = c.a; partnerIlvl = c.aIlvl;
+                                } else {
+                                    return;
+                                }
+                                const meta = TRINKETS.find(t => t.name === partnerName) || {};
+                                partners.push({ name: partnerName, ilvl: partnerIlvl, dps: c.dps, icon: meta.icon || "", url: meta.url || "#" });
+                            });
+
+                            const hasData = partners.some(p => p.dps > 0);
+                            document.getElementById("tcComboEmpty").style.display = hasData ? "none" : "block";
+                            if (!hasData) { document.getElementById("tcComboChart").innerHTML = ""; return; }
+
+                            const sorted = partners.filter(p => p.dps > 0).sort((a, b) => b.dps - a.dps);
+                            const maxComboDps = sorted[0].dps;
+                            document.getElementById("tcComboChart").innerHTML = sorted.map((p, i) => {
+                                const pct      = (p.dps / maxComboDps * 100).toFixed(1);
+                                const barColor = colorMap[p.ilvl] || "#888";
+                                return `
+                                <div class="tc-row">
+                                    <div class="tc-rank">#${i + 1}</div>
+                                    <div class="tc-label" style="display:flex;align-items:center;gap:8px;">
+                                        <img src="${p.icon}" class="tc-trinket-icon" alt="">
+                                        <div>
+                                            <a href="${p.url}" target="_blank">${p.name}</a>
+                                            <div class="tc-label-tags"><span class="tc-phase-tag">${p.ilvl}</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="tc-bar-wrap">
+                                        <div class="tc-bar-track">
+                                            <div class="tc-bar-fill" style="width:${pct}%;background:${barColor};">
+                                                <span class="tc-bar-val">${p.dps.toLocaleString()}</span>
+                                            </div>
+                                            <div class="tc-tooltip">
+                                                <div class="tc-tooltip-name">${p.name} — ${p.ilvl}</div>
+                                                <div class="tc-tooltip-row">
+                                                    <span class="tc-tooltip-lbl">Combined DPS</span>
+                                                    <span class="tc-tooltip-val" style="color:${barColor}">${p.dps.toLocaleString()}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                            }).join("");
+                        };
+
+                        // Initial render (will show empty state until COMBOS are populated)
+                        window.renderComboChart();
                     })();
                     </script>
                 </div>
