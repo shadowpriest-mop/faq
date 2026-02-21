@@ -821,7 +821,7 @@ window.updateNow = updateFromDiscord;
                             const maxComboDps  = Math.max(...allDpsValues);
                             const minComboDps  = Math.min(...allDpsValues);
                             // Start bars 10% below the lowest value so small differences are visible
-                            const baseline     = Math.floor(minComboDps * 0.9);
+                            const baseline     = Math.floor(minComboDps * 0.95);
 
                             document.getElementById("tcComboChart").innerHTML = partnerList.map(([name, p], i) => {
                                 const meta    = p.meta;
