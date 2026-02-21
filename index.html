@@ -354,7 +354,10 @@ window.updateNow = updateFromDiscord;
                     </div>
 
                     <style>
-                        .tc-notice { background: rgba(244,196,48,0.08); border: 1px solid rgba(244,196,48,0.35); border-radius: 8px; padding: 11px 15px; margin-bottom: 18px; color: #f4c430; font-size: 0.88rem; }
+                        .tc-notice { background: rgba(244,196,48,0.08); border: 1px solid rgba(244,196,48,0.35); border-radius: 8px; padding: 11px 15px; margin-bottom: 10px; color: #f4c430; font-size: 0.88rem; }
+                        .tc-sim-info { display: flex; flex-wrap: wrap; gap: 3px 0; margin-bottom: 18px; margin-top: 6px; }
+                        .tc-sim-info span { font-size: 0.75rem; color: #666; }
+                        .tc-sim-info span + span::before { content: "·"; margin: 0 6px; color: #444; }
                         .tc-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 20px; }
                         .tc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #bbb; }
                         .tc-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
@@ -401,6 +404,13 @@ window.updateNow = updateFromDiscord;
                     </style>
 
                     <div class="tc-notice">⚠ Placeholder data — DPS values will be updated once sims are complete. Do not use these numbers for gearing decisions yet.</div>
+                    <div class="tc-sim-info">
+                        <span>Single Target</span>
+                        <span>300+60s</span>
+                        <span>34.91% ToF uptime</span>
+                        <span>12,500 iterations</span>
+                        <span>seed: 3,999,487,141</span>
+                    </div>
                     <div class="tc-legend" id="tcLegend"></div>
                     <div id="tcChart"></div>
 
