@@ -441,10 +441,7 @@ window.updateNow = updateFromDiscord;
                     </div>
                     <div id="tcComboChart"></div>
                     <p id="tcComboEmpty" style="display:none;color:#666;font-size:0.85rem;font-style:italic;margin:0 0 12px;">No sim data yet for this selection — fill in the <code>COMBOS</code> array as you complete runs.</p>
-                    <div style="border-top:1px solid rgba(255,255,255,0.07);margin:4px 0 16px;"></div>
-                    <!-- ─── Single-trinket ranking ─────────────────────────────────────── -->
-                    <div class="tc-legend" id="tcLegend"></div>
-                    <div id="tcChart"></div>
+                    <div class="tc-legend" id="tcLegend" style="margin-top:12px;"></div>
 
                     <!-- SoO toggle -->
                     <button id="sooToggleBtn" onclick="window.toggleSooTrinkets()"
@@ -493,7 +490,6 @@ window.updateNow = updateFromDiscord;
                             // Dungeons (teal, reserved for future entries)
                             "463": "#1a8a8a", "476": "#20a8a8", "489": "#28c4c4",
                         };
-                        const allLabels = [...new Set(TRINKETS.flatMap(t => Object.keys(t.values)))];
                         const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
 
                         function renderRows(list, targetId) {
@@ -541,19 +537,10 @@ window.updateNow = updateFromDiscord;
                             }).join("");
                         }
 
-                        // Legend (all labels so SoO ilvls are shown in legend too when revealed)
                         const baseTrinkets = TRINKETS.filter(t => t.phase !== "SoO");
                         const sooTrinkets  = TRINKETS.filter(t => t.phase === "SoO");
-                        const baseLabels   = [...new Set(baseTrinkets.flatMap(t => Object.keys(t.values)))];
 
-                        document.getElementById("tcLegend").innerHTML = baseLabels.map(lbl => `
-                            <div class="tc-legend-item">
-                                <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
-                                <span>${lbl}</span>
-                            </div>`).join("");
-
-                        renderRows(baseTrinkets, "tcChart");
-                        renderRows(sooTrinkets,  "tcChartSoo");
+                        renderRows(sooTrinkets, "tcChartSoo");
 
                         // Toggle SoO section
                         window.toggleSooTrinkets = function () {
@@ -564,13 +551,6 @@ window.updateNow = updateFromDiscord;
                             section.style.display = open ? "none" : "block";
                             arrow.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
                             btn.style.background  = open ? "rgba(220,50,50,0.08)" : "rgba(220,50,50,0.15)";
-                            // Update legend to include/exclude SoO ilvl labels
-                            const labels = open ? baseLabels : allLabels;
-                            document.getElementById("tcLegend").innerHTML = labels.map(lbl => `
-                                <div class="tc-legend-item">
-                                    <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
-                                    <span>${lbl}</span>
-                                </div>`).join("");
                         };
 
                         // ── TRINKET COMBO DATA ────────────────────────────────────────────────────
@@ -652,56 +632,90 @@ window.updateNow = updateFromDiscord;
                             const lockedName = document.getElementById("tcSlot1Name").value;
                             const lockedIlvl = document.getElementById("tcSlot1Ilvl").value;
                             document.getElementById("tcSlot1Ilvl").style.color = colorMap[lockedIlvl] || "";
-                            // Find combos containing this exact (name, ilvl) and extract the partner
-                            const partners = [];
+
+                            // Group all matching combos by partner trinket name,
+                            // collecting every ilvl variant so we can draw stacked bars.
+                            const partnerMap = {};
                             COMBOS.forEach(c => {
-                                let partnerName, partnerIlvl;
+                                let partnerName, partnerIlvl, dps;
                                 if (c.a === lockedName && c.aIlvl === lockedIlvl) {
-                                    partnerName = c.b; partnerIlvl = c.bIlvl;
+                                    partnerName = c.b; partnerIlvl = c.bIlvl; dps = c.dps;
                                 } else if (c.b === lockedName && c.bIlvl === lockedIlvl) {
-                                    partnerName = c.a; partnerIlvl = c.aIlvl;
-                                } else {
-                                    return;
+                                    partnerName = c.a; partnerIlvl = c.aIlvl; dps = c.dps;
+                                } else { return; }
+                                if (!partnerMap[partnerName]) {
+                                    partnerMap[partnerName] = {
+                                        values: {},
+                                        meta: TRINKETS.find(t => t.name === partnerName) || {}
+                                    };
                                 }
-                                const meta = TRINKETS.find(t => t.name === partnerName) || {};
-                                partners.push({ name: partnerName, ilvl: partnerIlvl, dps: c.dps, icon: meta.icon || "", url: meta.url || "#" });
+                                if (dps > 0) partnerMap[partnerName].values[partnerIlvl] = dps;
                             });
 
-                            const hasData = partners.some(p => p.dps > 0);
-                            document.getElementById("tcComboEmpty").style.display = hasData ? "none" : "block";
-                            if (!hasData) { document.getElementById("tcComboChart").innerHTML = ""; return; }
+                            // Only show partners where at least one ilvl has real sim data
+                            const partnerList = Object.entries(partnerMap)
+                                .filter(([, p]) => Object.keys(p.values).length > 0)
+                                .sort(([, a], [, b]) =>
+                                    Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values))
+                                );
 
-                            const sorted = partners.filter(p => p.dps > 0).sort((a, b) => b.dps - a.dps);
-                            const maxComboDps = sorted[0].dps;
-                            document.getElementById("tcComboChart").innerHTML = sorted.map((p, i) => {
-                                const pct      = (p.dps / maxComboDps * 100).toFixed(1);
-                                const barColor = colorMap[p.ilvl] || "#888";
+                            const hasData = partnerList.length > 0;
+                            document.getElementById("tcComboEmpty").style.display = hasData ? "none" : "block";
+                            if (!hasData) {
+                                document.getElementById("tcComboChart").innerHTML = "";
+                                document.getElementById("tcLegend").innerHTML = "";
+                                return;
+                            }
+
+                            const maxComboDps = Math.max(...partnerList.flatMap(([, p]) => Object.values(p.values)));
+
+                            document.getElementById("tcComboChart").innerHTML = partnerList.map(([name, p], i) => {
+                                const meta    = p.meta;
+                                const entries = Object.entries(p.values);
+
+                                // Widest bar first so narrower ones stack visually on top
+                                const fillsHtml = [...entries]
+                                    .sort((a, b) => b[1] - a[1])
+                                    .map(([ilvl, dps]) => {
+                                        const pct = (dps / maxComboDps * 100).toFixed(1);
+                                        return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[ilvl] || "#888"};"><span class="tc-bar-val">${dps.toLocaleString()}</span></div>`;
+                                    }).join("");
+
+                                const tipRows = [...entries]
+                                    .sort((a, b) => b[1] - a[1])
+                                    .map(([ilvl, dps]) =>
+                                        `<div class="tc-tooltip-row">
+                                            <span class="tc-tooltip-lbl">${ilvl}</span>
+                                            <span class="tc-tooltip-val" style="color:${colorMap[ilvl] || "#888"}">${dps.toLocaleString()}</span>
+                                        </div>`
+                                    ).join("");
+
                                 return `
                                 <div class="tc-row">
                                     <div class="tc-rank">#${i + 1}</div>
                                     <div class="tc-label" style="display:flex;align-items:center;gap:8px;">
-                                        <img src="${p.icon}" class="tc-trinket-icon" alt="">
-                                        <div>
-                                            <a href="${p.url}" target="_blank">${p.name}</a>
-                                            <div class="tc-label-tags"><span class="tc-phase-tag">${p.ilvl}</span></div>
-                                        </div>
+                                        <img src="${meta.icon || ''}" class="tc-trinket-icon" alt="">
+                                        <a href="${meta.url || '#'}" target="_blank">${name}</a>
                                     </div>
                                     <div class="tc-bar-wrap">
                                         <div class="tc-bar-track">
-                                            <div class="tc-bar-fill" style="width:${pct}%;background:${barColor};">
-                                                <span class="tc-bar-val">${p.dps.toLocaleString()}</span>
-                                            </div>
+                                            ${fillsHtml}
                                             <div class="tc-tooltip">
-                                                <div class="tc-tooltip-name">${p.name} — ${p.ilvl}</div>
-                                                <div class="tc-tooltip-row">
-                                                    <span class="tc-tooltip-lbl">Combined DPS</span>
-                                                    <span class="tc-tooltip-val" style="color:${barColor}">${p.dps.toLocaleString()}</span>
-                                                </div>
+                                                <div class="tc-tooltip-name">${name}</div>
+                                                ${tipRows}
                                             </div>
                                         </div>
                                     </div>
                                 </div>`;
                             }).join("");
+
+                            // Legend — show ilvls present in current results
+                            const presentIlvls = [...new Set(partnerList.flatMap(([, p]) => Object.keys(p.values)))];
+                            document.getElementById("tcLegend").innerHTML = presentIlvls.map(lbl => `
+                                <div class="tc-legend-item">
+                                    <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
+                                    <span>${lbl}</span>
+                                </div>`).join("");
                         };
 
                         // Build Slot 1 custom icon dropdown (runs after all functions are defined)
