@@ -411,6 +411,16 @@ window.updateNow = updateFromDiscord;
                         <span>12,500 iterations</span>
                         <span>seed: 3,999,487,141</span>
                     </div>
+                    <!-- ─── Slot 1 selector ──────────────────────────────────────────── -->
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+                        <span style="font-size:0.82rem;color:#888;font-weight:600;white-space:nowrap;">Slot 1:</span>
+                        <select id="tcSlot1Name" onchange="window.updateSlot1Ilvls()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 9px;font-size:0.85rem;cursor:pointer;"></select>
+                        <select id="tcSlot1Ilvl" onchange="window.renderComboChart()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 9px;font-size:0.85rem;cursor:pointer;"></select>
+                    </div>
+                    <div id="tcComboChart"></div>
+                    <p id="tcComboEmpty" style="display:none;color:#666;font-size:0.85rem;font-style:italic;margin:0 0 12px;">No sim data yet for this selection — fill in the <code>COMBOS</code> array as you complete runs.</p>
+                    <div style="border-top:1px solid rgba(255,255,255,0.07);margin:4px 0 16px;"></div>
+                    <!-- ─── Single-trinket ranking ─────────────────────────────────────── -->
                     <div class="tc-legend" id="tcLegend"></div>
                     <div id="tcChart"></div>
 
@@ -428,22 +438,6 @@ window.updateNow = updateFromDiscord;
                             <p style="color:#ffaaaa;font-size:0.9rem;margin:0;line-height:1.6;">Siege of Orgrimmar is not available in the current phase. The values shown below are <strong>simulated projections only</strong> and are very likely to change once the raid is released and properly tested. Do not make gearing decisions based on these numbers.</p>
                         </div>
                         <div id="tcChartSoo"></div>
-                    </div>
-
-                    <!-- ─── Two-Trinket Comparison ─────────────────────────────────── -->
-                    <div style="margin-top:28px;border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;">
-                        <div style="font-size:1rem;font-weight:700;color:#c77dff;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
-                            ⚖ Compare Two Trinkets
-                        </div>
-                        <p style="color:#aaa;font-size:0.86rem;margin:0 0 16px;line-height:1.6;">
-                            Lock a trinket in Slot 1, then see every Slot 2 option ranked by <strong>combined pair DPS</strong>. The locked trinket is automatically excluded from the Slot 2 list.
-                        </p>
-                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
-                            <span style="font-size:0.82rem;color:#888;font-weight:600;white-space:nowrap;">Slot 1 (locked):</span>
-                            <select id="tcComboSlot1" onchange="window.renderComboChart()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px 10px;font-size:0.85rem;cursor:pointer;"></select>
-                        </div>
-                        <div id="tcComboChart"></div>
-                        <p id="tcComboEmpty" style="display:none;color:#666;font-size:0.85rem;font-style:italic;margin:8px 0 0;">No sim data yet for this selection — fill in the <code>COMBOS</code> array as you complete runs.</p>
                     </div>
 
                     <script>
@@ -596,9 +590,9 @@ window.updateNow = updateFromDiscord;
                         ];
                         // ─────────────────────────────────────────────────────────────────────────
 
-                        // Build Slot 1 dropdown from non-SoO trinkets
-                        (function buildSlot1Select() {
-                            const sel = document.getElementById("tcComboSlot1");
+                        // Build Slot 1 name dropdown
+                        (function buildSlot1NameSelect() {
+                            const nameSel = document.getElementById("tcSlot1Name");
                             const phaseOrder = ["ToT", "MSV"];
                             const phaseLabels = { ToT: "Throne of Thunder", MSV: "Mogu'shan Vaults" };
                             phaseOrder.forEach(phase => {
@@ -607,20 +601,35 @@ window.updateNow = updateFromDiscord;
                                 const grp = document.createElement("optgroup");
                                 grp.label = phaseLabels[phase] || phase;
                                 trinkets.forEach(t => {
-                                    Object.keys(t.values).sort((a, b) => b - a).forEach(ilvl => {
-                                        const opt = document.createElement("option");
-                                        opt.value = `${t.name}|${ilvl}`;
-                                        opt.textContent = `${t.name} — ${ilvl}`;
-                                        if (t.name === "Unerring Vision of Lei Shen" && ilvl === "535") opt.selected = true;
-                                        grp.appendChild(opt);
-                                    });
+                                    const opt = document.createElement("option");
+                                    opt.value = t.name;
+                                    opt.textContent = t.name;
+                                    if (t.name === "Unerring Vision of Lei Shen") opt.selected = true;
+                                    grp.appendChild(opt);
                                 });
-                                sel.appendChild(grp);
+                                nameSel.appendChild(grp);
                             });
                         })();
 
+                        window.updateSlot1Ilvls = function () {
+                            const lockedName = document.getElementById("tcSlot1Name").value;
+                            const trinket    = TRINKETS.find(t => t.name === lockedName);
+                            const ilvlSel    = document.getElementById("tcSlot1Ilvl");
+                            ilvlSel.innerHTML = "";
+                            if (!trinket) return;
+                            Object.keys(trinket.values).sort((a, b) => b - a).forEach((ilvl, i) => {
+                                const opt = document.createElement("option");
+                                opt.value = ilvl;
+                                opt.textContent = ilvl;
+                                if (i === 0) opt.selected = true;
+                                ilvlSel.appendChild(opt);
+                            });
+                            window.renderComboChart();
+                        };
+
                         window.renderComboChart = function () {
-                            const [lockedName, lockedIlvl] = document.getElementById("tcComboSlot1").value.split("|");
+                            const lockedName = document.getElementById("tcSlot1Name").value;
+                            const lockedIlvl = document.getElementById("tcSlot1Ilvl").value;
                             // Find combos containing this exact (name, ilvl) and extract the partner
                             const partners = [];
                             COMBOS.forEach(c => {
@@ -673,8 +682,8 @@ window.updateNow = updateFromDiscord;
                             }).join("");
                         };
 
-                        // Initial render (will show empty state until COMBOS are populated)
-                        window.renderComboChart();
+                        // Initial render — populate ilvl dropdown then render combo chart
+                        window.updateSlot1Ilvls();
                     })();
                     </script>
                 </div>
