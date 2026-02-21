@@ -803,11 +803,16 @@ window.updateNow = updateFromDiscord;
                             });
 
                             // Only show partners where at least one ilvl has real sim data
+                            // Sort: Throne of Thunder rows first, then T14/P1, then AH — DPS within each group
+                            const phaseRank = { ToT: 0, P1: 1, AH: 2, SoO: 3 };
                             const partnerList = Object.entries(partnerMap)
                                 .filter(([, p]) => Object.keys(p.values).length > 0)
-                                .sort(([, a], [, b]) =>
-                                    Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values))
-                                );
+                                .sort(([, a], [, b]) => {
+                                    const pa = phaseRank[a.meta.phase] ?? 9;
+                                    const pb = phaseRank[b.meta.phase] ?? 9;
+                                    if (pa !== pb) return pa - pb;
+                                    return Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values));
+                                });
 
                             const hasData = partnerList.length > 0;
                             document.getElementById("tcComboEmpty").style.display = hasData ? "none" : "block";
@@ -863,8 +868,14 @@ window.updateNow = updateFromDiscord;
                                 </div>`;
                             }).join("");
 
-                            // Legend — show ilvls present in current results
-                            const presentIlvls = [...new Set(partnerList.flatMap(([, p]) => Object.keys(p.values)))];
+                            // Legend — P1/AH ilvls first (gold palette), then ToT ilvls (blue) — 502/528/541 after 517
+                            const ilvsPhaseOrder = ["484","491","497","504","510","517","502","528","541","540","553","566"];
+                            const presentIlvls = [...new Set(partnerList.flatMap(([, p]) => Object.keys(p.values)))]
+                                .sort((a, b) => {
+                                    const oa = ilvsPhaseOrder.indexOf(a);
+                                    const ob = ilvsPhaseOrder.indexOf(b);
+                                    return (oa < 0 ? 999 : oa) - (ob < 0 ? 999 : ob);
+                                });
                             document.getElementById("tcLegend").innerHTML = presentIlvls.map(lbl => `
                                 <div class="tc-legend-item">
                                     <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
