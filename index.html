@@ -474,10 +474,10 @@ window.updateNow = updateFromDiscord;
                             { name: "Black Blood of Y'Shaarj",        phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528": 13000, "540": 14000, "553": 15200, "566": 16600 } },
                             { name: "Frenzied Crystal of Rage",       phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528": 12800, "540": 13700, "553": 14900, "566": 16200 } },
                             // Phase 3 — Throne of Thunder (T15)
-                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg",    url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "522": 14500, "535": 15800 } },
-                            { name: "Wushoolay's Final Choice",       phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_nature_chainlightning.jpg",  url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "522": 14000, "535": 15200 } },
+                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg",    url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "528": 14500, "541": 15800 } },
+                            { name: "Wushoolay's Final Choice",       phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_nature_chainlightning.jpg",  url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "528": 14000, "541": 15200 } },
                             // Phase 1 — Mogu'shan Vaults (T14)
-                            { name: "Breath of the Hydra",            phase: "MSV", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_mindflay.jpg",        url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "483": 11500, "496": 13000, "509": 14200 } },
+                            { name: "Breath of the Hydra",            phase: "MSV", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_mindflay.jpg",        url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "502": 11500, "528": 13000, "541": 14200 } },
                         ];
                         // ─────────────────────────────────────────────────────────────────
 
@@ -486,10 +486,10 @@ window.updateNow = updateFromDiscord;
                         const colorMap = {
                             // T14 — Mogu'shan Vaults / HoF / ToES (gold)
                             "483": "#b87820", "496": "#d49a2a", "509": "#f4c430",
-                            // T15 — Throne of Thunder (blue)
-                            "502": "#2d6db0", "522": "#4090d4", "535": "#60b4f0",
+                            // T15 — Throne of Thunder (blue) — 502 LFR, 528 normal+upgraded, 541 heroic+upgraded
+                            "502": "#2d6db0", "528": "#4090d4", "541": "#60b4f0",
                             // T16 — Siege of Orgrimmar (red → orange)
-                            "528": "#b02020", "540": "#cc3535", "553": "#e84848", "566": "#f07030",
+                            "540": "#cc3535", "553": "#e84848", "566": "#f07030",
                             // Dungeons (teal, reserved for future entries)
                             "463": "#1a8a8a", "476": "#20a8a8", "489": "#28c4c4",
                         };
@@ -580,35 +580,35 @@ window.updateNow = updateFromDiscord;
                         // Replace dps: 0 with your sim value once that run is done.
                         const COMBOS = [
                             // Unerring Vision of Lei Shen × Wushoolay's Final Choice
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Wushoolay's Final Choice", bIlvl: "535", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Wushoolay's Final Choice", bIlvl: "522", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Wushoolay's Final Choice", bIlvl: "535", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Wushoolay's Final Choice", bIlvl: "522", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "535", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "522", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Wushoolay's Final Choice", bIlvl: "541", dps: 254799 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Wushoolay's Final Choice", bIlvl: "528", dps: 251361 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 246534 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Wushoolay's Final Choice", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Wushoolay's Final Choice", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "528", dps: 0 },
                             { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
                             // Unerring Vision of Lei Shen × Breath of the Hydra
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
-                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "541", dps: 253004 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "528", dps: 250070 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "502", dps: 245956 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
                             // Wushoolay's Final Choice × Breath of the Hydra
-                            { a: "Wushoolay's Final Choice", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "535", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "522", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "509", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "496", dps: 0 },
-                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "483", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
                         ];
                         // ─────────────────────────────────────────────────────────────────────────
 
