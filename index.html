@@ -401,6 +401,20 @@ window.updateNow = updateFromDiscord;
                             .tc-label { min-width: unset; max-width: unset; flex: 1; }
                             .tc-bar-wrap { width: 100%; flex: unset; }
                         }
+                        /* Custom icon dropdown */
+                        .tc-custom-select { position: relative; display: inline-block; }
+                        .tc-custom-trigger { display: flex; align-items: center; gap: 8px; background: #1a1c2a; color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 5px 9px; font-size: 0.85rem; cursor: pointer; user-select: none; min-width: 240px; }
+                        .tc-custom-trigger-arrow { margin-left: auto; font-size: 0.68rem; color: #888; transition: transform 0.2s; flex-shrink: 0; }
+                        .tc-custom-select.tc-open .tc-custom-trigger { border-color: rgba(199,125,255,0.5); }
+                        .tc-custom-select.tc-open .tc-custom-trigger-arrow { transform: rotate(180deg); }
+                        .tc-custom-panel { display: none; position: absolute; top: calc(100% + 4px); left: 0; min-width: 100%; background: #13151f; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; z-index: 400; box-shadow: 0 8px 28px rgba(0,0,0,0.7); overflow: hidden; }
+                        .tc-custom-select.tc-open .tc-custom-panel { display: block; }
+                        .tc-custom-group-label { font-size: 0.7rem; color: #555; font-weight: 700; padding: 8px 12px 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+                        .tc-custom-opt { display: flex; align-items: center; gap: 9px; padding: 7px 12px; cursor: pointer; transition: background 0.12s; }
+                        .tc-custom-opt:hover { background: rgba(255,255,255,0.07); }
+                        .tc-custom-opt.tc-selected { background: rgba(199,125,255,0.1); }
+                        .tc-custom-opt img { width: 24px; height: 24px; border-radius: 3px; flex-shrink: 0; }
+                        .tc-custom-opt span { font-size: 0.85rem; color: #e0e0e0; }
                     </style>
 
                     <div class="tc-notice">⚠ Placeholder data — DPS values will be updated once sims are complete. Do not use these numbers for gearing decisions yet.</div>
@@ -414,7 +428,15 @@ window.updateNow = updateFromDiscord;
                     <!-- ─── Slot 1 selector ──────────────────────────────────────────── -->
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
                         <span style="font-size:0.82rem;color:#888;font-weight:600;white-space:nowrap;">Slot 1:</span>
-                        <select id="tcSlot1Name" onchange="window.updateSlot1Ilvls()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 9px;font-size:0.85rem;cursor:pointer;"></select>
+                        <input type="hidden" id="tcSlot1Name">
+                        <div class="tc-custom-select" id="tcSlot1Picker">
+                            <div class="tc-custom-trigger" onclick="window.toggleSlot1Dropdown(event)">
+                                <img id="tcSlot1TriggerIcon" src="" style="width:22px;height:22px;border-radius:3px;display:none;" alt="">
+                                <span id="tcSlot1TriggerLabel" style="flex:1;"></span>
+                                <span class="tc-custom-trigger-arrow">▼</span>
+                            </div>
+                            <div class="tc-custom-panel" id="tcSlot1Panel"></div>
+                        </div>
                         <select id="tcSlot1Ilvl" onchange="window.renderComboChart()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 9px;font-size:0.85rem;cursor:pointer;"></select>
                     </div>
                     <div id="tcComboChart"></div>
@@ -590,26 +612,23 @@ window.updateNow = updateFromDiscord;
                         ];
                         // ─────────────────────────────────────────────────────────────────────────
 
-                        // Build Slot 1 name dropdown
-                        (function buildSlot1NameSelect() {
-                            const nameSel = document.getElementById("tcSlot1Name");
-                            const phaseOrder = ["ToT", "MSV"];
-                            const phaseLabels = { ToT: "Throne of Thunder", MSV: "Mogu'shan Vaults" };
-                            phaseOrder.forEach(phase => {
-                                const trinkets = baseTrinkets.filter(t => t.phase === phase);
-                                if (!trinkets.length) return;
-                                const grp = document.createElement("optgroup");
-                                grp.label = phaseLabels[phase] || phase;
-                                trinkets.forEach(t => {
-                                    const opt = document.createElement("option");
-                                    opt.value = t.name;
-                                    opt.textContent = t.name;
-                                    if (t.name === "Unerring Vision of Lei Shen") opt.selected = true;
-                                    grp.appendChild(opt);
-                                });
-                                nameSel.appendChild(grp);
-                            });
-                        })();
+
+                        window.toggleSlot1Dropdown = function (e) {
+                            e.stopPropagation();
+                            document.getElementById("tcSlot1Picker").classList.toggle("tc-open");
+                        };
+
+                        window.selectSlot1Trinket = function (name, icon) {
+                            document.getElementById("tcSlot1Name").value = name;
+                            document.getElementById("tcSlot1TriggerIcon").src = icon;
+                            document.getElementById("tcSlot1TriggerIcon").style.display = "";
+                            document.getElementById("tcSlot1TriggerLabel").textContent = name;
+                            document.getElementById("tcSlot1Picker").classList.remove("tc-open");
+                            document.querySelectorAll(".tc-custom-opt").forEach(el =>
+                                el.classList.toggle("tc-selected", el.dataset.name === name)
+                            );
+                            window.updateSlot1Ilvls();
+                        };
 
                         window.updateSlot1Ilvls = function () {
                             const lockedName = document.getElementById("tcSlot1Name").value;
@@ -682,8 +701,36 @@ window.updateNow = updateFromDiscord;
                             }).join("");
                         };
 
-                        // Initial render — populate ilvl dropdown then render combo chart
-                        window.updateSlot1Ilvls();
+                        // Build Slot 1 custom icon dropdown (runs after all functions are defined)
+                        (function buildSlot1NameSelect() {
+                            const panel = document.getElementById("tcSlot1Panel");
+                            const phaseOrder = ["ToT", "MSV"];
+                            const phaseLabels = { ToT: "Throne of Thunder", MSV: "Mogu'shan Vaults" };
+                            let defaultTrinket = null;
+                            phaseOrder.forEach(phase => {
+                                const trinkets = baseTrinkets.filter(t => t.phase === phase);
+                                if (!trinkets.length) return;
+                                const groupLabel = document.createElement("div");
+                                groupLabel.className = "tc-custom-group-label";
+                                groupLabel.textContent = phaseLabels[phase] || phase;
+                                panel.appendChild(groupLabel);
+                                trinkets.forEach(t => {
+                                    if (!defaultTrinket || t.name === "Unerring Vision of Lei Shen") defaultTrinket = t;
+                                    const opt = document.createElement("div");
+                                    opt.className = "tc-custom-opt";
+                                    opt.dataset.name = t.name;
+                                    opt.innerHTML = `<img src="${t.icon}" alt=""><span>${t.name}</span>`;
+                                    opt.addEventListener("click", () => window.selectSlot1Trinket(t.name, t.icon));
+                                    panel.appendChild(opt);
+                                });
+                            });
+                            if (defaultTrinket) window.selectSlot1Trinket(defaultTrinket.name, defaultTrinket.icon);
+                        })();
+
+                        // Close dropdown on outside click
+                        document.addEventListener("click", function () {
+                            document.getElementById("tcSlot1Picker").classList.remove("tc-open");
+                        });
                     })();
                     </script>
                 </div>
