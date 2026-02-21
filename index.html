@@ -471,24 +471,30 @@ window.updateNow = updateFromDiscord;
                             { name: "Black Blood of Y'Shaarj",        phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528": 13000, "540": 14000, "553": 15200, "566": 16600 } },
                             { name: "Frenzied Crystal of Rage",       phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528": 12800, "540": 13700, "553": 14900, "566": 16200 } },
                             // Phase 3 — Throne of Thunder (T15)
-                            { name: "Unerring Vision of Lei Shen",    phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg",    url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "528": 14500, "541": 15800 } },
-                            { name: "Wushoolay's Final Choice",       phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_nature_chainlightning.jpg",  url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "528": 14000, "541": 15200 } },
-                            // Phase 1 — Mogu'shan Vaults (T14)
-                            { name: "Breath of the Hydra",            phase: "MSV", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_mindflay.jpg",        url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "502": 11500, "528": 13000, "541": 14200 } },
+                            { name: "Unerring Vision of Lei Shen",       phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg",         url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "528": 14500, "541": 15800 } },
+                            { name: "Wushoolay's Final Choice",          phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_nature_chainlightning.jpg",       url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "528": 14000, "541": 15200 } },
+                            { name: "Cha-Ye's Essence of Brilliance",   phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_holy_mindsooth.jpg",              url: "#",                                               values: { "502": 11700, "528": 13400, "541": 14700 } },
+                            { name: "Breath of the Hydra",               phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_mindflay.jpg",            url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "502": 11500, "528": 13000, "541": 14200 } },
+                            // Phase 1 — MSV / HoF / ToES
+                            { name: "Essence of Terror",                 phase: "P1",  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_pvp_trinket.jpg",              url: "#",                                               values: { "491": 10800, "504": 11600, "517": 12400 } },
+                            { name: "Light of the Cosmos",               phase: "P1",  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_ulduarraid_d_03.jpg",      url: "#",                                               values: { "484": 10600, "497": 11400, "510": 12200 } },
+                            // Auction House
+                            { name: "Relic of Yu'lon",                   phase: "AH",  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_inscription_trinket_tiger.jpg",    url: "#",                                               values: { "484": 10400 } },
                         ];
                         // ─────────────────────────────────────────────────────────────────
 
                         // Explicit colour map keyed by item level.
                         // Grouped by tier so each raid has its own hue family.
                         const colorMap = {
-                            // T14 — Mogu'shan Vaults / HoF / ToES (gold)
-                            "483": "#b87820", "496": "#d49a2a", "509": "#f4c430",
-                            // T15 — Throne of Thunder (blue) — 502 LFR, 528 normal+upgraded, 541 heroic+upgraded
+                            // Phase 1 — MSV / HoF / ToES (gold) — upgraded ilvls
+                            // HoF:  484 (LFR+upg), 497 (N+upg), 510 (H+upg)
+                            // ToES: 491 (LFR+upg), 504 (N+upg), 517 (H+upg)
+                            "484": "#a06818", "491": "#b07828", "497": "#c08c36",
+                            "504": "#d09e44", "510": "#e0b050", "517": "#f4c430",
+                            // T15 — Throne of Thunder (blue) — 502 LFR, 528 normal+upg, 541 heroic+upg
                             "502": "#2d6db0", "528": "#4090d4", "541": "#60b4f0",
                             // T16 — Siege of Orgrimmar (red → orange)
                             "540": "#cc3535", "553": "#e84848", "566": "#f07030",
-                            // Dungeons (teal, reserved for future entries)
-                            "463": "#1a8a8a", "476": "#20a8a8", "489": "#28c4c4",
                         };
                         const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
 
@@ -589,6 +595,150 @@ window.updateNow = updateFromDiscord;
                             { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
                             { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
                             { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            // Unerring Vision of Lei Shen × Cha-Ye's Essence of Brilliance
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 252665 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 249834 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 245176 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            // Wushoolay's Final Choice × Cha-Ye's Essence of Brilliance
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Breath of the Hydra
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            // Unerring Vision of Lei Shen × Essence of Terror
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 243318 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 240807 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 238990 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Wushoolay's Final Choice × Essence of Terror
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Essence of Terror
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Breath of the Hydra × Essence of Terror
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Unerring Vision of Lei Shen × Light of the Cosmos
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 245407 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 243962 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 241341 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Wushoolay's Final Choice × Light of the Cosmos
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Light of the Cosmos
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Breath of the Hydra × Light of the Cosmos
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Essence of Terror × Light of the Cosmos
+                            { a: "Essence of Terror", aIlvl: "517", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "517", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "517", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Unerring Vision of Lei Shen × Relic of Yu'lon
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 241318 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Wushoolay's Final Choice × Relic of Yu'lon
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Relic of Yu'lon
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Breath of the Hydra × Relic of Yu'lon
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Essence of Terror × Relic of Yu'lon
+                            { a: "Essence of Terror", aIlvl: "517", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Light of the Cosmos × Relic of Yu'lon
+                            { a: "Light of the Cosmos", aIlvl: "510", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Light of the Cosmos", aIlvl: "497", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Light of the Cosmos", aIlvl: "484", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
                         ];
                         // ─────────────────────────────────────────────────────────────────────────
 
@@ -721,8 +871,8 @@ window.updateNow = updateFromDiscord;
                         // Build Slot 1 custom icon dropdown (runs after all functions are defined)
                         (function buildSlot1NameSelect() {
                             const panel = document.getElementById("tcSlot1Panel");
-                            const phaseOrder = ["ToT", "MSV"];
-                            const phaseLabels = { ToT: "Throne of Thunder", MSV: "Mogu'shan Vaults" };
+                            const phaseOrder = ["ToT", "P1", "AH"];
+                            const phaseLabels = { ToT: "Throne of Thunder", P1: "MSV / HoF / ToES", AH: "Auction House" };
                             let defaultTrinket = null;
                             phaseOrder.forEach(phase => {
                                 const trinkets = baseTrinkets.filter(t => t.phase === phase);
