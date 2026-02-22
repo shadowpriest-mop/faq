@@ -16,27 +16,6 @@
     }
 }
 
-@keyframes mistFloat {
-    0%, 100% { 
-        transform: translateX(0) scale(1); 
-        opacity: 0.8; 
-    }
-    50% { 
-        transform: translateX(10px) scale(1.05); 
-        opacity: 1; 
-    }
-}
-
-@keyframes orbPulse {
-    0%, 100% { 
-        transform: scale(1); 
-        box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
-    }
-    50% { 
-        transform: scale(1.2); 
-        box-shadow: 0 0 25px rgba(157, 78, 221, 1);
-    }
-}
 
 @keyframes slideDown {
     from {
@@ -87,42 +66,9 @@
 
 /* ===== HEADER ANIMATIONS ===== */
 
-.mist-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at 30% 60%, rgba(100, 255, 150, 0.15) 0%, transparent 60%);
-    animation: mistFloat 8s ease-in-out infinite;
-}
-
-.orb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, var(--primary-purple), #3c096c);
-    box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
-    animation: orbPulse 3s ease-in-out infinite;
-}
-
-.orb:nth-child(2) { 
-    animation-delay: 1s; 
-}
-
-.orb:nth-child(3) { 
-    animation-delay: 2s; 
-}
-
-/* ===== TITLE ANIMATIONS ===== */
-
+/* Subtle title glow pulse — keeps the heading feeling alive */
 .title h1 {
-    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
-    animation: glow 4s ease-in-out infinite;
+    animation: glow 5s ease-in-out infinite;
 }
 
 /* ===== BUTTON ANIMATIONS ===== */

@@ -6,21 +6,17 @@
     <title>SP FAQ MoP</title>
     <meta name="description" content="Comprehensive FAQ guide for Shadow Priests in World of Warcraft: Mist of Pandaria expansion">
     <link rel="icon" type="image/png" href="https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kings&family=My+Soul&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <!-- Header Component -->
     <header class="header-container">
-        <div class="mist-overlay"></div>
-        <div class="shadow-orbs">
-            <div class="orb"></div>
-            <div class="orb"></div>
-            <div class="orb"></div>
-        </div>
+        <div class="header-veil"></div>
         <div class="title">
-            <h1>Shadow Priests</h1>
-            <div class="subtitle">in Mist of Pandaria</div>
+            <div class="title-eyebrow">MoP Classic</div>
+            <img src="assets/img/logo.png" alt="Shadow Priest" class="title-logo">
+            <div class="subtitle">in Mists of Pandaria</div>
         </div>
     </header>
 
@@ -29,13 +25,12 @@
         <nav class="tab-navigation">
     <button class="tab-button active" data-tab="overview">Overview</button>
     <button class="tab-button" data-tab="faq">FAQ</button>
-    <button class="tab-button" data-tab="bis">Best in Slot</button>
-    <button class="tab-button" data-tab="changes">Key Changes</button>
+    <button class="tab-button" data-tab="bis">Gear</button>
     <button class="tab-button" data-tab="talents">Talents</button>
     <button class="tab-button" data-tab="glyphs">Glyphs</button>
-    <button class="tab-button" data-tab="viability">Viability</button>
     <button class="tab-button" data-tab="theorycraft">Theory & Simulation</button>
     <button class="tab-button" data-tab="gameplay">Gameplay</button>
+    <button class="tab-button" data-tab="videos">I hate reading</button>
         </nav>
 
         <!-- Tab Contents -->
@@ -264,20 +259,88 @@ window.updateNow = updateFromDiscord;
                         <p style="color: var(--text-secondary); margin-top: 10px; font-size: 0.95rem;">The second best option. The other crafting professions are all relatively close to each other behind Tailoring.</p>
                     </div>
                 </div>
+
+                <!-- Key Changes -->
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
+                        <a href="https://www.wowhead.com/mop-classic/spell=77487/shadow-orb" target="_blank" style="color: #c77dff; text-decoration: none;">Shadow Orbs System</a>
+                    </div>
+                    <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li>Shadow Orbs now passively regenerate outside of combat — one orb every 6 seconds (up to a max of 3) as long as you are in <strong style="color: #c77dff;">Shadowform</strong> and outside PvP instances (BGs/Arenas).</li>
+                        <li>Shadow Orbs are <strong style="color: #c77dff;">guaranteed</strong> to proc from <strong style="color: #c77dff;">Mind Blast</strong> and <strong style="color: #c77dff;">Shadow Word: Death</strong>.</li>
+                        <li>Shadow Orbs are consumed by <strong style="color: #c77dff;">Devouring Plague</strong>, increasing its damage based on the number of orbs spent. You must have orbs available to cast Devouring Plague.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Notable Ability Changes" style="width: 32px; height: 32px;">
+                        Notable Ability Changes
+                    </div>
+
+                    <div style="margin-bottom: 14px;">
+                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Abilities Usable in Shadowform</div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;"><strong style="color: #c77dff;">Renew</strong>, <strong style="color: #c77dff;">Prayer of Mending</strong>, and <strong style="color: #c77dff;">Leap of Faith</strong> can now be cast while in Shadowform without dropping out of it.</p>
+                    </div>
+
+                    <div style="margin-bottom: 14px;">
+                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Vampiric Embrace</div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">Vampiric Embrace is no longer a passive constant buff. It is now a more powerful burst healing cooldown that you activate on demand.</p>
+                    </div>
+
+                    <div>
+                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">
+                            <a href="https://www.wowhead.com/mop-classic/spell=108968/void-shift" target="_blank" style="color: #e0aaff; text-decoration: none;">Void Shift</a>
+                        </div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">A new ability that swaps your current health percentage with another player's. Use it to save yourself when you drop low, or to save a raid member who is about to die.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindspike.jpg" alt="Mind Spike" style="width: 32px; height: 32px;">
+                        Removed Abilities
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.95rem;">The following abilities from Cataclysm have been removed in MoP:</p>
+                    <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
+                        <li><strong style="color: #ff9999;">Dark Archangel</strong> — Removed</li>
+                        <li><strong style="color: #ff9999;">Empowered Shadow</strong> — Removed</li>
+                        <li><strong style="color: #ff9999;">Mind Soothe</strong> — Removed</li>
+                    </ul>
+                    <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.9rem; font-style: italic;">For talent changes, see the <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-talents-builds-glyphs-pve" target="_blank" style="color: #c77dff; text-decoration: none;">Talent Comparison guide</a>.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Best in Slot Tab -->
+        <!-- Gear Tab -->
         <div id="bis" class="tab-content">
             <div class="card">
-                <h2 class="card-title">Best in Slot Gear</h2>
+                <h2 class="card-title">Gear</h2>
                 
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" alt="Tier Gear" style="width: 32px; height: 32px;">
-                        Raid Tier Progression
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_helmet_cloth_raidpriest_l_01.jpg" alt="BiS" style="width: 32px; height: 32px;">
+                        BiS
                     </div>
-                    <div class="content-placeholder">// Add tier set recommendations and progression paths</div>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                        <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJKayS7AKvWbkUtQ4MIKViW2qzdYXl9j0VjOaMHExSFwYDmrRimQJShweQWrxDFVJWa4JI/AhMOsEnPUNJYxghVcAio4rKTENvs6CxABhfgF+oAK9ikpMTJAdAgKnAequQgWKLFg8likxiUicHQ5qxLnn2sgS4HaNDpBCkUE2layStxUVWKDSEBEBQTWL2eVOKukxAxSWAJ2X/9hVjCLU2Ap0KVdIGVsAu0rWcH0zBUgWljgHFDbLaDLZu1jBeksBTt+A1DwkhJYi9YOJgkmrg2MDEMMCDUMuJOtbjNxMeCHQqOhSy4AAE9QTnU=" target="_blank"
+                           style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82,183,136,0.08); border: 2px solid rgba(82,183,136,0.35); border-radius: 10px; text-decoration: none; transition: background 0.2s ease;">
+                            <img src="wowsims-icon.png" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 2 BiS</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims — Heart of Fear / Terrace of Endless Spring</div>
+                            </div>
+                        </a>
+                        <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJLaxi7AKjWDiYtH4PsXViW2zy9YX19j4eITWPIVyAMygUijnEtIYNlnVoljqkpsf66xzL7OojGZESh28wurxBw1JWagGFDAY6Eal4jAUqC6w0pKnBB1IN2lXBICO76wGqz5+x8CGCX2KSmBZBm4hAUWAdWfA3KB6hk0JjJ6LFLjEhU4BHQK1ASQZT2MHv8VgPYtAaq9CXQD1GCwG+Y8Y5U4pQQXm8jIxS2w6hmrEjPE4TwCq2GcHkYuFoFFX1m52AUmfmHV6GLkEhRY/JVV4pYS3FflXPwCy4BCl5RgntLawSTBxLWBkWGIAaGGAXey1W0mLgb8UGg0dMkFAAImblw=" target="_blank"
+                           style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82,183,136,0.08); border: 2px solid rgba(82,183,136,0.35); border-radius: 10px; text-decoration: none; transition: background 0.2s ease;">
+                            <img src="wowsims-icon.png" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 3 BiS</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims — Throne of Thunder</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="subsection">
@@ -285,7 +348,569 @@ window.updateNow = updateFromDiscord;
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_trinket_01.jpg" alt="Trinket" style="width: 32px; height: 32px;">
                         Trinket Priorities
                     </div>
-                    <div class="content-placeholder">// Add trinket ranking and analysis</div>
+
+                    <style>
+                        .tc-notice { background: rgba(244,196,48,0.08); border: 1px solid rgba(244,196,48,0.35); border-radius: 8px; padding: 11px 15px; margin-bottom: 10px; color: #f4c430; font-size: 0.88rem; }
+                        .tc-sim-info { display: flex; flex-wrap: wrap; gap: 3px 0; margin-bottom: 18px; margin-top: 6px; }
+                        .tc-sim-info span { font-size: 0.75rem; color: #666; }
+                        .tc-sim-info span + span::before { content: "·"; margin: 0 6px; color: #444; }
+                        .tc-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 20px; }
+                        .tc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #bbb; }
+                        .tc-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+                        .tc-row { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+                        .tc-row:last-child { border-bottom: none; margin-bottom: 0; }
+                        .tc-rank { min-width: 24px; text-align: center; font-size: 0.78rem; font-weight: 700; color: #555; flex-shrink: 0; }
+                        .tc-label { min-width: 220px; max-width: 220px; }
+                        .tc-label a { color: #c77dff; text-decoration: none; font-size: 0.88rem; font-weight: 500; line-height: 1.4; }
+                        .tc-label a:hover { text-decoration: underline; }
+                        .tc-label-tags { display: flex; align-items: center; gap: 5px; margin-top: 3px; }
+                        .tc-phase-tag { display: inline-block; font-size: 0.7rem; color: #888; background: rgba(255,255,255,0.07); border-radius: 4px; padding: 1px 5px; }
+                        /* Bar */
+                        .tc-bar-wrap { flex: 1; display: flex; align-items: center; position: relative; }
+                        .tc-bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 22px; position: relative; overflow: hidden; cursor: default; }
+                        .tc-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 4px; transition: width 0.5s ease; display: flex; align-items: center; justify-content: flex-end; overflow: hidden; }
+                        .tc-bar-val { font-family: 'Roboto', sans-serif; font-size: 0.67rem; font-weight: 700; color: rgba(0,0,0,0.85); padding-right: 5px; white-space: nowrap; text-shadow: 0 0 4px rgba(255,255,255,0.7); }
+                        .tc-trinket-icon { width: 28px; height: 28px; border-radius: 4px; flex-shrink: 0; object-fit: cover; }
+                        /* Tooltip */
+                        .tc-bar-track:hover .tc-tooltip { display: block; }
+                        .tc-tooltip {
+                            display: none;
+                            position: absolute;
+                            bottom: calc(100% + 8px);
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: rgba(14,16,26,0.97);
+                            border: 1px solid rgba(255,255,255,0.12);
+                            border-radius: 7px;
+                            padding: 10px 14px;
+                            z-index: 200;
+                            white-space: nowrap;
+                            pointer-events: none;
+                            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+                        }
+                        .tc-tooltip-name { color: #e8e8e8; font-weight: 600; font-size: 0.84rem; margin-bottom: 7px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+                        .tc-tooltip-row { font-size: 0.8rem; display: flex; justify-content: space-between; gap: 18px; margin-top: 3px; }
+                        .tc-tooltip-lbl { color: #999; }
+                        .tc-tooltip-val { font-weight: 600; }
+                        @media (max-width: 640px) {
+                            .tc-row { flex-wrap: wrap; gap: 6px; }
+                            .tc-label { min-width: unset; max-width: unset; flex: 1; }
+                            .tc-bar-wrap { width: 100%; flex: unset; }
+                        }
+                        /* Custom icon dropdown */
+                        .tc-custom-select { position: relative; display: inline-block; }
+                        .tc-custom-trigger { display: flex; align-items: center; gap: 8px; background: #1a1c2a; color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 5px 9px; font-size: 0.85rem; cursor: pointer; user-select: none; min-width: 240px; }
+                        .tc-custom-trigger-arrow { margin-left: auto; font-size: 0.68rem; color: #888; transition: transform 0.2s; flex-shrink: 0; }
+                        .tc-custom-select.tc-open .tc-custom-trigger { border-color: rgba(199,125,255,0.5); }
+                        .tc-custom-select.tc-open .tc-custom-trigger-arrow { transform: rotate(180deg); }
+                        .tc-custom-panel { display: none; position: absolute; top: calc(100% + 4px); left: 0; min-width: 100%; background: #13151f; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; z-index: 400; box-shadow: 0 8px 28px rgba(0,0,0,0.7); overflow: hidden; }
+                        .tc-custom-select.tc-open .tc-custom-panel { display: block; }
+                        .tc-custom-group-label { font-size: 0.7rem; color: #555; font-weight: 700; padding: 8px 12px 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+                        .tc-custom-opt { display: flex; align-items: center; gap: 9px; padding: 7px 12px; cursor: pointer; transition: background 0.12s; }
+                        .tc-custom-opt:hover { background: rgba(255,255,255,0.07); }
+                        .tc-custom-opt.tc-selected { background: rgba(199,125,255,0.1); }
+                        .tc-custom-opt img { width: 24px; height: 24px; border-radius: 3px; flex-shrink: 0; }
+                        .tc-custom-opt span { font-size: 0.85rem; color: #e0e0e0; }
+                    </style>
+
+                    <div class="tc-notice">⚠ Placeholder data — DPS values will be updated once sims are complete. Do not use these numbers for gearing decisions yet.</div>
+                    <div class="tc-sim-info">
+                        <span>Single Target</span>
+                        <span>300+60s</span>
+                        <span>34.91% ToF uptime</span>
+                        <span>12,500 iterations</span>
+                        <span>seed: <code title="Click to select" style="font-family:monospace;background:rgba(255,255,255,0.07);border-radius:3px;padding:1px 5px;cursor:text;user-select:all;">3999487141</code></span>
+                    </div>
+                    <!-- ─── Slot 1 selector ──────────────────────────────────────────── -->
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+                        <span style="font-size:0.82rem;color:#888;font-weight:600;white-space:nowrap;">Slot 1:</span>
+                        <input type="hidden" id="tcSlot1Name">
+                        <div class="tc-custom-select" id="tcSlot1Picker">
+                            <div class="tc-custom-trigger" onclick="window.toggleSlot1Dropdown(event)">
+                                <img id="tcSlot1TriggerIcon" src="" style="width:22px;height:22px;border-radius:3px;display:none;" alt="">
+                                <span id="tcSlot1TriggerLabel" style="flex:1;"></span>
+                                <span class="tc-custom-trigger-arrow">▼</span>
+                            </div>
+                            <div class="tc-custom-panel" id="tcSlot1Panel"></div>
+                        </div>
+                        <select id="tcSlot1Ilvl" onchange="window.renderComboChart()" style="background:#1a1c2a;color:#e0e0e0;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 9px;font-size:0.85rem;cursor:pointer;"></select>
+                    </div>
+                    <div id="tcComboChart"></div>
+                    <p id="tcComboEmpty" style="display:none;color:#666;font-size:0.85rem;font-style:italic;margin:0 0 12px;">No sim data yet for this selection — fill in the <code>COMBOS</code> array as you complete runs.</p>
+                    <div class="tc-legend" id="tcLegend" style="margin-top:12px;"></div>
+
+                    <!-- SoO toggle -->
+                    <button id="sooToggleBtn" onclick="window.toggleSooTrinkets()"
+                        style="display:flex;align-items:center;gap:10px;width:100%;margin-top:18px;padding:14px 20px;background:rgba(220,50,50,0.08);border:2px dashed rgba(220,50,50,0.5);border-radius:10px;color:#ff6b6b;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s ease;text-align:left;">
+                        <span style="font-size:1.2rem;">⚠</span>
+                        Show Siege of Orgrimmar trinkets (values not yet tested — subject to significant change)
+                        <span id="sooArrow" style="margin-left:auto;font-size:1rem;transition:transform 0.3s ease;">▼</span>
+                    </button>
+
+                    <div id="sooSection" style="display:none;margin-top:2px;">
+                        <div style="background:rgba(220,50,50,0.1);border:2px solid rgba(220,50,50,0.6);border-top:none;border-radius:0 0 10px 10px;padding:16px 20px;margin-bottom:14px;">
+                            <div style="font-size:1.05rem;font-weight:700;color:#ff4d4d;margin-bottom:8px;">🚨 These trinkets have not been tested yet</div>
+                            <p style="color:#ffaaaa;font-size:0.9rem;margin:0;line-height:1.6;">Siege of Orgrimmar is not available in the current phase. The values shown below are <strong>simulated projections only</strong> and are very likely to change once the raid is released and properly tested. Do not make gearing decisions based on these numbers.</p>
+                        </div>
+                        <div id="tcChartSoo"></div>
+                    </div>
+
+                    <script>
+                    (function () {
+                        // ── UPDATE VALUES HERE WHEN SIMS ARE DONE ─────────────────────────
+                        // dps values are placeholder — replace with real sim output
+                        // url: wowhead item link for each trinket
+                        const TRINKETS = [
+                            // Phase 4 — Siege of Orgrimmar (T16)
+                            { name: "Purified Bindings of Immerseus", phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=105472", values: { "528": 14200, "540": 15100, "553": 16300, "566": 17800 } },
+                            { name: "Kardris' Toxic Totem",           phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104870", values: { "528": 13800, "540": 14900, "553": 16000, "566": 17400 } },
+                            { name: "Black Blood of Y'Shaarj",        phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104913", values: { "528": 13000, "540": 14000, "553": 15200, "566": 16600 } },
+                            { name: "Frenzied Crystal of Rage",       phase: "SoO", icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg", url: "https://www.wowhead.com/mop-classic/item=104974", values: { "528": 12800, "540": 13700, "553": 14900, "566": 16200 } },
+                            // Phase 3 — Throne of Thunder (T15)
+                            { name: "Unerring Vision of Lei Shen",       phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg",         url: "https://www.wowhead.com/mop-classic/item=96977",  values: { "502": 12500, "528": 14500, "541": 15800 } },
+                            { name: "Wushoolay's Final Choice",          phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_nature_chainlightning.jpg",       url: "https://www.wowhead.com/mop-classic/item=96940",  values: { "502": 12200, "528": 14000, "541": 15200 } },
+                            { name: "Cha-Ye's Essence of Brilliance",   phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_holy_mindsooth.jpg",              url: "https://www.wowhead.com/mop-classic/item=96888/cha-yes-essence-of-brilliance",  values: { "502": 11700, "528": 13400, "541": 14700 } },
+                            { name: "Breath of the Hydra",               phase: "ToT", icon: "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_mindflay.jpg",            url: "https://www.wowhead.com/mop-classic/item=86388",  values: { "502": 11500, "528": 13000, "541": 14200 } },
+                            // Phase 1 — MSV / HoF / ToES
+                            { name: "Essence of Terror",                 phase: "P1",  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_pvp_trinket.jpg",              url: "https://www.wowhead.com/mop-classic/item=87175/essence-of-terror",               values: { "491": 10800, "504": 11600, "517": 12400 } },
+                            { name: "Light of the Cosmos",               phase: "P1",  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_ulduarraid_d_03.jpg",      url: "https://www.wowhead.com/mop-classic/item=86792/light-of-the-cosmos",              values: { "484": 10600, "497": 11400, "510": 12200 } },
+                            // Auction House
+                            { name: "Relic of Yu'lon",                   phase: "AH",  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_inscription_trinket_tiger.jpg",    url: "https://www.wowhead.com/mop-classic/item=98075/relic-of-yulon",                  values: { "484": 10400 } },
+                        ];
+                        // ─────────────────────────────────────────────────────────────────
+
+                        // Explicit colour map keyed by item level.
+                        // Grouped by tier so each raid has its own hue family.
+                        const colorMap = {
+                            // Phase 1 — MSV / HoF / ToES (gold) — upgraded ilvls
+                            // HoF:  484 (LFR+upg), 497 (N+upg), 510 (H+upg)
+                            // ToES: 491 (LFR+upg), 504 (N+upg), 517 (H+upg)
+                            "484": "#a06818", "491": "#b07828", "497": "#c08c36",
+                            "504": "#d09e44", "510": "#e0b050", "517": "#f4c430",
+                            // T15 — Throne of Thunder (blue) — 502 LFR, 528 normal+upg, 541 heroic+upg
+                            "502": "#2d6db0", "528": "#4090d4", "541": "#60b4f0",
+                            // T16 — Siege of Orgrimmar (red → orange)
+                            "540": "#cc3535", "553": "#e84848", "566": "#f07030",
+                        };
+                        const maxDps = Math.max(...TRINKETS.flatMap(t => Object.values(t.values)));
+
+                        function renderRows(list, targetId) {
+                            // Sort by best (highest ilvl) value, descending
+                            const sorted = [...list].sort((a, b) =>
+                                Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values))
+                            );
+                            document.getElementById(targetId).innerHTML = sorted.map((t, i) => {
+                                const entries = Object.entries(t.values); // low → high (data order)
+
+                                // Render fills widest-first so narrower ones sit on top,
+                                // creating distinct colour bands for each ilvl increment.
+                                const fillsHtml = [...entries]
+                                    .sort((a, b) => b[1] - a[1])
+                                    .map(([lbl, dps]) => {
+                                        const pct = (dps / maxDps * 100).toFixed(1);
+                                        return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[lbl]};"><span class="tc-bar-val">${dps.toLocaleString()}</span></div>`;
+                                    }).join("");
+
+                                // Tooltip rows — show low → high
+                                const tipRows = entries.map(([lbl, dps]) =>
+                                    `<div class="tc-tooltip-row">
+                                        <span class="tc-tooltip-lbl">${lbl}</span>
+                                        <span class="tc-tooltip-val" style="color:${colorMap[lbl]}">${dps.toLocaleString()}</span>
+                                    </div>`
+                                ).join("");
+
+                                return `
+                                <div class="tc-row">
+                                    <div class="tc-rank">#${i + 1}</div>
+                                    <div class="tc-label" style="display:flex;align-items:center;gap:8px;">
+                                        <img src="${t.icon}" class="tc-trinket-icon" alt="">
+                                        <a href="${t.url}" target="_blank">${t.name}</a>
+                                    </div>
+                                    <div class="tc-bar-wrap">
+                                        <div class="tc-bar-track">
+                                            ${fillsHtml}
+                                            <div class="tc-tooltip">
+                                                <div class="tc-tooltip-name">${t.name}</div>
+                                                ${tipRows}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                            }).join("");
+                        }
+
+                        const baseTrinkets = TRINKETS.filter(t => t.phase !== "SoO");
+                        const sooTrinkets  = TRINKETS.filter(t => t.phase === "SoO");
+
+                        renderRows(sooTrinkets, "tcChartSoo");
+
+                        // Toggle SoO section
+                        window.toggleSooTrinkets = function () {
+                            const section = document.getElementById("sooSection");
+                            const arrow   = document.getElementById("sooArrow");
+                            const btn     = document.getElementById("sooToggleBtn");
+                            const open    = section.style.display !== "none";
+                            section.style.display = open ? "none" : "block";
+                            arrow.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+                            btn.style.background  = open ? "rgba(220,50,50,0.08)" : "rgba(220,50,50,0.15)";
+                        };
+
+                        // ── TRINKET COMBO DATA ────────────────────────────────────────────────────
+                        // Each entry = one trinket pair at specific item levels.
+                        // dps = combined sim DPS of wearing both simultaneously.
+                        // The a/b slots are symmetric — the UI handles both directions.
+                        // Replace dps: 0 with your sim value once that run is done.
+                        const COMBOS = [
+                            // Unerring Vision of Lei Shen × Wushoolay's Final Choice
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Wushoolay's Final Choice", bIlvl: "541", dps: 254799 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Wushoolay's Final Choice", bIlvl: "528", dps: 251361 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 246534 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Wushoolay's Final Choice", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Wushoolay's Final Choice", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Wushoolay's Final Choice", bIlvl: "502", dps: 0 },
+                            // Unerring Vision of Lei Shen × Breath of the Hydra
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "541", dps: 253004 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "528", dps: 250070 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "502", dps: 245956 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            // Wushoolay's Final Choice × Breath of the Hydra
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            // Unerring Vision of Lei Shen × Cha-Ye's Essence of Brilliance
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 252665 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 249834 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 245176 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            // Wushoolay's Final Choice × Cha-Ye's Essence of Brilliance
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "541", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "528", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Cha-Ye's Essence of Brilliance", bIlvl: "502", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Breath of the Hydra
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "541", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "528", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Breath of the Hydra", bIlvl: "502", dps: 0 },
+                            // Unerring Vision of Lei Shen × Essence of Terror
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 243318 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 240807 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 238990 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Wushoolay's Final Choice × Essence of Terror
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Essence of Terror
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Breath of the Hydra × Essence of Terror
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Essence of Terror", bIlvl: "517", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Essence of Terror", bIlvl: "504", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Essence of Terror", bIlvl: "491", dps: 0 },
+                            // Unerring Vision of Lei Shen × Light of the Cosmos
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 245407 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 243962 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 241341 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Wushoolay's Final Choice × Light of the Cosmos
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Light of the Cosmos
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Breath of the Hydra × Light of the Cosmos
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Essence of Terror × Light of the Cosmos
+                            { a: "Essence of Terror", aIlvl: "517", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "517", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "517", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Light of the Cosmos", bIlvl: "510", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Light of the Cosmos", bIlvl: "497", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Light of the Cosmos", bIlvl: "484", dps: 0 },
+                            // Unerring Vision of Lei Shen × Relic of Yu'lon
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 241318 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Unerring Vision of Lei Shen", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Wushoolay's Final Choice × Relic of Yu'lon
+                            { a: "Wushoolay's Final Choice", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Wushoolay's Final Choice", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Cha-Ye's Essence of Brilliance × Relic of Yu'lon
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Cha-Ye's Essence of Brilliance", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Breath of the Hydra × Relic of Yu'lon
+                            { a: "Breath of the Hydra", aIlvl: "541", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "528", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Breath of the Hydra", aIlvl: "502", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Essence of Terror × Relic of Yu'lon
+                            { a: "Essence of Terror", aIlvl: "517", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "504", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Essence of Terror", aIlvl: "491", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            // Light of the Cosmos × Relic of Yu'lon
+                            { a: "Light of the Cosmos", aIlvl: "510", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Light of the Cosmos", aIlvl: "497", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                            { a: "Light of the Cosmos", aIlvl: "484", b: "Relic of Yu'lon", bIlvl: "484", dps: 0 },
+                        ];
+                        // ─────────────────────────────────────────────────────────────────────────
+
+
+                        window.toggleSlot1Dropdown = function (e) {
+                            e.stopPropagation();
+                            document.getElementById("tcSlot1Picker").classList.toggle("tc-open");
+                        };
+
+                        window.selectSlot1Trinket = function (name, icon) {
+                            document.getElementById("tcSlot1Name").value = name;
+                            document.getElementById("tcSlot1TriggerIcon").src = icon;
+                            document.getElementById("tcSlot1TriggerIcon").style.display = "";
+                            document.getElementById("tcSlot1TriggerLabel").textContent = name;
+                            document.getElementById("tcSlot1Picker").classList.remove("tc-open");
+                            document.querySelectorAll(".tc-custom-opt").forEach(el =>
+                                el.classList.toggle("tc-selected", el.dataset.name === name)
+                            );
+                            window.updateSlot1Ilvls();
+                        };
+
+                        window.updateSlot1Ilvls = function () {
+                            const lockedName = document.getElementById("tcSlot1Name").value;
+                            const trinket    = TRINKETS.find(t => t.name === lockedName);
+                            const ilvlSel    = document.getElementById("tcSlot1Ilvl");
+                            ilvlSel.innerHTML = "";
+                            if (!trinket) return;
+                            Object.keys(trinket.values).sort((a, b) => b - a).forEach((ilvl, i) => {
+                                const opt = document.createElement("option");
+                                opt.value = ilvl;
+                                opt.textContent = ilvl;
+                                opt.style.color = colorMap[ilvl] || "";
+                                if (i === 0) opt.selected = true;
+                                ilvlSel.appendChild(opt);
+                            });
+                            ilvlSel.style.color = colorMap[ilvlSel.value] || "";
+                            window.renderComboChart();
+                        };
+
+                        window.renderComboChart = function () {
+                            const lockedName = document.getElementById("tcSlot1Name").value;
+                            const lockedIlvl = document.getElementById("tcSlot1Ilvl").value;
+                            document.getElementById("tcSlot1Ilvl").style.color = colorMap[lockedIlvl] || "";
+
+                            // Group all matching combos by partner trinket name,
+                            // collecting every ilvl variant so we can draw stacked bars.
+                            const partnerMap = {};
+                            COMBOS.forEach(c => {
+                                let partnerName, partnerIlvl, dps;
+                                if (c.a === lockedName && c.aIlvl === lockedIlvl) {
+                                    partnerName = c.b; partnerIlvl = c.bIlvl; dps = c.dps;
+                                } else if (c.b === lockedName && c.bIlvl === lockedIlvl) {
+                                    partnerName = c.a; partnerIlvl = c.aIlvl; dps = c.dps;
+                                } else { return; }
+                                if (!partnerMap[partnerName]) {
+                                    partnerMap[partnerName] = {
+                                        values: {},
+                                        meta: TRINKETS.find(t => t.name === partnerName) || {}
+                                    };
+                                }
+                                if (dps > 0) partnerMap[partnerName].values[partnerIlvl] = dps;
+                            });
+
+                            // Only show partners where at least one ilvl has real sim data
+                            // Sort: Throne of Thunder rows first, then T14/P1, then AH — DPS within each group
+                            const phaseRank = { ToT: 0, P1: 1, AH: 2, SoO: 3 };
+                            const partnerList = Object.entries(partnerMap)
+                                .filter(([, p]) => Object.keys(p.values).length > 0)
+                                .sort(([, a], [, b]) => {
+                                    const pa = phaseRank[a.meta.phase] ?? 9;
+                                    const pb = phaseRank[b.meta.phase] ?? 9;
+                                    if (pa !== pb) return pa - pb;
+                                    return Math.max(...Object.values(b.values)) - Math.max(...Object.values(a.values));
+                                });
+
+                            const hasData = partnerList.length > 0;
+                            document.getElementById("tcComboEmpty").style.display = hasData ? "none" : "block";
+                            if (!hasData) {
+                                document.getElementById("tcComboChart").innerHTML = "";
+                                document.getElementById("tcLegend").innerHTML = "";
+                                return;
+                            }
+
+                            const allDpsValues = partnerList.flatMap(([, p]) => Object.values(p.values));
+                            const maxComboDps  = Math.max(...allDpsValues);
+                            const minComboDps  = Math.min(...allDpsValues);
+                            // Start bars 10% below the lowest value so small differences are visible
+                            const baseline     = Math.floor(minComboDps * 0.95);
+
+                            document.getElementById("tcComboChart").innerHTML = partnerList.map(([name, p], i) => {
+                                const meta    = p.meta;
+                                const entries = Object.entries(p.values);
+
+                                // Widest bar first so narrower ones stack visually on top
+                                const fillsHtml = [...entries]
+                                    .sort((a, b) => b[1] - a[1])
+                                    .map(([ilvl, dps]) => {
+                                        const pct = ((dps - baseline) / (maxComboDps - baseline) * 100).toFixed(1);
+                                        return `<div class="tc-bar-fill" style="width:${pct}%;background:${colorMap[ilvl] || "#888"};"><span class="tc-bar-val">${dps.toLocaleString()}</span></div>`;
+                                    }).join("");
+
+                                const tipRows = [...entries]
+                                    .sort((a, b) => b[1] - a[1])
+                                    .map(([ilvl, dps]) =>
+                                        `<div class="tc-tooltip-row">
+                                            <span class="tc-tooltip-lbl">${ilvl}</span>
+                                            <span class="tc-tooltip-val" style="color:${colorMap[ilvl] || "#888"}">${dps.toLocaleString()}</span>
+                                        </div>`
+                                    ).join("");
+
+                                return `
+                                <div class="tc-row">
+                                    <div class="tc-rank">#${i + 1}</div>
+                                    <div class="tc-label" style="display:flex;align-items:center;gap:8px;">
+                                        <img src="${meta.icon || ''}" class="tc-trinket-icon" alt="">
+                                        <a href="${meta.url || '#'}" target="_blank">${name}</a>
+                                    </div>
+                                    <div class="tc-bar-wrap">
+                                        <div class="tc-bar-track">
+                                            ${fillsHtml}
+                                            <div class="tc-tooltip">
+                                                <div class="tc-tooltip-name">${name}</div>
+                                                ${tipRows}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                            }).join("");
+
+                            // Legend — P1/AH ilvls first (gold palette), then ToT ilvls (blue) — 502/528/541 after 517
+                            const ilvsPhaseOrder = ["484","491","497","504","510","517","502","528","541","540","553","566"];
+                            const presentIlvls = [...new Set(partnerList.flatMap(([, p]) => Object.keys(p.values)))]
+                                .sort((a, b) => {
+                                    const oa = ilvsPhaseOrder.indexOf(a);
+                                    const ob = ilvsPhaseOrder.indexOf(b);
+                                    return (oa < 0 ? 999 : oa) - (ob < 0 ? 999 : ob);
+                                });
+                            document.getElementById("tcLegend").innerHTML = presentIlvls.map(lbl => `
+                                <div class="tc-legend-item">
+                                    <div class="tc-legend-dot" style="background:${colorMap[lbl]}"></div>
+                                    <span>${lbl}</span>
+                                </div>`).join("");
+                        };
+
+                        // Build Slot 1 custom icon dropdown (runs after all functions are defined)
+                        (function buildSlot1NameSelect() {
+                            const panel = document.getElementById("tcSlot1Panel");
+                            const phaseOrder = ["ToT", "P1", "AH"];
+                            const phaseLabels = { ToT: "Throne of Thunder", P1: "MSV / HoF / ToES", AH: "Auction House" };
+                            let defaultTrinket = null;
+                            phaseOrder.forEach(phase => {
+                                const trinkets = baseTrinkets.filter(t => t.phase === phase);
+                                if (!trinkets.length) return;
+                                const groupLabel = document.createElement("div");
+                                groupLabel.className = "tc-custom-group-label";
+                                groupLabel.textContent = phaseLabels[phase] || phase;
+                                panel.appendChild(groupLabel);
+                                trinkets.forEach(t => {
+                                    if (!defaultTrinket || t.name === "Unerring Vision of Lei Shen") defaultTrinket = t;
+                                    const opt = document.createElement("div");
+                                    opt.className = "tc-custom-opt";
+                                    opt.dataset.name = t.name;
+                                    opt.innerHTML = `<img src="${t.icon}" alt=""><span>${t.name}</span>`;
+                                    opt.addEventListener("click", () => window.selectSlot1Trinket(t.name, t.icon));
+                                    panel.appendChild(opt);
+                                });
+                            });
+                            if (defaultTrinket) window.selectSlot1Trinket(defaultTrinket.name, defaultTrinket.icon);
+                        })();
+
+                        // Close dropdown on outside click
+                        document.addEventListener("click", function () {
+                            document.getElementById("tcSlot1Picker").classList.remove("tc-open");
+                        });
+                    })();
+                    </script>
                 </div>
 
                 <div class="subsection">
@@ -336,76 +961,10 @@ window.updateNow = updateFromDiscord;
                     <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic; margin-top: 14px;">Secondary stat priorities can shift depending on your current gear setup — always sim your character to confirm.</p>
                 </div>
 
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_staff_107.jpg" alt="Weapon" style="width: 32px; height: 32px;">
-                        Weapon Upgrades
-                    </div>
-                    <div class="content-placeholder">// Add weapon progression guide</div>
-                </div>
             </div>
         </div>
 
         <!-- Key Changes Tab -->
-        <div id="changes" class="tab-content">
-            <div class="card">
-                <h2 class="card-title">Key Changes in Mist of Pandaria</h2>
-                
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
-                        <a href="https://www.wowhead.com/mop-classic/spell=77487/shadow-orb" target="_blank" style="color: #c77dff; text-decoration: none;">Shadow Orbs System</a>
-                    </div>
-                    <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
-                        <li>Shadow Orbs now passively regenerate outside of combat — one orb every 6 seconds (up to a max of 3) as long as you are in <strong style="color: #c77dff;">Shadowform</strong> and outside PvP instances (BGs/Arenas).</li>
-                        <li>Shadow Orbs are <strong style="color: #c77dff;">guaranteed</strong> to proc from <strong style="color: #c77dff;">Mind Blast</strong> and <strong style="color: #c77dff;">Shadow Word: Death</strong>.</li>
-                        <li>Shadow Orbs are consumed by <strong style="color: #c77dff;">Devouring Plague</strong>, increasing its damage based on the number of orbs spent. You must have orbs available to cast Devouring Plague.</li>
-                    </ul>
-                </div>
-
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Notable Ability Changes" style="width: 32px; height: 32px;">
-                        Notable Ability Changes
-                    </div>
-
-                    <!-- Abilities in Shadowform -->
-                    <div style="margin-bottom: 14px;">
-                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Abilities Usable in Shadowform</div>
-                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;"><strong style="color: #c77dff;">Renew</strong>, <strong style="color: #c77dff;">Prayer of Mending</strong>, and <strong style="color: #c77dff;">Leap of Faith</strong> can now be cast while in Shadowform without dropping out of it.</p>
-                    </div>
-
-                    <!-- Vampiric Embrace -->
-                    <div style="margin-bottom: 14px;">
-                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Vampiric Embrace</div>
-                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">Vampiric Embrace is no longer a passive constant buff. It is now a more powerful burst healing cooldown that you activate on demand.</p>
-                    </div>
-
-                    <!-- Void Shift -->
-                    <div>
-                        <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">
-                            <a href="https://www.wowhead.com/mop-classic/spell=108968/void-shift" target="_blank" style="color: #e0aaff; text-decoration: none;">Void Shift</a>
-                        </div>
-                        <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">A new ability that swaps your current health percentage with another player's. Use it to save yourself when you drop low, or to save a raid member who is about to die.</p>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindspike.jpg" alt="Mind Spike" style="width: 32px; height: 32px;">
-                        Removed Abilities
-                    </div>
-                    <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.95rem;">The following abilities from Cataclysm have been removed in MoP:</p>
-                    <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
-                        <li><strong style="color: #ff9999;">Dark Archangel</strong> — Removed</li>
-                        <li><strong style="color: #ff9999;">Empowered Shadow</strong> — Removed</li>
-                        <li><strong style="color: #ff9999;">Mind Soothe</strong> — Removed</li>
-                    </ul>
-                    <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.9rem; font-style: italic;">For talent changes, see the <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-talents-builds-glyphs-pve" target="_blank" style="color: #c77dff; text-decoration: none;">Talent Comparison guide</a>.</p>
-                </div>
-            </div>
-        </div>
-
         <!-- Talents Tab -->
         <div id="talents" class="tab-content">
             <div class="card">
@@ -1102,11 +1661,10 @@ window.updateNow = updateFromDiscord;
         </div>
     </div>
 </div>
-</div>  
-</div>  
 </div>
-            
-           
+</div>
+
+
 <!-- Glyphs Tab -->
 <div id="glyphs" class="tab-content">
     <div class="card">
@@ -1397,65 +1955,11 @@ window.updateNow = updateFromDiscord;
         </div>
     </div>
 </div>
-            
-<!-- Viability Tab -->
-<div id="viability" class="tab-content">
-    <div class="card">
-        <h2 class="card-title">How Good is Shadow?</h2>
-                
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Shadow Word: Pain" style="width: 32px; height: 32px;">
-                        Raid Viability Analysis
-                    </div>
-                    <div class="content-placeholder">// Add comprehensive analysis of Shadow Priest's position in MoP raiding meta</div>
-                </div>
-
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" alt="Mind Flay" style="width: 32px; height: 32px;">
-                        Strengths & Weaknesses
-                    </div>
-                    <div class="content-placeholder">// Detail what Shadow Priests excel at and where they struggle in MoP</div>
-                </div>
-
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_guardianspirit.jpg" alt="Utility" style="width: 32px; height: 32px;">
-                        Raid Utility
-                    </div>
-                    <div class="content-placeholder">// Explain the unique utility Shadow Priests bring to raids</div>
-                </div>
-            </div>
-        </div>
-
 <!-- Theorycraft Tab -->
 <div id="theorycraft" class="tab-content">
     <div class="card">
         <h2 class="card-title">Theory & Simulation</h2>
                 
-                <div class="subsection">
-                    <div class="subsection-title" style="justify-content: space-between;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Mind Blast" style="width: 32px; height: 32px;">
-                            Understanding Simulation Limitations
-                        </div>
-                        <button id="videoToggle" class="toggle-button">Hide Video</button>
-                    </div>
-                    
-                    <div id="videoContainer" class="video-container" style="transition: var(--transition);">
-                        <iframe src="https://www.youtube.com/embed/cQ1j5yvRYgs" 
-                                title="Why Sims Suck - Shadow Priest Analysis"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                    
-                    <p>While simulations provide valuable baseline comparisons between talent builds and gear configurations, they have significant limitations in real raid scenarios. Traditional sims assume perfect conditions with continuous DPS uptime, which rarely reflects actual encounter mechanics.</p>
-                    
-                    <p>Real encounters involve movement phases, target switching, add management, and interruptions that significantly impact performance compared to theoretical maximum output. This means encounter-specific knowledge often matters more than pure simulation numbers when optimizing your Shadow Priest.</p>
-                </div>
 
                 <div class="subsection">
                     <div class="subsection-title">
@@ -1464,7 +1968,7 @@ window.updateNow = updateFromDiscord;
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
                         <a href="https://www.wowsims.com/mop/priest/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none;">
-                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="WowSims" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <img src="wowsims-icon.png" alt="WowSims" style="width: 36px; height: 36px; border-radius: 6px;">
                             <div>
                                 <div style="color: var(--primary-green); font-weight: 600;">Shadow Priest Sim — WowSims</div>
                                 <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowsims.com — use this to sim your own gear and stat weights</div>
@@ -1495,39 +1999,298 @@ window.updateNow = updateFromDiscord;
     <div class="card">
         <h2 class="card-title">Gameplay Guide</h2>
                 
+                <!-- Rotation & Priority -->
                 <div class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowfiend.jpg" alt="Shadowfiend" style="width: 32px; height: 32px;">
                         PvE Rotation & Priority
                     </div>
-                    <div class="content-placeholder">// Add detailed rotation guides for different scenarios</div>
+
+                    <!-- Opener -->
+                    <div style="margin-bottom: 24px;">
+                        <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_warlock_shadowlife.jpg" style="width: 20px; height: 20px; border-radius: 3px;">
+                            Opener
+                        </div>
+                        <p style="margin: 0 0 10px; font-size: 0.88rem; color: #aaa; font-style: italic;">Start with 3 Shadow Orbs</p>
+                        <ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 5px; font-size: 0.93rem;">
+                            <li>Pre-cast Mind Spike</li>
+                            <li>Shadowfiend</li>
+                            <li>Power Infusion <span style="color: #888; font-size: 0.85rem;">(if specced)</span></li>
+                            <li>Shadow Word: Pain</li>
+                            <li>Vampiric Touch</li>
+                            <li>Devouring Plague</li>
+                            <li>Mind Blast</li>
+                            <li>Mind Flay: Insanity</li>
+                            <li>Follow Maintenance Rotation</li>
+                        </ol>
+                    </div>
+
+                    <!-- Maintenance Rotation -->
+                    <div style="margin-bottom: 24px;">
+                        <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" style="width: 20px; height: 20px; border-radius: 3px;">
+                            Maintenance Rotation
+                        </div>
+                        <p style="margin: 0 0 12px; font-size: 0.93rem;">The maintenance rotation varies slightly based on your talents/available cooldowns. The <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-rotation-cooldowns-abilities-pve" target="_blank" style="color: var(--primary-green);">Wowhead rotation guide</a> provides an overview of the rotational changes brought by talent combinations. The sim also has a very detailed APL under the "Rotation" tab for a more optimised rotation.</p>
+                        <div style="color: var(--text-secondary); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">General Maintenance Priority</div>
+                        <ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 5px; font-size: 0.93rem;">
+                            <li>Devouring Plague <span style="color: #a8dadc; font-size: 0.85rem;">with 3 orbs</span></li>
+                            <li>Mind Blast <span style="color: #888; font-size: 0.85rem;">on CD</span></li>
+                            <li>Shadow Word: Death <span style="color: #888; font-size: 0.85rem;">(×2) on CD in execute</span></li>
+                            <li>Mind Flay: Insanity <span style="color: #888; font-size: 0.85rem;">(if running Solace and Insanity)</span></li>
+                            <li>Mind Spike Procs <span style="color: #888; font-size: 0.85rem;">(if running From Darkness, Come Light)</span></li>
+                            <li>Vampiric Touch and Shadow Word: Pain</li>
+                            <li>Halo <span style="color: #888; font-size: 0.85rem;">(if 20+ yards from a target)</span></li>
+                            <li>Mind Flay <span style="color: #888; font-size: 0.85rem;">(filler)</span></li>
+                        </ol>
+                    </div>
+
+                    <!-- Notes -->
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                        <div style="background: rgba(82,183,136,0.07); border-left: 3px solid var(--primary-green); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.9rem;">
+                            There may be times where DoTs will fall off during Insanity windows. Ideally minimise DoT downtime, but always prioritise using Devouring Plague with 3 orbs and generating orbs with Mind Blast and Shadow Word: Death.
+                        </div>
+                        <div style="background: rgba(82,183,136,0.07); border-left: 3px solid var(--primary-green); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.9rem;">
+                            Make sure to use DPS cooldowns as often as possible (engi gloves, Berserking, Power Infusion, Halo, Shadowfiend, etc.). Use your in-combat potion during execute phase and ensure to get full uptime on it before the boss dies.
+                        </div>
+                    </div>
+
+                    <!-- UVLS -->
+                    <div style="background: rgba(168,218,220,0.08); border: 1px solid rgba(168,218,220,0.3); border-radius: 8px; padding: 14px 18px;">
+                        <div style="color: #a8dadc; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem;">Unerring Vision of Lei Shen (UVLS)</div>
+                        <p style="margin: 0 0 10px; font-size: 0.9rem;">With this trinket, aim to re-apply Vampiric Touch and Shadow Word: Pain during the buff to snapshot the 100% crit chance on your DoTs.</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #ccc;">The 100% crit chance only applies for the base duration of these DoTs. If they are extended via Shadow Apparitions with 2pc T15 tier, the extended ticks will not have this crit chance — stats are recalculated after the original duration completes. <strong>This is intended behaviour.</strong></p>
+                    </div>
                 </div>
 
+                <!-- Macros -->
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
-                        Shadow Orb Management
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_note_01.jpg" alt="Macros" style="width: 32px; height: 32px;">
+                        Macros
                     </div>
-                    <div class="content-placeholder">// Explain optimal Shadow Orb usage strategies</div>
+                    <p style="margin: 0 0 18px; font-size: 0.9rem; color: #aaa;">A few useful macros — explore WoWInterface and Wago for many more.</p>
+                    <div style="display: flex; flex-direction: column; gap: 18px;">
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Generic Cast at Mouseover / Target</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] SpellName</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Focus</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@focus,exists,nodead][] Mind Sear</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your focus if it exists, otherwise casts from your target normally.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Mouseover</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] Mind Sear</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your mouseover if it exists, otherwise casts from your target normally.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Trinkets &amp; Engineering Gloves</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use 13   -- Trinket 1
+/use 14   -- Trinket 2
+/use 10   -- Engineering Gloves</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Dispersion Cancelaura</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Dispersion
+/cancelaura [mod:shift] Dispersion
+/cast Dispersion</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts Dispersion normally, or cancels it when Shift is held.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — at Cursor</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@cursor] Angelic Feather</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — on Yourself</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/cast [@player] Angelic Feather</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Other players may "steal" the feather if you're stacked with them.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Spectral Guise "Feign Death"</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Spectral Guise
+/cancelaura Spectral Guise
+/cast Spectral Guise</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Press twice. Has a chance to fail / not drop combat. Ensure some distance from mobs before use.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Level 90 Talent (dynamic tooltip)</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo
+/cast [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo</pre>
+                        </div>
+
+                    </div>
                 </div>
 
+                <!-- WeakAuras & Addons -->
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" alt="Psychic Scream" style="width: 32px; height: 32px;">
-                        Cooldown Management
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_auraoflight.jpg" alt="WeakAuras" style="width: 32px; height: 32px;">
+                        WeakAuras &amp; Addons
                     </div>
-                    <div class="content-placeholder">// Detail when and how to use major cooldowns effectively</div>
+                    <p style="margin: 0 0 4px; font-size: 0.9rem; color: #aaa;"><strong style="color: var(--text-secondary);">Disclaimer:</strong> This is not a complete list — just a few great options. Go explore <a href="https://www.curseforge.com/wow/addons" target="_blank" style="color: var(--primary-green);">Curseforge</a> and <a href="https://wago.io" target="_blank" style="color: var(--primary-green);">Wago</a> and find what you like best!</p>
+
+                    <!-- Cast Bars -->
+                    <div style="margin-top: 20px; margin-bottom: 14px;">
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Cast Bars</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://www.curseforge.com/wow/addons/gnosis" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindstab.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Gnosis</div>
+                                    <div style="color:#888;font-size:0.82rem;">curseforge.com — Cast bar addon</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/p8VOwuLZ_" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindstab.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">DragonKarsh Cast Bar</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/p8VOwuLZ_</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- WeakAura Packs -->
+                    <div style="margin-bottom: 14px;">
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">WeakAura UI Packs</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://wago.io/CMUcUSqC2" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychichorrors.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">DragonKarsh Shadow Suite</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/CMUcUSqC2 — individual components listed within</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Helpful WAs & Addons -->
+                    <div>
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Helpful WeakAuras &amp; Addons</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://www.curseforge.com/wow/addons/plater-nameplates" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_warrior_charge.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Plater</div>
+                                    <div style="color:#888;font-size:0.82rem;">For tracking DoTs on nameplates</div>
+                                </div>
+                            </a>
+                            <a href="https://github.com/Hyphie24/ShadowedUnitFrames-Mists/releases" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowform.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Shadowed Unit Frames</div>
+                                    <div style="color:#888;font-size:0.82rem;">Download zip → extract → place ShadowedUnitFrames &amp; ShadowedUF_Options into your AddOns folder</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/mEbEtEVrZ" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Halo Distance Tracker</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/mEbEtEVrZ</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/zqC8i_vfS" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Mind Flay Clip Delay</div>
+                                    <div style="color:#888;font-size:0.82rem;">Shows the delay between your Mind Flay and other spells</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/Ikku0mWwO" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Fake Queue</div>
+                                    <div style="color:#888;font-size:0.82rem;">Helps reduce the delay between your spells</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/wlEM07vng" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Basic DoT Snapshotter</div>
+                                    <div style="color:#888;font-size:0.82rem;">A basic new - old &gt; 0 snapshotter for DoTs</div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/nn6E98pfl" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">In-Depth DoT Snapshotter</div>
+                                    <div style="color:#888;font-size:0.82rem;">Predictive snapshotter — sims in real time considering ticks remaining, filler damage, current and expiring buffs. <a href="https://discord.com/channels/253201874683953162/1365890344348160030/1402949409108660245" target="_blank" style="color:#a8dadc;">Colour key on Discord ↗</a></div>
+                                </div>
+                            </a>
+                            <a href="https://wago.io/iFSg1jZ5n" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_eye_01.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
+                                <div>
+                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">UVLS Tracker</div>
+                                    <div style="color:#888;font-size:0.82rem;">Icon with timer and sound when Unerring Vision of Lei Shen procs</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" alt="Mind Flay" style="width: 32px; height: 32px;">
-                        Movement & Positioning
+            </div>
+        </div>
+    </div><!-- end .container -->
+
+<!-- I hate reading Tab -->
+<div id="videos" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Video Guides</h2>
+
+        <div class="subsection">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_film_01.jpg" alt="Video Guides" style="width: 32px; height: 32px;">
+                SPriest MoP Video Guides
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 28px;">
+                <div>
+                    <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Pants</div>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                        <iframe src="https://www.youtube.com/embed/dkycW2IfsRo" title="Pants — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
                     </div>
-                    <div class="content-placeholder">// Tips for maintaining DPS while handling encounter mechanics</div>
+                    <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Pants has a ton of great info on his channel — definitely check it out! There's also a deep dive video on shadow priest that covers everything and more in greater detail (also pinned in the Discord channel).</p>
+                </div>
+                <div>
+                    <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">Skimmy</div>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                        <iframe src="https://www.youtube.com/embed/LH5aODSFQ1o" title="Skimmy — Shadow Priest MoP Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>
+                    </div>
+                    <p style="margin: 10px 0 0; font-size: 0.88rem; color: #aaa;">Skimmy has a ton of great info on his channel — check him out! He also streams on Twitch: <a href="https://www.twitch.tv/skimmynz" target="_blank" style="color: var(--primary-green);">twitch.tv/skimmynz</a></p>
                 </div>
             </div>
         </div>
+
+        <div class="subsection">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Sim Limitations" style="width: 32px; height: 32px;">
+                Understanding Simulation Limitations
+            </div>
+            <div class="video-container" style="transition: var(--transition);">
+                <iframe src="https://www.youtube.com/embed/cQ1j5yvRYgs"
+                        title="Why Sims Suck - Shadow Priest Analysis"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p>While simulations provide valuable baseline comparisons between talent builds and gear configurations, they have significant limitations in real raid scenarios. Traditional sims assume perfect conditions with continuous DPS uptime, which rarely reflects actual encounter mechanics.</p>
+            <p>Real encounters involve movement phases, target switching, add management, and interruptions that significantly impact performance compared to theoretical maximum output. This means encounter-specific knowledge often matters more than pure simulation numbers when optimizing your Shadow Priest.</p>
+        </div>
+
+    </div>
+</div>
 
 
     <script>
@@ -1549,39 +2312,6 @@ window.updateNow = updateFromDiscord;
             });
         });
 
-        // Video toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoToggle = document.getElementById('videoToggle');
-            const videoContainer = document.getElementById('videoContainer');
-            let isVideoVisible = true;
-
-            if (videoToggle && videoContainer) {
-                videoToggle.addEventListener('click', function() {
-                    if (isVideoVisible) {
-                        videoContainer.style.height = '0';
-                        videoContainer.style.paddingBottom = '0';
-                        videoContainer.style.marginTop = '0';
-                        videoContainer.style.marginBottom = '0';
-                        videoContainer.style.opacity = '0';
-                        videoToggle.textContent = 'Show Video';
-                        videoToggle.style.background = 'rgba(82, 183, 136, 0.2)';
-                        videoToggle.style.borderColor = 'var(--primary-green)';
-                        videoToggle.style.color = 'var(--primary-green)';
-                    } else {
-                        videoContainer.style.height = '';
-                        videoContainer.style.paddingBottom = '56.25%';
-                        videoContainer.style.marginTop = '20px';
-                        videoContainer.style.marginBottom = '20px';
-                        videoContainer.style.opacity = '1';
-                        videoToggle.textContent = 'Hide Video';
-                        videoToggle.style.background = 'rgba(157, 78, 221, 0.2)';
-                        videoToggle.style.borderColor = 'var(--primary-purple)';
-                        videoToggle.style.color = '#e0aaff';
-                    }
-                    isVideoVisible = !isVideoVisible;
-                });
-            }
-        });
 
         // Add smooth scrolling when switching tabs
         tabButtons.forEach(button => {
@@ -1670,6 +2400,31 @@ document.addEventListener('click', function(event) {
     if (!event.target.closest('.tier-dropdown')) {
         document.getElementById('tierDropdown').classList.remove('open');
     }
+});
+
+// Collapsible subsections — all closed by default
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.subsection').forEach(function(section) {
+        const title = section.querySelector(':scope > .subsection-title');
+        if (!title) return;
+
+        // Wrap all non-title children in an animated body
+        const body = document.createElement('div');
+        body.className = 'subsection-body';
+        const inner = document.createElement('div');
+        body.appendChild(inner);
+        Array.from(section.children).forEach(function(child) {
+            if (child !== title) inner.appendChild(child);
+        });
+        section.appendChild(body);
+
+        // Start closed
+        section.classList.add('closed');
+
+        title.addEventListener('click', function() {
+            section.classList.toggle('closed');
+        });
+    });
 });
 </script>
 </body>
