@@ -14,48 +14,78 @@
 /* Header Layout */
 .header-container {
     width: 100%;
-    height: 200px;
+    height: 320px;
     position: relative;
     overflow: hidden;
     margin-bottom: var(--space-xl);
-    background: linear-gradient(135deg, 
-        var(--bg-dark) 0%, 
-        #1a0d1a 25%, 
-        #2d1b2d 50%, 
-        #1e3a2e 75%, 
-        #2d4a3d 100%
+    /* Portrait image anchored right, scaled so its height = 180% of header height.
+       At 320px header → image renders at ~576px tall × ~456px wide (portrait ratio).
+       background-position: right top shows the top of the image (the interesting part).
+       Swap the URL here to use a local file or a different image at any time. */
+    background:
+        #07040f
+        url('https://i.imgur.com/QF6lnAp.png')
+        right top / auto 180%
+        no-repeat;
+}
+
+/* Gradient veil: opaque dark on the left (text area) → transparent on the right
+   (lets the portrait image show through). Adjust the stops to taste. */
+.header-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        #07040f          0%,
+        #07040f         28%,
+        rgba(7,4,15,.9) 42%,
+        rgba(7,4,15,.55) 60%,
+        rgba(7,4,15,.15) 80%,
+        transparent     100%
     );
 }
 
 .header-container .title {
     position: absolute;
     top: 50%;
-    left: 40px;
+    left: clamp(28px, 4vw, 64px);
     transform: translateY(-50%);
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    z-index: 2;
 }
 
-.header-container .shadow-orbs {
-    position: absolute;
-    top: var(--space-lg);
-    right: var(--space-xl);
-    display: flex;
-    gap: var(--space-sm);
+/* Small "MoP Classic" label above the main heading */
+.title-eyebrow {
+    font-family: 'Philosopher', serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(199, 125, 255, 0.55);
+    margin-bottom: 6px;
 }
 
+/* Main calligraphy heading — swap 'Cinzel Decorative' for your chosen font */
 .title h1 {
-    font-family: 'Almendra', serif;
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: 600;
+    font-family: 'Cinzel Decorative', 'Almendra', serif;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 700;
     margin: 0;
-    background: linear-gradient(135deg, #e0aaff, #c77dff, var(--primary-purple));
+    line-height: 1.1;
+    background: linear-gradient(160deg, #f0e6ff 0%, #c77dff 45%, #9d4edd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 
-        0 0 10px rgba(157, 78, 221, 0.5),
-        2px 2px 8px rgba(0, 0, 0, 0.8);
+    filter: drop-shadow(0 0 18px rgba(157, 78, 221, 0.45));
+}
+
+/* Subtitle below the main heading */
+.header-container .subtitle {
+    font-family: 'Philosopher', serif;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: rgba(180, 150, 220, 0.65);
+    letter-spacing: 0.18em;
+    margin-top: 8px;
+    font-style: italic;
 }
 
 /* Navigation Layout */
@@ -261,16 +291,13 @@
     }
     
     .header-container {
-        height: 150px;
+        height: 220px;
+        background-size: auto 220%;
+        background-position: right top;
     }
-    
+
     .header-container .title {
         left: var(--space-lg);
-    }
-    
-    .header-container .shadow-orbs {
-        right: var(--space-md);
-        top: var(--space-md);
     }
     
     .tab-navigation {
@@ -320,8 +347,7 @@
         padding: var(--space-md);
     }
     
-    .header-container .shadow-orbs {
-        right: var(--space-sm);
-        top: var(--space-sm);
+    .header-container {
+        height: 180px;
     }
 }
