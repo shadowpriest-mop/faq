@@ -2293,19 +2293,29 @@ window.updateNow = updateFromDiscord;
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
 
+        function activateTab(tabId) {
+            const target = document.getElementById(tabId);
+            if (!target) return;
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            const btn = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+            if (btn) btn.classList.add('active');
+            target.classList.add('active');
+        }
+
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const tabId = button.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
+                history.replaceState(null, '', '#' + tabId);
+                activateTab(tabId);
             });
         });
+
+        // Restore tab from URL hash on load
+        const initialTab = location.hash.replace('#', '');
+        if (initialTab && document.getElementById(initialTab)) {
+            activateTab(initialTab);
+        }
 
 
         // Add smooth scrolling when switching tabs
