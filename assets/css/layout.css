@@ -64,17 +64,15 @@
     margin-bottom: 6px;
 }
 
-/* Main calligraphy heading — swap between 'Kings' and 'My Soul' to taste */
-.title h1 {
-    font-family: 'Kings', 'Almendra', serif;
-    font-size: clamp(2rem, 4.5vw, 3.4rem);
-    font-weight: 700;
+/* Logo image replacing the text heading.
+   mix-blend-mode: screen makes black pixels transparent so the black
+   export background vanishes against the dark header. */
+.title-logo {
+    display: block;
+    max-height: clamp(90px, 18vw, 160px);
+    width: auto;
     margin: 0;
-    line-height: 1.1;
-    background: linear-gradient(160deg, #f0e6ff 0%, #c77dff 45%, #9d4edd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    mix-blend-mode: screen;
     filter: drop-shadow(0 0 18px rgba(157, 78, 221, 0.45));
 }
 
