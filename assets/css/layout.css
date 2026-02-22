@@ -27,7 +27,7 @@
    export background vanishes against the dark header. */
 .title-logo {
     display: block;
-    max-height: clamp(90px, 18vw, 160px);
+    max-height: clamp(180px, 30vw, 290px);
     width: auto;
     margin: 0;
     mix-blend-mode: screen;
