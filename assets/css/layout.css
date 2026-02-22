@@ -64,9 +64,9 @@
     margin-bottom: 6px;
 }
 
-/* Main calligraphy heading — swap 'Cinzel Decorative' for your chosen font */
+/* Main calligraphy heading — swap between 'Kings' and 'My Soul' to taste */
 .title h1 {
-    font-family: 'Cinzel Decorative', 'Almendra', serif;
+    font-family: 'Kings', 'Almendra', serif;
     font-size: clamp(2rem, 4.5vw, 3.4rem);
     font-weight: 700;
     margin: 0;
