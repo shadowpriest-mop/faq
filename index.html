@@ -12,7 +12,17 @@
 <body>
     <!-- Header Component -->
     <header class="header-container">
+<<<<<<< Updated upstream
         <img src="assets/logo.png" alt="Shadow Priest" class="title-logo">
+=======
+        <div class="header-veil"></div>
+        <div class="title">
+            <div class="title-eyebrow">MoP Classic</div>
+            <img src="assets/logo.png" alt="Shadow Priest" class="title-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <h1 class="title-logo-fallback" style="display:none; font-family:'Almendra',serif; font-size:clamp(2rem,6vw,4rem); color:#c77dff; text-shadow:0 0 20px rgba(157,78,221,0.6); margin:0; font-weight:700; letter-spacing:0.05em;">Shadow Priest</h1>
+            <div class="subtitle">in Mists of Pandaria</div>
+        </div>
+>>>>>>> Stashed changes
     </header>
 
     <div class="container">
@@ -54,104 +64,33 @@
                 <div style="background: rgba(88, 101, 242, 0.1); border: 2px solid #5865f2; border-radius: 12px; padding: 25px; max-width: 400px; margin: 0 auto;">
                     <img src="https://i.ibb.co/JWcwcjwq/Spell-Shadow-Shadow-Word-Pain.png" alt="Shadow Priest Classic Discord Server" style="width: 128px; height: 128px; border-radius: 12px; border: 3px solid #52b788; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);">
                     <h3 style="color: #5865f2; margin: 10px 0; font-size: 1.4rem;">Shadow Priest Classic</h3>
-                    <!-- Replace your current counter with this -->
-<p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">
+                    <p style="color: #a8dadc; margin: 10px 0; font-size: 0.95rem;" id="member-counter">
     Counting Shadow Orbs..<br>Est. Oct 2021
 </p>
 
 <script>
-// 🔧 Your Discord Server ID
+// Uses Discord's public Widget JSON API — no auth required, CORS allowed.
+// Requires the Widget to be enabled in your Discord server:
+//   Server Settings → Widget → Enable Server Widget
 const DISCORD_SERVER_ID = '893677259905437717';
 
-// Starting numbers (set these to your current actual counts)
-let memberCount = 13337;
-let onlineCount = 666;
-
-async function updateFromDiscord() {
+async function updateDiscordCounter() {
+    const el = document.getElementById('member-counter');
     try {
-        const endpoints = [
-            `https://discord.com/api/v10/guilds/${893677259905437717}`,
-            `https://discord.com/api/v9/guilds/${893677259905437717}`,
-            `https://discord.com/api/guilds/${893677259905437717}`
-        ];
-        
-        for (const endpoint of endpoints) {
-            try {
-                const response = await fetch(endpoint);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    
-                    if (data.approximate_member_count) {
-                        memberCount = data.approximate_member_count;
-                        onlineCount = Math.floor(memberCount * 0.3); // Estimate 30% online
-                        
-                        updateDisplay();
-                        saveData();
-                        return;
-                    }
-                }
-            } catch (err) {
-                continue;
-            }
-        }
-        
-        // If API fails, just do a small natural growth estimate (very subtle)
-        const days = Math.floor((Date.now() - getLastUpdateTime()) / (1000 * 60 * 60 * 24));
-        if (days >= 1) {
-            memberCount += Math.floor(days * (Math.random() * 5 + 2)); // 2-7 per day
-            onlineCount = Math.floor(memberCount * (0.25 + Math.random() * 0.15)); // 25-40%
-            updateDisplay();
-            saveData();
-        }
-        
-    } catch (error) {
-        // Silently fail - no error messages shown to users
+        const res = await fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`);
+        if (!res.ok) throw new Error('Widget not available');
+        const data = await res.json();
+        const online = data.presence_count ?? 0;
+        el.innerHTML = `${online.toLocaleString()} Orbs Online<br>Est. Oct 2021`;
+    } catch {
+        // Widget disabled or network issue — show static fallback, no fake numbers
+        el.innerHTML = `Shadow Priests United<br>Est. Oct 2021`;
     }
 }
 
-function updateDisplay() {
-    document.getElementById('member-counter').innerHTML = 
-        `${onlineCount.toLocaleString()} Orbs Online • ${memberCount.toLocaleString()} Shadow Priests<br>Est. Oct 2021`;
-}
-
-function saveData() {
-    localStorage.setItem('memberData', JSON.stringify({
-        members: memberCount,
-        online: onlineCount,
-        lastUpdate: Date.now()
-    }));
-}
-
-function loadData() {
-    const saved = localStorage.getItem('memberData');
-    if (saved) {
-        const data = JSON.parse(saved);
-        memberCount = data.members;
-        onlineCount = data.online;
-    }
-    updateDisplay();
-}
-
-function getLastUpdateTime() {
-    const saved = localStorage.getItem('memberData');
-    return saved ? JSON.parse(saved).lastUpdate : Date.now();
-}
-
-// Update every 24 hours silently
-setInterval(updateFromDiscord, 24 * 60 * 60 * 1000);
-
-// Load and update on page start
-window.onload = function() {
-    // Keep "Counting Shadow Orbs.." longer
-    setTimeout(() => {
-        loadData();
-        updateFromDiscord();
-    }, 8000); // Wait 8 seconds before trying API and showing fallback
-};
-
-// Hidden manual update (for console use only)
-window.updateNow = updateFromDiscord;
+window.addEventListener('load', function() {
+    setTimeout(updateDiscordCounter, 1500);
+});
 </script>
                     
                     <a href="https://discord.gg/RZuPyMkxCg" target="_blank" style="display: inline-block; background: #5865f2; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.3s ease;">
