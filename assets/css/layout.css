@@ -19,7 +19,8 @@
     align-items: center;
     justify-content: center;
     background: #07040f;
-    margin-bottom: 0; /* scroll banner sits flush below header */
+    margin-bottom: 0;
+    padding-bottom: 128px; /* offsets the scroll overlap so logo centers in the visible area */
 }
 
 /* Logo image replacing the text heading.
