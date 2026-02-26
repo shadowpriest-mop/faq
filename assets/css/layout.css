@@ -42,16 +42,18 @@
     overflow: hidden;
     margin-bottom: var(--space-xl);
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* buttons sit near bottom, leaving room above for icons */
+    padding-bottom: 20px;
 }
 
 .nav-scroll-bg {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* fills full width, no distortion, crops top/bottom only */
-    object-position: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1536px;   /* exact natural size — never scales up or down */
+    height: 250px;
+    object-fit: none;
     pointer-events: none;
     user-select: none;
 }
