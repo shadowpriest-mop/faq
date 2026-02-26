@@ -38,11 +38,18 @@
 /* Navigation Layout */
 .tab-navigation {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: var(--space-sm);
     margin-bottom: var(--space-xl);
     padding: 0 var(--space-sm);
-    justify-content: center;
+    overflow-x: auto;
+    /* Hide scrollbar visually — nav scrolls on small screens without showing a bar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tab-navigation::-webkit-scrollbar {
+    display: none;
 }
 
 /* Content Layout */
@@ -242,8 +249,6 @@
     }
 
     .tab-navigation {
-        justify-content: flex-start;
-        overflow-x: auto;
         padding: var(--space-md);
         -webkit-overflow-scrolling: touch;
     }
