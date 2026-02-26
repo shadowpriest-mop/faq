@@ -38,7 +38,7 @@
 .nav-scroll-wrapper {
     position: relative;
     width: 100%;
-    height: 250px; /* matches image natural height — no cropping */
+    height: 256px; /* matches image natural height — no cropping */
     overflow: hidden;
     margin-bottom: var(--space-xl);
     display: flex;
@@ -51,8 +51,8 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 1536px;   /* exact natural size — never scales up or down */
-    height: 250px;
+    width: 4096px;   /* exact natural size — never scales up or down */
+    height: 256px;
     object-fit: none;
     pointer-events: none;
     user-select: none;
