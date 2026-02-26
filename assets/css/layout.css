@@ -35,13 +35,10 @@
     transform: none;
 }
 
-/* Scroll banner — pure separator, scales naturally with viewport width */
-.nav-scroll-bg {
-    display: block;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    user-select: none;
+/* Separator line between header and nav */
+.site-header {
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to right, #00c853, #9d4edd) 1;
 }
 
 /* Navigation Layout */
@@ -53,8 +50,6 @@
     padding: var(--space-sm) var(--space-lg);
     justify-content: center;
     overflow-x: auto;
-    position: relative; /* sits above the scroll image */
-    z-index: 1;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
