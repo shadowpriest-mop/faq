@@ -36,7 +36,7 @@
 }
 
 /* Separator line between header and nav */
-.site-header {
+.header-container {
     border-bottom: 5px solid;
     border-image: linear-gradient(to right, #00c853, #9d4edd) 1;
 }
