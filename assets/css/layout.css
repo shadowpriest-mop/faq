@@ -37,6 +37,7 @@
 /* Scroll banner wrapper — full page width, overlaps header/content boundary */
 .nav-scroll-wrapper {
     position: relative;
+    z-index: 10; /* must be above the header so the scroll isn't hidden behind it */
     width: 100%;
     height: 256px; /* matches image natural height — no cropping */
     overflow: hidden;
