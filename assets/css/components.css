@@ -119,6 +119,15 @@
     user-select: none;
 }
 
+.no-collapse > .subsection-title {
+    cursor: default;
+    user-select: auto;
+}
+
+.no-collapse > .subsection-title::after {
+    content: none;
+}
+
 .subsection-title::after {
     content: '▼';
     font-size: 0.65rem;
