@@ -10,16 +10,27 @@
     background: var(--bg-card);
     border: 2px solid transparent;
     border-radius: var(--radius-md);
-    padding: var(--space-sm) var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
     color: var(--text-light);
     cursor: pointer;
     transition: var(--transition);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: 500;
     backdrop-filter: blur(10px);
     position: relative;
-    overflow: hidden;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 80px;
+}
+
+.tab-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    display: block;
 }
 
 .tab-button::before {
@@ -36,18 +47,12 @@
 .tab-button:hover {
     border-color: var(--primary-purple);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
-}
-
-.tab-button:hover::before {
-    left: 100%;
 }
 
 .tab-button.active {
     background: linear-gradient(135deg, var(--primary-purple), #7b2cbf);
     border-color: var(--primary-purple);
     color: white;
-    box-shadow: 0 4px 20px rgba(157, 78, 221, 0.5);
 }
 
 /* Toggle Button */
