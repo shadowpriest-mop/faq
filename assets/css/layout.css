@@ -35,15 +35,34 @@
 }
 
 
+/* Scroll banner wrapper — positions the parchment behind the nav */
+.nav-scroll-wrapper {
+    position: relative;
+    margin-bottom: var(--space-xl);
+    /* Extra vertical space so the scroll's curled top/bottom edges show */
+    padding: 24px 0;
+}
+
+.nav-scroll-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    user-select: none;
+}
+
 /* Navigation Layout */
 .tab-navigation {
     display: flex;
     flex-wrap: nowrap;
     gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
-    padding: 0 var(--space-sm);
+    /* No margin-bottom here — wrapper handles spacing now */
+    padding: var(--space-sm) var(--space-lg);
     overflow-x: auto;
-    /* Hide scrollbar visually — nav scrolls on small screens without showing a bar */
+    position: relative; /* sits above the scroll image */
+    z-index: 1;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
