@@ -32,7 +32,7 @@
     margin: 0;
     mix-blend-mode: screen;
     filter: drop-shadow(0 0 18px rgba(157, 78, 221, 0.45));
-    transform: translateY(-20px); /* shifts logo up to clear the scroll overlap */
+    transform: translateY(-30px); /* shifts logo up to clear the scroll overlap */
 }
 
 /* Scroll banner wrapper — full page width, overlaps header/content boundary */
