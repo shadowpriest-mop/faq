@@ -24,6 +24,11 @@
     min-width: 80px;
 }
 
+.addon-media {
+    border: 1px solid #000;
+    border-radius: 6px;
+}
+
 .tab-icon {
     width: 36px;
     height: 36px;
