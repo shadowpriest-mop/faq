@@ -133,6 +133,7 @@ window.addEventListener('load', function() {
                         Races
                     </div>
                     <p style="margin-bottom: 15px; color: var(--text-secondary);">Race choice has a minor impact on throughput. The differences are small enough that you should feel free to play whatever race you enjoy.</p>
+                    <p style="margin-bottom: 15px; color: var(--text-secondary);">Note: When playing Pandaren, if you die mid fight, the racial is lost. For Worgen & Goblin, the movement speed can be comfortable for a few fights where feathers are easily stolen or not as fast.</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px;">
                         <!-- Alliance -->
                         <div style="background: rgba(0, 112, 221, 0.08); border: 1px solid rgba(0, 112, 221, 0.35); border-radius: 10px; padding: 18px;">
@@ -145,7 +146,7 @@ window.addEventListener('load', function() {
                                 </div>
                             </div>
                             <div style="display: flex; align-items: center; gap: 10px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_worgen_male.jpg" alt="Worgen" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/large/race_worgen_male.jpg" alt="Worgen" style="width: 28px; height: 28px; border-radius: 4px;">
                                 <div>
                                     <span style="color: var(--primary-green); font-weight: 600;">Worgen</span>
                                     <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Best</span>
@@ -163,7 +164,7 @@ window.addEventListener('load', function() {
                                 </div>
                             </div>
                             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_goblin_male.jpg" alt="Goblin" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/large/race_goblin_female.jpg" alt="Goblin" style="width: 28px; height: 28px; border-radius: 4px;">
                                 <div>
                                     <span style="color: #ffa500; font-weight: 600;">Goblin</span>
                                     <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Second (tied)</span>
@@ -892,6 +893,7 @@ window.addEventListener('load', function() {
                             <div style="background: #ffa500; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">3</div>
                             <div>
                                 <div style="color: #ffa500; font-weight: 600; font-size: 1.05rem;">Haste</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Will always have high value, even beyond reaching breakpoints.</div>
                             </div>
                         </div>
 
@@ -899,6 +901,7 @@ window.addEventListener('load', function() {
                             <div style="background: #aaa; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">4</div>
                             <div>
                                 <div style="color: #aaa; font-weight: 600; font-size: 1.05rem;">Mastery</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">With UVLS, this stat is usually going to be your best alternative over critical strike.</div>
                             </div>
                         </div>
 
@@ -906,6 +909,7 @@ window.addEventListener('load', function() {
                             <div style="background: #aaa; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">5</div>
                             <div>
                                 <div style="color: #aaa; font-weight: 600; font-size: 1.05rem;">Critical Strike</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">With UVLS, when active the value drops to 0. Which means over a fight, the overall gain is reduced.</div>
                             </div>
                         </div>
 
@@ -1369,7 +1373,10 @@ window.addEventListener('load', function() {
                 </div>
 
                 <div class="subsection">
-                    <div class="subsection-title">Standard Build</div>
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/classicon_priest.jpg" alt="Standard Build" style="width: 32px; height: 32px;">
+                        Standard Build
+                    </div>
                     <div style="display: flex; align-items: center; gap: 20px; padding: 20px; background: rgba(82, 183, 136, 0.1); border-radius: 12px; border: 2px solid var(--primary-green); margin: 20px 0;">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity" style="width: 40px; height: 40px;">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate" style="width: 40px; height: 40px;">
@@ -1708,7 +1715,7 @@ window.addEventListener('load', function() {
                     <!-- Feng the Accursed -->
                     <div style="margin: 20px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-feng.png" alt="Feng the Accursed" style="height: 50px; width: auto; border-radius: 4px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-feng-the-accursed.png" alt="Feng the Accursed" style="height: 50px; width: auto; border-radius: 4px;">
                             <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Feng the Accursed</div>
                         </div>
                         <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
@@ -1723,7 +1730,7 @@ window.addEventListener('load', function() {
                     <!-- Gara'jal -->
                     <div style="margin: 20px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garajal.png" alt="Gara'jal the Spiritbinder" style="height: 50px; width: auto; border-radius: 4px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garajal-the-spiritbinder.png" alt="Gara'jal the Spiritbinder" style="height: 50px; width: auto; border-radius: 4px;">
                             <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Gara'jal</div>
                         </div>
                         <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
@@ -1731,14 +1738,14 @@ window.addEventListener('load', function() {
                                 <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 28px; height: 28px; border-radius: 4px;">
                                 <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Possessed players in the spirit realm require quick dispelling. Mass Dispel's reduced cast time becomes crucial for raid survival.</div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Possessed players in the spirit realm are affected by mechanics that cannot normally be dispelled. Glyph of Mass Dispel allows you to remove these otherwise undispellable Magic effects.</div>
                         </div>
                     </div>
 
                     <!-- Spirit Kings -->
                     <div style="margin: 20px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-spiritking-qiang.png" alt="Spirit Kings" style="height: 50px; width: auto; border-radius: 4px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-zian-of-the-endless-shadow.png" alt="Spirit Kings" style="height: 50px; width: auto; border-radius: 4px;">
                             <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Spirit Kings</div>
                         </div>
                         <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
@@ -1761,7 +1768,7 @@ window.addEventListener('load', function() {
                                 <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 28px; height: 28px; border-radius: 4px;">
                                 <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Add phases require precise positioning and debuff management. Mass Dispel helps with emergency dispelling during chaotic add phases.</div>
+                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Certain Spirit Kings mechanics apply Magic effects that cannot normally be dispelled. Glyph of Mass Dispel allows you to remove these otherwise undispellable effects during chaotic add phases.</div>
                         </div>
                     </div>
 
@@ -2072,7 +2079,7 @@ window.addEventListener('load', function() {
 
                         <div>
                             <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Dispersion Cancelaura</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Dispersion
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip 
 /cancelaura [mod:shift] Dispersion
 /cast Dispersion</pre>
                             <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts Dispersion normally, or cancels it when Shift is held.</p>
@@ -2091,7 +2098,7 @@ window.addEventListener('load', function() {
 
                         <div>
                             <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Spectral Guise "Feign Death"</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Spectral Guise
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip  
 /cancelaura Spectral Guise
 /cast Spectral Guise</pre>
                             <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Press twice. Has a chance to fail / not drop combat. Ensure some distance from mobs before use.</p>
