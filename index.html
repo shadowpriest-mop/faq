@@ -2010,74 +2010,7 @@ window.addEventListener('load', function() {
     <div class="card">
         <h2 class="card-title">Macros &amp; Addons</h2>
 
-                <!-- Macros -->
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_note_01.jpg" alt="Macros" style="width: 32px; height: 32px;">
-                        Macros
-                    </div>
-                    <p style="margin: 0 0 18px; font-size: 0.9rem; color: #aaa;">A few useful macros — explore WoWInterface and Wago for many more.</p>
-                    <div style="display: flex; flex-direction: column; gap: 18px;">
 
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Generic Cast at Mouseover / Target</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] SpellName</pre>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Focus</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@focus,exists,nodead][] Mind Sear</pre>
-                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your focus if it exists, otherwise casts from your target normally.</p>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Mouseover</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] Mind Sear</pre>
-                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your mouseover if it exists, otherwise casts from your target normally.</p>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Trinkets &amp; Engineering Gloves</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use 13   -- Trinket 1
-/use 14   -- Trinket 2
-/use 10   -- Engineering Gloves</pre>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Dispersion Cancelaura</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip 
-/cancelaura [mod:shift] Dispersion
-/cast Dispersion</pre>
-                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts Dispersion normally, or cancels it when Shift is held.</p>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — at Cursor</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@cursor] Angelic Feather</pre>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — on Yourself</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/cast [@player] Angelic Feather</pre>
-                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Other players may "steal" the feather if you're stacked with them.</p>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Spectral Guise "Feign Death"</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip  
-/cancelaura Spectral Guise
-/cast Spectral Guise</pre>
-                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Press twice. Has a chance to fail / not drop combat. Ensure some distance from mobs before use.</p>
-                        </div>
-
-                        <div>
-                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Level 90 Talent (dynamic tooltip)</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo
-/cast [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo</pre>
-                        </div>
-
-                    </div>
-                </div>
 
                 <!-- WeakAuras & Addons -->
                 <div class="subsection">
@@ -2207,6 +2140,75 @@ window.addEventListener('load', function() {
                                 <img src="assets/images/wa-uvls.png" class="addon-media addon-media-hidden" style="max-width:200px;width:100%;margin-top:8px;display:none;">
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Macros -->
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_note_01.jpg" alt="Macros" style="width: 32px; height: 32px;">
+                        Macros
+                    </div>
+                    <p style="margin: 0 0 18px; font-size: 0.9rem; color: #aaa;">A few useful macros — explore WoWInterface and Wago for many more.</p>
+                    <div style="display: flex; flex-direction: column; gap: 18px;">
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Generic Cast at Mouseover / Target</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] SpellName</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Focus</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@focus,exists,nodead][] Mind Sear</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your focus if it exists, otherwise casts from your target normally.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Cast Mind Sear at Mouseover</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@mouseover,exists,nodead][] Mind Sear</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts from your mouseover if it exists, otherwise casts from your target normally.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Trinkets &amp; Engineering Gloves</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use 13   -- Trinket 1
+/use 14   -- Trinket 2
+/use 10   -- Engineering Gloves</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Dispersion Cancelaura</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip 
+/cancelaura [mod:shift] Dispersion
+/cast Dispersion</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts Dispersion normally, or cancels it when Shift is held.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — at Cursor</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/use [@cursor] Angelic Feather</pre>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Angelic Feather — on Yourself</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">/cast [@player] Angelic Feather</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Other players may "steal" the feather if you're stacked with them.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Spectral Guise "Feign Death"</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip  
+/cancelaura Spectral Guise
+/cast Spectral Guise</pre>
+                            <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Press twice. Has a chance to fail / not drop combat. Ensure some distance from mobs before use.</p>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Level 90 Talent (dynamic tooltip)</div>
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo
+/cast [talent:6/1] Cascade; [talent:6/2] Divine Star; [talent:6/3] Halo</pre>
+                        </div>
+
                     </div>
                 </div>
 
