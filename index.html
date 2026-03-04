@@ -1434,7 +1434,18 @@ window.addEventListener('load', function() {
 
                 <div class="subsection">
                     <div class="subsection-title">Encounter-Specific Swaps Throne of Thunder</div>
-                    <div class="encounter-grid" style="grid-template-columns: 1fr 1fr;">
+
+                    <!-- Progression / Parse toggle -->
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 10px 14px; background: rgba(0,0,0,0.3); border-radius: 10px; border: 1px solid rgba(255,255,255,0.07);">
+                        <span style="font-size: 0.72rem; color: #666; text-transform: uppercase; letter-spacing: 0.07em; flex-shrink: 0;">Mode:</span>
+                        <div style="display: flex; gap: 4px; background: rgba(0,0,0,0.35); border-radius: 7px; padding: 3px;">
+                            <button id="tot-btn-progression" onclick="setTotMode('progression')" style="padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: rgba(100,200,100,0.18); color: #88dd88; box-shadow: 0 0 0 1px rgba(100,200,100,0.35); transition: all 0.2s;">Progression</button>
+                            <button id="tot-btn-parse" onclick="setTotMode('parse')" style="padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: transparent; color: #666; transition: all 0.2s;">Parse</button>
+                        </div>
+                        <span id="tot-mode-desc" style="font-size: 0.82rem; color: #888; font-style: italic;">Optimal play — raid survival &amp; kill priority</span>
+                    </div>
+
+                    <div id="tot-encounter-section" class="encounter-grid" style="grid-template-columns: 1fr 1fr;">
 
                         <!-- Last Stand of the Zandalari -->
                         <div class="encounter-card" style="border-color: rgba(100, 200, 255, 0.4);">
@@ -1515,17 +1526,14 @@ window.addEventListener('load', function() {
                                     <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-primordius.png" alt="Primordius" style="height: 50px; width: auto; border-radius: 4px;">
                                     <div class="boss-name" style="color: #d4725a; font-weight: 600; font-size: 1.2rem;">Primordius</div>
                                 </div>
-                                <div style="margin: 10px 0 12px; padding: 10px 14px; background: rgba(255, 200, 100, 0.07); border-radius: 6px; border-left: 3px solid rgba(255, 200, 100, 0.4); color: #c8b080; font-size: 0.88rem; line-height: 1.6;">
-                                    <strong style="color: #e0c070;">Parse vs. Optimal:</strong> The optimal strategy for the raid is to single target Primordius and ignore the adds. However, if you are playing for a parse, you can kill the adds to inflate your damage numbers. The talent swaps below reflect the parse-oriented approach.
-                                </div>
-                                <div style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46; margin-bottom: 8px;">
+                                <div data-tot-mode="parse" style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46; margin-bottom: 8px;">
                                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_soulleech_3.jpg" alt="Mindbender" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #e0a090; font-size: 1.1rem; font-weight: 600;">Mindbender</span>
                                     </div>
                                     <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
                                 </div>
-                                <div style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46;">
+                                <div data-tot-mode="parse" style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46;">
                                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                                         <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #e0a090; font-size: 1.1rem; font-weight: 600;">Cascade</span>
@@ -2587,6 +2595,34 @@ window.addEventListener('load', function() {
 
 
     <script>
+        // ToT Progression / Parse mode toggle
+        function setTotMode(mode) {
+            const section = document.getElementById('tot-encounter-section');
+            if (!section) return;
+
+            const btnProg = document.getElementById('tot-btn-progression');
+            const btnParse = document.getElementById('tot-btn-parse');
+            const desc = document.getElementById('tot-mode-desc');
+
+            const activeStyle = 'padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.2s;';
+            const inactiveStyle = activeStyle + ' background: transparent; color: #666;';
+
+            if (mode === 'progression') {
+                btnProg.style.cssText = activeStyle + ' background: rgba(100, 200, 100, 0.18); color: #88dd88; box-shadow: 0 0 0 1px rgba(100,200,100,0.35);';
+                btnParse.style.cssText = inactiveStyle;
+                desc.textContent = 'Optimal play — raid survival & kill priority';
+            } else {
+                btnParse.style.cssText = activeStyle + ' background: rgba(240, 160, 60, 0.18); color: #f0a840; box-shadow: 0 0 0 1px rgba(240,160,60,0.35);';
+                btnProg.style.cssText = inactiveStyle;
+                desc.textContent = 'Parse-oriented — maximising personal damage numbers';
+            }
+
+            section.querySelectorAll('[data-tot-mode]').forEach(el => {
+                const elMode = el.getAttribute('data-tot-mode');
+                el.style.display = (elMode === mode || elMode === 'both') ? '' : 'none';
+            });
+        }
+
         // Show/hide example images
         function toggleExample(btn) {
             const img = btn.nextElementSibling;
@@ -2716,6 +2752,11 @@ document.addEventListener('click', function(event) {
     if (!event.target.closest('.tier-dropdown')) {
         document.getElementById('tierDropdown').classList.remove('open');
     }
+});
+
+// Initialise ToT mode toggle on load
+document.addEventListener('DOMContentLoaded', function() {
+    setTotMode('progression');
 });
 
 // Collapsible subsections — all closed by default (except no-collapse)
