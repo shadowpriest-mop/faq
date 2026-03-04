@@ -2054,11 +2054,11 @@ window.addEventListener('load', function() {
                     <!-- Wing 2 -->
                     <div style="color: #7090e8; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: 12px 0 6px;">Forgotten Depths</div>
 
-                    <!-- Megaera -->
+                    <!-- Ji-Kun -->
                     <div style="margin: 8px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-megaera.png" alt="Megaera" style="height: 36px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #7090e8; font-weight: 600; font-size: 1rem;">Megaera</div>
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ji-kun.png" alt="Ji-Kun" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #7090e8; font-weight: 600; font-size: 1rem;">Ji-Kun</div>
                         </div>
                         <div style="padding: 10px 12px; background: rgba(60, 100, 200, 0.08); border-radius: 8px; border-left: 4px solid #3c64c8;">
                             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
@@ -2077,8 +2077,8 @@ window.addEventListener('load', function() {
                                 <span style="color: #888; font-size: 0.8rem;">Tortos</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: 6px;">
-                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ji-kun.png" alt="Ji-Kun" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
-                                <span style="color: #888; font-size: 0.8rem;">Ji-Kun</span>
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-megaera.png" alt="Megaera" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Megaera</span>
                             </div>
                         </div>
                     </div>
@@ -2294,7 +2294,6 @@ window.addEventListener('load', function() {
 
             </div>
         </div>
-    </div><!-- end .container -->
 
 <!-- Macro & Addon Tab -->
 <div id="macroaddon" class="tab-content">
@@ -2512,15 +2511,25 @@ window.addEventListener('load', function() {
         <h2 class="card-title">Shadow Priest Analyser</h2>
 
         <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.9rem; line-height: 1.6;">
-            <strong style="color: #c77dff;">Beta</strong> — The Analyser is still in active development and not yet officially released. Features and recommendations may change.
+            <strong style="color: #c77dff;">Beta Version</strong> — The Analyser is still in active development. Features and recommendations will change.<br><br>
+            Currently on the free API version, meaning a maximum of 3600 calls (~30 encounter checks) per hour for everyone. This will be hit very quickly with multiple users — it refreshes every hour.
         </div>
+
+        <!-- Link to tool -->
+        <a href="https://shadowpriest-mop.github.io/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none; margin-bottom: 20px;">
+            <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 40px; height: 40px; border-radius: 6px; flex-shrink: 0;">
+            <div>
+                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Shadow Priest Analyser</div>
+                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">shadowpriest-mop.github.io/shadow — Massive thanks to Kalon for putting down the ground work.</div>
+            </div>
+        </a>
 
         <div class="subsection no-collapse">
             <div class="subsection-title">
                 <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 28px; height: 28px; border-radius: 4px;">
                 What is the Analyser?
             </div>
-            <p>The Shadow Priest Analyser is a companion tool designed to help you dig through your raid logs and identify areas for improvement. Paste in your data and get actionable feedback on your rotation, cooldown usage, and more.</p>
+            <p>The Shadow Priest Analyser is a companion tool designed to help you dig through your raid logs and identify areas for improvement. Paste in your Warcraft Logs URL or ID &amp; select your character and fight. Get actionable feedback on your rotation, cooldown usage, and more.</p>
             <p>More details and a walkthrough video will be added here once the tool is ready for a wider release. Stay tuned.</p>
         </div>
 
@@ -2574,6 +2583,7 @@ window.addEventListener('load', function() {
 
     </div>
 </div>
+    </div><!-- end .container -->
 
 
     <script>
