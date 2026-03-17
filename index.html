@@ -15,22 +15,51 @@
         <img src="assets/images/logo.png" alt="Shadow Priest" class="title-logo">
     </header>
 
-    <!-- Nav sits outside container so the scroll banner reaches full page width -->
-    <div class="nav-scroll-wrapper">
-        <img src="assets/images/scroll-banner.png" alt="" class="nav-scroll-bg" aria-hidden="true">
-        <nav class="tab-navigation">
-    <button class="tab-button active" data-tab="overview">Overview</button>
-    <button class="tab-button" data-tab="faq">FAQ</button>
-    <button class="tab-button" data-tab="bis">Gear</button>
-    <button class="tab-button" data-tab="talents">Talents</button>
-    <button class="tab-button" data-tab="glyphs">Glyphs</button>
-    <button class="tab-button" data-tab="theorycraft">Theory & Simulation</button>
-    <button class="tab-button" data-tab="gameplay">Gameplay</button>
-    <button class="tab-button" data-tab="videos">I hate reading</button>
-        </nav>
-    </div>
-
     <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+    <button class="tab-button active" data-tab="overview">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="" class="tab-icon">
+        <span>Overview</span>
+    </button>
+    <button class="tab-button" data-tab="faq">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_book_09.jpg" alt="" class="tab-icon">
+        <span>FAQ</span>
+    </button>
+    <button class="tab-button" data-tab="bis">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_staff_medivh.jpg" alt="" class="tab-icon">
+        <span>Gear &amp; Sim</span>
+    </button>
+    <button class="tab-button" data-tab="talents">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_priest.jpg" alt="" class="tab-icon">
+        <span>Talents</span>
+    </button>
+    <button class="tab-button" data-tab="glyphs">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_glyph_majorpriest.jpg" alt="" class="tab-icon">
+        <span>Glyphs</span>
+    </button>
+    <button class="tab-button" data-tab="theorycraft">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/achievement_faction_lorewalkers.jpg" alt="" class="tab-icon">
+        <span>Theory</span>
+    </button>
+    <button class="tab-button" data-tab="gameplay">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/spell_shadow_siphonmana.jpg" alt="" class="tab-icon">
+        <span>Gameplay</span>
+    </button>
+    <button class="tab-button" data-tab="macroaddon">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_draenei_tome.jpg" alt="" class="tab-icon">
+        <span>Macro &amp; Addon</span>
+    </button>
+    <button class="tab-button" data-tab="analyser">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="" class="tab-icon">
+        <span>Analyser</span>
+    </button>
+    <button class="tab-button" data-tab="videos">
+        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_misc_-selfiecamera_01.jpg" alt="" class="tab-icon">
+        <span>I hate reading</span>
+    </button>
+        </nav>
+
         <!-- Tab Contents -->
         
 <!-- Overview Tab -->
@@ -108,6 +137,7 @@ window.addEventListener('load', function() {
                         Races
                     </div>
                     <p style="margin-bottom: 15px; color: var(--text-secondary);">Race choice has a minor impact on throughput. The differences are small enough that you should feel free to play whatever race you enjoy.</p>
+                    <p style="margin-bottom: 15px; color: var(--text-secondary);">Note: When playing Pandaren, if you die mid fight, the racial is lost. For Worgen & Goblin, the movement speed can be comfortable for a few fights where feathers are easily stolen or not as fast.</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px;">
                         <!-- Alliance -->
                         <div style="background: rgba(0, 112, 221, 0.08); border: 1px solid rgba(0, 112, 221, 0.35); border-radius: 10px; padding: 18px;">
@@ -120,7 +150,7 @@ window.addEventListener('load', function() {
                                 </div>
                             </div>
                             <div style="display: flex; align-items: center; gap: 10px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_worgen_male.jpg" alt="Worgen" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/large/race_worgen_male.jpg" alt="Worgen" style="width: 28px; height: 28px; border-radius: 4px;">
                                 <div>
                                     <span style="color: var(--primary-green); font-weight: 600;">Worgen</span>
                                     <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Best</span>
@@ -138,7 +168,7 @@ window.addEventListener('load', function() {
                                 </div>
                             </div>
                             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_goblin_male.jpg" alt="Goblin" style="width: 28px; height: 28px; border-radius: 4px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/large/race_goblin_female.jpg" alt="Goblin" style="width: 28px; height: 28px; border-radius: 4px;">
                                 <div>
                                     <span style="color: #ffa500; font-weight: 600;">Goblin</span>
                                     <span style="color: #aaa; font-size: 0.85rem; margin-left: 8px;">Second (tied)</span>
@@ -226,7 +256,7 @@ window.addEventListener('load', function() {
 
                 <div class="subsection">
                     <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindspike.jpg" alt="Mind Spike" style="width: 32px; height: 32px;">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/achievement_bg_xkills_avgraveyard.jpg" alt="Removed Abilities" style="width: 32px; height: 32px;">
                         Removed Abilities
                     </div>
                     <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.95rem;">The following abilities from Cataclysm have been removed in MoP:</p>
@@ -243,7 +273,7 @@ window.addEventListener('load', function() {
         <!-- Gear Tab -->
         <div id="bis" class="tab-content">
             <div class="card">
-                <h2 class="card-title">Gear</h2>
+                <h2 class="card-title">Gear & Sim</h2>
                 
                 <div class="subsection no-collapse">
                     <div class="subsection-title">
@@ -867,25 +897,44 @@ window.addEventListener('load', function() {
                             <div style="background: #ffa500; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">3</div>
                             <div>
                                 <div style="color: #ffa500; font-weight: 600; font-size: 1.05rem;">Haste</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Will always have high value, even beyond reaching breakpoints.</div>
                             </div>
                         </div>
 
-                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255, 165, 0, 0.08); border-radius: 10px; border-left: 4px solid #ffa500;">
-                            <div style="background: #ffa500; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">4</div>
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(170, 170, 170, 0.08); border-radius: 10px; border-left: 4px solid #aaa;">
+                            <div style="background: #aaa; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">4</div>
                             <div>
-                                <div style="color: #ffa500; font-weight: 600; font-size: 1.05rem;">Critical Strike</div>
+                                <div style="color: #aaa; font-weight: 600; font-size: 1.05rem;">Mastery</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">With UVLS, this stat is usually going to be your best alternative over critical strike.</div>
                             </div>
                         </div>
 
-                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(168, 218, 220, 0.08); border-radius: 10px; border-left: 4px solid #a8dadc;">
-                            <div style="background: #a8dadc; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">5</div>
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(170, 170, 170, 0.08); border-radius: 10px; border-left: 4px solid #aaa;">
+                            <div style="background: #aaa; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">5</div>
                             <div>
-                                <div style="color: #a8dadc; font-weight: 600; font-size: 1.05rem;">Mastery</div>
+                                <div style="color: #aaa; font-weight: 600; font-size: 1.05rem;">Critical Strike</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">With UVLS, when active the value drops to 0. Which means over a fight, the overall gain is reduced.</div>
                             </div>
                         </div>
 
                     </div>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic; margin-top: 14px;">Secondary stat priorities can shift depending on your current gear setup — always sim your character to confirm.</p>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead" style="width: 32px; height: 32px;">
+                        Wowhead Overview
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-gear-bis-pve" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(168, 218, 220, 0.08); border: 1px solid rgba(168, 218, 220, 0.35); border-radius: 10px; text-decoration: none;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead Guide" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: #a8dadc; font-weight: 600;">Shadow Priest Best Gear & BiS — Wowhead</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowhead.com — will be updated throughout MoP as with previous expansions</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -1134,7 +1183,7 @@ window.addEventListener('load', function() {
                 <div class="talent-tooltip situational">
                     
                     <div class="tooltip-header">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" class="tooltip-icon">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" class="tooltip-icon">
                         <div class="tooltip-name">Cascade</div>
                     </div>
                      <div class="tooltip-description">Instant • 40 yards • 25 sec cooldown</div>
@@ -1318,7 +1367,7 @@ window.addEventListener('load', function() {
                             <div class="talent-level">90</div>
                             <div class="talent-options">
                                 <div class="talent-option situational">
-                                    <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade">
+                                    <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade">
                                     <div>
                                         <div style="color: #ffa500; font-weight: 600;">Cascade</div>
                                         <div style="font-size: 0.8rem; color: #888;">Situational</div>
@@ -1344,7 +1393,9 @@ window.addEventListener('load', function() {
                 </div>
 
                 <div class="subsection">
-                    <div class="subsection-title">Standard Build</div>
+                    <div class="subsection-title">
+                        Standard Build
+                    </div>
                     <div style="display: flex; align-items: center; gap: 20px; padding: 20px; background: rgba(82, 183, 136, 0.1); border-radius: 12px; border: 2px solid var(--primary-green); margin: 20px 0;">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_flashoflight.jpg" alt="Solace and Insanity" style="width: 40px; height: 40px;">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindtwisting.jpg" alt="Twist of Fate" style="width: 40px; height: 40px;">
@@ -1382,7 +1433,290 @@ window.addEventListener('load', function() {
                 </div>
 
                 <div class="subsection">
-                    <div class="subsection-title">Encounter-Specific Swaps</div>
+                    <div class="subsection-title">Encounter-Specific Swaps Throne of Thunder</div>
+
+                    <!-- Progression / Parse toggle -->
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 10px 14px; background: rgba(0,0,0,0.3); border-radius: 10px; border: 1px solid rgba(255,255,255,0.07);">
+                        <span style="font-size: 0.72rem; color: #666; text-transform: uppercase; letter-spacing: 0.07em; flex-shrink: 0;">Mode:</span>
+                        <div style="display: flex; gap: 4px; background: rgba(0,0,0,0.35); border-radius: 7px; padding: 3px;">
+                            <button id="tot-btn-progression" onclick="setTotMode('progression')" style="padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: rgba(100,200,100,0.18); color: #88dd88; box-shadow: 0 0 0 1px rgba(100,200,100,0.35); transition: all 0.2s;">Progression</button>
+                            <button id="tot-btn-parse" onclick="setTotMode('parse')" style="padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: transparent; color: #666; transition: all 0.2s;">Parse</button>
+                        </div>
+                        <span id="tot-mode-desc" style="font-size: 0.82rem; color: #888; font-style: italic;">Optimal play — raid survival &amp; kill priority</span>
+                    </div>
+
+                    <div id="tot-encounter-section" class="encounter-grid" style="grid-template-columns: 1fr 1fr;">
+
+                        <!-- Last Stand of the Zandalari -->
+                        <div class="encounter-card" style="border-color: rgba(100, 200, 255, 0.4);">
+                            <div class="encounter-title" style="color: #64c8ff;">Last Stand of the Zandalari</div>
+
+                            <!-- Jin'rokh -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-jinrokh-the-breaker.png" alt="Jin'rokh" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #64c8ff; font-weight: 600; font-size: 1.2rem;">Jin'rokh the Breaker</div>
+                                </div>
+                                <!-- Level 90 talent note — progression only -->
+                                <div data-tot-mode="progression" style="margin: 10px 0 10px; padding: 10px 14px; background: rgba(255, 200, 100, 0.07); border-radius: 6px; border-left: 3px solid rgba(255, 200, 100, 0.4); color: #c8b080; font-size: 0.88rem; line-height: 1.6;">
+                                    <strong style="color: #e0c070;">Level 90 Talent:</strong> Pick based on how your raid handles Lightning Storm. Cascade, Divine Star, and Halo are all viable depending on positioning and strategy.
+                                </div>
+                                <!-- PI — parse only -->
+                                <div data-tot-mode="parse" style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff; margin-bottom: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Power Infusion</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                                <!-- Spectral Guise — both modes -->
+                                <div style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_spectralguise.jpg" alt="Spectral Guise" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Spectral Guise</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Horridon -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-horridon.png" alt="Horridon" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #64c8ff; font-weight: 600; font-size: 1.2rem;">Horridon</div>
+                                </div>
+                                <div data-tot-mode="parse" style="margin: 0 0 10px; padding: 10px 14px; background: rgba(180, 30, 30, 0.15); border-radius: 6px; border-left: 3px solid rgba(200, 60, 60, 0.5); color: #d07878; font-size: 0.88rem; line-height: 1.6;">
+                                    Not part of All-Stars but u can cheese to get your rank 1 out of 1 if u wanted to.
+                                </div>
+                                <!-- Cascade — both modes -->
+                                <div style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff; margin-bottom: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Cascade</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                                <!-- Halo — progression only (last phase healing) -->
+                                <div data-tot-mode="progression" style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_halo.jpg" alt="Halo" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Halo</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Council of Elders — parse only -->
+                            <div data-tot-mode="parse" style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-council-of-elders.png" alt="Council of Elders" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #64c8ff; font-weight: 600; font-size: 1.2rem;">Council of Elders</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff; margin-bottom: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_soulleech_3.jpg" alt="Mindbender" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Mindbender</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Power Infusion</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Standard build row — Council is standard on progression -->
+                            <div data-tot-mode="progression" style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35); margin-top: 8px;">
+                                <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-council-of-elders.png" alt="Council of Elders" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Council</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Forgotten Depths -->
+                        <div class="encounter-card" style="border-color: rgba(60, 100, 200, 0.4);">
+                            <div class="encounter-title" style="color: #7090e8;">Forgotten Depths</div>
+
+                            <!-- Megaera — both modes -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-megaera.png" alt="Megaera" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #7090e8; font-weight: 600; font-size: 1.2rem;">Megaera</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(60, 100, 200, 0.08); border-radius: 8px; border-left: 4px solid #3c64c8;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_divinestar_shadow2.jpg" alt="Divine Star" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a0b4f0; font-size: 1.1rem; font-weight: 600;">Divine Star</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Ji-kun — parse only -->
+                            <div data-tot-mode="parse" style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ji-kun.png" alt="Ji-kun" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #7090e8; font-weight: 600; font-size: 1.2rem;">Ji-kun</div>
+                                </div>
+                                <div style="margin: 0 0 10px; padding: 10px 14px; background: rgba(180, 30, 30, 0.15); border-radius: 6px; border-left: 3px solid rgba(200, 60, 60, 0.5); color: #d07878; font-size: 0.88rem; line-height: 1.6;">
+                                    Not part of All-Stars but u can cheese to get your rank 1 out of 1 if u wanted to.
+                                </div>
+                                <div style="padding: 15px; background: rgba(60, 100, 200, 0.08); border-radius: 8px; border-left: 4px solid #3c64c8;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_powerinfusion.jpg" alt="Power Infusion" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #a0b4f0; font-size: 1.1rem; font-weight: 600;">Power Infusion</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Standard build row — Tortos always, Ji-kun on progression -->
+                            <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35); margin-top: 8px;">
+                                <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-tortos.png" alt="Tortos" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Tortos</span>
+                                    </div>
+                                    <div data-tot-mode="progression" style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ji-kun.png" alt="Ji-kun" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Ji-kun</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Halls of Flesh-Shaping -->
+                        <div class="encounter-card" style="border-color: rgba(200, 90, 70, 0.4);">
+                            <div class="encounter-title" style="color: #d4725a;">Halls of Flesh-Shaping</div>
+
+                            <!-- Standard build row — Durumu always, Primordius + Dark Animus on progression -->
+                            <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35); margin: 12px 0 4px;">
+                                <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-durumu.png" alt="Durumu" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Durumu</span>
+                                    </div>
+                                    <div data-tot-mode="progression" style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-primordius.png" alt="Primordius" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Primordius</span>
+                                    </div>
+                                    <div data-tot-mode="progression" style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-dark-animus.png" alt="Dark Animus" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Dark Animus</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Primordius — parse only -->
+                            <div data-tot-mode="parse" style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-primordius.png" alt="Primordius" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #d4725a; font-weight: 600; font-size: 1.2rem;">Primordius</div>
+                                </div>
+                                <div style="margin: 0 0 10px; padding: 10px 14px; background: rgba(180, 30, 30, 0.15); border-radius: 6px; border-left: 3px solid rgba(200, 60, 60, 0.5); color: #d07878; font-size: 0.88rem; line-height: 1.6;">
+                                    Not part of All-Stars but u can cheese to get your rank 1 out of 1 if u wanted to.
+                                </div>
+                                <div style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46; margin-bottom: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_soulleech_3.jpg" alt="Mindbender" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e0a090; font-size: 1.1rem; font-weight: 600;">Mindbender</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e0a090; font-size: 1.1rem; font-weight: 600;">Cascade</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Dark Animus — parse only -->
+                            <div data-tot-mode="parse" style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-dark-animus.png" alt="Dark Animus" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #d4725a; font-weight: 600; font-size: 1.2rem;">Dark Animus</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46; margin-bottom: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e0a090; font-size: 1.1rem; font-weight: 600;">Cascade</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(200, 90, 70, 0.08); border-radius: 8px; border-left: 4px solid #c85a46;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_halo.jpg" alt="Halo" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #e0a090; font-size: 1.1rem; font-weight: 600;">Halo</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pinnacle of Storms -->
+                        <div class="encounter-card" style="border-color: rgba(180, 100, 240, 0.4);">
+                            <div class="encounter-title" style="color: #c077f0;">Pinnacle of Storms</div>
+
+                            <!-- Ra-Den -->
+                            <div style="margin: 20px 0;">
+                                <div class="boss-header" style="margin-bottom: 0px;">
+                                    <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ra-den.png" alt="Ra-Den" style="height: 50px; width: auto; border-radius: 4px;">
+                                    <div class="boss-name" style="color: #c077f0; font-weight: 600; font-size: 1.2rem;">Ra-Den</div>
+                                </div>
+                                <!-- Divine Star — progression only -->
+                                <div data-tot-mode="progression" style="padding: 15px; background: rgba(180, 100, 240, 0.08); border-radius: 8px; border-left: 4px solid #b464f0;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_divinestar_shadow2.jpg" alt="Divine Star" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #d4a8f8; font-size: 1.1rem; font-weight: 600;">Divine Star</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                                <!-- Halo — parse only (very minor) -->
+                                <div data-tot-mode="parse" style="padding: 15px; background: rgba(180, 100, 240, 0.08); border-radius: 8px; border-left: 4px solid #b464f0; margin-top: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_halo.jpg" alt="Halo" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <span style="color: #d4a8f8; font-size: 1.1rem; font-weight: 600;">Halo</span>
+                                    </div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Placeholder — boss data coming soon.</div>
+                                </div>
+                            </div>
+
+                            <!-- Standard build row — Iron Qon, Twin Consorts, Lei Shen always standard -->
+                            <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35); margin-top: 8px;">
+                                <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-iron-qon.png" alt="Iron Qon" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Iron Qon</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-empyreal-queens.png" alt="Twin Consorts" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Twin Consorts</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-lei-shen.png" alt="Lei Shen" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Lei Shen</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Encounter-Specific Swaps MSV, HoF &amp; ToES</div>
                     <div class="encounter-grid">
                         <!-- Mogu'shan Vaults -->
                         <div class="encounter-card" style="border-color: rgba(244, 196, 48, 0.4);">
@@ -1411,7 +1745,7 @@ window.addEventListener('load', function() {
                                 </div>
                                 <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
                                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Cascade</span>
                                     </div>
                                     <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Add phases with spread positioning make Cascade extremely valuable. The bouncing effect between clustered adds provides significant AoE damage that Halo cannot match.</div>
@@ -1461,7 +1795,7 @@ window.addEventListener('load', function() {
                                 </div>
                                 <div style="padding: 15px; background: rgba(220, 120, 50, 0.08); border-radius: 8px; border-left: 4px solid #dc7832;">
                                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #e6955c; font-size: 1.1rem; font-weight: 600;">Cascade</span>
                                     </div>
                                     <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Multiple targets (legs + boss) positioned at varying ranges make Cascade optimal for cleave damage. The bouncing effect consistently hits both legs and Garalon himself.</div>
@@ -1496,7 +1830,7 @@ window.addEventListener('load', function() {
                                 </div>
                                 <div style="padding: 15px; background: rgba(80, 160, 180, 0.08); border-radius: 8px; border-left: 4px solid #50a0b4;">
                                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_cascade.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
+                                        <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #6bb6cd; font-size: 1.1rem; font-weight: 600;">Cascade</span>
                                     </div>
                                     <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Platform phases with adds and the main boss create perfect conditions for Cascade bouncing. The spell efficiently hits multiple targets across different platform positions.</div>
@@ -1599,9 +1933,31 @@ window.addEventListener('load', function() {
         
 <!-- Intro note -->
 <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.95rem; line-height: 1.7;">
-    There are no longer any pure damage increase glyphs. Glyphs now focus on damage reduction, healing, utility, or cosmetic changes — and should be swapped based on the fight and your raid's progression needs.
+    There are no longer any pure damage increase glyphs in MoP. Glyphs now cover damage reduction, healing, utility, or cosmetic effects, and the right choice depends on the fight and your raid's needs.<br>Minor glyphs are purely cosmetic and can be picked freely based on personal preference.
     <div style="margin-top: 10px;">
         <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-talents-builds-glyphs-pve" target="_blank" style="color: #c77dff; text-decoration: none; border-bottom: 1px solid rgba(199, 125, 255, 0.5);">In-depth Talent &amp; Glyph Comparison →</a>
+    </div>
+</div>
+
+<!-- Glyph of Sha Notice -->
+<div class="subsection no-collapse">
+    <div class="subsection-title">Glyph of Sha - Updated</div>
+    <div style="background: #15171E; border: 2px solid #00AEFF; border-radius: 12px; padding: 25px; margin: 20px 0;">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_twistedfaith.jpg" alt="Glyph of Sha" style="width: 40px; height: 40px; border-radius: 6px;">
+            <div>
+                <div style="color: #FFFFFF; font-size: 1.3rem; font-weight: 600;">Fixed Issues - May 22</div>
+                <a href="https://eu.forums.blizzard.com/en/wow/t/mists-of-pandaria-classic-beta-known-issues-updated-13-june/571175/8"
+                   target="_blank"
+                   style="color: #00AEFF; text-decoration: none; border-bottom: 1px solid #00AEFF; font-weight: 600;">
+                   View Original Blizzard Response
+                </a>
+            </div>
+        </div>
+        <div style="color: #00AEFF; line-height: 1.6; font-size: 0.95rem;">
+            <p style="margin-bottom: 12px;">Glyph of Sha causes your Shadowfiend and Mindbender to initiate a global cooldown.</p>
+            <p style="margin: 0; font-style: italic; opacity: 0.9;">This glyph should not be used for any gameplay benefits as it provides no mechanical advantages in MoP Classic.</p>
+        </div>
     </div>
 </div>
 
@@ -1653,121 +2009,270 @@ window.addEventListener('load', function() {
                 <!-- Mogu'shan Vaults -->
                 <div class="encounter-card" style="border-color: rgba(244, 196, 48, 0.4);">
                     <div class="encounter-title" style="color: var(--primary-gold);">Mogu'shan Vaults</div>
-                    
-                    <!-- Stone Guard -->
-                    <div style="margin: 20px 0;">
-                        <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-cobalt-guardian.png" alt="Stone Guard" style="height: 50px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Stone Guard</div>
-                        </div>
-                        <div style="padding: 15px; background: rgba(82, 183, 136, 0.08); border-radius: 8px; border-left: 4px solid var(--primary-green);">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_innersanctum.jpg" alt="Keep Standard Build" style="width: 28px; height: 28px; border-radius: 4px;">
-                                <span style="color: var(--primary-green); font-size: 1.1rem; font-weight: 600;">Keep Standard Build</span>
-                            </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Mixed damage encounter with no special mechanics requiring glyph changes. Standard build handles all phases optimally.</div>
-                        </div>
-                    </div>
 
                     <!-- Feng the Accursed -->
-                    <div style="margin: 20px 0;">
+                    <div style="margin: 12px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-feng.png" alt="Feng the Accursed" style="height: 50px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Feng the Accursed</div>
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-feng-the-accursed.png" alt="Feng the Accursed" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1rem;">Feng the Accursed</div>
                         </div>
-                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 28px; height: 28px; border-radius: 4px;">
-                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
+                        <div style="padding: 10px 12px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Heavy physical damage phases make Inner Fire's armor bonus more valuable than Inner Sanctum's magic resistance during this encounter.</div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Heavy physical damage phases make Inner Fire's armor bonus more valuable than Inner Sanctum's magic resistance during this encounter.</div>
                         </div>
                     </div>
 
                     <!-- Gara'jal -->
-                    <div style="margin: 20px 0;">
+                    <div style="margin: 12px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garajal.png" alt="Gara'jal the Spiritbinder" style="height: 50px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Gara'jal</div>
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garajal-the-spiritbinder.png" alt="Gara'jal the Spiritbinder" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1rem;">Gara'jal</div>
                         </div>
-                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 28px; height: 28px; border-radius: 4px;">
-                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
+                        <div style="padding: 10px 12px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Possessed players in the spirit realm require quick dispelling. Mass Dispel's reduced cast time becomes crucial for raid survival.</div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Possessed players in the spirit realm are affected by mechanics that cannot normally be dispelled. Glyph of Mass Dispel allows you to remove these otherwise undispellable Magic effects.</div>
                         </div>
                     </div>
 
                     <!-- Spirit Kings -->
-                    <div style="margin: 20px 0;">
+                    <div style="margin: 12px 0;">
                         <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-spiritking-qiang.png" alt="Spirit Kings" style="height: 50px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Spirit Kings</div>
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-zian-of-the-endless-shadow.png" alt="Spirit Kings" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1rem;">Spirit Kings</div>
                         </div>
-                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 28px; height: 28px; border-radius: 4px;">
-                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
+                        <div style="padding: 10px 12px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500; margin-bottom: 6px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Qiang the Merciless deals significant physical damage with his abilities. Inner Fire provides better protection against his devastating attacks.</div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Qiang the Merciless deals significant physical damage with his Massive Attack. Inner Fire provides better protection against his devastating attacks.</div>
+                        </div>
+                        <div style="padding: 10px 12px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #ffb366; font-size: 1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Subetai the Swift will periodically cast Shield of Darkness. Glyph of Mass Dispel allows you to remove this otherwise undispellable buff.</div>
                         </div>
                     </div>
 
-                    <!-- Elegon -->
-                    <div style="margin: 20px 0;">
-                        <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-elegon.png" alt="Elegon" style="height: 50px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Elegon</div>
-                        </div>
-                        <div style="padding: 15px; background: rgba(255, 165, 0, 0.08); border-radius: 8px; border-left: 4px solid #ffa500;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_arcane_massdispel.jpg" alt="Glyph of Mass Dispel" style="width: 28px; height: 28px; border-radius: 4px;">
-                                <span style="color: #ffb366; font-size: 1.1rem; font-weight: 600;">Vampiric Embrace → Mass Dispel</span>
+                    <!-- Standard Build bosses -->
+                    <div style="margin-top: 14px; padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-cobalt-guardian.png" alt="Stone Guard" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Stone Guard</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Add phases require precise positioning and debuff management. Mass Dispel helps with emergency dispelling during chaotic add phases.</div>
-                        </div>
-                    </div>
-
-                    <!-- Will of the Emperor -->
-                    <div style="margin: 20px 0;">
-                        <div class="boss-header" style="margin-bottom: 0px;">
-                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-jan-xi.png" alt="Will of the Emperor" style="height: 50px; width: auto; border-radius: 4px;">
-                            <div class="boss-name" style="color: #d4af37; font-weight: 600; font-size: 1.2rem;">Will of the Emperor</div>
-                        </div>
-                        <div style="padding: 15px; background: rgba(82, 183, 136, 0.08); border-radius: 8px; border-left: 4px solid var(--primary-green);">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_innersanctum.jpg" alt="Keep Standard Build" style="width: 28px; height: 28px; border-radius: 4px;">
-                                <span style="color: var(--primary-green); font-size: 1.1rem; font-weight: 600;">Keep Standard Build</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-elegon.png" alt="Elegon" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Elegon</span>
                             </div>
-                            <div style="color: #a8a8a8; font-size: 0.95rem; font-style: italic; margin-left: 38px;">Balanced encounter with mixed damage types and high mobility requirements. Standard build provides optimal versatility for all phases.</div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-jan-xi.png" alt="Will of the Emperor" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Will of the Emperor</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Heart of Fear -->
+                <div class="encounter-card" style="border-color: rgba(220, 120, 50, 0.4);">
+                    <div class="encounter-title" style="color: #dc7832;">Heart of Fear</div>
+
+                    <!-- Blade Lord Ta'yak -->
+                    <div style="margin: 12px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-blade-lord-tayak.png" alt="Blade Lord Ta'yak" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #e6955c; font-weight: 600; font-size: 1rem;">Blade Lord Ta'yak</div>
+                        </div>
+                        <div style="padding: 10px 12px; background: rgba(220, 120, 50, 0.08); border-radius: 8px; border-left: 4px solid #dc7832;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #e6955c; font-size: 1rem; font-weight: 600;">Vampiric Embrace → Inner Fire</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Heavy physical damage at the start make Inner Fire's armor bonus more valuable than the healing burst from VE. There is no quick fast healing period required.</div>
+                        </div>
+                    </div>
+
+                    <!-- Standard Build row -->
+                    <div style="margin-top: 10px; padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-imperial-vizier-zorlok.png" alt="Imperial Vizier Zor'lok" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Zor'lok</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-garalon.png" alt="Garalon" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Garalon</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-wind-lord-meljarak.png" alt="Wind Lord Mel'jarak" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Mel'jarak</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-amber-shaper-unsok.png" alt="Amber-Shaper Un'Sok" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Un'Sok</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-grand-empress-shekzeer.png" alt="Grand Empress Shek'zeer" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Shek'zeer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terrace of Endless Spring -->
+                <div class="encounter-card" style="border-color: rgba(80, 160, 180, 0.4);">
+                    <div class="encounter-title" style="color: #50a0b4;">Terrace of Endless Spring</div>
+
+                    <!-- Standard Build row -->
+                    <div style="margin-top: 10px; padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-protector-kaolan.png" alt="Protectors of the Endless" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Protectors</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-tsulong.png" alt="Tsulong" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Tsulong</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-lei-shi.png" alt="Lei Shi" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Lei Shi</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-sha-of-fear.png" alt="Sha of Fear" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Sha of Fear</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Throne of Thunder -->
+                <div class="encounter-card" style="border-color: rgba(100, 150, 230, 0.4);">
+                    <div class="encounter-title" style="color: #6496e8;">Throne of Thunder</div>
+
+                    <!-- Wing 1 -->
+                    <div style="color: #64c8ff; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: 12px 0 6px;">Last Stand of the Zandalari</div>
+
+                    <!-- Horridon -->
+                    <div style="margin: 8px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-horridon.png" alt="Horridon" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #64c8ff; font-weight: 600; font-size: 1rem;">Horridon</div>
+                        </div>
+                        <div style="padding: 10px 12px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #a8dcff; font-size: 1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Both Beastial Cry & Dire Call are the 2 main damage types here, which are both physical. Inner Fire's bonus armor helps against these. Also random add aggro can occur and melee you.</div>
+                        </div>
+                    </div>
+
+                    <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-jinrokh-the-breaker.png" alt="Jin'rokh" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Jin'rokh</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-council-of-elders.png" alt="Council of Elders" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Council</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wing 2 -->
+                    <div style="color: #7090e8; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: 12px 0 6px;">Forgotten Depths</div>
+
+                    <!-- Ji-Kun -->
+                    <div style="margin: 8px 0;">
+                        <div class="boss-header" style="margin-bottom: 0px;">
+                            <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ji-kun.png" alt="Ji-Kun" style="height: 36px; width: auto; border-radius: 4px;">
+                            <div class="boss-name" style="color: #7090e8; font-weight: 600; font-size: 1rem;">Ji-Kun</div>
+                        </div>
+                        <div style="padding: 10px 12px; background: rgba(60, 100, 200, 0.08); border-radius: 8px; border-left: 4px solid #3c64c8;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_innerfire.jpg" alt="Glyph of Inner Fire" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <span style="color: #a0b4f0; font-size: 1rem; font-weight: 600;">Inner Sanctum → Inner Fire</span>
+                            </div>
+                            <div style="color: #a8a8a8; font-size: 0.88rem; font-style: italic; margin-left: 32px;">Both Quills & Caw are the 2 main damage types here, which are both physical. Inner Fire's bonus armor helps against these.</div>
+                        </div>
+                    </div>
+
+                    <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-tortos.png" alt="Tortos" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Tortos</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-megaera.png" alt="Megaera" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Megaera</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wing 3 -->
+                    <div style="color: #d4725a; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: 12px 0 6px;">Halls of Flesh-Shaping</div>
+                    <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-durumu.png" alt="Durumu" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Durumu</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-primordius.png" alt="Primordius" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Primordius</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-dark-animus.png" alt="Dark Animus" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Dark Animus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wing 4 -->
+                    <div style="color: #c077f0; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: 12px 0 6px;">Pinnacle of Storms</div>
+                    <div style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35);">
+                        <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-iron-qon.png" alt="Iron Qon" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Iron Qon</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-empyreal-queens.png" alt="Twin Consorts" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Twin Consorts</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-lei-shen.png" alt="Lei Shen" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Lei Shen</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-ra-den.png" alt="Ra-Den" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                <span style="color: #888; font-size: 0.8rem;">Ra-Den</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <!-- Blue Post Section -->
-        <div class="subsection">
-            <div class="subsection-title">Important Notice</div>
-            <div style="background: #15171E; border: 2px solid #00AEFF; border-radius: 12px; padding: 25px; margin: 20px 0;">
-                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                    <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_twistedfaith.jpg" alt="Glyph of Sha" style="width: 40px; height: 40px; border-radius: 6px;">
-                    <div>
-                        <div style="color: #FFFFFF; font-size: 1.3rem; font-weight: 600;">Fixed Issues - May 22</div>
-                            <a href="https://eu.forums.blizzard.com/en/wow/t/mists-of-pandaria-classic-beta-known-issues-updated-13-june/571175/8" 
-                               target="_blank" 
-                               style="color: #00AEFF; text-decoration: none; border-bottom: 1px solid #00AEFF; font-weight: 600;">
-                               View Original Blizzard Response 
-                            </a>
-                    </div>
-                </div>
-                <div style="color: #00AEFF; line-height: 1.6; font-size: 0.95rem;">
-                    <p style="margin-bottom: 12px;">Glyph of Sha causes your Shadowfiend and Mindbender to initiate a global cooldown.</p>
-                    <p style="margin: 0; font-style: italic; opacity: 0.9;">This glyph should not be used for any gameplay benefits as it provides no mechanical advantages in MoP Classic.</p>
-                </div>
-            </div>
-        </div>
 
         <!-- All Major Glyphs Reference -->
         <div class="subsection">
@@ -1840,76 +2345,13 @@ window.addEventListener('load', function() {
                 </div>
             </div>
         </div>
-
-        <!-- All Minor Glyphs Reference -->
-        <div class="subsection">
-            <div class="subsection-title">All Minor Glyphs</div>
-            <p style="text-align: center; margin-bottom: 20px; color: var(--text-accent); font-style: italic;">Minor glyphs are purely cosmetic and do not affect gameplay. Choose based on personal preference.</p>
-            <div class="tooltips-grid">
-                <!-- Glyph of Fortitude -->
-                <div class="talent-tooltip situational" style="border-color: #a8dadc;">
-                    <div class="tooltip-header">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_wordfortitude.jpg" alt="Glyph of Fortitude" class="tooltip-icon">
-                        <div class="tooltip-name">Glyph of Fortitude</div>
-                    </div>
-                    <div class="tooltip-category" style="background: #a8dadc; color: #000;">Cosmetic</div>
-                    <div class="tooltip-description">Minor Glyph</div>
-                    <div class="tooltip-details">Reduces the mana cost of your Power Word: Fortitude by 50%. Quality of life improvement for buffing.</div>
-                </div>
-
-                <!-- Glyph of Levitate -->
-                <div class="talent-tooltip situational" style="border-color: #a8dadc;">
-                    <div class="tooltip-header">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_layonhands.jpg" alt="Glyph of Levitate" class="tooltip-icon">
-                        <div class="tooltip-name">Glyph of Levitate</div>
-                    </div>
-                    <div class="tooltip-category" style="background: #a8dadc; color: #000;">Cosmetic</div>
-                    <div class="tooltip-description">Minor Glyph</div>
-                    <div class="tooltip-details">Your Levitate spell no longer requires a reagent to cast. Convenient for frequent use.</div>
-                </div>
-
-                <!-- Glyph of Shackle Undead -->
-                <div class="talent-tooltip situational" style="border-color: #a8dadc;">
-                    <div class="tooltip-header">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_slow.jpg" alt="Glyph of Shackle Undead" class="tooltip-icon">
-                        <div class="tooltip-name">Glyph of Shackle Undead</div>
-                    </div>
-                    <div class="tooltip-category" style="background: #a8dadc; color: #000;">Cosmetic</div>
-                    <div class="tooltip-description">Minor Glyph</div>
-                    <div class="tooltip-details">Increases the range of your Shackle Undead spell by 5 yards. Rarely used in raid content.</div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!-- Theorycraft Tab -->
 <div id="theorycraft" class="tab-content">
     <div class="card">
-        <h2 class="card-title">Theory & Simulation</h2>
+        <h2 class="card-title">Theory</h2>
                 
-
-                <div class="subsection no-collapse">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_unholyfrenzy.jpg" alt="Mind Blast" style="width: 32px; height: 32px;">
-                        Simulation Tools & Resources
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
-                        <a href="https://www.wowsims.com/mop/priest/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none;">
-                            <img src="assets/images/wowsims-icon.png" alt="WowSims" style="width: 36px; height: 36px; border-radius: 6px;">
-                            <div>
-                                <div style="color: var(--primary-green); font-weight: 600;">Shadow Priest Sim — WowSims</div>
-                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowsims.com — use this to sim your own gear and stat weights</div>
-                            </div>
-                        </a>
-                        <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-overview-pve" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(168, 218, 220, 0.08); border: 1px solid rgba(168, 218, 220, 0.35); border-radius: 10px; text-decoration: none;">
-                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead Guide" style="width: 36px; height: 36px; border-radius: 6px;">
-                            <div>
-                                <div style="color: #a8dadc; font-weight: 600;">Shadow Priest DPS Overview — Wowhead</div>
-                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowhead.com — will be updated throughout MoP as with previous expansions</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
                 <div class="subsection">
                     <div class="subsection-title">
@@ -1991,6 +2433,148 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
+
+            </div>
+        </div>
+
+<!-- Macro & Addon Tab -->
+<div id="macroaddon" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Macros &amp; Addons</h2>
+
+
+
+                <!-- WeakAuras & Addons -->
+                <div class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_auraoflight.jpg" alt="WeakAuras" style="width: 32px; height: 32px;">
+                        WeakAuras &amp; Addons
+                    </div>
+                    <p style="margin: 0 0 4px; font-size: 0.9rem; color: #aaa;"><strong style="color: var(--text-secondary);">Disclaimer:</strong> This is not a complete list — just a few great options. Go explore <a href="https://www.curseforge.com/wow/addons" target="_blank" style="color: var(--primary-green);">Curseforge</a> and <a href="https://wago.io" target="_blank" style="color: var(--primary-green);">Wago</a> and find what you like best!</p>
+
+                    <!-- Cast Bars -->
+                    <div style="margin-top: 20px; margin-bottom: 14px;">
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Cast Bars</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <div>
+                                <a href="https://www.curseforge.com/wow/addons/gnosis" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                    <img src="assets/images/curseforge-logo.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                    <div>
+                                        <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Gnosis</div>
+                                        <div style="color:#888;font-size:0.82rem;">curseforge.com — Cast bar addon</div>
+                                    </div>
+                                </a>
+                                <button class="show-example-btn" onclick="toggleExample(this)">Show Example</button>
+                                <img src="assets/images/addon-gnosis.jpg" class="addon-media addon-media-hidden" style="max-width:500px;width:100%;margin-top:8px;display:none;">
+                            </div>
+                            <div>
+                                <a href="https://wago.io/p8VOwuLZ_" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                    <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                    <div>
+                                        <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">DragonKarsh Cast Bar</div>
+                                        <div style="color:#888;font-size:0.82rem;">wago.io/p8VOwuLZ_</div>
+                                    </div>
+                                </a>
+                                <button class="show-example-btn" onclick="toggleExample(this)">Show Example</button>
+                                <img src="assets/images/wa-dragonkarsh-castbar.gif" class="addon-media addon-media-hidden" style="max-width:500px;width:100%;margin-top:8px;display:none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WeakAura Packs -->
+                    <div style="margin-bottom: 14px;">
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">WeakAura UI Packs</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://wago.io/CMUcUSqC2" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                <div>
+                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">DragonKarsh Shadow Suite</div>
+                                    <div style="color:#888;font-size:0.82rem;">wago.io/CMUcUSqC2 — individual components listed within</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Helpful WAs & Addons -->
+                    <div>
+                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Helpful WeakAuras &amp; Addons</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://www.curseforge.com/wow/addons/plater-nameplates" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="assets/images/curseforge-logo.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Plater</div>
+                                    <div style="color:#888;font-size:0.82rem;">For tracking DoTs on nameplates</div>
+                                </div>
+                            </a>
+                            <a href="https://github.com/Hyphie24/ShadowedUnitFrames-Mists/releases" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="assets/images/curseforge-logo.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Shadowed Unit Frames</div>
+                                    <div style="color:#888;font-size:0.82rem;">Download zip → extract → place ShadowedUnitFrames &amp; ShadowedUF_Options into your AddOns folder</div>
+                                </div>
+                            </a>
+                            <div>
+                                <a href="https://wago.io/mEbEtEVrZ" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                    <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                    <div>
+                                        <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Halo Distance Tracker</div>
+                                        <div style="color:#888;font-size:0.82rem;">wago.io/mEbEtEVrZ</div>
+                                    </div>
+                                </a>
+                                <button class="show-example-btn" onclick="toggleExample(this)">Show Example</button>
+                                <img src="assets/images/wa-halo-distance.png" class="addon-media addon-media-hidden" style="max-width:500px;width:100%;margin-top:8px;display:none;">
+                            </div>
+                            <div>
+                                <a href="https://wago.io/zqC8i_vfS" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                    <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                    <div>
+                                        <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Mind Flay Clip Delay</div>
+                                        <div style="color:#888;font-size:0.82rem;">Shows the delay between your Mind Flay and other spells</div>
+                                    </div>
+                                </a>
+                                <button class="show-example-btn" onclick="toggleExample(this)">Show Example</button>
+                                <img src="assets/images/wa-cast-delay.gif" class="addon-media addon-media-hidden" style="max-width:500px;width:100%;margin-top:8px;display:none;">
+                            </div>
+                            <a href="https://wago.io/Ikku0mWwO" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Fake Queue</div>
+                                    <div style="color:#888;font-size:0.82rem;">Helps reduce the delay between your spells</div>
+                                </div>
+                            </a>
+                            <div>
+                                <a href="https://wago.io/wlEM07vng" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                    <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                    <div>
+                                        <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Basic DoT Snapshotter</div>
+                                        <div style="color:#888;font-size:0.82rem;">A basic new - old &gt; 0 snapshotter for DoTs</div>
+                                    </div>
+                                </a>
+                                <button class="show-example-btn" onclick="toggleExample(this)">Show Example</button>
+                                <img src="assets/images/wa-basic-snapshot.png" class="addon-media addon-media-hidden" style="max-width:500px;width:100%;margin-top:8px;display:none;">
+                            </div>
+                            <a href="https://wago.io/nn6E98pfl" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
+                                <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                <div>
+                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">In-Depth DoT Snapshotter</div>
+                                    <div style="color:#888;font-size:0.82rem;">Predictive snapshotter — sims in real time considering ticks remaining, filler damage, current and expiring buffs. <a href="https://discord.com/channels/253201874683953162/1365890344348160030/1402949409108660245" target="_blank" style="color:#a8dadc;">Colour key on Discord ↗</a></div>
+                                </div>
+                            </a>
+                            <div>
+                                <a href="https://wago.io/iFSg1jZ5n" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
+                                    <img src="assets/images/weakaura-logo-white.png" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;object-fit:contain;">
+                                    <div>
+                                        <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">UVLS Tracker</div>
+                                        <div style="color:#888;font-size:0.82rem;">Icon with timer and sound when Unerring Vision of Lei Shen procs</div>
+                                    </div>
+                                </a>
+                                <button class="show-example-btn" onclick="toggleExample(this)">Show Example</button>
+                                <img src="assets/images/wa-uvls.png" class="addon-media addon-media-hidden" style="max-width:200px;width:100%;margin-top:8px;display:none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Macros -->
                 <div class="subsection">
                     <div class="subsection-title">
@@ -2026,7 +2610,7 @@ window.addEventListener('load', function() {
 
                         <div>
                             <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Dispersion Cancelaura</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Dispersion
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip 
 /cancelaura [mod:shift] Dispersion
 /cast Dispersion</pre>
                             <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Casts Dispersion normally, or cancels it when Shift is held.</p>
@@ -2045,7 +2629,7 @@ window.addEventListener('load', function() {
 
                         <div>
                             <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Spectral Guise "Feign Death"</div>
-                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip Spectral Guise
+                            <pre style="background: #10101a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 0; overflow-x: auto; color: #d4d4d4; white-space: pre-wrap;">#showtooltip  
 /cancelaura Spectral Guise
 /cast Spectral Guise</pre>
                             <p style="margin: 6px 0 0; font-size: 0.82rem; color: #888; font-style: italic;">Press twice. Has a chance to fail / not drop combat. Ensure some distance from mobs before use.</p>
@@ -2060,116 +2644,39 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <!-- WeakAuras & Addons -->
-                <div class="subsection">
-                    <div class="subsection-title">
-                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_holy_auraoflight.jpg" alt="WeakAuras" style="width: 32px; height: 32px;">
-                        WeakAuras &amp; Addons
-                    </div>
-                    <p style="margin: 0 0 4px; font-size: 0.9rem; color: #aaa;"><strong style="color: var(--text-secondary);">Disclaimer:</strong> This is not a complete list — just a few great options. Go explore <a href="https://www.curseforge.com/wow/addons" target="_blank" style="color: var(--primary-green);">Curseforge</a> and <a href="https://wago.io" target="_blank" style="color: var(--primary-green);">Wago</a> and find what you like best!</p>
+    </div>
+</div>
 
-                    <!-- Cast Bars -->
-                    <div style="margin-top: 20px; margin-bottom: 14px;">
-                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Cast Bars</div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://www.curseforge.com/wow/addons/gnosis" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindstab.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Gnosis</div>
-                                    <div style="color:#888;font-size:0.82rem;">curseforge.com — Cast bar addon</div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/p8VOwuLZ_" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindstab.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">DragonKarsh Cast Bar</div>
-                                    <div style="color:#888;font-size:0.82rem;">wago.io/p8VOwuLZ_</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+<!-- Analyser Tab -->
+<div id="analyser" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Shadow Priest Analyser</h2>
 
-                    <!-- WeakAura Packs -->
-                    <div style="margin-bottom: 14px;">
-                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">WeakAura UI Packs</div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://wago.io/CMUcUSqC2" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychichorrors.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">DragonKarsh Shadow Suite</div>
-                                    <div style="color:#888;font-size:0.82rem;">wago.io/CMUcUSqC2 — individual components listed within</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Helpful WAs & Addons -->
-                    <div>
-                        <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 10px;">Helpful WeakAuras &amp; Addons</div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://www.curseforge.com/wow/addons/plater-nameplates" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_warrior_charge.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Plater</div>
-                                    <div style="color:#888;font-size:0.82rem;">For tracking DoTs on nameplates</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/Hyphie24/ShadowedUnitFrames-Mists/releases" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowform.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Shadowed Unit Frames</div>
-                                    <div style="color:#888;font-size:0.82rem;">Download zip → extract → place ShadowedUnitFrames &amp; ShadowedUF_Options into your AddOns folder</div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/mEbEtEVrZ" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Halo Distance Tracker</div>
-                                    <div style="color:#888;font-size:0.82rem;">wago.io/mEbEtEVrZ</div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/zqC8i_vfS" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_mindflay.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Mind Flay Clip Delay</div>
-                                    <div style="color:#888;font-size:0.82rem;">Shows the delay between your Mind Flay and other spells</div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/Ikku0mWwO" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_psychicscream.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Fake Queue</div>
-                                    <div style="color:#888;font-size:0.82rem;">Helps reduce the delay between your spells</div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/wlEM07vng" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">Basic DoT Snapshotter</div>
-                                    <div style="color:#888;font-size:0.82rem;">A basic new - old &gt; 0 snapshotter for DoTs</div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/nn6E98pfl" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(82,183,136,0.07);border:1px solid rgba(82,183,136,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:var(--primary-green);font-weight:600;font-size:0.9rem;">In-Depth DoT Snapshotter</div>
-                                    <div style="color:#888;font-size:0.82rem;">Predictive snapshotter — sims in real time considering ticks remaining, filler damage, current and expiring buffs. <a href="https://discord.com/channels/253201874683953162/1365890344348160030/1402949409108660245" target="_blank" style="color:#a8dadc;">Colour key on Discord ↗</a></div>
-                                </div>
-                            </a>
-                            <a href="https://wago.io/iFSg1jZ5n" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(168,218,220,0.07);border:1px solid rgba(168,218,220,0.3);border-radius:8px;text-decoration:none;">
-                                <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_eye_01.jpg" style="width:28px;height:28px;border-radius:4px;flex-shrink:0;">
-                                <div>
-                                    <div style="color:#a8dadc;font-weight:600;font-size:0.9rem;">UVLS Tracker</div>
-                                    <div style="color:#888;font-size:0.82rem;">Icon with timer and sound when Unerring Vision of Lei Shen procs</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.9rem; line-height: 1.6;">
+            <strong style="color: #c77dff;">Beta Version</strong> — The Analyser is still in active development. Features and recommendations will change.<br><br>
+            Currently on the free API version, meaning a maximum of 3600 calls (~30 encounter checks) per hour for everyone. This will be hit very quickly with multiple users — it refreshes every hour.
         </div>
-    </div><!-- end .container -->
+
+        <!-- Link to tool -->
+        <a href="https://shadowpriest-mop.github.io/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none; margin-bottom: 20px;">
+            <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 40px; height: 40px; border-radius: 6px; flex-shrink: 0;">
+            <div>
+                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Shadow Priest Analyser</div>
+                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">shadowpriest-mop.github.io/shadow — Massive thanks to Kalon for putting down the ground work.</div>
+            </div>
+        </a>
+
+        <div class="subsection no-collapse">
+            <div class="subsection-title">
+                <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 28px; height: 28px; border-radius: 4px;">
+                What is the Analyser?
+            </div>
+            <p>The Shadow Priest Analyser is a companion tool designed to help you dig through your raid logs and identify areas for improvement. Paste in your Warcraft Logs URL or ID &amp; select your character and fight. Get actionable feedback on your rotation, cooldown usage, and more.</p>
+            <p>More details and a walkthrough video will be added here once the tool is ready for a wider release. Stay tuned.</p>
+        </div>
+
+    </div>
+</div>
 
 <!-- I hate reading Tab -->
 <div id="videos" class="tab-content">
@@ -2218,9 +2725,51 @@ window.addEventListener('load', function() {
 
     </div>
 </div>
+    </div><!-- end .container -->
 
 
     <script>
+        // ToT Progression / Parse mode toggle
+        function setTotMode(mode) {
+            const section = document.getElementById('tot-encounter-section');
+            if (!section) return;
+
+            const btnProg = document.getElementById('tot-btn-progression');
+            const btnParse = document.getElementById('tot-btn-parse');
+            const desc = document.getElementById('tot-mode-desc');
+
+            const activeStyle = 'padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.2s;';
+            const inactiveStyle = activeStyle + ' background: transparent; color: #666;';
+
+            if (mode === 'progression') {
+                btnProg.style.cssText = activeStyle + ' background: rgba(100, 200, 100, 0.18); color: #88dd88; box-shadow: 0 0 0 1px rgba(100,200,100,0.35);';
+                btnParse.style.cssText = inactiveStyle;
+                desc.textContent = 'Optimal play — raid survival & kill priority';
+            } else {
+                btnParse.style.cssText = activeStyle + ' background: rgba(240, 160, 60, 0.18); color: #f0a840; box-shadow: 0 0 0 1px rgba(240,160,60,0.35);';
+                btnProg.style.cssText = inactiveStyle;
+                desc.textContent = 'Parse-oriented — maximising personal damage numbers';
+            }
+
+            section.querySelectorAll('[data-tot-mode]').forEach(el => {
+                const elMode = el.getAttribute('data-tot-mode');
+                el.style.display = (elMode === mode || elMode === 'both') ? '' : 'none';
+            });
+        }
+
+        // Show/hide example images
+        function toggleExample(btn) {
+            const img = btn.nextElementSibling;
+            const isHidden = img.classList.toggle('addon-media-hidden');
+            if (isHidden) {
+                img.style.display = 'none';
+                btn.textContent = 'Show Example';
+            } else {
+                img.style.display = 'block';
+                btn.textContent = 'Hide Example';
+            }
+        }
+
         // Tab switching functionality
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -2337,6 +2886,11 @@ document.addEventListener('click', function(event) {
     if (!event.target.closest('.tier-dropdown')) {
         document.getElementById('tierDropdown').classList.remove('open');
     }
+});
+
+// Initialise ToT mode toggle on load
+document.addEventListener('DOMContentLoaded', function() {
+    setTotMode('progression');
 });
 
 // Collapsible subsections — all closed by default (except no-collapse)
