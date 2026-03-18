@@ -13,9 +13,11 @@
     <!-- Header Component -->
     <header class="header-container">
         <div style="display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap;">
-            <img src="../assets/images/header-mop.png" alt="Mist of Pandaria" style="height: 160px; width: auto; cursor: default;">
-            <a href="../tbc/">
-                <img src="../assets/images/header-tbc-click.png" alt="Click Here for TBC" style="height: 160px; width: auto; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            <img src="../assets/images/header-mop.png" alt="Mist of Pandaria" style="height: 160px; width: auto; cursor: default; filter: drop-shadow(0 0 14px rgba(80, 200, 80, 0.65));">
+            <a href="../tbc/" style="display: inline-block;">
+                <img src="../assets/images/header-tbc-click.png" alt="Click Here for TBC" style="height: 160px; width: auto; cursor: pointer; filter: drop-shadow(0 0 10px rgba(200, 160, 40, 0.5)); transition: filter 0.25s;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 20px rgba(200, 160, 40, 0.9))'"
+                    onmouseout="this.style.filter='drop-shadow(0 0 10px rgba(200, 160, 40, 0.5))'">
             </a>
         </div>
     </header>
