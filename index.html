@@ -1443,6 +1443,7 @@ window.addEventListener('load', function() {
                             <button id="tot-btn-parse" onclick="setTotMode('parse')" style="padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: transparent; color: #666; transition: all 0.2s;">Parse</button>
                         </div>
                         <span id="tot-mode-desc" style="font-size: 0.82rem; color: #888; font-style: italic;">Optimal play — raid survival &amp; kill priority</span>
+                        <a href="https://www.archon.gg/classic-mop/articles/news/throne-of-thunder-partition-and-rules" target="_blank" style="margin-left: auto; font-size: 0.78rem; color: #64c8ff; text-decoration: none; flex-shrink: 0;">WCL Parse Rules</a>
                     </div>
 
                     <div id="tot-encounter-section" class="encounter-grid" style="grid-template-columns: 1fr 1fr;">
@@ -1488,8 +1489,8 @@ window.addEventListener('load', function() {
                                 <div data-tot-mode="parse" style="margin: 0 0 10px; padding: 10px 14px; background: rgba(180, 30, 30, 0.15); border-radius: 6px; border-left: 3px solid rgba(200, 60, 60, 0.5); color: #d07878; font-size: 0.88rem; line-height: 1.6;">
                                     Not part of All-Stars but u can cheese to get your rank 1 out of 1 if u wanted to.
                                 </div>
-                                <!-- Cascade — both modes -->
-                                <div style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff; margin-bottom: 8px;">
+                                <!-- Cascade — progression only -->
+                                <div data-tot-mode="progression" style="padding: 15px; background: rgba(100, 200, 255, 0.08); border-radius: 8px; border-left: 4px solid #64c8ff; margin-bottom: 8px;">
                                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                                         <img src="https://wow.zamimg.com/images/wow/icons/large/ability_priest_cascade_shadow.jpg" alt="Cascade" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #a8dcff; font-size: 1.1rem; font-weight: 600;">Cascade</span>
@@ -1538,6 +1539,16 @@ window.addEventListener('load', function() {
                                     </div>
                                 </div>
                             </div>
+                            <!-- Standard build row — Horridon is standard on parse -->
+                            <div data-tot-mode="parse" style="padding: 8px 12px; background: rgba(82, 183, 136, 0.06); border-radius: 8px; border-left: 3px solid rgba(82, 183, 136, 0.35); margin-top: 8px;">
+                                <div style="color: #52b788; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Standard Build</div>
+                                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <img src="https://wow.zamimg.com/images/wow/journal/ui-ej-boss-horridon.png" alt="Horridon" style="height: 26px; width: auto; border-radius: 3px; opacity: 0.85;">
+                                        <span style="color: #888; font-size: 0.8rem;">Horridon</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Forgotten Depths -->
@@ -1555,7 +1566,7 @@ window.addEventListener('load', function() {
                                         <img src="https://wow.zamimg.com/images/wow/icons/large/spell_priest_divinestar_shadow2.jpg" alt="Divine Star" style="width: 28px; height: 28px; border-radius: 4px;">
                                         <span style="color: #a0b4f0; font-size: 1.1rem; font-weight: 600;">Divine Star</span>
                                     </div>
-                                    <div style="color: #a8a8a8; font-size: 0.95rem; margin-left: 38px;">The main strategy is to stack up in front of each head during Rampage. This is where Divine Star shines — it heals for massive amounts in a tight stack.</div>
+                                    <div style="color: #a8a8a8; font-size: 0.95rem; margin-left: 38px;">The main strategy is to stack up in front of each head during Rampage. This is where Divine Star shines as it heals for massive amounts.</div>
                                 </div>
                             </div>
 
