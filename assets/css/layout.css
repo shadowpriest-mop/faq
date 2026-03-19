@@ -120,8 +120,13 @@
 }
 
 .subsection-body > div {
-    overflow: hidden;
+    overflow: visible;  /* allow hover animations to bleed out above the grid */
     min-height: 0;
+}
+
+/* Re-clip only while collapsed so the grid-row animation works */
+.subsection.closed .subsection-body > div {
+    overflow: hidden;
 }
 
 /* Talent System Layout */
