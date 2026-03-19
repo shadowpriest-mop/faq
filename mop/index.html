@@ -11,7 +11,6 @@
     <style>
         /* ── Tab dropdown menus ── */
         .tab-dropdown-wrapper {
-            position: relative;
             flex: 1;
             min-width: 72px;
             display: flex;
@@ -22,24 +21,20 @@
             width: 100%;
             flex: 1;
         }
+        /* Panels are fixed-positioned by JS — always on top of everything */
         .tab-dropdown-panel {
             display: none;
-            position: absolute;
-            top: calc(100% + 4px);
-            left: 50%;
-            transform: translateX(-50%);
+            position: fixed;
             min-width: 210px;
             background: #13151f;
             border: 1px solid rgba(199, 125, 255, 0.35);
             border-radius: 8px;
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.75);
-            z-index: 1000;
+            z-index: 9999;
             padding: 6px 0;
             overflow: hidden;
         }
-        .tab-dropdown-wrapper:hover .tab-dropdown-panel {
-            display: block;
-        }
+        .tab-dropdown-panel.visible { display: block; }
         .tab-dropdown-item {
             display: block;
             width: 100%;
@@ -59,17 +54,6 @@
             background: rgba(199, 125, 255, 0.12);
             color: #c77dff;
         }
-        /* Scroller wrapper takes over overflow-x scroll so the nav
-           itself can be overflow:visible — prevents dropdowns being clipped */
-        .tab-nav-scroller {
-            overflow-x: auto;
-            overflow-y: visible;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            width: 100%;
-        }
-        .tab-nav-scroller::-webkit-scrollbar { display: none; }
-        .tab-navigation { overflow: visible !important; }
     </style>
 </head>
 <body>
@@ -87,7 +71,6 @@
 
     <div class="container">
         <!-- Tab Navigation -->
-        <div class="tab-nav-scroller">
         <nav class="tab-navigation">
     <button class="tab-button active" data-tab="overview">
         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="" class="tab-icon">
@@ -165,7 +148,6 @@
         <span>I hate reading</span>
     </button>
         </nav>
-        </div>
 
         <!-- Tab Contents -->
         
@@ -2870,6 +2852,52 @@ window.addEventListener('load', function() {
                 btn.textContent = 'Hide Example';
             }
         }
+
+        // ── Dropdown menus: fixed-positioned so they escape any overflow clipping ──
+        (function () {
+            var activePanel = null;
+            var activeWrapper = null;
+
+            function showPanel(wrapper) {
+                var panel = wrapper.querySelector('.tab-dropdown-panel');
+                if (!panel) return;
+                // Hide any other open panel first
+                if (activePanel && activePanel !== panel) hidePanel();
+                var rect = wrapper.getBoundingClientRect();
+                panel.style.top  = (rect.bottom + 4) + 'px';
+                // Centre under the wrapper, clamped so it doesn't go off-screen
+                var left = rect.left + rect.width / 2 - 105;
+                left = Math.max(4, Math.min(left, window.innerWidth - 218));
+                panel.style.left = left + 'px';
+                panel.classList.add('visible');
+                activePanel   = panel;
+                activeWrapper = wrapper;
+            }
+
+            function hidePanel() {
+                if (activePanel) activePanel.classList.remove('visible');
+                activePanel   = null;
+                activeWrapper = null;
+            }
+
+            document.querySelectorAll('.tab-dropdown-wrapper').forEach(function (wrapper) {
+                wrapper.addEventListener('mouseenter', function () { showPanel(wrapper); });
+                wrapper.addEventListener('mouseleave', function (e) {
+                    // Only hide if the mouse isn't moving into the panel itself
+                    var to = e.relatedTarget;
+                    if (activePanel && activePanel.contains(to)) return;
+                    hidePanel();
+                });
+            });
+
+            // Hide when mouse leaves the floating panel
+            document.addEventListener('mouseover', function (e) {
+                if (!activePanel) return;
+                if (!activePanel.contains(e.target) && !activeWrapper.contains(e.target)) {
+                    hidePanel();
+                }
+            });
+        })();
 
         // Navigate to a specific section within a tab
         function navigateToSection(tabId, sectionId) {
