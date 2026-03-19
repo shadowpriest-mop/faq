@@ -59,6 +59,17 @@
             background: rgba(199, 125, 255, 0.12);
             color: #c77dff;
         }
+        /* Scroller wrapper takes over overflow-x scroll so the nav
+           itself can be overflow:visible — prevents dropdowns being clipped */
+        .tab-nav-scroller {
+            overflow-x: auto;
+            overflow-y: visible;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            width: 100%;
+        }
+        .tab-nav-scroller::-webkit-scrollbar { display: none; }
+        .tab-navigation { overflow: visible !important; }
     </style>
 </head>
 <body>
@@ -76,6 +87,7 @@
 
     <div class="container">
         <!-- Tab Navigation -->
+        <div class="tab-nav-scroller">
         <nav class="tab-navigation">
     <button class="tab-button active" data-tab="overview">
         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="" class="tab-icon">
@@ -153,6 +165,7 @@
         <span>I hate reading</span>
     </button>
         </nav>
+        </div>
 
         <!-- Tab Contents -->
         
