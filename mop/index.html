@@ -156,7 +156,7 @@
     <div class="card">
         <h2 class="card-title" style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
             Welcome to the Shadow Priest FAQ
-            <span id="site-version" style="font-size:0.72rem; font-weight:400; color:#444; letter-spacing:0.05em; flex-shrink:0;">v1.2</span>
+            <span id="site-version" style="font-size:0.72rem; font-weight:400; color:#444; letter-spacing:0.05em; flex-shrink:0;">v1.4</span>
         </h2>
         
         <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.9rem; line-height: 1.6;">
@@ -2899,18 +2899,29 @@ window.addEventListener('load', function() {
             });
         })();
 
-        // Navigate to a specific section within a tab
+        // Navigate to a specific section within a tab — one-shot, no double-click
         function navigateToSection(tabId, sectionId) {
             activateTab(tabId);
             setTimeout(function() {
                 const el = document.getElementById(sectionId);
                 if (!el) return;
-                // If the element is a collapsed subsection, open it
-                if (el.classList.contains('closed')) {
-                    el.classList.remove('closed');
+
+                // Close every other collapsible subsection in this tab
+                const tabEl = document.getElementById(tabId);
+                if (tabEl) {
+                    tabEl.querySelectorAll('.subsection:not(.no-collapse)').forEach(function(s) {
+                        if (s !== el) s.classList.add('closed');
+                    });
                 }
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 150);
+
+                // Open the target section if it's collapsed
+                el.classList.remove('closed');
+
+                // Scroll after the collapse animation has settled (~300ms)
+                setTimeout(function() {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 320);
+            }, 100);
         }
 
         // Tab switching functionality
