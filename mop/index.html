@@ -8,6 +8,58 @@
     <link rel="icon" type="image/png" href="https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Kings&family=My+Soul&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* ── Tab dropdown menus ── */
+        .tab-dropdown-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 72px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .tab-dropdown-wrapper .tab-button {
+            width: 100%;
+            flex: 1;
+        }
+        .tab-dropdown-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 210px;
+            background: #13151f;
+            border: 1px solid rgba(199, 125, 255, 0.35);
+            border-radius: 8px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            padding: 6px 0;
+            overflow: hidden;
+        }
+        .tab-dropdown-wrapper:hover .tab-dropdown-panel {
+            display: block;
+        }
+        .tab-dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            text-align: left;
+            background: transparent;
+            border: none;
+            color: #bbb;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+            font-family: inherit;
+            letter-spacing: 0.02em;
+        }
+        .tab-dropdown-item:hover {
+            background: rgba(199, 125, 255, 0.12);
+            color: #c77dff;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Component -->
@@ -29,22 +81,57 @@
         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="" class="tab-icon">
         <span>Overview</span>
     </button>
-    <button class="tab-button" data-tab="faq">
-        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_book_09.jpg" alt="" class="tab-icon">
-        <span>FAQ</span>
-    </button>
-    <button class="tab-button" data-tab="bis">
-        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_staff_medivh.jpg" alt="" class="tab-icon">
-        <span>Gear &amp; Sim</span>
-    </button>
-    <button class="tab-button" data-tab="talents">
-        <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_priest.jpg" alt="" class="tab-icon">
-        <span>Talents</span>
-    </button>
-    <button class="tab-button" data-tab="glyphs">
-        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_glyph_majorpriest.jpg" alt="" class="tab-icon">
-        <span>Glyphs</span>
-    </button>
+    <div class="tab-dropdown-wrapper">
+        <button class="tab-button" data-tab="faq">
+            <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_misc_book_09.jpg" alt="" class="tab-icon">
+            <span>FAQ</span>
+        </button>
+        <div class="tab-dropdown-panel">
+            <button class="tab-dropdown-item" onclick="navigateToSection('faq','faq-races')">Races</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('faq','faq-professions')">Professions</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('faq','faq-shadow-orbs')">Shadow Orbs System</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('faq','faq-ability-changes')">Notable Ability Changes</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('faq','faq-removed')">Removed Abilities</button>
+        </div>
+    </div>
+    <div class="tab-dropdown-wrapper">
+        <button class="tab-button" data-tab="bis">
+            <img src="https://wow.zamimg.com/images/wow/icons/large/inv_staff_medivh.jpg" alt="" class="tab-icon">
+            <span>Gear &amp; Sim</span>
+        </button>
+        <div class="tab-dropdown-panel">
+            <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-best-in-slot')">Best in Slot</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-trinkets')">Trinket Priorities</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-stat-weights')">Stat Weights &amp; Priorities</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-wowhead')">Wowhead Overview</button>
+        </div>
+    </div>
+    <div class="tab-dropdown-wrapper">
+        <button class="tab-button" data-tab="talents">
+            <img src="https://wow.zamimg.com/images/wow/icons/large/classicon_priest.jpg" alt="" class="tab-icon">
+            <span>Talents</span>
+        </button>
+        <div class="tab-dropdown-panel">
+            <button class="tab-dropdown-item" onclick="navigateToSection('talents','talents-tier-comparison')">Talent Tier Comparison</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('talents','talents-tree-overview')">Talent Tree Overview</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('talents','talents-build-refs')">Build References</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('talents','talents-swaps-tot')">Encounter Swaps — ToT</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('talents','talents-swaps-msv')">Encounter Swaps — MSV/HoF/ToES</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('talents','talents-explanation')">Talent Explanation</button>
+        </div>
+    </div>
+    <div class="tab-dropdown-wrapper">
+        <button class="tab-button" data-tab="glyphs">
+            <img src="https://wow.zamimg.com/images/wow/icons/large/inv_glyph_majorpriest.jpg" alt="" class="tab-icon">
+            <span>Glyphs</span>
+        </button>
+        <div class="tab-dropdown-panel">
+            <button class="tab-dropdown-item" onclick="navigateToSection('glyphs','glyphs-sha')">Glyph of Sha</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('glyphs','glyphs-standard-build')">Standard Build</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('glyphs','glyphs-encounters')">Encounter-Specific Swaps</button>
+            <button class="tab-dropdown-item" onclick="navigateToSection('glyphs','glyphs-all-major')">All Major Glyphs</button>
+        </div>
+    </div>
     <button class="tab-button" data-tab="theorycraft">
         <img src="https://wow.zamimg.com/images/wow/icons/large/achievement_faction_lorewalkers.jpg" alt="" class="tab-icon">
         <span>Theory</span>
@@ -138,7 +225,7 @@ window.addEventListener('load', function() {
                 <h2 class="card-title">Frequently Asked Questions</h2>
 
                 <!-- Races -->
-                <div class="subsection">
+                <div id="faq-races" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/achievement_character_undead_male.jpg" alt="Race" style="width: 32px; height: 32px;">
                         Races
@@ -193,7 +280,7 @@ window.addEventListener('load', function() {
                 </div>
 
                 <!-- Professions -->
-                <div class="subsection">
+                <div id="faq-professions" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/trade_engineering.jpg" alt="Professions" style="width: 32px; height: 32px;">
                         Professions
@@ -225,7 +312,7 @@ window.addEventListener('load', function() {
                 </div>
 
                 <!-- Key Changes -->
-                <div class="subsection">
+                <div id="faq-shadow-orbs" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="Shadow Orb" style="width: 32px; height: 32px;">
                         <a href="https://www.wowhead.com/mop-classic/spell=77487/shadow-orb" target="_blank" style="color: #c77dff; text-decoration: none;">Shadow Orbs System</a>
@@ -237,7 +324,7 @@ window.addEventListener('load', function() {
                     </ul>
                 </div>
 
-                <div class="subsection">
+                <div id="faq-ability-changes" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Notable Ability Changes" style="width: 32px; height: 32px;">
                         Notable Ability Changes
@@ -261,7 +348,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <div class="subsection">
+                <div id="faq-removed" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/large/achievement_bg_xkills_avgraveyard.jpg" alt="Removed Abilities" style="width: 32px; height: 32px;">
                         Removed Abilities
@@ -282,7 +369,7 @@ window.addEventListener('load', function() {
             <div class="card">
                 <h2 class="card-title">Gear & Sim</h2>
                 
-                <div class="subsection no-collapse">
+                <div id="bis-best-in-slot" class="subsection no-collapse">
                     <div class="subsection-title">
                         <img src="../assets/images/wowsims-icon.png" alt="Best in Slot" style="width: 32px; height: 32px; border-radius: 6px;">
                         Best in Slot
@@ -307,7 +394,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <div class="subsection">
+                <div id="bis-trinkets" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_trinket_01.jpg" alt="Trinket" style="width: 32px; height: 32px;">
                         Trinket Priorities
@@ -877,7 +964,7 @@ window.addEventListener('load', function() {
                     </script>
                 </div>
 
-                <div class="subsection">
+                <div id="bis-stat-weights" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_astralrecal.jpg" alt="Stats" style="width: 32px; height: 32px;">
                         Stat Weights & Priorities
@@ -928,7 +1015,7 @@ window.addEventListener('load', function() {
                     <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic; margin-top: 14px;">Secondary stat priorities can shift depending on your current gear setup — always sim your character to confirm.</p>
                 </div>
 
-                <div class="subsection">
+                <div id="bis-wowhead" class="subsection">
                     <div class="subsection-title">
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead" style="width: 32px; height: 32px;">
                         Wowhead Overview
@@ -953,6 +1040,7 @@ window.addEventListener('load', function() {
             <div class="card">
                 <h2 class="card-title">Talent Analysis</h2>
                 
+                <span id="talents-tier-comparison" style="display:block;"></span>
                 <div class="subsection-title">Talent Tier Comparison</div>
         <div class="talent-tier-selector">
         <!-- Dropdown Selector -->
@@ -1223,7 +1311,7 @@ window.addEventListener('load', function() {
         </div>
 
 
-                <div class="subsection">
+                <div id="talents-tree-overview" class="subsection">
                     <div class="subsection-title">Talent Tree Overview</div>
                     
                     <!-- Talent Tiers -->
@@ -1411,7 +1499,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <div class="subsection">
+                <div id="talents-build-refs" class="subsection">
                     <div class="subsection-title">Build References</div>
                     <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;">Talents have a lot of flexibility — adjust based on the encounter's target count, movement requirements, and distance. The links below are recommended starting points.</p>
                     <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -1439,7 +1527,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <div class="subsection">
+                <div id="talents-swaps-tot" class="subsection">
                     <div class="subsection-title">Encounter-Specific Swaps Throne of Thunder</div>
 
                     <!-- Progression / Parse toggle -->
@@ -1712,7 +1800,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <div class="subsection">
+                <div id="talents-swaps-msv" class="subsection">
                     <div class="subsection-title">Encounter-Specific Swaps MSV, HoF &amp; ToES</div>
                     <div class="encounter-grid">
                         <!-- Mogu'shan Vaults -->
@@ -1837,7 +1925,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
                 
-<div class="subsection">
+<div id="talents-explanation" class="subsection">
     <div class="subsection-title">Talent Explanation</div>
     <p>This comprehensive guide breaks down each talent choice and explains why certain options excel in Mist of Pandaria's raid encounters. Understanding the reasoning behind these recommendations will help you make informed decisions for different situations.</p>
     
@@ -1937,7 +2025,7 @@ window.addEventListener('load', function() {
 </div>
 
 <!-- Glyph of Sha Notice -->
-<div class="subsection no-collapse">
+<div id="glyphs-sha" class="subsection no-collapse">
     <div class="subsection-title">Glyph of Sha - Updated</div>
     <div style="background: #15171E; border: 2px solid #00AEFF; border-radius: 12px; padding: 25px; margin: 20px 0;">
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
@@ -1959,7 +2047,7 @@ window.addEventListener('load', function() {
 </div>
 
 <!-- Standard Build Section -->
-<div class="subsection no-collapse">
+<div id="glyphs-standard-build" class="subsection no-collapse">
     <div class="subsection-title">
         <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_inscription_tradeskill01.jpg" alt="Glyph" style="width: 32px; height: 32px;">
         Standard Build
@@ -2000,7 +2088,7 @@ window.addEventListener('load', function() {
 </div>
 
         <!-- Encounter-Specific Swaps -->
-        <div class="subsection">
+        <div id="glyphs-encounters" class="subsection">
             <div class="subsection-title">Encounter-Specific Swaps</div>
             <div class="encounter-grid">
                 <!-- Mogu'shan Vaults -->
@@ -2272,7 +2360,7 @@ window.addEventListener('load', function() {
 
 
         <!-- All Major Glyphs Reference -->
-        <div class="subsection">
+        <div id="glyphs-all-major" class="subsection">
             <div class="subsection-title">All Major Glyphs</div>
             <div class="tooltips-grid">
                 <!-- Glyph of Fade -->
@@ -2765,6 +2853,20 @@ window.addEventListener('load', function() {
                 img.style.display = 'block';
                 btn.textContent = 'Hide Example';
             }
+        }
+
+        // Navigate to a specific section within a tab
+        function navigateToSection(tabId, sectionId) {
+            activateTab(tabId);
+            setTimeout(function() {
+                const el = document.getElementById(sectionId);
+                if (!el) return;
+                // If the element is a collapsed subsection, open it
+                if (el.classList.contains('closed')) {
+                    el.classList.remove('closed');
+                }
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
         }
 
         // Tab switching functionality
