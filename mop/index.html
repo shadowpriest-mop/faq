@@ -156,7 +156,7 @@
     <div class="card">
         <h2 class="card-title" style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
             Welcome to the Shadow Priest FAQ
-            <span id="site-version" style="font-size:0.72rem; font-weight:400; color:#444; letter-spacing:0.05em; flex-shrink:0;">v1.8</span>
+            <span id="site-version" style="font-size:0.72rem; font-weight:400; color:#444; letter-spacing:0.05em; flex-shrink:0;">v1.9</span>
         </h2>
         
         <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.9rem; line-height: 1.6;">
@@ -321,7 +321,7 @@ window.addEventListener('load', function() {
                     </div>
                     <ul style="color: var(--text-secondary); line-height: 1.9; padding-left: 20px; margin: 0;">
                         <li>Shadow Orbs now passively regenerate outside of combat — one orb every 6 seconds (up to a max of 3) as long as you are in <strong style="color: #c77dff;">Shadowform</strong> and outside PvP instances (BGs/Arenas).</li>
-                        <li>Shadow Orbs are <strong style="color: #c77dff;">guaranteed</strong> to proc from <strong style="color: #c77dff;">Mind Blast</strong> and <strong style="color: #c77dff;">Shadow Word: Death</strong>.</li>
+                        <li>Shadow Orbs are <strong style="color: #c77dff;">guaranteed</strong> to proc from <strong style="color: #c77dff;">Mind Blast</strong> and <strong style="color: #c77dff;">Shadow Word: Death</strong>. If the target stays alive and Shadow Word: Death resets, that reset does not grant an additional orb. The cooldown for the orb starts after the first hit.</li>
                         <li>Shadow Orbs are consumed by <strong style="color: #c77dff;">Devouring Plague</strong>, increasing its damage based on the number of orbs spent. You must have orbs available to cast Devouring Plague.</li>
                     </ul>
                 </div>
@@ -331,6 +331,8 @@ window.addEventListener('load', function() {
                         <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_priest_halo_shadow.jpg" alt="Notable Ability Changes" style="width: 32px; height: 32px;">
                         Notable Ability Changes
                     </div>
+
+                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;">The following abilities from Cataclysm have been modified or introduced in MoP.</p>
 
                     <div style="margin-bottom: 14px;">
                         <div style="color: #e0aaff; font-weight: 600; margin-bottom: 6px;">Abilities Usable in Shadowform</div>
@@ -386,7 +388,7 @@ window.addEventListener('load', function() {
                             <img src="../assets/images/wowsims-icon.png" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
                             <div>
                                 <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 2 BiS</div>
-                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims — Heart of Fear / Terrace of Endless Spring</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims — Mogu'shan Vaults, Heart of Fear &amp; Terrace of Endless Spring</div>
                             </div>
                         </a>
                         <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJLaxi7AKjWDiYtH4PsXViW2zy9YX19j4eITWPIVyAMygUijnEtIYNlnVoljqkpsf66xzL7OojGZESh28wurxBw1JWagGFDAY6Eal4jAUqC6w0pKnBB1IN2lXBICO76wGqz5+x8CGCX2KSmBZBm4hAUWAdWfA3KB6hk0JjJ6LFLjEhU4BHQK1ASQZT2MHv8VgPYtAaq9CXQD1GCwG+Y8Y5U4pQQXm8jIxS2w6hmrEjPE4TwCq2GcHkYuFoFFX1m52AUmfmHV6GLkEhRY/JVV4pYS3FflXPwCy4BCl5RgntLawSTBxLWBkWGIAaGGAXey1W0mLgb8UGg0dMkFAAImblw=" target="_blank"
@@ -2480,7 +2482,7 @@ window.addEventListener('load', function() {
                     <!-- Opener -->
                     <div style="margin-bottom: 24px;">
                         <div style="color: var(--primary-green); font-weight: 600; font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
-                            <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_warlock_shadowlife.jpg" style="width: 20px; height: 20px; border-radius: 3px;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" style="width: 20px; height: 20px; border-radius: 3px;">
                             Opener
                         </div>
                         <p style="margin: 0 0 10px; font-size: 0.88rem; color: #aaa; font-style: italic;">Start with 3 Shadow Orbs</p>
@@ -2530,8 +2532,8 @@ window.addEventListener('load', function() {
                     <!-- UVLS -->
                     <div style="background: rgba(168,218,220,0.08); border: 1px solid rgba(168,218,220,0.3); border-radius: 8px; padding: 14px 18px;">
                         <div style="color: #a8dadc; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem;">Unerring Vision of Lei Shen (UVLS)</div>
-                        <p style="margin: 0 0 10px; font-size: 0.9rem;">With this trinket, aim to re-apply Vampiric Touch and Shadow Word: Pain during the buff to snapshot the 100% crit chance on your DoTs.</p>
-                        <p style="margin: 0; font-size: 0.9rem; color: #ccc;">The 100% crit chance only applies for the base duration of these DoTs. If they are extended via Shadow Apparitions with 2pc T15 tier, the extended ticks will not have this crit chance — stats are recalculated after the original duration completes. <strong>This is intended behaviour.</strong></p>
+                        <p style="margin: 0 0 10px; font-size: 0.9rem;">With this trinket, aim to re-apply <strong style="color: #a8dadc;">Shadow Word: Pain</strong> &amp; <strong style="color: #a8dadc;">Vampiric Touch</strong> during the buff to snapshot the 100% crit chance on your DoTs. When having multiple targets, SW:P has priority over VT.</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #ccc;">The 100% crit chance only applies for the base duration of these DoTs. If they are extended via Shadow Apparitions with 2pc T15 tier, the extended ticks will not have this crit chance, stats are recalculated after the original duration completes. <strong>This is intended behaviour.</strong></p>
                     </div>
                 </div>
 
@@ -2762,11 +2764,11 @@ window.addEventListener('load', function() {
         </div>
 
         <!-- Link to tool -->
-        <a href="https://shadowpriest-mop.github.io/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none; margin-bottom: 20px;">
+        <a href="https://shadowpriest-classic.github.io/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none; margin-bottom: 20px;">
             <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 40px; height: 40px; border-radius: 6px; flex-shrink: 0;">
             <div>
                 <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Shadow Priest Analyser</div>
-                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">shadowpriest-mop.github.io/shadow — Massive thanks to Kalon for putting down the ground work.</div>
+                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">shadowpriest-classic.github.io/shadow — Massive thanks to Kalon for putting down the ground work.</div>
             </div>
         </a>
 
