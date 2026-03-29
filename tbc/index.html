@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP FAQ TBC</title>
+    <meta name="description" content="Shadow Priest FAQ for The Burning Crusade Classic.">
+    <link rel="icon" type="image/png" href="https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Kings&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* ── Tab dropdown menus ── */
+        .tab-dropdown-wrapper {
+            flex: 1;
+            min-width: 72px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .tab-dropdown-wrapper .tab-button {
+            width: 100%;
+            flex: 1;
+        }
+        .tab-dropdown-panel {
+            display: none;
+            position: fixed;
+            min-width: 210px;
+            background: #13151f;
+            border: 1px solid rgba(199, 125, 255, 0.35);
+            border-radius: 8px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            padding: 6px 0;
+            overflow: hidden;
+        }
+        .tab-dropdown-panel.visible { display: block; }
+        .tab-dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            text-align: left;
+            background: transparent;
+            border: none;
+            color: #bbb;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+            font-family: inherit;
+            letter-spacing: 0.02em;
+        }
+        .tab-dropdown-item:hover {
+            background: rgba(199, 125, 255, 0.12);
+            color: #c77dff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <header class="header-container">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: nowrap; width: 100%;">
+            <a href="../mop/" style="display: inline-block; flex-shrink: 0;">
+                <img src="../assets/images/header-mop-click.png" alt="Click Here for MoP" style="height: clamp(90px, 22vw, 160px); width: auto; cursor: pointer; filter: drop-shadow(0 0 10px rgba(80, 200, 80, 0.5)); transition: filter 0.25s;"
+                    onmouseover="this.style.filter='drop-shadow(0 0 20px rgba(80, 200, 80, 0.9))'"
+                    onmouseout="this.style.filter='drop-shadow(0 0 10px rgba(80, 200, 80, 0.5))'">
+            </a>
+            <img src="../assets/images/header-tbc.png" alt="The Burning Crusade" style="height: clamp(90px, 22vw, 160px); width: auto; cursor: default; filter: drop-shadow(0 0 14px rgba(200, 160, 40, 0.65));">
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="overview">
+                <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_priest_shadoworbs.jpg" alt="" class="tab-icon">
+                <span>Overview</span>
+            </button>
+            <div class="tab-dropdown-wrapper">
+                <button class="tab-button" data-tab="bis">
+                    <img src="https://wow.zamimg.com/images/wow/icons/large/inv_staff_medivh.jpg" alt="" class="tab-icon">
+                    <span>Gear &amp; Sim</span>
+                </button>
+                <div class="tab-dropdown-panel">
+                    <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-best-in-slot')">Best in Slot</button>
+                    <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-stat-weights')">Stat Weights &amp; Priorities</button>
+                    <button class="tab-dropdown-item" onclick="navigateToSection('bis','bis-wowhead')">Wowhead Overview</button>
+                </div>
+            </div>
+            <button class="tab-button" data-tab="analyser">
+                <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="" class="tab-icon">
+                <span>Analyser</span>
+            </button>
+        </nav>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <div class="card" style="max-width: 680px; margin: 60px auto; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 20px;">⚠️</div>
+                <h2 class="card-title" style="font-size: 1.8rem; margin-bottom: 16px;">Work in Progress</h2>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
+                    The TBC Shadow Priest guide is currently being built. Check back soon, content will be added as development progresses.
+                </p>
+                <div style="background: rgba(88, 101, 242, 0.1); border: 2px solid #5865f2; border-radius: 12px; padding: 20px; max-width: 360px; margin: 0 auto;">
+                    <h3 style="color: #5865f2; margin: 0 0 8px; font-size: 1.2rem;">Stay Updated</h3>
+                    <p style="color: #a8dadc; margin: 0; font-size: 0.95rem;">Join the Discord community for updates and early content.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gear & Sim Tab -->
+        <div id="bis" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Gear &amp; Sim</h2>
+
+                <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.95rem; line-height: 1.7;">
+                    Gearing decisions in TBC are heavily sim-driven. This section covers Best in Slot lists per phase, stat priority order, and a Wowhead overview for quick reference. When in doubt, sim your own character, as small differences in gear can flip priorities.
+                </div>
+
+                <div id="bis-best-in-slot" class="subsection no-collapse">
+                    <div class="subsection-title">
+                        <img src="../assets/images/wowsims-icon.png" alt="Best in Slot" style="width: 32px; height: 32px; border-radius: 6px;">
+                        Best in Slot
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                        <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJKayS7AKvWbkUtQ4MIKViW2qzdYXl9j0VjOaMHExSFwYDmrRimQJShweQWrxDFVJWa4JI/AhMOsEnPUNJYxghVcAio4rKTENvs6CxABhfgF+oAK9ikpMTJAdAgKnAequQgWKLFg8likxiUicHQ5qxLnn2sgS4HaNDpBCkUE2tayStxUVWKDSEBEBQTWL2eVOKukxAxSWAJ2X/9hVjCLU2Ap0KVdIGVsAu0rWcH0zBUgWljgHFDbLaDLZu1jBeksBTt+A1DwkhJYi9YOJgkmrg2MDEMMCDUMuJOtbjNxMeCHQqOhSy4AAE9QTnU=" target="_blank"
+                           style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82,183,136,0.08); border: 2px solid rgba(82,183,136,0.35); border-radius: 10px; text-decoration: none; transition: background 0.2s ease;">
+                            <img src="../assets/images/wowsims-icon.png" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 2 BiS</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims: Mogu'shan Vaults, Heart of Fear &amp; Terrace of Endless Spring</div>
+                            </div>
+                        </a>
+                        <a href="https://www.wowsims.com/mop/priest/shadow/?i=g#eJyrYJLaxi7AKjWDiYtH4PsXViW2zy9YX19j4eITWPIVyAMygUijnEtIYNlnVoljqkpsf66xzL7OojGZESh28wurxBw1JWagGFDAY6Eal4jAUqC6w0pKnBB1IN2lXBICO76wGqz5+x8CGCX2KSmBZBm4hAUWAdWfA3KB6hk0JjJ6LFLjEhU4BHQK1ASQZT2MHv8VgPYtAaq9CXQD1GCwG+Y8Y5U4pQQXm8jIxS2w6hmrEjPE4TwCq2GcHkYuFoFFX1m52AUmfmHV6GLkEhRY/JVV4pYS3FflXPwCy4BCl5RgntLawSTBxLWBkWGIAaGGAXey1W0mLgb8UGg0dMkFAAImblw=" target="_blank"
+                           style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82,183,136,0.08); border: 2px solid rgba(82,183,136,0.35); border-radius: 10px; text-decoration: none; transition: background 0.2s ease;">
+                            <img src="../assets/images/wowsims-icon.png" style="width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;">
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Phase 3 BiS</div>
+                                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px;">WowSims: Throne of Thunder</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="bis-stat-weights" class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_astralrecal.jpg" alt="Stats" style="width: 32px; height: 32px;">
+                        Stat Weights &amp; Priorities
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(82, 183, 136, 0.08); border-radius: 10px; border-left: 4px solid var(--primary-green);">
+                            <div style="background: var(--primary-green); color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">1</div>
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Intellect</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Comes naturally on gear, generally just aim for the highest item level available.</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(82, 183, 136, 0.08); border-radius: 10px; border-left: 4px solid var(--primary-green);">
+                            <div style="background: var(--primary-green); color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">2</div>
+                            <div>
+                                <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Hit Cap (15%)</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Both Hit and Expertise now contribute to the hit cap for casters. Reach 15% before worrying about other secondary stats.</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255, 165, 0, 0.08); border-radius: 10px; border-left: 4px solid #ffa500;">
+                            <div style="background: #ffa500; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">3</div>
+                            <div>
+                                <div style="color: #ffa500; font-weight: 600; font-size: 1.05rem;">Haste</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Will always have high value, even beyond reaching breakpoints.</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(170, 170, 170, 0.08); border-radius: 10px; border-left: 4px solid #aaa;">
+                            <div style="background: #aaa; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">4</div>
+                            <div>
+                                <div style="color: #aaa; font-weight: 600; font-size: 1.05rem;">Mastery</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">With UVLS, this stat is usually going to be your best alternative over critical strike.</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(170, 170, 170, 0.08); border-radius: 10px; border-left: 4px solid #aaa;">
+                            <div style="background: #aaa; color: #000; font-weight: 700; font-size: 0.95rem; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">5</div>
+                            <div>
+                                <div style="color: #aaa; font-weight: 600; font-size: 1.05rem;">Critical Strike</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">With UVLS, when active the value drops to 0. Which means over a fight, the overall gain is reduced.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic; margin-top: 14px;">Secondary stat priorities can shift depending on your current gear setup, always sim your character to confirm.</p>
+                </div>
+
+                <div id="bis-wowhead" class="subsection">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead" style="width: 32px; height: 32px;">
+                        Wowhead Overview
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <a href="https://www.wowhead.com/mop-classic/guide/classes/priest/shadow/dps-best-gear-bis-pve" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: rgba(168, 218, 220, 0.08); border: 1px solid rgba(168, 218, 220, 0.35); border-radius: 10px; text-decoration: none;">
+                            <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_shadowwordpain.jpg" alt="Wowhead Guide" style="width: 36px; height: 36px; border-radius: 6px;">
+                            <div>
+                                <div style="color: #a8dadc; font-weight: 600;">Shadow Priest Best Gear &amp; BiS (Wowhead)</div>
+                                <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">wowhead.com, will be updated throughout TBC as with previous expansions</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Analyser Tab -->
+        <div id="analyser" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Shadow Priest Analyser</h2>
+
+                <div style="background: rgba(199, 125, 255, 0.08); border: 1px solid rgba(199, 125, 255, 0.35); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; color: #d9a8ff; font-size: 0.9rem; line-height: 1.6;">
+                    <strong style="color: #c77dff;">Beta Version</strong>: The Analyser is still in active development. Features and recommendations will change.<br><br>
+                    Currently on the free API version, meaning a maximum of 3600 calls (~30 encounter checks) per hour for everyone. This will be hit very quickly with multiple users. It refreshes every hour.
+                </div>
+
+                <!-- Link to tool -->
+                <a href="https://shadowpriest-classic.github.io/shadow/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(82, 183, 136, 0.08); border: 1px solid rgba(82, 183, 136, 0.4); border-radius: 10px; text-decoration: none; margin-bottom: 20px;">
+                    <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 40px; height: 40px; border-radius: 6px; flex-shrink: 0;">
+                    <div>
+                        <div style="color: var(--primary-green); font-weight: 600; font-size: 1.05rem;">Shadow Priest Analyser</div>
+                        <div style="color: #aaa; font-size: 0.85rem; margin-top: 2px;">shadowpriest-classic.github.io/shadow. Massive thanks to Kalon for putting down the ground work.</div>
+                    </div>
+                </a>
+
+                <div class="subsection no-collapse">
+                    <div class="subsection-title">
+                        <img src="https://wow.zamimg.com/images/wow/icons/large/inv_professions_inscription_scribesmagnifyingglass_gold.jpg" alt="Analyser" style="width: 28px; height: 28px; border-radius: 4px;">
+                        What is the Analyser?
+                    </div>
+                    <p>The Shadow Priest Analyser is a companion tool designed to help you dig through your raid logs and identify areas for improvement. Paste in your Warcraft Logs URL or ID &amp; select your character and fight. Get actionable feedback on your rotation, cooldown usage, and more.</p>
+                    <p>More details and a walkthrough video will be added here once the tool is ready for a wider release. Stay tuned.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<script>
+        // ── Dropdown menus: fixed-positioned so they escape any overflow clipping ──
+        (function () {
+            var activePanel = null;
+            var activeWrapper = null;
+
+            function showPanel(wrapper) {
+                var panel = wrapper.querySelector('.tab-dropdown-panel');
+                if (!panel) return;
+                if (activePanel && activePanel !== panel) hidePanel();
+                var rect = wrapper.getBoundingClientRect();
+                panel.style.top  = (rect.bottom + 4) + 'px';
+                var left = rect.left + rect.width / 2 - 105;
+                left = Math.max(4, Math.min(left, window.innerWidth - 218));
+                panel.style.left = left + 'px';
+                panel.classList.add('visible');
+                activePanel   = panel;
+                activeWrapper = wrapper;
+            }
+
+            function hidePanel() {
+                if (activePanel) activePanel.classList.remove('visible');
+                activePanel   = null;
+                activeWrapper = null;
+            }
+
+            document.querySelectorAll('.tab-dropdown-wrapper').forEach(function (wrapper) {
+                wrapper.addEventListener('mouseenter', function () { showPanel(wrapper); });
+                wrapper.addEventListener('mouseleave', function (e) {
+                    var to = e.relatedTarget;
+                    if (activePanel && activePanel.contains(to)) return;
+                    hidePanel();
+                });
+            });
+
+            document.addEventListener('mouseover', function (e) {
+                if (!activePanel) return;
+                if (!activePanel.contains(e.target) && !activeWrapper.contains(e.target)) {
+                    hidePanel();
+                }
+            });
+        })();
+
+        // Navigate to a specific section within a tab
+        function navigateToSection(tabId, sectionId) {
+            activateTab(tabId);
+            setTimeout(function() {
+                const el = document.getElementById(sectionId);
+                if (!el) return;
+                const tabEl = document.getElementById(tabId);
+                if (tabEl) {
+                    tabEl.querySelectorAll('.subsection:not(.no-collapse)').forEach(function(s) {
+                        if (s !== el) s.classList.add('closed');
+                    });
+                }
+                el.classList.remove('closed');
+                setTimeout(function() {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 320);
+            }, 100);
+        }
+
+        // Tab switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        function activateTab(tabId) {
+            const target = document.getElementById(tabId);
+            if (!target) return;
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            const btn = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+            if (btn) btn.classList.add('active');
+            target.classList.add('active');
+        }
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                history.replaceState(null, '', '#' + tabId);
+                activateTab(tabId);
+                setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 100);
+            });
+        });
+
+        const initialTab = location.hash.replace('#', '');
+        if (initialTab && document.getElementById(initialTab)) {
+            activateTab(initialTab);
+        }
+
+        // Collapsible subsections
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.subsection').forEach(function(section) {
+                const title = section.querySelector(':scope > .subsection-title');
+                if (!title) return;
+                if (section.classList.contains('no-collapse')) return;
+
+                const body = document.createElement('div');
+                body.className = 'subsection-body';
+                const inner = document.createElement('div');
+                body.appendChild(inner);
+                Array.from(section.children).forEach(function(child) {
+                    if (child !== title) inner.appendChild(child);
+                });
+                section.appendChild(body);
+                section.classList.add('closed');
+
+                title.addEventListener('click', function() {
+                    section.classList.toggle('closed');
+                });
+            });
+        });
+</script>
+</body>
+</html>

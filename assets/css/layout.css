@@ -14,7 +14,7 @@
 /* Header Layout */
 .header-container {
     width: 100%;
-    height: 220px;
+    height: 185px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,8 +120,13 @@
 }
 
 .subsection-body > div {
-    overflow: hidden;
+    overflow: visible;  /* allow hover animations to bleed out above the grid */
     min-height: 0;
+}
+
+/* Re-clip only while collapsed so the grid-row animation works */
+.subsection.closed .subsection-body > div {
+    overflow: hidden;
 }
 
 /* Talent System Layout */
@@ -251,7 +256,7 @@
     }
 
     .header-container {
-        height: 220px;
+        height: 185px;
     }
 
 
@@ -301,7 +306,7 @@
     }
     
     .header-container {
-        height: 180px;
+        height: 145px;
     }
 
 }
